@@ -1,0 +1,17 @@
+DevExpress.XtraRichEdit.RichEditControl, DevExpress.XtraRichEdit.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraEditors.TileControl, DevExpress.XtraEditors.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraBars.Navigation.TileNavPane, DevExpress.XtraBars.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraMap.MapControl, DevExpress.XtraMap.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraBars.BarManager, DevExpress.XtraBars.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraGauges.Win.GaugeControl, DevExpress.XtraGauges.v22.1.Win, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraEditors.RatingControl, DevExpress.XtraEditors.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraBars.Ribbon.GalleryControl, DevExpress.XtraBars.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraCharts.Sankey.SankeyDiagramControl, DevExpress.XtraCharts.v22.1.UI, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraEditors.ButtonEdit, DevExpress.XtraEditors.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraDiagram.DiagramControl, DevExpress.XtraDiagram.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraWizard.WizardControl, DevExpress.XtraWizard.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraNavBar.NavBarControl, DevExpress.XtraNavBar.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraEditors.LookUpEdit, DevExpress.XtraEditors.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraCharts.Heatmap.HeatmapControl, DevExpress.XtraCharts.v22.1.UI, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraCharts.ChartControl, DevExpress.XtraCharts.v22.1.UI, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
+DevExpress.XtraTreeMap.SunburstControl, DevExpress.XtraTreeMap.v22.1.UI, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a
