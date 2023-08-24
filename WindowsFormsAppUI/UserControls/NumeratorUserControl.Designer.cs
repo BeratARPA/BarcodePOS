@@ -61,9 +61,9 @@ namespace WindowsFormsAppUI.UserControls
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(257, 347);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(386, 534);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -85,7 +85,7 @@ namespace WindowsFormsAppUI.UserControls
             this.tableLayoutPanel2.Controls.Add(this.button2, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 43);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 66);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
@@ -93,7 +93,7 @@ namespace WindowsFormsAppUI.UserControls
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(257, 304);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(386, 468);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // buttonComma
@@ -106,9 +106,10 @@ namespace WindowsFormsAppUI.UserControls
             this.buttonComma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonComma.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.buttonComma.ForeColor = System.Drawing.Color.White;
-            this.buttonComma.Location = new System.Drawing.Point(173, 231);
+            this.buttonComma.Location = new System.Drawing.Point(260, 356);
+            this.buttonComma.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonComma.Name = "buttonComma";
-            this.buttonComma.Size = new System.Drawing.Size(81, 70);
+            this.buttonComma.Size = new System.Drawing.Size(122, 107);
             this.buttonComma.TabIndex = 14;
             this.buttonComma.Text = ",";
             this.buttonComma.UseVisualStyleBackColor = false;
@@ -124,9 +125,10 @@ namespace WindowsFormsAppUI.UserControls
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(88, 231);
+            this.button11.Location = new System.Drawing.Point(132, 356);
+            this.button11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(79, 70);
+            this.button11.Size = new System.Drawing.Size(120, 107);
             this.button11.TabIndex = 13;
             this.button11.Text = "0";
             this.button11.UseVisualStyleBackColor = false;
@@ -142,9 +144,10 @@ namespace WindowsFormsAppUI.UserControls
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonClear.ForeColor = System.Drawing.Color.White;
-            this.buttonClear.Location = new System.Drawing.Point(3, 231);
+            this.buttonClear.Location = new System.Drawing.Point(4, 356);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(79, 70);
+            this.buttonClear.Size = new System.Drawing.Size(120, 107);
             this.buttonClear.TabIndex = 12;
             this.buttonClear.Text = "Temizle";
             this.buttonClear.UseVisualStyleBackColor = false;
@@ -160,9 +163,10 @@ namespace WindowsFormsAppUI.UserControls
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(173, 155);
+            this.button9.Location = new System.Drawing.Point(260, 239);
+            this.button9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(81, 70);
+            this.button9.Size = new System.Drawing.Size(122, 107);
             this.button9.TabIndex = 11;
             this.button9.Text = "9";
             this.button9.UseVisualStyleBackColor = false;
@@ -178,9 +182,10 @@ namespace WindowsFormsAppUI.UserControls
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(88, 155);
+            this.button8.Location = new System.Drawing.Point(132, 239);
+            this.button8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(79, 70);
+            this.button8.Size = new System.Drawing.Size(120, 107);
             this.button8.TabIndex = 10;
             this.button8.Text = "8";
             this.button8.UseVisualStyleBackColor = false;
@@ -196,9 +201,10 @@ namespace WindowsFormsAppUI.UserControls
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(3, 155);
+            this.button7.Location = new System.Drawing.Point(4, 239);
+            this.button7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(79, 70);
+            this.button7.Size = new System.Drawing.Size(120, 107);
             this.button7.TabIndex = 9;
             this.button7.Text = "7";
             this.button7.UseVisualStyleBackColor = false;
@@ -214,9 +220,10 @@ namespace WindowsFormsAppUI.UserControls
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(173, 79);
+            this.button6.Location = new System.Drawing.Point(260, 122);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(81, 70);
+            this.button6.Size = new System.Drawing.Size(122, 107);
             this.button6.TabIndex = 8;
             this.button6.Text = "6";
             this.button6.UseVisualStyleBackColor = false;
@@ -232,9 +239,10 @@ namespace WindowsFormsAppUI.UserControls
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(88, 79);
+            this.button5.Location = new System.Drawing.Point(132, 122);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(79, 70);
+            this.button5.Size = new System.Drawing.Size(120, 107);
             this.button5.TabIndex = 7;
             this.button5.Text = "5";
             this.button5.UseVisualStyleBackColor = false;
@@ -250,9 +258,10 @@ namespace WindowsFormsAppUI.UserControls
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(3, 79);
+            this.button4.Location = new System.Drawing.Point(4, 122);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(79, 70);
+            this.button4.Size = new System.Drawing.Size(120, 107);
             this.button4.TabIndex = 6;
             this.button4.Text = "4";
             this.button4.UseVisualStyleBackColor = false;
@@ -268,9 +277,10 @@ namespace WindowsFormsAppUI.UserControls
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(173, 3);
+            this.button3.Location = new System.Drawing.Point(260, 5);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(81, 70);
+            this.button3.Size = new System.Drawing.Size(122, 107);
             this.button3.TabIndex = 5;
             this.button3.Text = "3";
             this.button3.UseVisualStyleBackColor = false;
@@ -286,9 +296,10 @@ namespace WindowsFormsAppUI.UserControls
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(88, 3);
+            this.button2.Location = new System.Drawing.Point(132, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(79, 70);
+            this.button2.Size = new System.Drawing.Size(120, 107);
             this.button2.TabIndex = 4;
             this.button2.Text = "2";
             this.button2.UseVisualStyleBackColor = false;
@@ -304,9 +315,10 @@ namespace WindowsFormsAppUI.UserControls
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Location = new System.Drawing.Point(4, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 70);
+            this.button1.Size = new System.Drawing.Size(120, 107);
             this.button1.TabIndex = 3;
             this.button1.Text = "1";
             this.button1.UseVisualStyleBackColor = false;
@@ -319,20 +331,22 @@ namespace WindowsFormsAppUI.UserControls
             this.textBoxPin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.textBoxPin.ForeColor = System.Drawing.Color.White;
-            this.textBoxPin.Location = new System.Drawing.Point(3, 3);
+            this.textBoxPin.Location = new System.Drawing.Point(4, 5);
+            this.textBoxPin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxPin.Name = "textBoxPin";
-            this.textBoxPin.Size = new System.Drawing.Size(251, 38);
+            this.textBoxPin.Size = new System.Drawing.Size(378, 53);
             this.textBoxPin.TabIndex = 1;
             this.textBoxPin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // NumeratorUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "NumeratorUserControl";
-            this.Size = new System.Drawing.Size(257, 347);
+            this.Size = new System.Drawing.Size(386, 534);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);

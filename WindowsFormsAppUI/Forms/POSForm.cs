@@ -621,14 +621,17 @@ namespace WindowsFormsAppUI.Forms
 
         private void buttonDiscount_Click(object sender, EventArgs e)
         {
-            if (_orders.Count != 0 && _ticket.Payments == null || _ticket.Payments.Count == 0)
+            if (_orders.Count != 0)
             {
-                double discount = CheckToNumeratorDiscount();
-                _ticket.Discount = discount;
+                if (_ticket.Payments == null || _ticket.Payments.Count == 0)
+                {
+                    double discount = CheckToNumeratorDiscount();
+                    _ticket.Discount = discount;
 
-                CalculateTotalBalance();
+                    CalculateTotalBalance();
 
-                numeratorUserControl.Clear();
+                    numeratorUserControl.Clear();
+                }
             }
 
             numeratorUserControl.Clear();
