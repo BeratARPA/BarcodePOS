@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI
         private readonly Timer _timer;
 
         public ShellForm()
-        {
+        {Localization
             InitializeComponent();
 
             GlobalVariables.ShellForm = this;
