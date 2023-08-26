@@ -20,6 +20,7 @@ namespace WindowsFormsAppUI.Forms
         public ProductLabelDesignForm()
         {
             InitializeComponent();
+            UpdateUILanguage();
 
             printDocument = new PrintDocument();
             printPreviewDialog = new PrintPreviewDialog();
@@ -42,6 +43,21 @@ namespace WindowsFormsAppUI.Forms
 
             PrintController printController = new StandardPrintController();
             printDocument.PrintController = printController;
+        }
+
+        public void UpdateUILanguage()
+        {
+            label1.Text = GlobalVariables.CultureHelper.GetText("Barcode");
+            label2.Text = GlobalVariables.CultureHelper.GetText("BarcodeDescription");
+            buttonCreateBarcode.Text = GlobalVariables.CultureHelper.GetText("CreateBarcode");
+            buttonAddTLSymbol.Text = GlobalVariables.CultureHelper.GetText("MoneySymbol");
+            buttonAddLabel.Text = GlobalVariables.CultureHelper.GetText("Label");
+            buttonAddImage.Text = GlobalVariables.CultureHelper.GetText("Image");
+            buttonAddRectangle.Text = GlobalVariables.CultureHelper.GetText("Rectangle");
+            buttonAddLocalProductionSymbol.Text = GlobalVariables.CultureHelper.GetText("DomesticProduction");
+            buttonPrint.Text = GlobalVariables.CultureHelper.GetText("Print");
+            buttonSave.Text = GlobalVariables.CultureHelper.GetText("Save");
+            buttonLoad.Text = GlobalVariables.CultureHelper.GetText("Load");
         }
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
@@ -131,21 +147,21 @@ namespace WindowsFormsAppUI.Forms
 
             ToolStripMenuItem removeMenuItem = new ToolStripMenuItem
             {
-                Text = "Sil"
+                Text = GlobalVariables.CultureHelper.GetText("Delete")
             };
             removeMenuItem.Click += MenuItemRemove_Click;
             contextMenu.Items.Add(removeMenuItem);
 
             ToolStripMenuItem rotateMenuItem = new ToolStripMenuItem
             {
-                Text = "Döndür"
+                Text = GlobalVariables.CultureHelper.GetText("Turn")
             };
             rotateMenuItem.Click += MenuItemRotate_Click;
             contextMenu.Items.Add(rotateMenuItem);
 
             ToolStripMenuItem editMenuItem = new ToolStripMenuItem
             {
-                Text = "Düzenle"
+                Text = GlobalVariables.CultureHelper.GetText("Edit")
             };
             editMenuItem.Click += MenuItemEdit_Click;
             contextMenu.Items.Add(editMenuItem);

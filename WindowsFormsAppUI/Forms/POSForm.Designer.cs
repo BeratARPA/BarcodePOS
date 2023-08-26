@@ -206,7 +206,7 @@ namespace WindowsFormsAppUI.Forms
             this.buttonQuickMenu.Name = "buttonQuickMenu";
             this.buttonQuickMenu.Size = new System.Drawing.Size(87, 94);
             this.buttonQuickMenu.TabIndex = 9;
-            this.buttonQuickMenu.Text = "Hızlı menü";
+            this.buttonQuickMenu.Text = "Hızlı Menü";
             this.buttonQuickMenu.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel2

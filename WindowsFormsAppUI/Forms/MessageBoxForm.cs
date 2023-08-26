@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using WindowsFormsAppUI.Helpers;
 
 namespace WindowsFormsAppUI.Forms
 {
@@ -42,18 +43,18 @@ namespace WindowsFormsAppUI.Forms
             switch (button)
             {
                 case MessageButton.YesNo:
-                    this.button1.Text = "Evet";
-                    this.button2.Text = "Hayır";
+                    this.button1.Text = GlobalVariables.CultureHelper.GetText("Yes");
+                    this.button2.Text = GlobalVariables.CultureHelper.GetText("No");
                     Button = MessageButton.YesNo;
                     break;
                 case MessageButton.OKCancel:
-                    this.button1.Text = "Tamam";
-                    this.button2.Text = "İptal";
+                    this.button1.Text = GlobalVariables.CultureHelper.GetText("Ok");
+                    this.button2.Text = GlobalVariables.CultureHelper.GetText("Cancel");
                     Button = MessageButton.OKCancel;
                     break;
                 case MessageButton.OK:
                     this.button1.Visible = false;
-                    this.button2.Text = "Tamam";
+                    this.button2.Text = GlobalVariables.CultureHelper.GetText("Ok");
                     Button = MessageButton.OK;
                     break;
                 default:

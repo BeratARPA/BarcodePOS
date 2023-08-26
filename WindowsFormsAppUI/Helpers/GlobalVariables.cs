@@ -9,5 +9,6 @@ namespace WindowsFormsAppUI.Helpers
         public static MessageBoxForm MessageBoxForm = new MessageBoxForm();
         public static string TerminalName = MachineName.Get();
         public static SQLContext SQLContext = new SQLContext();
+        public static CultureHelper CultureHelper = new CultureHelper();
     }
 }

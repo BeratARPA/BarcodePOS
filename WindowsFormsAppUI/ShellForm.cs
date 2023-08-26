@@ -10,13 +10,15 @@ namespace WindowsFormsAppUI
         private readonly Timer _timer;
 
         public ShellForm()
-        {Localization
+        {
             InitializeComponent();
+
+            GlobalVariables.CultureHelper.ChangeCulture(Properties.Settings.Default.CurrentLanguage);
+            UpdateUILanguage();
 
             GlobalVariables.ShellForm = this;
 
             ResizeLayout.CloseFooter();
-
             NavigationManager.OpenForm(new LoginForm(), DockStyle.Fill, panelMain);
 
             _timer = new Timer();
@@ -40,6 +42,11 @@ namespace WindowsFormsAppUI
         {
             _timer.Interval = 1000;
             _timer.Start();
+        }
+
+        public void UpdateUILanguage()
+        {
+            buttonMainMenu.Text = GlobalVariables.CultureHelper.GetText("MainMenu");
         }
 
         private void TimerTick(object sender, EventArgs e)

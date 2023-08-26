@@ -53,7 +53,6 @@ namespace WindowsFormsAppUI.Forms
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Show = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -242,8 +241,7 @@ namespace WindowsFormsAppUI.Forms
             this.Date,
             this.Time,
             this.CreatedUsername,
-            this.TotalAmount,
-            this.Show});
+            this.TotalAmount});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -316,17 +314,6 @@ namespace WindowsFormsAppUI.Forms
             this.TotalAmount.Name = "TotalAmount";
             this.TotalAmount.ReadOnly = true;
             // 
-            // Show
-            // 
-            this.Show.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Show.HeaderText = "";
-            this.Show.Name = "Show";
-            this.Show.ReadOnly = true;
-            this.Show.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Show.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Show.Text = "Görüntüle";
-            this.Show.UseColumnTextForButtonValue = true;
-            // 
             // TicketsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,6 +356,5 @@ namespace WindowsFormsAppUI.Forms
         private DataGridViewTextBoxColumn Time;
         private DataGridViewTextBoxColumn CreatedUsername;
         private DataGridViewTextBoxColumn TotalAmount;
-        private DataGridViewButtonColumn Show;
     }
 }
