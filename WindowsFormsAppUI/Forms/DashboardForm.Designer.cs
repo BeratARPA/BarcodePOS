@@ -356,7 +356,7 @@ namespace WindowsFormsAppUI.Forms
             this.simpleButtonSave.Name = "simpleButtonSave";
             this.simpleButtonSave.Size = new System.Drawing.Size(100, 100);
             this.simpleButtonSave.TabIndex = 2;
-            this.simpleButtonSave.Text = "Değişiklikleri Kaydet";
+            this.simpleButtonSave.Text = "Kaydet";
             this.simpleButtonSave.Visible = false;
             this.simpleButtonSave.Click += new System.EventHandler(this.simpleButtonSave_Click);
             // 

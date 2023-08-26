@@ -16,11 +16,25 @@ namespace WindowsFormsAppUI.Forms
         public TicketsForm()
         {
             InitializeComponent();
+            UpdateUILanguage();
         }
 
         private void TicketsForm_Load(object sender, EventArgs e)
         {
             AddTicketsDataGridView();
+        }
+
+        public void UpdateUILanguage()
+        {
+            label1.Text = GlobalVariables.CultureHelper.GetText("Start");
+            label2.Text = GlobalVariables.CultureHelper.GetText("End");
+            dataGridViewTickets.Columns[3].HeaderText = GlobalVariables.CultureHelper.GetText("TicketNumber");
+            dataGridViewTickets.Columns[4].HeaderText = GlobalVariables.CultureHelper.GetText("Date");
+            dataGridViewTickets.Columns[5].HeaderText = GlobalVariables.CultureHelper.GetText("OpeningClosing");
+            dataGridViewTickets.Columns[6].HeaderText = GlobalVariables.CultureHelper.GetText("User");
+            dataGridViewTickets.Columns[7].HeaderText = GlobalVariables.CultureHelper.GetText("Total");
+            label3.Text = GlobalVariables.CultureHelper.GetText("TotalTicket");
+            label5.Text = GlobalVariables.CultureHelper.GetText("TotalBalance");
         }
 
         public void AddTicketsDataGridView()
@@ -33,6 +47,22 @@ namespace WindowsFormsAppUI.Forms
 
             double totalAmount = 0;
             var tickets = _genericRepositoryTicket.GetAll(x => x.Date >= startDate.Date && x.Date <= endDate.Date);
+            if (tickets != null)
+            {              
+                DataGridViewButtonColumn dataGridViewButtonColumn = new DataGridViewButtonColumn
+                {
+                    Text = GlobalVariables.CultureHelper.GetText("View"),
+                    HeaderText = "",
+                    SortMode = DataGridViewColumnSortMode.Automatic,
+                    Resizable = DataGridViewTriState.True,
+                    UseColumnTextForButtonValue = true,
+                    Name = "Show",
+                    FlatStyle = FlatStyle.Flat
+                };
+
+                dataGridViewTickets.Columns.Add(dataGridViewButtonColumn);
+            }
+
             foreach (Ticket ticket in tickets)
             {
                 string openedClosed = ticket.Date.ToString("HH:mm");
@@ -76,6 +106,7 @@ namespace WindowsFormsAppUI.Forms
 
         private void dateTimePickerStart_ValueChanged(object sender, EventArgs e)
         {
+            dataGridViewTickets.Columns["Show"].Dispose();
             AddTicketsDataGridView();
         }
     }

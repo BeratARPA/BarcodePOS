@@ -31,10 +31,10 @@ namespace WindowsFormsAppUI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewCategories = new System.Windows.Forms.DataGridView();
             this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,14 +84,14 @@ namespace WindowsFormsAppUI.Forms
             this.dataGridViewCategories.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewCategories.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridViewCategories.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCategories.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCategories.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductId,
@@ -99,14 +99,14 @@ namespace WindowsFormsAppUI.Forms
             this.BackgroundColor,
             this.ForegroundColor,
             this.FontSize});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCategories.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCategories.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewCategories.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewCategories.EnableHeadersVisualStyles = false;
             this.dataGridViewCategories.Location = new System.Drawing.Point(17, 17);
@@ -137,9 +137,9 @@ namespace WindowsFormsAppUI.Forms
             // 
             // BackgroundColor
             // 
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Transparent;
-            this.BackgroundColor.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Transparent;
+            this.BackgroundColor.DefaultCellStyle = dataGridViewCellStyle10;
             this.BackgroundColor.FillWeight = 20F;
             this.BackgroundColor.HeaderText = "Arkaplan Rengi";
             this.BackgroundColor.Name = "BackgroundColor";
@@ -147,9 +147,9 @@ namespace WindowsFormsAppUI.Forms
             // 
             // ForegroundColor
             // 
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Transparent;
-            this.ForegroundColor.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Transparent;
+            this.ForegroundColor.DefaultCellStyle = dataGridViewCellStyle11;
             this.ForegroundColor.FillWeight = 20F;
             this.ForegroundColor.HeaderText = "Yazı Rengi";
             this.ForegroundColor.Name = "ForegroundColor";
@@ -181,7 +181,7 @@ namespace WindowsFormsAppUI.Forms
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.comboBoxBackColors, 0, 1);
@@ -210,9 +210,9 @@ namespace WindowsFormsAppUI.Forms
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 43);
+            this.label1.Size = new System.Drawing.Size(174, 43);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Arkaplan Renkleri";
+            this.label1.Text = "Arkaplan Rengi";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // comboBoxBackColors
@@ -237,9 +237,9 @@ namespace WindowsFormsAppUI.Forms
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(149, 0);
+            this.label2.Location = new System.Drawing.Point(183, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(248, 43);
+            this.label2.Size = new System.Drawing.Size(214, 43);
             this.label2.TabIndex = 0;
             this.label2.Text = "Yazı Boyutu";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -251,7 +251,7 @@ namespace WindowsFormsAppUI.Forms
             this.numericUpDownFontSize.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numericUpDownFontSize.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.numericUpDownFontSize.ForeColor = System.Drawing.Color.White;
-            this.numericUpDownFontSize.Location = new System.Drawing.Point(149, 46);
+            this.numericUpDownFontSize.Location = new System.Drawing.Point(183, 46);
             this.numericUpDownFontSize.Maximum = new decimal(new int[] {
             30,
             0,
@@ -263,7 +263,7 @@ namespace WindowsFormsAppUI.Forms
             0,
             0});
             this.numericUpDownFontSize.Name = "numericUpDownFontSize";
-            this.numericUpDownFontSize.Size = new System.Drawing.Size(248, 34);
+            this.numericUpDownFontSize.Size = new System.Drawing.Size(214, 34);
             this.numericUpDownFontSize.TabIndex = 2;
             this.numericUpDownFontSize.Value = new decimal(new int[] {
             10,
@@ -279,9 +279,9 @@ namespace WindowsFormsAppUI.Forms
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(3, 86);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 43);
+            this.label3.Size = new System.Drawing.Size(174, 43);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Yazı Renkleri";
+            this.label3.Text = "Yazı Rengi";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // comboBoxForeColors

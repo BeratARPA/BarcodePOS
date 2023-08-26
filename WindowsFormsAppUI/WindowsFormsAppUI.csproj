@@ -286,6 +286,10 @@
       <Project>{d0a36cb3-3080-4e11-8ad7-395420a7d4cc}</Project>
       <Name>Database</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Localization\Localization.csproj">
+      <Project>{7c5ca44a-a914-46cd-a3fb-24ea4c0095cc}</Project>
+      <Name>Localization</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete.png" />

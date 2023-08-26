@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI.Helpers
 
         public CultureHelper()
         {
-            _resourceManager = new ResourceManager(typeof(localization.Properties.Resources));
+            _resourceManager = new ResourceManager(typeof(Localization.Properties.Resources));
         }
 
         public void ChangeCulture(string language)

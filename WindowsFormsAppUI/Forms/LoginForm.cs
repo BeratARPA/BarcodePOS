@@ -15,7 +15,14 @@ namespace WindowsFormsAppUI.Forms
         {
             InitializeComponent();
 
+            UpdateUILanguage();
+
             labelTerminalName.Text = GlobalVariables.TerminalName;
+        }
+
+        public void UpdateUILanguage()
+        {
+            buttonShutdown.Text = GlobalVariables.CultureHelper.GetText("Close");
         }
 
         private void pinPadUserControl1_PinEntered(object sender, string e)
@@ -23,7 +30,7 @@ namespace WindowsFormsAppUI.Forms
             var user = _genericRepository.GetAll(x => x.Password == e).FirstOrDefault();
             if (user is null)
             {
-                GlobalVariables.MessageBoxForm.ShowMessage("Kullanıcı bulunamadı!", "Uyarı", MessageButton.OK, MessageIcon.Warning);
+                GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("UserNotFound!"), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.OK, MessageIcon.Warning);
                 return;
             }
 

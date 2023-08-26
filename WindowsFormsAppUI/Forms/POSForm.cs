@@ -38,6 +38,7 @@ namespace WindowsFormsAppUI.Forms
         public POSForm(Ticket ticket = null)
         {
             InitializeComponent();
+            UpdateUILanguage();
 
             numeratorUserControl.textBoxPin.KeyPress += new KeyPressEventHandler(NumeratorTextBoxPin_KeyPress);
 
@@ -57,6 +58,24 @@ namespace WindowsFormsAppUI.Forms
             CreateCategories(_category);
             CreatePayments(_paymentTypes);
             CalculateTotalBalance();
+        }
+
+        public void UpdateUILanguage()
+        {
+            buttonProductsWitoutBarcode.Text = GlobalVariables.CultureHelper.GetText("ProductsWithoutBarcode");
+            buttonProductsWithBarcode.Text = GlobalVariables.CultureHelper.GetText("BarcodeProducts");
+            buttonQuickMenu.Text = GlobalVariables.CultureHelper.GetText("QuickMenu");
+            label4.Text = GlobalVariables.CultureHelper.GetText("TicketTotal");
+            labelDiscountPercent.Text = GlobalVariables.CultureHelper.GetText("Discount");
+            label1.Text = GlobalVariables.CultureHelper.GetText("Balance");
+            buttonMultiplePayment.Text = GlobalVariables.CultureHelper.GetText("MultiplePayments");
+            buttonNewTicket.Text = GlobalVariables.CultureHelper.GetText("NewTicket");
+            buttonClose.Text = GlobalVariables.CultureHelper.GetText("Close");
+            buttonTickets.Text = GlobalVariables.CultureHelper.GetText("Tickets");
+            buttonPrint.Text = GlobalVariables.CultureHelper.GetText("Print");
+            buttonDiscount.Text = GlobalVariables.CultureHelper.GetText("PercentDiscount");
+            buttonTicketDelete.Text = GlobalVariables.CultureHelper.GetText("TicketCancellation");
+            buttonOpenTheDrawer.Text = GlobalVariables.CultureHelper.GetText("OpenDrawer");
         }
 
         public void CloseAndOpenTicket()
@@ -374,7 +393,7 @@ namespace WindowsFormsAppUI.Forms
                 tableLayoutPanelLabels.RowStyles[1].Height = 33;
                 totalBalance = DiscountHelper.Calculate(totalBalance, _ticket.Discount);
 
-                labelDiscountPercent.Text = string.Format("Iskonto {0:N}%", _ticket.Discount);
+                labelDiscountPercent.Text = string.Format(GlobalVariables.CultureHelper.GetText("Discount"), _ticket.Discount);
                 labelDiscount.Text = string.Format("({0:C})", DiscountHelper.discountAmount);
             }
             else
@@ -505,7 +524,7 @@ namespace WindowsFormsAppUI.Forms
             {
                 PaymentTypeUserControl paymentTypeUserControl = (PaymentTypeUserControl)sender;
 
-                if (GlobalVariables.MessageBoxForm.ShowMessage(paymentTypeUserControl._paymentType.Name + " ile ödeme alınacak, onaylıyor musunuz?", "Bilgi", MessageButton.YesNo, MessageIcon.Information) != DialogResult.Yes)
+                if (GlobalVariables.MessageBoxForm.ShowMessage(string.Format(GlobalVariables.CultureHelper.GetText("PaymentWillBeMadeInDoYouConfirm?"), paymentTypeUserControl._paymentType.Name), GlobalVariables.CultureHelper.GetText("Information"), MessageButton.YesNo, MessageIcon.Information) != DialogResult.Yes)
                 {
                     return;
                 }
@@ -641,7 +660,7 @@ namespace WindowsFormsAppUI.Forms
         {
             if (_orders.Count != 0)
             {
-                if (GlobalVariables.MessageBoxForm.ShowMessage("Fiş silinecek(İptal) devam etmek istiyor musunuz?", "Uyarı", MessageButton.YesNo, MessageIcon.Warning) != DialogResult.Yes)
+                if (GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("ReceiptWillBeDeleted(Cancel)DoYouWantToContinue?"), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.YesNo, MessageIcon.Warning) != DialogResult.Yes)
                 {
                     return;
                 }

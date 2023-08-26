@@ -57,18 +57,17 @@ namespace WindowsFormsAppUI.Forms
             this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.labelTitle.Location = new System.Drawing.Point(84, 10);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(334, 26);
+            this.labelTitle.Size = new System.Drawing.Size(334, 37);
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "Title";
-            this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelDescription
             // 
             this.labelDescription.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.labelDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.labelDescription.Location = new System.Drawing.Point(84, 36);
+            this.labelDescription.Location = new System.Drawing.Point(84, 47);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(334, 80);
+            this.labelDescription.Size = new System.Drawing.Size(334, 69);
             this.labelDescription.TabIndex = 1;
             this.labelDescription.Text = "Description";
             // 

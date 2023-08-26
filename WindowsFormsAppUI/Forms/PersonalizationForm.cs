@@ -9,6 +9,14 @@ namespace WindowsFormsAppUI.Forms
         public PersonalizationForm()
         {
             InitializeComponent();
+            UpdateUILanguage();
+        }
+
+        public void UpdateUILanguage()
+        {
+            buttonCategories.Text = GlobalVariables.CultureHelper.GetText("Categories");
+            buttonProducts.Text = GlobalVariables.CultureHelper.GetText("Products");
+            buttonPaymentTypes.Text = GlobalVariables.CultureHelper.GetText("PaymentTypes");          
         }
 
         private void buttonCategories_Click(object sender, EventArgs e)

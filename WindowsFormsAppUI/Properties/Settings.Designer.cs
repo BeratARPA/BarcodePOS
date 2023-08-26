@@ -25,7 +25,7 @@ namespace WindowsFormsAppUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("en-US")]
         public string CurrentLanguage {
             get {
                 return ((string)(this["CurrentLanguage"]));

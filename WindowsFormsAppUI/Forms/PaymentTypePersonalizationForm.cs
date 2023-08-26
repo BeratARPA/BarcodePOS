@@ -15,12 +15,25 @@ namespace WindowsFormsAppUI.Forms
         public PaymentTypePersonalizationForm()
         {
             InitializeComponent();
+            UpdateUILanguage();
         }
 
         private void PaymentTypePersonalizationForm_Load(object sender, EventArgs e)
         {
             ComboBoxColor();
             AddCategoriesDataGridView();
+        }
+
+        public void UpdateUILanguage()
+        {
+            buttonSave.Text = GlobalVariables.CultureHelper.GetText("Save");
+            label1.Text = GlobalVariables.CultureHelper.GetText("BackgroundColor");
+            label2.Text = GlobalVariables.CultureHelper.GetText("FontSize");
+            label3.Text = GlobalVariables.CultureHelper.GetText("ForegroundColor");
+            dataGridViewPaymentTypes.Columns[1].HeaderText = GlobalVariables.CultureHelper.GetText("Name");
+            dataGridViewPaymentTypes.Columns[2].HeaderText = GlobalVariables.CultureHelper.GetText("BackgroundColor");
+            dataGridViewPaymentTypes.Columns[3].HeaderText = GlobalVariables.CultureHelper.GetText("ForegroundColor");
+            dataGridViewPaymentTypes.Columns[4].HeaderText = GlobalVariables.CultureHelper.GetText("FontSize");
         }
 
         public void AddCategoriesDataGridView()
@@ -122,7 +135,7 @@ namespace WindowsFormsAppUI.Forms
         {
             if (dataGridViewPaymentTypes.SelectedRows.Count == 0)
             {
-                GlobalVariables.MessageBoxForm.ShowMessage("Seçim yapınız!", "Uyarı", MessageButton.OK, MessageIcon.Warning);
+                GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("MakeYourChoice!"), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.OK, MessageIcon.Warning);
                 return;
             }
 

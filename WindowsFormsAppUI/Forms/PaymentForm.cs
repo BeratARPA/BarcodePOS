@@ -22,6 +22,7 @@ namespace WindowsFormsAppUI.Forms
         public PaymentForm(Ticket ticket)
         {
             InitializeComponent();
+            UpdateUILanguage();
 
             _ticket = ticket;
             _posForm = (POSForm)GetForm.Get("POSForm");
@@ -53,6 +54,14 @@ namespace WindowsFormsAppUI.Forms
             tableLayoutPanelMain.RowStyles[2].Height = 0;
 
             CheckToTenderedAmount();
+        }
+
+        public void UpdateUILanguage()
+        {
+            this.Text = GlobalVariables.CultureHelper.GetText("MultiplePayments");
+            label1.Text = GlobalVariables.CultureHelper.GetText("Balance");
+            label4.Text = GlobalVariables.CultureHelper.GetText("BalancePaid");
+            label5.Text = GlobalVariables.CultureHelper.GetText("RemainderOfMoney");
         }
 
         public double CheckToNumerator()
@@ -150,19 +159,19 @@ namespace WindowsFormsAppUI.Forms
         }
 
         private void PaymentTypeUserControl_Click(object sender, EventArgs e)
-        {            
+        {
             double tenderedAmount = CheckToNumerator();
             if (tenderedAmount != 0)
             {
                 PaymentTypeUserControl paymentTypeUserControl = (PaymentTypeUserControl)sender;
 
-                if (GlobalVariables.MessageBoxForm.ShowMessage(paymentTypeUserControl._paymentType.Name + " ile ödeme alınacak, onaylıyor musunuz?", "Bilgi", MessageButton.YesNo, MessageIcon.Information) != DialogResult.Yes)
+                if (GlobalVariables.MessageBoxForm.ShowMessage(string.Format(GlobalVariables.CultureHelper.GetText("PaymentWillBeMadeInDoYouConfirm?"), paymentTypeUserControl._paymentType.Name), GlobalVariables.CultureHelper.GetText("Information"), MessageButton.YesNo, MessageIcon.Information) != DialogResult.Yes)
                 {
                     return;
                 }
 
                 if (tenderedAmount >= _ticket.RemainingAmount)
-                {                 
+                {
                     Ticket ticket = null;
                     ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
                     if (ticket == null)
@@ -197,7 +206,7 @@ namespace WindowsFormsAppUI.Forms
                     this.Close();
                 }
                 else if (tenderedAmount < _ticket.RemainingAmount)
-                {                 
+                {
                     Ticket ticket = null;
                     ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
                     if (ticket == null)

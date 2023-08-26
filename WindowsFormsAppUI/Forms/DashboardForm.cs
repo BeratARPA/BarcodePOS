@@ -22,6 +22,26 @@ namespace WindowsFormsAppUI.Forms
         private void DashboardForm_Load(object sender, EventArgs e)
         {
             LoadNavigationLayout();
+            UpdateUILanguage();
+        }
+
+        public void UpdateUILanguage()
+        {
+            simpleButtonLarge.Text = GlobalVariables.CultureHelper.GetText("Large");
+            simpleButtonWide.Text = GlobalVariables.CultureHelper.GetText("Wide");
+            simpleButtonMedium.Text = GlobalVariables.CultureHelper.GetText("Medium");
+            simpleButtonSmall.Text = GlobalVariables.CultureHelper.GetText("Small");
+            simpleButtonEditMode.Text = GlobalVariables.CultureHelper.GetText("EditMode");
+            simpleButtonSave.Text = GlobalVariables.CultureHelper.GetText("Save");
+            tileItemReports.Text = GlobalVariables.CultureHelper.GetText("Reports");
+            tileItemStocks.Text = GlobalVariables.CultureHelper.GetText("Stocks");
+            tileItemCreateProductLabel.Text = GlobalVariables.CultureHelper.GetText("CreateProductLabel");
+            tileItemPOS.Text = GlobalVariables.CultureHelper.GetText("POS");
+            tileItemTickets.Text = GlobalVariables.CultureHelper.GetText("Tickets");
+            tileItemTechnicalSupport.Text = GlobalVariables.CultureHelper.GetText("TechnicalSupport");
+            tileItemManagement.Text = GlobalVariables.CultureHelper.GetText("Management");
+            tileItemPersonalization.Text = GlobalVariables.CultureHelper.GetText("Personalization");
+            tileItemLogout.Text = GlobalVariables.CultureHelper.GetText("Logout");
         }
 
         private void tileItemManagement_ItemClick(object sender, TileItemEventArgs e)
@@ -227,7 +247,7 @@ namespace WindowsFormsAppUI.Forms
             simpleButtonWide.Visible = false;
             simpleButtonLarge.Visible = false;
 
-            GlobalVariables.MessageBoxForm.ShowMessage("Değişiklikler kaydedildi.", "Bilgi", MessageButton.OK, MessageIcon.Information);
+            GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("TheChangesHaveBeenSaved."), GlobalVariables.CultureHelper.GetText("Information"), MessageButton.OK, MessageIcon.Information);
         }
 
         private void tileItemReports_RightItemClick(object sender, TileItemEventArgs e)
