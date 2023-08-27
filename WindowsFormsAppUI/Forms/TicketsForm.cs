@@ -106,7 +106,8 @@ namespace WindowsFormsAppUI.Forms
 
         private void dateTimePickerStart_ValueChanged(object sender, EventArgs e)
         {
-            dataGridViewTickets.Columns["Show"].Dispose();
+            DataGridViewColumn column = dataGridViewTickets.Columns["Show"];
+            dataGridViewTickets.Columns.Remove(column); 
             AddTicketsDataGridView();
         }
     }
