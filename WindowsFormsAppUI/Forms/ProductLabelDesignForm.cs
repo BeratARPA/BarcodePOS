@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using WindowsFormsAppUI.Helpers;
 
 namespace WindowsFormsAppUI.Forms
@@ -94,8 +93,11 @@ namespace WindowsFormsAppUI.Forms
 
         private void Element_MouseDown(object sender, MouseEventArgs e)
         {
-            selectedElement = (Control)sender;
-            offset = e.Location;
+            if (e.Button == MouseButtons.Left)
+            {
+                selectedElement = (Control)sender;
+                offset = e.Location;
+            }
         }
 
         private void Element_MouseMove(object sender, MouseEventArgs e)
@@ -109,8 +111,11 @@ namespace WindowsFormsAppUI.Forms
 
         private void Element_MouseUp(object sender, MouseEventArgs e)
         {
-            selectedElement.Capture = false;
-            selectedElement = null;
+            if (e.Button == MouseButtons.Left)
+            {
+                selectedElement.Capture = false;
+                selectedElement = null;
+            }
         }
 
         private void buttonCreateBarcode_Click(object sender, EventArgs e)
@@ -152,13 +157,6 @@ namespace WindowsFormsAppUI.Forms
             removeMenuItem.Click += MenuItemRemove_Click;
             contextMenu.Items.Add(removeMenuItem);
 
-            ToolStripMenuItem rotateMenuItem = new ToolStripMenuItem
-            {
-                Text = GlobalVariables.CultureHelper.GetText("Turn")
-            };
-            rotateMenuItem.Click += MenuItemRotate_Click;
-            contextMenu.Items.Add(rotateMenuItem);
-
             ToolStripMenuItem editMenuItem = new ToolStripMenuItem
             {
                 Text = GlobalVariables.CultureHelper.GetText("Edit")
@@ -176,28 +174,11 @@ namespace WindowsFormsAppUI.Forms
 
         private void MenuItemEdit_Click(object sender, EventArgs e)
         {
-            //if (selectedElement is Label label)
-            //{
-            //    LabelPropertyWindow labelPropertyWindow = new LabelPropertyWindow(label.Text, (int)label.Font.Size, label.Font.Bold);
-
-            //    if (labelPropertyWindow.ShowDialog() == DialogResult.OK)
-            //    {
-            //        label.Text = labelPropertyWindow.LabelName;
-            //        label.Font = new Font("Arial", labelPropertyWindow.LabelFontSize, labelPropertyWindow.LabelFontBold ? FontStyle.Bold : FontStyle.Regular);
-            //    }
-            //}
-
-            selectedElement = null;
-        }
-
-        private void MenuItemRotate_Click(object sender, EventArgs e)
-        {
-            //rotationAngle += 90.0;
-            //if (rotationAngle >= 360.0)
-            //{
-            //    rotationAngle -= 360.0;
-            //}
-            //selectedElement.Rotate(rotationAngle);
+            if (selectedElement is Label label)
+            {
+                LabelPropertyForm labelPropertyForm = new LabelPropertyForm(label);
+                labelPropertyForm.ShowDialog();
+            }
 
             selectedElement = null;
         }
