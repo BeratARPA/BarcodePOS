@@ -16,7 +16,7 @@ namespace WindowsFormsAppUI
         static void Main()
         {
             FolderLocations.CreateFolders();
-
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ShellForm());

@@ -78,6 +78,12 @@
     <Compile Include="Forms\DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\LabelPropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LabelPropertyForm.Designer.cs">
+      <DependentUpon>LabelPropertyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LabelPropertyForm.resx">
+      <DependentUpon>LabelPropertyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
