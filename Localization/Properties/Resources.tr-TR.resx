@@ -138,8 +138,14 @@
   <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
   </data>
+  <data name="CancelledProducts" xml:space="preserve">
+    <value>İptal Ürünler</value>
+  </data>
   <data name="Categories" xml:space="preserve">
     <value>Kategoriler</value>
+  </data>
+  <data name="CategorySales" xml:space="preserve">
+    <value>Kategori Satışları</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Temizle</value>
@@ -151,7 +157,7 @@
     <value>Barkod Oluştur</value>
   </data>
   <data name="CreateProductLabel" xml:space="preserve">
-    <value>Ürün Raf Etiketi Oluştur</value>
+    <value>Etiketi Oluştur</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>Tarih</value>
@@ -173,6 +179,9 @@
   </data>
   <data name="End" xml:space="preserve">
     <value>Bitiş</value>
+  </data>
+  <data name="EndOfTheDay" xml:space="preserve">
+    <value>Gün Sonu</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Hata</value>
@@ -258,6 +267,9 @@
   <data name="Products" xml:space="preserve">
     <value>Ürünler</value>
   </data>
+  <data name="ProductSales" xml:space="preserve">
+    <value>Ürün Satışları</value>
+  </data>
   <data name="ProductsWithoutBarcode" xml:space="preserve">
     <value>Barkodsuz Ürünler</value>
   </data>
@@ -276,6 +288,12 @@
   <data name="Reports" xml:space="preserve">
     <value>Raporlar</value>
   </data>
+  <data name="Revenues" xml:space="preserve">
+    <value>Hasılatlar</value>
+  </data>
+  <data name="SalesTypes" xml:space="preserve">
+    <value>Satış Tipleri</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Kaydet</value>
   </data>
@@ -287,6 +305,9 @@
   </data>
   <data name="Stocks" xml:space="preserve">
     <value>Stoklar</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Masalar</value>
   </data>
   <data name="TechnicalSupport" xml:space="preserve">
     <value>Teknik Destek</value>
@@ -323,6 +344,9 @@
   </data>
   <data name="UserNotFound!" xml:space="preserve">
     <value>Kullanıcı bulunamadı!</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Kullanıcılar</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Görüntüle</value>

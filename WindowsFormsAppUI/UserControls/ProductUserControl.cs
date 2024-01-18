@@ -1,12 +1,6 @@
 ﻿using Database.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppUI.UserControls
@@ -41,7 +35,7 @@ namespace WindowsFormsAppUI.UserControls
 
             labelPrice.Parent = pictureBoxImage;
             labelPrice.BackColor = Color.FromArgb(50, Convert.ToInt32(backColorArgb[0]), Convert.ToInt32(backColorArgb[1]), Convert.ToInt32(backColorArgb[2]));
-            labelPrice.ForeColor = Color.FromArgb(Convert.ToInt32(foreColorArgb[0]), Convert.ToInt32(foreColorArgb[1]), Convert.ToInt32(foreColorArgb[2]));         
+            labelPrice.ForeColor = Color.FromArgb(Convert.ToInt32(foreColorArgb[0]), Convert.ToInt32(foreColorArgb[1]), Convert.ToInt32(foreColorArgb[2]));
             labelPrice.Font = new Font("Microsoft Sans Serif", _product.FontSize);
         }
 
@@ -74,7 +68,15 @@ namespace WindowsFormsAppUI.UserControls
             set
             {
                 _image = value;
-                pictureBoxImage.LoadAsync(value);
+
+                try
+                {
+                    pictureBoxImage.LoadAsync(value);
+                }
+                catch (Exception)
+                {
+                    pictureBoxImage.Image = Properties.Resources.no_photo;
+                }
             }
         }
 

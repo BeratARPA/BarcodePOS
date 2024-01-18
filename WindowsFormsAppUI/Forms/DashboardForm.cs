@@ -12,7 +12,7 @@ namespace WindowsFormsAppUI.Forms
     {
         TileItem tileItem;
         private bool editMode = false;
-        string navigationLayoutPath = Path.Combine(FolderLocations.fastPOSFolderPath, "NavigationLayouts.xml");
+        string navigationLayoutPath = Path.Combine(FolderLocations.barcodePOSFolderPath, "NavigationLayouts.xml");
 
         public DashboardForm()
         {
@@ -42,13 +42,15 @@ namespace WindowsFormsAppUI.Forms
             tileItemManagement.Text = GlobalVariables.CultureHelper.GetText("Management");
             tileItemPersonalization.Text = GlobalVariables.CultureHelper.GetText("Personalization");
             tileItemLogout.Text = GlobalVariables.CultureHelper.GetText("Logout");
+            tileItemTables.Text = GlobalVariables.CultureHelper.GetText("Tables");
         }
 
         private void tileItemManagement_ItemClick(object sender, TileItemEventArgs e)
         {
             if (!editMode)
             {
-
+                NavigationManager.OpenForm(new ManagementForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
             }
         }
 
@@ -82,7 +84,8 @@ namespace WindowsFormsAppUI.Forms
         {
             if (!editMode)
             {
-
+                NavigationManager.OpenForm(new ReportsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
             }
         }
 
@@ -117,6 +120,14 @@ namespace WindowsFormsAppUI.Forms
             {
                 NavigationManager.OpenForm(new TechnicalSupportForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
+            }
+        }
+
+        private void tileItemTables_ItemClick(object sender, TileItemEventArgs e)
+        {
+            if (!editMode)
+            {
+
             }
         }
 
