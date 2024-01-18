@@ -14,22 +14,22 @@ namespace WindowsFormsAppUI.Forms
 
         public void UpdateUILanguage()
         {
-            buttonCategories.Text = GlobalVariables.CultureHelper.GetText("Categories");
-            buttonProducts.Text = GlobalVariables.CultureHelper.GetText("Products");
-            buttonPaymentTypes.Text = GlobalVariables.CultureHelper.GetText("PaymentTypes");          
+            accordionControlElementCategories.Text = GlobalVariables.CultureHelper.GetText("Categories");
+            accordionControlElementProducts.Text = GlobalVariables.CultureHelper.GetText("Products");
+            accordionControlElementPaymentTypes.Text = GlobalVariables.CultureHelper.GetText("PaymentTypes");          
         }
 
-        private void buttonCategories_Click(object sender, EventArgs e)
+        private void accordionControlElementCategories_Click(object sender, EventArgs e)
         {
             NavigationManager.OpenForm(new CategoryPersonalizationForm(), DockStyle.Fill, panelMain);
         }
 
-        private void buttonProducts_Click(object sender, EventArgs e)
+        private void accordionControlElementProducts_Click(object sender, EventArgs e)
         {
             NavigationManager.OpenForm(new ProductPersonalizationForm(), DockStyle.Fill, panelMain);
         }
 
-        private void buttonPaymentTypes_Click(object sender, EventArgs e)
+        private void accordionControlElementPaymentTypes_Click(object sender, EventArgs e)
         {
             NavigationManager.OpenForm(new PaymentTypePersonalizationForm(), DockStyle.Fill, panelMain);
         }

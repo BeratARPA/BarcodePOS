@@ -138,8 +138,14 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="CancelledProducts" xml:space="preserve">
+    <value>Cancelled Products</value>
+  </data>
   <data name="Categories" xml:space="preserve">
     <value>Categories</value>
+  </data>
+  <data name="CategorySales" xml:space="preserve">
+    <value>Category Sales</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
@@ -173,6 +179,9 @@
   </data>
   <data name="End" xml:space="preserve">
     <value>End</value>
+  </data>
+  <data name="EndOfTheDay" xml:space="preserve">
+    <value>End of The Day</value>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
@@ -258,6 +267,9 @@
   <data name="Products" xml:space="preserve">
     <value>Products</value>
   </data>
+  <data name="ProductSales" xml:space="preserve">
+    <value>Product Sales</value>
+  </data>
   <data name="ProductsWithoutBarcode" xml:space="preserve">
     <value>Products Without Barcode</value>
   </data>
@@ -276,6 +288,12 @@
   <data name="Reports" xml:space="preserve">
     <value>Reports</value>
   </data>
+  <data name="Revenues" xml:space="preserve">
+    <value>Revenues</value>
+  </data>
+  <data name="SalesTypes" xml:space="preserve">
+    <value>Sales Types</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
@@ -287,6 +305,9 @@
   </data>
   <data name="Stocks" xml:space="preserve">
     <value>Stocks</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Tables</value>
   </data>
   <data name="TechnicalSupport" xml:space="preserve">
     <value>Technical Support</value>
@@ -323,6 +344,9 @@
   </data>
   <data name="UserNotFound!" xml:space="preserve">
     <value>User not found!</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>View</value>

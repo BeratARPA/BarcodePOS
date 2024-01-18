@@ -1,33 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.AccessControl;
 using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsAppUI.Helpers
 {
     public class FolderLocations
     {
         public static string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        public static string baskentToptanFolderPath = Path.Combine(documentsPath, "Başkent Toptan");
-        public static string fastPOSFolderPath = Path.Combine(baskentToptanFolderPath, "FastPOS");
-        public static string databaseBackupsFolderPath = Path.Combine(fastPOSFolderPath, "Database Backups");
+        public static string posFolderPath = Path.Combine(documentsPath, "POS");
+        public static string barcodePOSFolderPath = Path.Combine(posFolderPath, "BarcodePOS");
+        public static string databaseBackupsFolderPath = Path.Combine(barcodePOSFolderPath, "Database Backups");
 
         public static void CreateFolders()
         {
-            if (!Directory.Exists(baskentToptanFolderPath))
+            if (!Directory.Exists(posFolderPath))
             {
-                Directory.CreateDirectory(baskentToptanFolderPath);
-                GrantAccess(baskentToptanFolderPath);
+                Directory.CreateDirectory(posFolderPath);
+                GrantAccess(posFolderPath);
             }
 
-            if (!Directory.Exists(fastPOSFolderPath))
+            if (!Directory.Exists(barcodePOSFolderPath))
             {
-                Directory.CreateDirectory(fastPOSFolderPath);
-                GrantAccess(fastPOSFolderPath);
+                Directory.CreateDirectory(barcodePOSFolderPath);
+                GrantAccess(barcodePOSFolderPath);
             }
 
             if (!Directory.Exists(databaseBackupsFolderPath))

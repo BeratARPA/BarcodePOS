@@ -34,11 +34,11 @@ namespace WindowsFormsAppUI.UserControls
         {
             Button button = (Button)sender;
             textBoxPin.Text += button.Text;
-            PinDisplay += button.Text;
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
+            PinDisplay += textBoxPin.Text;
             PinEntered?.Invoke(this, PinDisplay);
         }
 
