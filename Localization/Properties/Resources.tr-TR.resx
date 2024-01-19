@@ -261,6 +261,9 @@
   <data name="POS" xml:space="preserve">
     <value>Satış Noktası</value>
   </data>
+  <data name="POSTable" xml:space="preserve">
+    <value>Masa: {0}</value>
+  </data>
   <data name="Print" xml:space="preserve">
     <value>Yazdır</value>
   </data>
