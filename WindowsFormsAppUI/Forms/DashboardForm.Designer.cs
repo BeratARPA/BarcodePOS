@@ -37,12 +37,12 @@ namespace WindowsFormsAppUI.Forms
             DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement9 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement10 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             this.tileControl = new DevExpress.XtraEditors.TileControl();
             this.tileGroupMain = new DevExpress.XtraEditors.TileGroup();
             this.tileItemReports = new DevExpress.XtraEditors.TileItem();
@@ -50,6 +50,7 @@ namespace WindowsFormsAppUI.Forms
             this.tileItemStocks = new DevExpress.XtraEditors.TileItem();
             this.tileItemTickets = new DevExpress.XtraEditors.TileItem();
             this.tileItemCreateProductLabel = new DevExpress.XtraEditors.TileItem();
+            this.tileItemTables = new DevExpress.XtraEditors.TileItem();
             this.tileGroup2 = new DevExpress.XtraEditors.TileGroup();
             this.tileItemTechnicalSupport = new DevExpress.XtraEditors.TileItem();
             this.tileItemPersonalization = new DevExpress.XtraEditors.TileItem();
@@ -62,7 +63,6 @@ namespace WindowsFormsAppUI.Forms
             this.simpleButtonMedium = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonWide = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonLarge = new DevExpress.XtraEditors.SimpleButton();
-            this.tileItemTables = new DevExpress.XtraEditors.TileItem();
             this.SuspendLayout();
             // 
             // tileControl
@@ -75,13 +75,11 @@ namespace WindowsFormsAppUI.Forms
             this.tileControl.IndentBetweenItems = 5;
             this.tileControl.ItemContentAnimation = DevExpress.XtraEditors.TileItemContentAnimationType.Fade;
             this.tileControl.Location = new System.Drawing.Point(0, 0);
-            this.tileControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tileControl.MaxId = 11;
+            this.tileControl.MaxId = 14;
             this.tileControl.Name = "tileControl";
-            this.tileControl.Padding = new System.Windows.Forms.Padding(27, 28, 27, 28);
             this.tileControl.RowCount = 3;
             this.tileControl.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.TouchScrollBar;
-            this.tileControl.Size = new System.Drawing.Size(1200, 923);
+            this.tileControl.Size = new System.Drawing.Size(800, 600);
             this.tileControl.TabIndex = 1;
             this.tileControl.Text = "tileControl1";
             // 
@@ -210,6 +208,29 @@ namespace WindowsFormsAppUI.Forms
             this.tileItemCreateProductLabel.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemCreateProductLabel_ItemClick);
             this.tileItemCreateProductLabel.RightItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemReports_RightItemClick);
             // 
+            // tileItemTables
+            // 
+            this.tileItemTables.AppearanceItem.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.tileItemTables.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tileItemTables.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            this.tileItemTables.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.tileItemTables.AppearanceItem.Normal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tileItemTables.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileItemTables.AppearanceItem.Normal.Options.UseBorderColor = true;
+            this.tileItemTables.AppearanceItem.Normal.Options.UseFont = true;
+            tileItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileItemElement6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
+            tileItemElement6.ImageOptions.ImageToTextIndent = 10;
+            tileItemElement6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage5")));
+            tileItemElement6.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
+            tileItemElement6.Text = "Masalar";
+            this.tileItemTables.Elements.Add(tileItemElement6);
+            this.tileItemTables.Id = 10;
+            this.tileItemTables.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
+            this.tileItemTables.Name = "tileItemTables";
+            this.tileItemTables.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemTables_ItemClick);
+            this.tileItemTables.RightItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemReports_RightItemClick);
+            // 
             // tileGroup2
             // 
             this.tileGroup2.Items.Add(this.tileItemTechnicalSupport);
@@ -334,10 +355,9 @@ namespace WindowsFormsAppUI.Forms
             this.simpleButtonEditMode.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.simpleButtonEditMode.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButtonEditMode.ImageOptions.SvgImage")));
             this.simpleButtonEditMode.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
-            this.simpleButtonEditMode.Location = new System.Drawing.Point(18, 751);
-            this.simpleButtonEditMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.simpleButtonEditMode.Location = new System.Drawing.Point(12, 488);
             this.simpleButtonEditMode.Name = "simpleButtonEditMode";
-            this.simpleButtonEditMode.Size = new System.Drawing.Size(150, 154);
+            this.simpleButtonEditMode.Size = new System.Drawing.Size(100, 100);
             this.simpleButtonEditMode.TabIndex = 2;
             this.simpleButtonEditMode.Text = "Düzenleme Modu";
             this.simpleButtonEditMode.Click += new System.EventHandler(this.simpleButtonEditMode_Click);
@@ -358,10 +378,9 @@ namespace WindowsFormsAppUI.Forms
             this.simpleButtonSave.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.simpleButtonSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButtonSave.ImageOptions.SvgImage")));
             this.simpleButtonSave.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
-            this.simpleButtonSave.Location = new System.Drawing.Point(177, 751);
-            this.simpleButtonSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.simpleButtonSave.Location = new System.Drawing.Point(118, 488);
             this.simpleButtonSave.Name = "simpleButtonSave";
-            this.simpleButtonSave.Size = new System.Drawing.Size(150, 154);
+            this.simpleButtonSave.Size = new System.Drawing.Size(100, 100);
             this.simpleButtonSave.TabIndex = 2;
             this.simpleButtonSave.Text = "Kaydet";
             this.simpleButtonSave.Visible = false;
@@ -383,10 +402,9 @@ namespace WindowsFormsAppUI.Forms
             this.simpleButtonSmall.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.simpleButtonSmall.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButtonSmall.ImageOptions.SvgImage")));
             this.simpleButtonSmall.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
-            this.simpleButtonSmall.Location = new System.Drawing.Point(18, 588);
-            this.simpleButtonSmall.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.simpleButtonSmall.Location = new System.Drawing.Point(12, 382);
             this.simpleButtonSmall.Name = "simpleButtonSmall";
-            this.simpleButtonSmall.Size = new System.Drawing.Size(150, 154);
+            this.simpleButtonSmall.Size = new System.Drawing.Size(100, 100);
             this.simpleButtonSmall.TabIndex = 2;
             this.simpleButtonSmall.Tag = "1";
             this.simpleButtonSmall.Text = "Küçük";
@@ -409,10 +427,9 @@ namespace WindowsFormsAppUI.Forms
             this.simpleButtonMedium.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.simpleButtonMedium.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButtonMedium.ImageOptions.SvgImage")));
             this.simpleButtonMedium.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
-            this.simpleButtonMedium.Location = new System.Drawing.Point(18, 425);
-            this.simpleButtonMedium.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.simpleButtonMedium.Location = new System.Drawing.Point(12, 276);
             this.simpleButtonMedium.Name = "simpleButtonMedium";
-            this.simpleButtonMedium.Size = new System.Drawing.Size(150, 154);
+            this.simpleButtonMedium.Size = new System.Drawing.Size(100, 100);
             this.simpleButtonMedium.TabIndex = 2;
             this.simpleButtonMedium.Tag = "2";
             this.simpleButtonMedium.Text = "Orta";
@@ -435,10 +452,9 @@ namespace WindowsFormsAppUI.Forms
             this.simpleButtonWide.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.simpleButtonWide.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButtonWide.ImageOptions.SvgImage")));
             this.simpleButtonWide.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
-            this.simpleButtonWide.Location = new System.Drawing.Point(18, 262);
-            this.simpleButtonWide.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.simpleButtonWide.Location = new System.Drawing.Point(12, 170);
             this.simpleButtonWide.Name = "simpleButtonWide";
-            this.simpleButtonWide.Size = new System.Drawing.Size(150, 154);
+            this.simpleButtonWide.Size = new System.Drawing.Size(100, 100);
             this.simpleButtonWide.TabIndex = 2;
             this.simpleButtonWide.Tag = "3";
             this.simpleButtonWide.Text = "Geniş";
@@ -461,44 +477,21 @@ namespace WindowsFormsAppUI.Forms
             this.simpleButtonLarge.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
             this.simpleButtonLarge.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButtonLarge.ImageOptions.SvgImage")));
             this.simpleButtonLarge.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
-            this.simpleButtonLarge.Location = new System.Drawing.Point(18, 98);
-            this.simpleButtonLarge.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.simpleButtonLarge.Location = new System.Drawing.Point(12, 64);
             this.simpleButtonLarge.Name = "simpleButtonLarge";
-            this.simpleButtonLarge.Size = new System.Drawing.Size(150, 154);
+            this.simpleButtonLarge.Size = new System.Drawing.Size(100, 100);
             this.simpleButtonLarge.TabIndex = 2;
             this.simpleButtonLarge.Tag = "4";
             this.simpleButtonLarge.Text = "Büyük";
             this.simpleButtonLarge.Visible = false;
             this.simpleButtonLarge.Click += new System.EventHandler(this.simpleButtonLarge_Click);
             // 
-            // tileItemTables
-            // 
-            this.tileItemTables.AppearanceItem.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.tileItemTables.AppearanceItem.Hovered.Options.UseBackColor = true;
-            this.tileItemTables.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
-            this.tileItemTables.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.tileItemTables.AppearanceItem.Normal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tileItemTables.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileItemTables.AppearanceItem.Normal.Options.UseBorderColor = true;
-            this.tileItemTables.AppearanceItem.Normal.Options.UseFont = true;
-            tileItemElement6.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileItemElement6.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
-            tileItemElement6.ImageOptions.ImageToTextIndent = 10;
-            tileItemElement6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage5")));
-            tileItemElement6.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
-            tileItemElement6.Text = "Masalar";
-            this.tileItemTables.Elements.Add(tileItemElement6);
-            this.tileItemTables.Id = 10;
-            this.tileItemTables.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
-            this.tileItemTables.Name = "tileItemTables";
-            this.tileItemTables.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemTables_ItemClick);
-            // 
             // DashboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1200, 923);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.simpleButtonSave);
             this.Controls.Add(this.simpleButtonLarge);
             this.Controls.Add(this.simpleButtonWide);
@@ -507,7 +500,6 @@ namespace WindowsFormsAppUI.Forms
             this.Controls.Add(this.simpleButtonEditMode);
             this.Controls.Add(this.tileControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DashboardForm";
             this.ShowInTaskbar = false;
             this.Text = "BarcodePOS";

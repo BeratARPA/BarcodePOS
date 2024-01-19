@@ -57,9 +57,9 @@
     <Compile Include="Enums\TypeDatabase.cs" />
     <Compile Include="Helpers\DatabaseType.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
-    <Compile Include="Migrations\202308140905087_InitialCreate.cs" />
-    <Compile Include="Migrations\202308140905087_InitialCreate.designer.cs">
-      <DependentUpon>202308140905087_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202401181535417_InitialCreate.cs" />
+    <Compile Include="Migrations\202401181535417_InitialCreate.designer.cs">
+      <DependentUpon>202401181535417_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -68,6 +68,8 @@
     <Compile Include="Models\PaymentType.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Section.cs" />
+    <Compile Include="Models\Table.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,8 +88,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202308140905087_InitialCreate.resx">
-      <DependentUpon>202308140905087_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202401181535417_InitialCreate.resx">
+      <DependentUpon>202401181535417_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
