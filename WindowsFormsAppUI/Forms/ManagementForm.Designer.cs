@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.accordionControlElementUsers = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.panelMain = new System.Windows.Forms.Panel();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElementUsers = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.panelMain = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,13 +57,22 @@
             this.accordionControlElement5});
             this.accordionControl1.ExpandElementMode = DevExpress.XtraBars.Navigation.ExpandElementMode.Multiple;
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsFooter.ActiveGroupDisplayMode = DevExpress.XtraBars.Navigation.ActiveGroupDisplayMode.GroupHeaderAndContent;
             this.accordionControl1.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
             this.accordionControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
-            this.accordionControl1.Size = new System.Drawing.Size(282, 923);
+            this.accordionControl1.Size = new System.Drawing.Size(188, 600);
             this.accordionControl1.TabIndex = 4;
+            // 
+            // accordionControlElement1
+            // 
+            this.accordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElementUsers});
+            this.accordionControlElement1.Expanded = true;
+            this.accordionControlElement1.Name = "accordionControlElement1";
+            this.accordionControlElement1.Text = "Element1";
             // 
             // accordionControlElementUsers
             // 
@@ -93,24 +102,6 @@
             this.accordionControlElementUsers.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElementUsers.Text = "Kullanıcılar";
             // 
-            // panelMain
-            // 
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(282, 0);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(0);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(918, 923);
-            this.panelMain.TabIndex = 5;
-            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
-            // 
-            // accordionControlElement1
-            // 
-            this.accordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElementUsers});
-            this.accordionControlElement1.Expanded = true;
-            this.accordionControlElement1.Name = "accordionControlElement1";
-            this.accordionControlElement1.Text = "Element1";
-            // 
             // accordionControlElement2
             // 
             this.accordionControlElement2.Expanded = true;
@@ -132,16 +123,28 @@
             this.accordionControlElement5.Name = "accordionControlElement5";
             this.accordionControlElement5.Text = "Element5";
             // 
+            // panelMain
+            // 
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(188, 0);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(612, 600);
+            this.panelMain.TabIndex = 5;
+            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
+            // 
             // ManagementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1200, 923);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.accordionControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ManagementForm";
+            this.ShowInTaskbar = false;
             this.Text = "BarcodePOS";
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             this.ResumeLayout(false);

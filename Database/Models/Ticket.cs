@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Database.Models
 {
@@ -9,6 +10,7 @@ namespace Database.Models
         [Key]
         public int TicketId { get; set; }
         public Guid TicketGuid { get; set; }
+        public int TableId { get; set; }
         public DateTime LastUpdateDate { get; set; }
         public string TicketNumber { get; set; }
         public DateTime Date { get; set; }
@@ -25,5 +27,8 @@ namespace Database.Models
 
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<Payment> Payments { get; set; }
+
+        [ForeignKey("TableId")]
+        public virtual Table Table { get; set; }
     }
 }

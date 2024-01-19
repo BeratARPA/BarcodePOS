@@ -127,7 +127,8 @@ namespace WindowsFormsAppUI.Forms
         {
             if (!editMode)
             {
-
+                NavigationManager.OpenForm(new TablesForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
             }
         }
 
