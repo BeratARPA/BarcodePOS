@@ -23,9 +23,14 @@ namespace Database.Data
 
         public List<T> GetAll(Expression<Func<T, bool>> filter = null)
         {
-            return filter == null
-            ? _context.Set<T>().AsNoTracking().ToList()
-            : _context.Set<T>().Where(filter).ToList();
+            return filter == null 
+                ? _context.Set<T>().AsNoTracking().ToList()
+                : _context.Set<T>().Where(filter).ToList();
+        }
+
+        public T Get(Expression<Func<T, bool>> filter = null)
+        {
+            return _context.Set<T>().Where(filter).FirstOrDefault();
         }
 
         public void Update(T entity)

@@ -31,10 +31,10 @@ namespace WindowsFormsAppUI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewProducts = new System.Windows.Forms.DataGridView();
             this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,7 +73,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 600);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 923);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // dataGridViewProducts
@@ -84,14 +84,14 @@ namespace WindowsFormsAppUI.Forms
             this.dataGridViewProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewProducts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridViewProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductId,
@@ -99,31 +99,34 @@ namespace WindowsFormsAppUI.Forms
             this.BackgroundColor,
             this.ForegroundColor,
             this.FontSize});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProducts.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(10);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProducts.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewProducts.EnableHeadersVisualStyles = false;
-            this.dataGridViewProducts.Location = new System.Drawing.Point(17, 17);
-            this.dataGridViewProducts.Margin = new System.Windows.Forms.Padding(17);
+            this.dataGridViewProducts.Location = new System.Drawing.Point(26, 26);
+            this.dataGridViewProducts.Margin = new System.Windows.Forms.Padding(26);
             this.dataGridViewProducts.MultiSelect = false;
             this.dataGridViewProducts.Name = "dataGridViewProducts";
             this.dataGridViewProducts.ReadOnly = true;
             this.dataGridViewProducts.RowHeadersVisible = false;
+            this.dataGridViewProducts.RowHeadersWidth = 62;
             this.dataGridViewProducts.RowTemplate.Height = 25;
             this.dataGridViewProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewProducts.Size = new System.Drawing.Size(366, 566);
+            this.dataGridViewProducts.Size = new System.Drawing.Size(548, 871);
             this.dataGridViewProducts.TabIndex = 3;
             this.dataGridViewProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProducts_CellClick);
             // 
             // ProductId
             // 
             this.ProductId.HeaderText = "ProductId";
+            this.ProductId.MinimumWidth = 8;
             this.ProductId.Name = "ProductId";
             this.ProductId.ReadOnly = true;
             this.ProductId.Visible = false;
@@ -132,26 +135,29 @@ namespace WindowsFormsAppUI.Forms
             // 
             this.CategoryName.FillWeight = 40F;
             this.CategoryName.HeaderText = "Ad";
+            this.CategoryName.MinimumWidth = 8;
             this.CategoryName.Name = "CategoryName";
             this.CategoryName.ReadOnly = true;
             // 
             // BackgroundColor
             // 
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Transparent;
-            this.BackgroundColor.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Transparent;
+            this.BackgroundColor.DefaultCellStyle = dataGridViewCellStyle2;
             this.BackgroundColor.FillWeight = 20F;
             this.BackgroundColor.HeaderText = "Arkaplan Rengi";
+            this.BackgroundColor.MinimumWidth = 8;
             this.BackgroundColor.Name = "BackgroundColor";
             this.BackgroundColor.ReadOnly = true;
             // 
             // ForegroundColor
             // 
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Transparent;
-            this.ForegroundColor.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Transparent;
+            this.ForegroundColor.DefaultCellStyle = dataGridViewCellStyle3;
             this.ForegroundColor.FillWeight = 20F;
             this.ForegroundColor.HeaderText = "Yazı Rengi";
+            this.ForegroundColor.MinimumWidth = 8;
             this.ForegroundColor.Name = "ForegroundColor";
             this.ForegroundColor.ReadOnly = true;
             // 
@@ -159,6 +165,7 @@ namespace WindowsFormsAppUI.Forms
             // 
             this.FontSize.FillWeight = 20F;
             this.FontSize.HeaderText = "Yazı Boyutu";
+            this.FontSize.MinimumWidth = 8;
             this.FontSize.Name = "FontSize";
             this.FontSize.ReadOnly = true;
             // 
@@ -169,19 +176,19 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(400, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(600, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(400, 600);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(600, 923);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.comboBoxBackColors, 0, 1);
@@ -194,12 +201,12 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 5;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(400, 300);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(600, 461);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // label1
@@ -208,9 +215,10 @@ namespace WindowsFormsAppUI.Forms
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 43);
+            this.label1.Size = new System.Drawing.Size(262, 66);
             this.label1.TabIndex = 0;
             this.label1.Text = "Arkaplan Renkleri";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -225,9 +233,10 @@ namespace WindowsFormsAppUI.Forms
             this.comboBoxBackColors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.comboBoxBackColors.FormattingEnabled = true;
             this.comboBoxBackColors.IntegralHeight = false;
-            this.comboBoxBackColors.Location = new System.Drawing.Point(3, 46);
+            this.comboBoxBackColors.Location = new System.Drawing.Point(4, 71);
+            this.comboBoxBackColors.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxBackColors.Name = "comboBoxBackColors";
-            this.comboBoxBackColors.Size = new System.Drawing.Size(89, 53);
+            this.comboBoxBackColors.Size = new System.Drawing.Size(132, 75);
             this.comboBoxBackColors.TabIndex = 1;
             this.comboBoxBackColors.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBoxColors_DrawItem);
             // 
@@ -237,9 +246,10 @@ namespace WindowsFormsAppUI.Forms
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(183, 0);
+            this.label2.Location = new System.Drawing.Point(274, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 43);
+            this.label2.Size = new System.Drawing.Size(322, 66);
             this.label2.TabIndex = 0;
             this.label2.Text = "Yazı Boyutu";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -251,7 +261,8 @@ namespace WindowsFormsAppUI.Forms
             this.numericUpDownFontSize.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numericUpDownFontSize.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.numericUpDownFontSize.ForeColor = System.Drawing.Color.White;
-            this.numericUpDownFontSize.Location = new System.Drawing.Point(183, 46);
+            this.numericUpDownFontSize.Location = new System.Drawing.Point(274, 71);
+            this.numericUpDownFontSize.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDownFontSize.Maximum = new decimal(new int[] {
             30,
             0,
@@ -263,7 +274,7 @@ namespace WindowsFormsAppUI.Forms
             0,
             0});
             this.numericUpDownFontSize.Name = "numericUpDownFontSize";
-            this.numericUpDownFontSize.Size = new System.Drawing.Size(214, 34);
+            this.numericUpDownFontSize.Size = new System.Drawing.Size(322, 47);
             this.numericUpDownFontSize.TabIndex = 2;
             this.numericUpDownFontSize.Value = new decimal(new int[] {
             10,
@@ -277,9 +288,10 @@ namespace WindowsFormsAppUI.Forms
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(3, 86);
+            this.label3.Location = new System.Drawing.Point(4, 132);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 43);
+            this.label3.Size = new System.Drawing.Size(262, 66);
             this.label3.TabIndex = 0;
             this.label3.Text = "Yazı Renkleri";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -294,9 +306,10 @@ namespace WindowsFormsAppUI.Forms
             this.comboBoxForeColors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.comboBoxForeColors.FormattingEnabled = true;
             this.comboBoxForeColors.IntegralHeight = false;
-            this.comboBoxForeColors.Location = new System.Drawing.Point(3, 132);
+            this.comboBoxForeColors.Location = new System.Drawing.Point(4, 203);
+            this.comboBoxForeColors.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxForeColors.Name = "comboBoxForeColors";
-            this.comboBoxForeColors.Size = new System.Drawing.Size(89, 53);
+            this.comboBoxForeColors.Size = new System.Drawing.Size(132, 75);
             this.comboBoxForeColors.TabIndex = 1;
             this.comboBoxForeColors.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBoxColors_DrawItem);
             // 
@@ -304,16 +317,16 @@ namespace WindowsFormsAppUI.Forms
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 171F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 256F));
             this.tableLayoutPanel4.Controls.Add(this.buttonSave, 1, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 300);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 461);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(400, 300);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 134F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(600, 462);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // buttonSave
@@ -326,10 +339,10 @@ namespace WindowsFormsAppUI.Forms
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(246, 230);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(17);
+            this.buttonSave.Location = new System.Drawing.Point(370, 354);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(26);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(137, 53);
+            this.buttonSave.Size = new System.Drawing.Size(204, 82);
             this.buttonSave.TabIndex = 10;
             this.buttonSave.Text = "Kaydet";
             this.buttonSave.UseVisualStyleBackColor = false;
@@ -337,12 +350,13 @@ namespace WindowsFormsAppUI.Forms
             // 
             // ProductPersonalizationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(1200, 923);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ProductPersonalizationForm";
             this.ShowInTaskbar = false;
             this.Text = "BarcodePOS";

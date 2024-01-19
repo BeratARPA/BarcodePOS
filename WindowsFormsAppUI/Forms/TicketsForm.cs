@@ -48,7 +48,7 @@ namespace WindowsFormsAppUI.Forms
             double totalAmount = 0;
             var tickets = _genericRepositoryTicket.GetAll(x => x.Date >= startDate.Date && x.Date <= endDate.Date);
             if (tickets != null)
-            {              
+            {
                 DataGridViewButtonColumn dataGridViewButtonColumn = new DataGridViewButtonColumn
                 {
                     Text = GlobalVariables.CultureHelper.GetText("View"),
@@ -98,7 +98,7 @@ namespace WindowsFormsAppUI.Forms
 
                 if (ticket != null)
                 {
-                    NavigationManager.OpenForm(new POSForm(ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                    NavigationManager.OpenForm(new POSForm(2, ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                     GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
                 }
             }
@@ -107,7 +107,7 @@ namespace WindowsFormsAppUI.Forms
         private void dateTimePickerStart_ValueChanged(object sender, EventArgs e)
         {
             DataGridViewColumn column = dataGridViewTickets.Columns["Show"];
-            dataGridViewTickets.Columns.Remove(column); 
+            dataGridViewTickets.Columns.Remove(column);
             AddTicketsDataGridView();
         }
     }

@@ -43,11 +43,13 @@
             this.tileControlSections.ItemContentAnimation = DevExpress.XtraEditors.TileItemContentAnimationType.Fade;
             this.tileControlSections.LayoutMode = DevExpress.XtraEditors.TileControlLayoutMode.Adaptive;
             this.tileControlSections.Location = new System.Drawing.Point(0, 0);
+            this.tileControlSections.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tileControlSections.MaxId = 11;
             this.tileControlSections.Name = "tileControlSections";
+            this.tileControlSections.Padding = new System.Windows.Forms.Padding(27, 28, 27, 28);
             this.tileControlSections.RowCount = 3;
             this.tileControlSections.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.TouchScrollBar;
-            this.tileControlSections.Size = new System.Drawing.Size(1031, 112);
+            this.tileControlSections.Size = new System.Drawing.Size(1546, 144);
             this.tileControlSections.TabIndex = 2;
             this.tileControlSections.Text = "tileControl1";
             // 
@@ -63,12 +65,15 @@
             this.tileControlTables.IndentBetweenItems = 5;
             this.tileControlTables.ItemContentAnimation = DevExpress.XtraEditors.TileItemContentAnimationType.Fade;
             this.tileControlTables.LayoutMode = DevExpress.XtraEditors.TileControlLayoutMode.Adaptive;
-            this.tileControlTables.Location = new System.Drawing.Point(0, 112);
-            this.tileControlTables.MaxId = 21;
+            this.tileControlTables.Location = new System.Drawing.Point(0, 144);
+            this.tileControlTables.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tileControlTables.MaxId = 26;
             this.tileControlTables.Name = "tileControlTables";
+            this.tileControlTables.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tileControlTables.Padding = new System.Windows.Forms.Padding(27, 28, 27, 28);
             this.tileControlTables.RowCount = 3;
             this.tileControlTables.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.TouchScrollBar;
-            this.tileControlTables.Size = new System.Drawing.Size(1031, 638);
+            this.tileControlTables.Size = new System.Drawing.Size(1546, 1010);
             this.tileControlTables.TabIndex = 3;
             this.tileControlTables.Text = "tileControl1";
             // 
@@ -78,13 +83,14 @@
             // 
             // TablesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1031, 750);
+            this.ClientSize = new System.Drawing.Size(1546, 1154);
             this.Controls.Add(this.tileControlTables);
             this.Controls.Add(this.tileControlSections);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TablesForm";
             this.ShowInTaskbar = false;
             this.Text = "BarcodePOS";

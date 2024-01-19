@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
 using WindowsFormsAppUI.UserControls;
+using static DevExpress.XtraEditors.RoundedSkinPanel;
 
 namespace WindowsFormsAppUI.Forms
 {
@@ -17,13 +18,19 @@ namespace WindowsFormsAppUI.Forms
         private readonly IGenericRepository<Order> _genericRepositoryOrder = new GenericRepository<Order>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>(GlobalVariables.SQLContext);
 
         private Ticket _ticket = new Ticket();
+        private Section _section = new Section();
+        private Table _table = new Table();
         private List<Ticket> _tickets = new List<Ticket>();
         private List<Order> _orders = new List<Order>();
         private List<Product> _products = new List<Product>();
         private List<Category> _category = new List<Category>();
         private List<PaymentType> _paymentTypes = new List<PaymentType>();
+
+        private int _previousFormIndex;
 
         protected override CreateParams CreateParams
         {
@@ -35,19 +42,24 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        public POSForm(Ticket ticket = null)
+        public POSForm(int previousFormIndex = 0, Ticket ticket = null, Section section = null, Table table = null)
         {
             InitializeComponent();
             UpdateUILanguage();
 
             numeratorUserControl.textBoxPin.KeyPress += new KeyPressEventHandler(NumeratorTextBoxPin_KeyPress);
 
+            _previousFormIndex = previousFormIndex;
             _ticket = ticket;
+            _section = section;
+            _table = table;
         }
 
         private void POSForm_Load(object sender, EventArgs e)
         {
             CreateTicket();
+
+            IsTable();
 
             CloseAndOpenTicket();
 
@@ -149,6 +161,28 @@ namespace WindowsFormsAppUI.Forms
             };
 
             _ticket = ticket;
+        }
+
+        public void IsTable()
+        {
+            if (_ticket.TableId != 0)
+            {
+                _table = _genericRepositoryTable.Get(x => x.TableId == _ticket.TableId);
+                _section = _genericRepositorySection.Get(x => x.SectionId == _table.SectionId);
+            }
+
+            if (_section != null)
+            {
+                _ticket.TableId = _table.TableId;
+                labelTable.Text = string.Format(GlobalVariables.CultureHelper.GetText("POSTable"), _table.Name);
+                tableLayoutPanelMiddle.RowStyles[0].Height = 50;
+                buttonNewTicket.Enabled = false;
+            }
+            else
+            {
+                _ticket.TableId = 0;
+                tableLayoutPanelMiddle.RowStyles[0].Height = 0;               
+            }
         }
 
         public void CreateCategories(List<Category> categories)
@@ -389,8 +423,8 @@ namespace WindowsFormsAppUI.Forms
             //Discount
             if (_ticket.Discount != 0)
             {
-                tableLayoutPanelLabels.RowStyles[0].Height = 33;
                 tableLayoutPanelLabels.RowStyles[1].Height = 33;
+                tableLayoutPanelLabels.RowStyles[2].Height = 33;
                 totalBalance = DiscountHelper.Calculate(totalBalance, _ticket.Discount);
 
                 labelDiscountPercent.Text = string.Format(GlobalVariables.CultureHelper.GetText("Discount"), _ticket.Discount);
@@ -398,8 +432,8 @@ namespace WindowsFormsAppUI.Forms
             }
             else
             {
-                tableLayoutPanelLabels.RowStyles[0].Height = 0;
                 tableLayoutPanelLabels.RowStyles[1].Height = 0;
+                tableLayoutPanelLabels.RowStyles[2].Height = 0;
             }
 
             labelBalance.Text = string.Format("{0:C}", totalBalance);
@@ -408,7 +442,7 @@ namespace WindowsFormsAppUI.Forms
             //
             if (totalBalance == 0)
             {
-                tableLayoutPanelMiddle.RowStyles[1].Height = 0;
+                tableLayoutPanelMiddle.RowStyles[2].Height = 0;
                 return 0;
             }
 
@@ -425,20 +459,24 @@ namespace WindowsFormsAppUI.Forms
 
             _ticket.RemainingAmount = totalBalance;
 
-            tableLayoutPanelMiddle.RowStyles[1].Height = 100;
+            tableLayoutPanelMiddle.RowStyles[2].Height = 100;
 
             return totalBalance;
         }
 
         public void SaveTicket()
         {
+            Ticket ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+
+            if (_orders.Count == 0 && ticket != null)
+            {
+                DeleteTicket();
+            }
+
             if (_orders.Count != 0)
             {
-                Ticket ticket = null;
-                ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
                 if (ticket != null)
                 {
-                    ticket = _ticket;
                     _genericRepositoryTicket.Update(ticket);
                 }
                 else
@@ -449,10 +487,14 @@ namespace WindowsFormsAppUI.Forms
 
                 foreach (Order order in _orders)
                 {
-                    var checkOrder = _genericRepositoryOrder.GetAll(x => x.TicketId == ticket.TicketId && x.ProductId == order.ProductId).FirstOrDefault();
-                    if (checkOrder != null)
+                    var existingOrder = _genericRepositoryOrder.GetAll(x => x.TicketId == ticket.TicketId && x.ProductId == order.ProductId).FirstOrDefault();
+                    if (existingOrder != null)
                     {
-                        _genericRepositoryOrder.Update(order);
+                        existingOrder.LastUpdateDateTime = order.LastUpdateDateTime;
+                        existingOrder.Price = order.Price;
+                        existingOrder.Quantity = order.Quantity;
+
+                        _genericRepositoryOrder.Update(existingOrder);
                     }
                     else
                     {
@@ -469,6 +511,7 @@ namespace WindowsFormsAppUI.Forms
             _orders.Clear();
             flowLayoutPanelOrders.Controls.Clear();
             CreateTicket();
+            IsTable();
             CalculateTotalBalance();
             CloseAndOpenTicket();
         }
@@ -529,8 +572,7 @@ namespace WindowsFormsAppUI.Forms
                     return;
                 }
 
-                Ticket ticket = null;
-                ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+                Ticket ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
                 if (ticket == null)
                 {
                     SaveTicket();
@@ -571,18 +613,45 @@ namespace WindowsFormsAppUI.Forms
 
         private void buttonClose_Click(object sender, EventArgs e)
         {
-            if (_orders.Count == 0 || !_ticket.IsOpened)
+            if (!_ticket.IsOpened)
             {
                 ClearTicket();
-                NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                Navigate();
+
                 return;
             }
 
             SaveTicket();
-
             ClearTicket();
+            Navigate();
+        }
 
-            NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+        private void buttonNewTicket_Click(object sender, EventArgs e)
+        {
+            SaveTicket();
+            ClearTicket();
+        }
+
+        public void Navigate()
+        {
+            switch (_previousFormIndex)
+            {
+                case 0:
+                    NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                    break;
+                case 1:
+                    NavigationManager.OpenForm(new TablesForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                    GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
+                    break;
+                case 2:
+                    NavigationManager.OpenForm(new TicketsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                    GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
+                    break;
+                default:
+                    NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                    GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
+                    break;
+            }
         }
 
         private void buttonPayment_Click(object sender, EventArgs e)
@@ -656,16 +725,16 @@ namespace WindowsFormsAppUI.Forms
             numeratorUserControl.Clear();
         }
 
-        private void buttonTicketDelete_Click(object sender, EventArgs e)
+        public void DeleteTicket()
         {
-            if (_orders.Count != 0)
+            if (GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("ReceiptWillBeDeleted(Cancel)DoYouWantToContinue?"), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.YesNo, MessageIcon.Warning) != DialogResult.Yes)
             {
-                if (GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("ReceiptWillBeDeleted(Cancel)DoYouWantToContinue?"), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.YesNo, MessageIcon.Warning) != DialogResult.Yes)
-                {
-                    return;
-                }
+                return;
+            }
 
-                var ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+            var ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+            if (ticket != null)
+            {
                 var payments = _genericRepositoryPayment.GetAll(x => x.TicketId == ticket.TicketId);
                 foreach (Payment payment in payments)
                 {
@@ -682,9 +751,14 @@ namespace WindowsFormsAppUI.Forms
                 {
                     _genericRepositoryTicket.Delete(ticket);
                 }
-
-                ClearTicket();
             }
+
+            ClearTicket();
+        }
+
+        private void buttonTicketDelete_Click(object sender, EventArgs e)
+        {
+            DeleteTicket();
         }
 
         private void buttonTickets_Click(object sender, EventArgs e)
@@ -706,11 +780,6 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        private void buttonNewTicket_Click(object sender, EventArgs e)
-        {
-            SaveTicket();
 
-            ClearTicket();
-        }
     }
 }

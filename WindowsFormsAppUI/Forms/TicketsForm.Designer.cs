@@ -71,10 +71,10 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 600);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 77F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 923);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -91,9 +91,9 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(800, 65);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1200, 100);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
@@ -101,9 +101,10 @@ namespace WindowsFormsAppUI.Forms
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(394, 26);
+            this.label1.Size = new System.Drawing.Size(592, 40);
             this.label1.TabIndex = 0;
             this.label1.Text = "Başlangıç";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -113,9 +114,10 @@ namespace WindowsFormsAppUI.Forms
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(403, 0);
+            this.label2.Location = new System.Drawing.Point(604, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(394, 26);
+            this.label2.Size = new System.Drawing.Size(592, 40);
             this.label2.TabIndex = 0;
             this.label2.Text = "Bitiş";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -127,9 +129,10 @@ namespace WindowsFormsAppUI.Forms
             this.dateTimePickerStart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePickerStart.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dateTimePickerStart.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.dateTimePickerStart.Location = new System.Drawing.Point(3, 29);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(4, 45);
+            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(394, 34);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(592, 47);
             this.dateTimePickerStart.TabIndex = 1;
             this.dateTimePickerStart.ValueChanged += new System.EventHandler(this.dateTimePickerStart_ValueChanged);
             // 
@@ -140,10 +143,11 @@ namespace WindowsFormsAppUI.Forms
             this.dateTimePickerEnd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePickerEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.dateTimePickerEnd.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(403, 29);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(604, 45);
+            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
             this.dateTimePickerEnd.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(394, 34);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(592, 47);
             this.dateTimePickerEnd.TabIndex = 1;
             this.dateTimePickerEnd.ValueChanged += new System.EventHandler(this.dateTimePickerStart_ValueChanged);
             // 
@@ -160,12 +164,12 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel3.Controls.Add(this.labelTotalAmount, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.label5, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 550);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 846);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(800, 50);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1200, 77);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // label3
@@ -173,9 +177,10 @@ namespace WindowsFormsAppUI.Forms
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Location = new System.Drawing.Point(4, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 50);
+            this.label3.Size = new System.Drawing.Size(232, 77);
             this.label3.TabIndex = 0;
             this.label3.Text = "Toplam Fiş:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -185,9 +190,10 @@ namespace WindowsFormsAppUI.Forms
             this.labelTotalTicket.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelTotalTicket.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.labelTotalTicket.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.labelTotalTicket.Location = new System.Drawing.Point(163, 0);
+            this.labelTotalTicket.Location = new System.Drawing.Point(244, 0);
+            this.labelTotalTicket.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTotalTicket.Name = "labelTotalTicket";
-            this.labelTotalTicket.Size = new System.Drawing.Size(154, 50);
+            this.labelTotalTicket.Size = new System.Drawing.Size(232, 77);
             this.labelTotalTicket.TabIndex = 0;
             this.labelTotalTicket.Text = "0";
             this.labelTotalTicket.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -197,9 +203,10 @@ namespace WindowsFormsAppUI.Forms
             this.labelTotalAmount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelTotalAmount.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.labelTotalAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.labelTotalAmount.Location = new System.Drawing.Point(643, 0);
+            this.labelTotalAmount.Location = new System.Drawing.Point(964, 0);
+            this.labelTotalAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTotalAmount.Name = "labelTotalAmount";
-            this.labelTotalAmount.Size = new System.Drawing.Size(154, 50);
+            this.labelTotalAmount.Size = new System.Drawing.Size(232, 77);
             this.labelTotalAmount.TabIndex = 0;
             this.labelTotalAmount.Text = "0,00";
             this.labelTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -209,9 +216,10 @@ namespace WindowsFormsAppUI.Forms
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(483, 0);
+            this.label5.Location = new System.Drawing.Point(724, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 50);
+            this.label5.Size = new System.Drawing.Size(232, 77);
             this.label5.TabIndex = 0;
             this.label5.Text = "Toplam Bakiye:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -246,26 +254,30 @@ namespace WindowsFormsAppUI.Forms
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewTickets.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTickets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewTickets.EnableHeadersVisualStyles = false;
-            this.dataGridViewTickets.Location = new System.Drawing.Point(3, 68);
+            this.dataGridViewTickets.Location = new System.Drawing.Point(4, 105);
+            this.dataGridViewTickets.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridViewTickets.MultiSelect = false;
             this.dataGridViewTickets.Name = "dataGridViewTickets";
             this.dataGridViewTickets.ReadOnly = true;
             this.dataGridViewTickets.RowHeadersVisible = false;
+            this.dataGridViewTickets.RowHeadersWidth = 62;
             this.dataGridViewTickets.RowTemplate.Height = 25;
             this.dataGridViewTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTickets.Size = new System.Drawing.Size(794, 479);
+            this.dataGridViewTickets.Size = new System.Drawing.Size(1192, 736);
             this.dataGridViewTickets.TabIndex = 2;
             this.dataGridViewTickets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTickets_CellContentClick);
             // 
             // TicketId
             // 
             this.TicketId.HeaderText = "TicketId";
+            this.TicketId.MinimumWidth = 8;
             this.TicketId.Name = "TicketId";
             this.TicketId.ReadOnly = true;
             this.TicketId.Visible = false;
@@ -273,6 +285,7 @@ namespace WindowsFormsAppUI.Forms
             // TicketGuid
             // 
             this.TicketGuid.HeaderText = "TicketGuid";
+            this.TicketGuid.MinimumWidth = 8;
             this.TicketGuid.Name = "TicketGuid";
             this.TicketGuid.ReadOnly = true;
             this.TicketGuid.Visible = false;
@@ -280,6 +293,7 @@ namespace WindowsFormsAppUI.Forms
             // DateTime
             // 
             this.DateTime.HeaderText = "DateTime";
+            this.DateTime.MinimumWidth = 8;
             this.DateTime.Name = "DateTime";
             this.DateTime.ReadOnly = true;
             this.DateTime.Visible = false;
@@ -287,41 +301,47 @@ namespace WindowsFormsAppUI.Forms
             // TicketNumber
             // 
             this.TicketNumber.HeaderText = "Fiş Numarası";
+            this.TicketNumber.MinimumWidth = 8;
             this.TicketNumber.Name = "TicketNumber";
             this.TicketNumber.ReadOnly = true;
             // 
             // Date
             // 
             this.Date.HeaderText = "Tarih";
+            this.Date.MinimumWidth = 8;
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
             // 
             // Time
             // 
             this.Time.HeaderText = "Açılış-Kapanış";
+            this.Time.MinimumWidth = 8;
             this.Time.Name = "Time";
             this.Time.ReadOnly = true;
             // 
             // CreatedUsername
             // 
             this.CreatedUsername.HeaderText = "Kullanıcı";
+            this.CreatedUsername.MinimumWidth = 8;
             this.CreatedUsername.Name = "CreatedUsername";
             this.CreatedUsername.ReadOnly = true;
             // 
             // TotalAmount
             // 
             this.TotalAmount.HeaderText = "Toplam";
+            this.TotalAmount.MinimumWidth = 8;
             this.TotalAmount.Name = "TotalAmount";
             this.TotalAmount.ReadOnly = true;
             // 
             // TicketsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(1200, 923);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "TicketsForm";
             this.ShowInTaskbar = false;
             this.Text = "BarcodePOS";

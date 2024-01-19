@@ -261,6 +261,9 @@
   <data name="POS" xml:space="preserve">
     <value>POS</value>
   </data>
+  <data name="POSTable" xml:space="preserve">
+    <value>Table: {0}</value>
+  </data>
   <data name="Print" xml:space="preserve">
     <value>Print</value>
   </data>
