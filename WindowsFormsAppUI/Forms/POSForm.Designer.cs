@@ -46,8 +46,8 @@ namespace WindowsFormsAppUI.Forms
             this.buttonTickets = new System.Windows.Forms.Button();
             this.buttonPrint = new System.Windows.Forms.Button();
             this.buttonOpenTheDrawer = new System.Windows.Forms.Button();
+            this.buttonChangeTable = new System.Windows.Forms.Button();
             this.flowLayoutPanelOrders = new System.Windows.Forms.FlowLayoutPanel();
-            this.numeratorUserControl = new WindowsFormsAppUI.UserControls.NumeratorUserControl();
             this.tableLayoutPanelMiddle = new System.Windows.Forms.TableLayoutPanel();
             this.labelTable = new System.Windows.Forms.Label();
             this.tableLayoutPanelProducts = new System.Windows.Forms.TableLayoutPanel();
@@ -63,6 +63,7 @@ namespace WindowsFormsAppUI.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.labelTicketTotal = new System.Windows.Forms.Label();
+            this.numeratorUserControl = new WindowsFormsAppUI.UserControls.NumeratorUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelCategories.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -238,6 +239,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel4.Controls.Add(this.buttonTickets, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.buttonPrint, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.buttonOpenTheDrawer, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.buttonChangeTable, 1, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 692);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
@@ -328,7 +330,6 @@ namespace WindowsFormsAppUI.Forms
             // buttonOpenTheDrawer
             // 
             this.buttonOpenTheDrawer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
-            this.tableLayoutPanel4.SetColumnSpan(this.buttonOpenTheDrawer, 2);
             this.buttonOpenTheDrawer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonOpenTheDrawer.FlatAppearance.BorderSize = 0;
             this.buttonOpenTheDrawer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
@@ -339,10 +340,29 @@ namespace WindowsFormsAppUI.Forms
             this.buttonOpenTheDrawer.Location = new System.Drawing.Point(6, 160);
             this.buttonOpenTheDrawer.Margin = new System.Windows.Forms.Padding(6);
             this.buttonOpenTheDrawer.Name = "buttonOpenTheDrawer";
-            this.buttonOpenTheDrawer.Size = new System.Drawing.Size(468, 65);
+            this.buttonOpenTheDrawer.Size = new System.Drawing.Size(228, 65);
             this.buttonOpenTheDrawer.TabIndex = 9;
             this.buttonOpenTheDrawer.Text = "Çekmeceyi Aç";
             this.buttonOpenTheDrawer.UseVisualStyleBackColor = false;
+            // 
+            // buttonChangeTable
+            // 
+            this.buttonChangeTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            this.buttonChangeTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonChangeTable.FlatAppearance.BorderSize = 0;
+            this.buttonChangeTable.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonChangeTable.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonChangeTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonChangeTable.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonChangeTable.ForeColor = System.Drawing.Color.White;
+            this.buttonChangeTable.Location = new System.Drawing.Point(246, 160);
+            this.buttonChangeTable.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonChangeTable.Name = "buttonChangeTable";
+            this.buttonChangeTable.Size = new System.Drawing.Size(228, 65);
+            this.buttonChangeTable.TabIndex = 9;
+            this.buttonChangeTable.Text = "Masa Değiştir";
+            this.buttonChangeTable.UseVisualStyleBackColor = false;
+            this.buttonChangeTable.Click += new System.EventHandler(this.buttonChangeTable_Click);
             // 
             // flowLayoutPanelOrders
             // 
@@ -354,25 +374,13 @@ namespace WindowsFormsAppUI.Forms
             this.flowLayoutPanelOrders.Size = new System.Drawing.Size(480, 307);
             this.flowLayoutPanelOrders.TabIndex = 0;
             // 
-            // numeratorUserControl
-            // 
-            this.numeratorUserControl.BackColor = System.Drawing.Color.Transparent;
-            this.numeratorUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numeratorUserControl.Location = new System.Drawing.Point(0, 307);
-            this.numeratorUserControl.Margin = new System.Windows.Forms.Padding(0);
-            this.numeratorUserControl.Name = "numeratorUserControl";
-            this.numeratorUserControl.NumeratorDisplay = "";
-            this.numeratorUserControl.Size = new System.Drawing.Size(480, 385);
-            this.numeratorUserControl.TabIndex = 2;
-            this.numeratorUserControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeratorTextBoxPin_KeyPress);
-            // 
             // tableLayoutPanelMiddle
             // 
             this.tableLayoutPanelMiddle.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanelMiddle.ColumnCount = 1;
             this.tableLayoutPanelMiddle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelMiddle.Controls.Add(this.labelTable, 0, 0);
             this.tableLayoutPanelMiddle.Controls.Add(this.tableLayoutPanelProducts, 0, 1);
+            this.tableLayoutPanelMiddle.Controls.Add(this.labelTable, 0, 0);
             this.tableLayoutPanelMiddle.Controls.Add(this.tableLayoutPanel3, 0, 3);
             this.tableLayoutPanelMiddle.Controls.Add(this.tableLayoutPanelLabels, 0, 2);
             this.tableLayoutPanelMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -384,6 +392,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 154F));
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 154F));
+            this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelMiddle.Size = new System.Drawing.Size(578, 923);
             this.tableLayoutPanelMiddle.TabIndex = 3;
             // 
@@ -612,6 +621,18 @@ namespace WindowsFormsAppUI.Forms
             this.labelTicketTotal.Text = "0,00";
             this.labelTicketTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // numeratorUserControl
+            // 
+            this.numeratorUserControl.BackColor = System.Drawing.Color.Transparent;
+            this.numeratorUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numeratorUserControl.Location = new System.Drawing.Point(0, 307);
+            this.numeratorUserControl.Margin = new System.Windows.Forms.Padding(0);
+            this.numeratorUserControl.Name = "numeratorUserControl";
+            this.numeratorUserControl.NumeratorDisplay = "";
+            this.numeratorUserControl.Size = new System.Drawing.Size(480, 385);
+            this.numeratorUserControl.TabIndex = 2;
+            this.numeratorUserControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeratorTextBoxPin_KeyPress);
+            // 
             // POSForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -674,5 +695,6 @@ namespace WindowsFormsAppUI.Forms
         private Label label4;
         private Label labelTicketTotal;
         private Label labelTable;
+        private Button buttonChangeTable;
     }
 }

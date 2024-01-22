@@ -147,6 +147,9 @@
   <data name="CategorySales" xml:space="preserve">
     <value>Category Sales</value>
   </data>
+  <data name="ChangeTable" xml:space="preserve">
+    <value>Change Table</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
@@ -317,6 +320,12 @@
   </data>
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>The changes have been saved.</value>
+  </data>
+  <data name="TheTablesWillJoinDoYouWantToContinue?" xml:space="preserve">
+    <value>The tables will join, do you want to continue?</value>
+  </data>
+  <data name="TheTableWillBeChangedDoYouWantToContinue?" xml:space="preserve">
+    <value>The table will be changed, do you want to continue?</value>
   </data>
   <data name="TicketCancellation" xml:space="preserve">
     <value>Ticket Cancellation</value>

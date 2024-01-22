@@ -1,7 +1,6 @@
 ﻿using Database.Data;
 using Database.Models;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
 
@@ -27,7 +26,7 @@ namespace WindowsFormsAppUI.Forms
 
         private void pinPadUserControl1_PinEntered(object sender, string e)
         {
-            var user = _genericRepository.GetAll(x => x.Password == e).FirstOrDefault();
+            var user = _genericRepository.Get(x => x.Password == e);
             if (user is null)
             {
                 GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("UserNotFound!"), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.OK, MessageIcon.Warning);

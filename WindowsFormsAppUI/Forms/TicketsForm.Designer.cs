@@ -37,17 +37,17 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.labelTotalTicket = new System.Windows.Forms.Label();
             this.labelTotalAmount = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridViewTickets = new System.Windows.Forms.DataGridView();
+            this.dateTimePickerStart = new DevExpress.XtraEditors.DateEdit();
+            this.dateTimePickerEnd = new DevExpress.XtraEditors.DateEdit();
             this.TicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TicketGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TicketNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +57,10 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTickets)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerEnd.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerEnd.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -98,7 +102,6 @@ namespace WindowsFormsAppUI.Forms
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(4, 0);
@@ -121,35 +124,6 @@ namespace WindowsFormsAppUI.Forms
             this.label2.TabIndex = 0;
             this.label2.Text = "Bitiş";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // dateTimePickerStart
-            // 
-            this.dateTimePickerStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.dateTimePickerStart.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.dateTimePickerStart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePickerStart.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dateTimePickerStart.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.dateTimePickerStart.Location = new System.Drawing.Point(4, 45);
-            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(592, 47);
-            this.dateTimePickerStart.TabIndex = 1;
-            this.dateTimePickerStart.ValueChanged += new System.EventHandler(this.dateTimePickerStart_ValueChanged);
-            // 
-            // dateTimePickerEnd
-            // 
-            this.dateTimePickerEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.dateTimePickerEnd.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.dateTimePickerEnd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePickerEnd.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dateTimePickerEnd.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(604, 45);
-            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(592, 47);
-            this.dateTimePickerEnd.TabIndex = 1;
-            this.dateTimePickerEnd.ValueChanged += new System.EventHandler(this.dateTimePickerStart_ValueChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -244,7 +218,7 @@ namespace WindowsFormsAppUI.Forms
             this.dataGridViewTickets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TicketId,
             this.TicketGuid,
-            this.DateTime,
+            this.DT,
             this.TicketNumber,
             this.Date,
             this.Time,
@@ -274,6 +248,48 @@ namespace WindowsFormsAppUI.Forms
             this.dataGridViewTickets.TabIndex = 2;
             this.dataGridViewTickets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTickets_CellContentClick);
             // 
+            // dateTimePickerStart
+            // 
+            this.dateTimePickerStart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateTimePickerStart.EditValue = null;
+            this.dateTimePickerStart.Location = new System.Drawing.Point(3, 43);
+            this.dateTimePickerStart.Name = "dateTimePickerStart";
+            this.dateTimePickerStart.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.dateTimePickerStart.Properties.Appearance.Options.UseFont = true;
+            this.dateTimePickerStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerStart.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
+            this.dateTimePickerStart.Properties.MaskSettings.Set("mask", "D");
+            this.dateTimePickerStart.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dateTimePickerStart.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.dateTimePickerStart.Size = new System.Drawing.Size(594, 48);
+            this.dateTimePickerStart.TabIndex = 1;
+            this.dateTimePickerStart.UpdateSelectionWhenNavigating = true;
+            this.dateTimePickerStart.EditValueChanged += new System.EventHandler(this.dateTimePickerEnd_EditValueChanged);
+            // 
+            // dateTimePickerEnd
+            // 
+            this.dateTimePickerEnd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateTimePickerEnd.EditValue = null;
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(603, 43);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.dateTimePickerEnd.Properties.Appearance.Options.UseFont = true;
+            this.dateTimePickerEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerEnd.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
+            this.dateTimePickerEnd.Properties.MaskSettings.Set("mask", "D");
+            this.dateTimePickerEnd.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dateTimePickerEnd.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(594, 48);
+            this.dateTimePickerEnd.TabIndex = 1;
+            this.dateTimePickerEnd.UpdateSelectionWhenNavigating = true;
+            this.dateTimePickerEnd.EditValueChanged += new System.EventHandler(this.dateTimePickerEnd_EditValueChanged);
+            // 
             // TicketId
             // 
             this.TicketId.HeaderText = "TicketId";
@@ -290,13 +306,13 @@ namespace WindowsFormsAppUI.Forms
             this.TicketGuid.ReadOnly = true;
             this.TicketGuid.Visible = false;
             // 
-            // DateTime
+            // DT
             // 
-            this.DateTime.HeaderText = "DateTime";
-            this.DateTime.MinimumWidth = 8;
-            this.DateTime.Name = "DateTime";
-            this.DateTime.ReadOnly = true;
-            this.DateTime.Visible = false;
+            this.DT.HeaderText = "DT";
+            this.DT.MinimumWidth = 8;
+            this.DT.Name = "DT";
+            this.DT.ReadOnly = true;
+            this.DT.Visible = false;
             // 
             // TicketNumber
             // 
@@ -350,6 +366,10 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTickets)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerEnd.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerEnd.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -361,16 +381,16 @@ namespace WindowsFormsAppUI.Forms
         private TableLayoutPanel tableLayoutPanel3;
         private Label label1;
         private Label label2;
-        private DateTimePicker dateTimePickerStart;
-        private DateTimePicker dateTimePickerEnd;
         private DataGridView dataGridViewTickets;
         private Label label3;
         private Label labelTotalTicket;
         private Label label5;
         private Label labelTotalAmount;
+        private DevExpress.XtraEditors.DateEdit dateTimePickerStart;
+        private DevExpress.XtraEditors.DateEdit dateTimePickerEnd;
         private DataGridViewTextBoxColumn TicketId;
         private DataGridViewTextBoxColumn TicketGuid;
-        private DataGridViewTextBoxColumn DateTime;
+        private DataGridViewTextBoxColumn DT;
         private DataGridViewTextBoxColumn TicketNumber;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn Time;
