@@ -88,10 +88,10 @@ namespace WindowsFormsAppUI.Forms
 
         private void NumeratorTextBoxPin_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Sadece rakam (0-9) veya virgül (,) karakterlerine izin verme
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '\b') // '\b' BACKSPACE karakteridir
+            //Only allow digits (0-9) or comma (,) characters
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '\b')
             {
-                e.Handled = true; // Olayı işleme (yoksayma)
+                e.Handled = true; //Handle (ignore) the event
             }
         }
 

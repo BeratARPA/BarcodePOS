@@ -22,6 +22,9 @@ namespace WindowsFormsAppUI.Forms
         private void TicketsForm_Load(object sender, EventArgs e)
         {
             AddTicketsDataGridView();
+
+            dateTimePickerStart.DateTime = DateTime.Now;
+            dateTimePickerEnd.DateTime = DateTime.Now;
         }
 
         public void UpdateUILanguage()
@@ -41,8 +44,8 @@ namespace WindowsFormsAppUI.Forms
         {
             dataGridViewTickets.Rows.Clear();
 
-            DateTime startDate = dateTimePickerStart.Value;
-            DateTime endDate = dateTimePickerEnd.Value;
+            DateTime startDate = dateTimePickerStart.DateTime.Date;
+            DateTime endDate = dateTimePickerEnd.DateTime.Date.Date;
             endDate = endDate.AddDays(1);
 
             double totalAmount = 0;
@@ -104,7 +107,7 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        private void dateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        private void dateTimePickerEnd_EditValueChanged(object sender, EventArgs e)
         {
             DataGridViewColumn column = dataGridViewTickets.Columns["Show"];
             dataGridViewTickets.Columns.Remove(column);

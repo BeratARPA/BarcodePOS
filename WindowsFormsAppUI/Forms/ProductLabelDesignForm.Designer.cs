@@ -71,17 +71,17 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 266F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 600);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 134F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 923);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 257F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 386F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -90,7 +90,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(800, 173);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1200, 266);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -103,7 +103,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel3.Controls.Add(this.textBoxBarcodeDescription, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.buttonCreateBarcode, 0, 4);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(271, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(407, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 5;
@@ -112,7 +112,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(257, 173);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(386, 266);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // label1
@@ -121,9 +121,10 @@ namespace WindowsFormsAppUI.Forms
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 34);
+            this.label1.Size = new System.Drawing.Size(378, 53);
             this.label1.TabIndex = 0;
             this.label1.Text = "Barkod";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -134,9 +135,10 @@ namespace WindowsFormsAppUI.Forms
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(3, 68);
+            this.label2.Location = new System.Drawing.Point(4, 106);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(251, 34);
+            this.label2.Size = new System.Drawing.Size(378, 53);
             this.label2.TabIndex = 0;
             this.label2.Text = "Barkod Açıklama";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -147,9 +149,10 @@ namespace WindowsFormsAppUI.Forms
             this.textBoxBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxBarcode.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.textBoxBarcode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.textBoxBarcode.Location = new System.Drawing.Point(3, 37);
+            this.textBoxBarcode.Location = new System.Drawing.Point(4, 58);
+            this.textBoxBarcode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxBarcode.Name = "textBoxBarcode";
-            this.textBoxBarcode.Size = new System.Drawing.Size(251, 25);
+            this.textBoxBarcode.Size = new System.Drawing.Size(378, 34);
             this.textBoxBarcode.TabIndex = 1;
             // 
             // textBoxBarcodeDescription
@@ -158,9 +161,10 @@ namespace WindowsFormsAppUI.Forms
             this.textBoxBarcodeDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxBarcodeDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.textBoxBarcodeDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.textBoxBarcodeDescription.Location = new System.Drawing.Point(3, 105);
+            this.textBoxBarcodeDescription.Location = new System.Drawing.Point(4, 164);
+            this.textBoxBarcodeDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxBarcodeDescription.Name = "textBoxBarcodeDescription";
-            this.textBoxBarcodeDescription.Size = new System.Drawing.Size(251, 25);
+            this.textBoxBarcodeDescription.Size = new System.Drawing.Size(378, 34);
             this.textBoxBarcodeDescription.TabIndex = 1;
             // 
             // buttonCreateBarcode
@@ -173,9 +177,10 @@ namespace WindowsFormsAppUI.Forms
             this.buttonCreateBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateBarcode.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonCreateBarcode.ForeColor = System.Drawing.Color.White;
-            this.buttonCreateBarcode.Location = new System.Drawing.Point(3, 139);
+            this.buttonCreateBarcode.Location = new System.Drawing.Point(4, 217);
+            this.buttonCreateBarcode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonCreateBarcode.Name = "buttonCreateBarcode";
-            this.buttonCreateBarcode.Size = new System.Drawing.Size(251, 31);
+            this.buttonCreateBarcode.Size = new System.Drawing.Size(378, 44);
             this.buttonCreateBarcode.TabIndex = 2;
             this.buttonCreateBarcode.Text = "Barkod Oluştur";
             this.buttonCreateBarcode.UseVisualStyleBackColor = false;
@@ -189,14 +194,14 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 1, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 513);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 789);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 94F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(800, 87);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1200, 134);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
             // tableLayoutPanel5
@@ -219,12 +224,12 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel5.Controls.Add(this.buttonSave, 6, 0);
             this.tableLayoutPanel5.Controls.Add(this.buttonLoad, 7, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(40, 13);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(60, 20);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(720, 61);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1080, 94);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // buttonAddTLSymbol
@@ -237,9 +242,10 @@ namespace WindowsFormsAppUI.Forms
             this.buttonAddTLSymbol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddTLSymbol.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonAddTLSymbol.ForeColor = System.Drawing.Color.White;
-            this.buttonAddTLSymbol.Location = new System.Drawing.Point(3, 3);
+            this.buttonAddTLSymbol.Location = new System.Drawing.Point(4, 5);
+            this.buttonAddTLSymbol.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonAddTLSymbol.Name = "buttonAddTLSymbol";
-            this.buttonAddTLSymbol.Size = new System.Drawing.Size(84, 55);
+            this.buttonAddTLSymbol.Size = new System.Drawing.Size(127, 84);
             this.buttonAddTLSymbol.TabIndex = 2;
             this.buttonAddTLSymbol.Text = "TL Simgesi";
             this.buttonAddTLSymbol.UseVisualStyleBackColor = false;
@@ -255,9 +261,10 @@ namespace WindowsFormsAppUI.Forms
             this.buttonAddLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonAddLabel.ForeColor = System.Drawing.Color.White;
-            this.buttonAddLabel.Location = new System.Drawing.Point(93, 3);
+            this.buttonAddLabel.Location = new System.Drawing.Point(139, 5);
+            this.buttonAddLabel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonAddLabel.Name = "buttonAddLabel";
-            this.buttonAddLabel.Size = new System.Drawing.Size(84, 55);
+            this.buttonAddLabel.Size = new System.Drawing.Size(127, 84);
             this.buttonAddLabel.TabIndex = 2;
             this.buttonAddLabel.Text = "Etiket";
             this.buttonAddLabel.UseVisualStyleBackColor = false;
@@ -273,9 +280,10 @@ namespace WindowsFormsAppUI.Forms
             this.buttonAddImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddImage.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonAddImage.ForeColor = System.Drawing.Color.White;
-            this.buttonAddImage.Location = new System.Drawing.Point(183, 3);
+            this.buttonAddImage.Location = new System.Drawing.Point(274, 5);
+            this.buttonAddImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonAddImage.Name = "buttonAddImage";
-            this.buttonAddImage.Size = new System.Drawing.Size(84, 55);
+            this.buttonAddImage.Size = new System.Drawing.Size(127, 84);
             this.buttonAddImage.TabIndex = 2;
             this.buttonAddImage.Text = "Resim";
             this.buttonAddImage.UseVisualStyleBackColor = false;
@@ -291,9 +299,10 @@ namespace WindowsFormsAppUI.Forms
             this.buttonAddRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddRectangle.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonAddRectangle.ForeColor = System.Drawing.Color.White;
-            this.buttonAddRectangle.Location = new System.Drawing.Point(273, 3);
+            this.buttonAddRectangle.Location = new System.Drawing.Point(409, 5);
+            this.buttonAddRectangle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonAddRectangle.Name = "buttonAddRectangle";
-            this.buttonAddRectangle.Size = new System.Drawing.Size(84, 55);
+            this.buttonAddRectangle.Size = new System.Drawing.Size(127, 84);
             this.buttonAddRectangle.TabIndex = 2;
             this.buttonAddRectangle.Text = "Dikdörtgen";
             this.buttonAddRectangle.UseVisualStyleBackColor = false;
@@ -309,9 +318,10 @@ namespace WindowsFormsAppUI.Forms
             this.buttonAddLocalProductionSymbol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddLocalProductionSymbol.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonAddLocalProductionSymbol.ForeColor = System.Drawing.Color.White;
-            this.buttonAddLocalProductionSymbol.Location = new System.Drawing.Point(363, 3);
+            this.buttonAddLocalProductionSymbol.Location = new System.Drawing.Point(544, 5);
+            this.buttonAddLocalProductionSymbol.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonAddLocalProductionSymbol.Name = "buttonAddLocalProductionSymbol";
-            this.buttonAddLocalProductionSymbol.Size = new System.Drawing.Size(84, 55);
+            this.buttonAddLocalProductionSymbol.Size = new System.Drawing.Size(127, 84);
             this.buttonAddLocalProductionSymbol.TabIndex = 2;
             this.buttonAddLocalProductionSymbol.Text = "Yerli Üretim Simgesi";
             this.buttonAddLocalProductionSymbol.UseVisualStyleBackColor = false;
@@ -327,9 +337,10 @@ namespace WindowsFormsAppUI.Forms
             this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrint.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonPrint.ForeColor = System.Drawing.Color.White;
-            this.buttonPrint.Location = new System.Drawing.Point(453, 3);
+            this.buttonPrint.Location = new System.Drawing.Point(679, 5);
+            this.buttonPrint.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(84, 55);
+            this.buttonPrint.Size = new System.Drawing.Size(127, 84);
             this.buttonPrint.TabIndex = 2;
             this.buttonPrint.Text = "Yazdır";
             this.buttonPrint.UseVisualStyleBackColor = false;
@@ -345,9 +356,10 @@ namespace WindowsFormsAppUI.Forms
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(543, 3);
+            this.buttonSave.Location = new System.Drawing.Point(814, 5);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(84, 55);
+            this.buttonSave.Size = new System.Drawing.Size(127, 84);
             this.buttonSave.TabIndex = 2;
             this.buttonSave.Text = "Kaydet";
             this.buttonSave.UseVisualStyleBackColor = false;
@@ -363,9 +375,10 @@ namespace WindowsFormsAppUI.Forms
             this.buttonLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLoad.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonLoad.ForeColor = System.Drawing.Color.White;
-            this.buttonLoad.Location = new System.Drawing.Point(633, 3);
+            this.buttonLoad.Location = new System.Drawing.Point(949, 5);
+            this.buttonLoad.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(84, 55);
+            this.buttonLoad.Size = new System.Drawing.Size(127, 84);
             this.buttonLoad.TabIndex = 2;
             this.buttonLoad.Text = "Yükle";
             this.buttonLoad.UseVisualStyleBackColor = false;
@@ -376,38 +389,39 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.tableLayoutPanelMain.ColumnCount = 3;
             this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
+            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 486F));
             this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
             this.tableLayoutPanelMain.Controls.Add(this.panelMain, 1, 1);
             this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 173);
+            this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 266);
             this.tableLayoutPanelMain.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelMain.Name = "tableLayoutPanelMain";
             this.tableLayoutPanelMain.RowCount = 3;
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 192F));
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
-            this.tableLayoutPanelMain.Size = new System.Drawing.Size(800, 340);
+            this.tableLayoutPanelMain.Size = new System.Drawing.Size(1200, 523);
             this.tableLayoutPanelMain.TabIndex = 3;
             // 
             // panelMain
             // 
             this.panelMain.BackColor = System.Drawing.Color.White;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(237, 107);
+            this.panelMain.Location = new System.Drawing.Point(356, 165);
             this.panelMain.Margin = new System.Windows.Forms.Padding(0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(324, 125);
+            this.panelMain.Size = new System.Drawing.Size(486, 192);
             this.panelMain.TabIndex = 1;
             // 
             // ProductLabelDesignForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(1200, 923);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ProductLabelDesignForm";
             this.ShowInTaskbar = false;
             this.Text = "BarcodePOS";

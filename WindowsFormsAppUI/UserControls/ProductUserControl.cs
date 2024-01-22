@@ -73,10 +73,7 @@ namespace WindowsFormsAppUI.UserControls
                 {
                     pictureBoxImage.LoadAsync(value);
                 }
-                catch (Exception)
-                {
-                    pictureBoxImage.Image = Properties.Resources.no_photo;
-                }
+                catch{}
             }
         }
 

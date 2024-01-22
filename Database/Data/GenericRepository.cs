@@ -21,16 +21,10 @@ namespace Database.Data
             _context.SaveChanges();
         }
 
-        public List<T> GetAll(Expression<Func<T, bool>> filter = null)
+        public void AddAll(List<T> entities)
         {
-            return filter == null 
-                ? _context.Set<T>().AsNoTracking().ToList()
-                : _context.Set<T>().Where(filter).ToList();
-        }
-
-        public T Get(Expression<Func<T, bool>> filter = null)
-        {
-            return _context.Set<T>().Where(filter).FirstOrDefault();
+            _context.Set<T>().AddRange(entities);
+            _context.SaveChanges();
         }
 
         public void Update(T entity)
@@ -43,6 +37,24 @@ namespace Database.Data
         {
             _context.Entry(entity).State = EntityState.Deleted;
             _context.SaveChanges();
+        }
+
+        public void DeleteAll(List<T> entities)
+        {
+            _context.Set<T>().RemoveRange(entities);
+            _context.SaveChanges();
+        }
+
+        public T Get(Expression<Func<T, bool>> filter = null)
+        {
+            return _context.Set<T>().Where(filter).FirstOrDefault();
+        }
+
+        public List<T> GetAll(Expression<Func<T, bool>> filter = null)
+        {
+            return filter == null
+                ? _context.Set<T>().AsNoTracking().ToList()
+                : _context.Set<T>().Where(filter).ToList();
         }
 
         public void UpdateColumn<TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression, TProperty value)

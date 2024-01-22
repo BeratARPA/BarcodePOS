@@ -7,10 +7,12 @@ namespace Database.Data
     public interface IGenericRepository<T> where T : class, new()
     {
         void Add(T entity);
+        void AddAll(List<T> entities);
         void Update(T entity);
         void Delete(T entity);
-        List<T> GetAll(Expression<Func<T, bool>> filter = null);
+        void DeleteAll(List<T> entities);
         T Get(Expression<Func<T, bool>> filter = null);
+        List<T> GetAll(Expression<Func<T, bool>> filter = null);
         void UpdateColumn<TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression, TProperty value);
     }
 }

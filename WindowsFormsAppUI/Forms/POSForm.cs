@@ -1,12 +1,14 @@
 ﻿using Database.Data;
 using Database.Models;
+using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting.Export.Pdf.Compression;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
 using WindowsFormsAppUI.UserControls;
-using static DevExpress.XtraEditors.RoundedSkinPanel;
 
 namespace WindowsFormsAppUI.Forms
 {
@@ -24,7 +26,6 @@ namespace WindowsFormsAppUI.Forms
         private Ticket _ticket = new Ticket();
         private Section _section = new Section();
         private Table _table = new Table();
-        private List<Ticket> _tickets = new List<Ticket>();
         private List<Order> _orders = new List<Order>();
         private List<Product> _products = new List<Product>();
         private List<Category> _category = new List<Category>();
@@ -88,6 +89,7 @@ namespace WindowsFormsAppUI.Forms
             buttonDiscount.Text = GlobalVariables.CultureHelper.GetText("PercentDiscount");
             buttonTicketDelete.Text = GlobalVariables.CultureHelper.GetText("TicketCancellation");
             buttonOpenTheDrawer.Text = GlobalVariables.CultureHelper.GetText("OpenDrawer");
+            buttonChangeTable.Text = GlobalVariables.CultureHelper.GetText("ChangeTable");
         }
 
         public void CloseAndOpenTicket()
@@ -118,8 +120,6 @@ namespace WindowsFormsAppUI.Forms
 
         public void CreateTicket()
         {
-            _tickets = _genericRepositoryTicket.GetAll();
-
             if (_ticket != null)
             {
                 foreach (Order order in _ticket.Orders)
@@ -138,15 +138,11 @@ namespace WindowsFormsAppUI.Forms
                 return;
             }
 
-            int lastTicketNumber = 0;
-            try { lastTicketNumber = _tickets.Max(x => int.Parse(x.TicketNumber)); }
-            catch { lastTicketNumber = 0; }
-
             Ticket ticket = new Ticket
             {
                 TicketGuid = Guid.NewGuid(),
                 LastUpdateDate = DateTime.Now,
-                TicketNumber = (lastTicketNumber + 1).ToString(),
+                TicketNumber = TicketNumberHelper.GetNumber().ToString(),
                 Date = DateTime.Now,
                 LastOrderDate = DateTime.Now,
                 LastPaymentDate = DateTime.Now,
@@ -174,14 +170,14 @@ namespace WindowsFormsAppUI.Forms
             if (_section != null)
             {
                 _ticket.TableId = _table.TableId;
-                labelTable.Text = string.Format(GlobalVariables.CultureHelper.GetText("POSTable"), _table.Name);
+                labelTable.Text = string.Format(GlobalVariables.CultureHelper.GetText("POSTable"), TableName.GetName(_table.TableId));
                 tableLayoutPanelMiddle.RowStyles[0].Height = 50;
                 buttonNewTicket.Enabled = false;
             }
             else
             {
                 _ticket.TableId = 0;
-                tableLayoutPanelMiddle.RowStyles[0].Height = 0;               
+                tableLayoutPanelMiddle.RowStyles[0].Height = 0;
             }
         }
 
@@ -216,7 +212,7 @@ namespace WindowsFormsAppUI.Forms
                 TicketId = _ticket.TicketId,
                 ProductId = product.ProductId,
                 ProductName = product.Name,
-                Price = quantity * product.Price,
+                Price = product.Price,
                 Quantity = quantity,
                 TerminalName = GlobalVariables.TerminalName,
                 CreatingUserName = LoggedInUser.CurrentUser.Fullname,
@@ -351,7 +347,7 @@ namespace WindowsFormsAppUI.Forms
 
             var order = _orders.Find(x => x.ProductId == productOnCardUserControl._order.ProductId);
             order.Quantity = totalQuantity;
-            order.Price = totalPrice;
+            order.Price = productOnCardUserControl._product.Price;
             order.LastUpdateDateTime = DateTime.Now;
             _ticket.LastOrderDate = DateTime.Now;
         }
@@ -415,7 +411,7 @@ namespace WindowsFormsAppUI.Forms
 
             foreach (Order order in _orders)
             {
-                totalBalance += order.Price;
+                totalBalance += order.Price * order.Quantity;
             }
 
             labelTicketTotal.Text = string.Format("{0:C}", totalBalance);
@@ -438,8 +434,7 @@ namespace WindowsFormsAppUI.Forms
 
             labelBalance.Text = string.Format("{0:C}", totalBalance);
 
-
-            //
+            //Return
             if (totalBalance == 0)
             {
                 tableLayoutPanelMiddle.RowStyles[2].Height = 0;
@@ -491,7 +486,6 @@ namespace WindowsFormsAppUI.Forms
                     if (existingOrder != null)
                     {
                         existingOrder.LastUpdateDateTime = order.LastUpdateDateTime;
-                        existingOrder.Price = order.Price;
                         existingOrder.Quantity = order.Quantity;
 
                         _genericRepositoryOrder.Update(existingOrder);
@@ -502,6 +496,10 @@ namespace WindowsFormsAppUI.Forms
                         _genericRepositoryOrder.Add(order);
                     }
                 }
+
+                var ordersInDatabase = _genericRepositoryOrder.GetAll(x => x.TicketId == ticket.TicketId);
+                var ordersToRemove = ordersInDatabase.Where(dbOrder => !_orders.Any(order => order.ProductId == dbOrder.ProductId)).ToList();
+                _genericRepositoryOrder.DeleteAll(ordersToRemove);
             }
         }
 
@@ -546,7 +544,7 @@ namespace WindowsFormsAppUI.Forms
                     productOnCardUserControl.Price = totalPrice;
 
                     order.Quantity = totalQuantity;
-                    order.Price = totalPrice;
+                    order.Price = productOnCardUserControl._product.Price;
                 }
 
                 if (productOnCardUserControl.Quantity == 0)
@@ -677,10 +675,10 @@ namespace WindowsFormsAppUI.Forms
 
         private void NumeratorTextBoxPin_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Sadece rakam (0-9) veya virgül (,) karakterlerine izin verme
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '\b') // '\b' BACKSPACE karakteridir
+            //Only allow digits (0-9) or comma (,) characters
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',' && e.KeyChar != '\b')
             {
-                e.Handled = true; // Olayı işleme (yoksayma)
+                e.Handled = true; //Handle (ignore) the event
             }
 
             if (e.KeyChar == (char)Keys.Enter)
@@ -702,7 +700,7 @@ namespace WindowsFormsAppUI.Forms
                 }
                 else
                 {
-
+                    //If there is no product, add it.
                 }
             }
         }
@@ -736,16 +734,10 @@ namespace WindowsFormsAppUI.Forms
             if (ticket != null)
             {
                 var payments = _genericRepositoryPayment.GetAll(x => x.TicketId == ticket.TicketId);
-                foreach (Payment payment in payments)
-                {
-                    _genericRepositoryPayment.Delete(payment);
-                }
+                _genericRepositoryPayment.DeleteAll(payments);
 
                 var orders = _genericRepositoryOrder.GetAll(x => x.TicketId == ticket.TicketId);
-                foreach (Order order in orders)
-                {
-                    _genericRepositoryOrder.Delete(order);
-                }
+                _genericRepositoryOrder.DeleteAll(orders);
 
                 if (ticket != null)
                 {
@@ -764,7 +756,6 @@ namespace WindowsFormsAppUI.Forms
         private void buttonTickets_Click(object sender, EventArgs e)
         {
             SaveTicket();
-
             ClearTicket();
 
             NavigationManager.OpenForm(new TicketsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
@@ -780,6 +771,13 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-
+        private void buttonChangeTable_Click(object sender, EventArgs e)
+        {
+            if (_orders.Count != 0)
+            {
+                SaveTicket();
+                NavigationManager.OpenForm(new TablesForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            }
+        }
     }
 }

@@ -147,6 +147,9 @@
   <data name="CategorySales" xml:space="preserve">
     <value>Kategori Satışları</value>
   </data>
+  <data name="ChangeTable" xml:space="preserve">
+    <value>Masa Değiştir</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Temizle</value>
   </data>
@@ -317,6 +320,12 @@
   </data>
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>Değişiklikler kaydedildi.</value>
+  </data>
+  <data name="TheTablesWillJoinDoYouWantToContinue?" xml:space="preserve">
+    <value>Masalar birleşecek, devam etmek istiyor musunuz?</value>
+  </data>
+  <data name="TheTableWillBeChangedDoYouWantToContinue?" xml:space="preserve">
+    <value>Masa değişecek, devam etmek istiyor musunuz?</value>
   </data>
   <data name="TicketCancellation" xml:space="preserve">
     <value>Fiş İptali</value>

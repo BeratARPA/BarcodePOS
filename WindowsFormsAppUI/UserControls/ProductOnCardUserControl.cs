@@ -22,7 +22,7 @@ namespace WindowsFormsAppUI.UserControls
         private void ProductOnCardUserControl_Load(object sender, EventArgs e)
         {
             Name = _order.ProductName;
-            Price = _order.Price;
+            Price = _order.Price * _order.Quantity;
             Quantity = _order.Quantity;
         }
 

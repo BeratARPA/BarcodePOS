@@ -111,7 +111,7 @@ namespace WindowsFormsAppUI.Forms
             this.dataGridViewPaymentTypes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewPaymentTypes.EnableHeadersVisualStyles = false;
             this.dataGridViewPaymentTypes.Location = new System.Drawing.Point(26, 26);
-            this.dataGridViewPaymentTypes.Margin = new System.Windows.Forms.Padding(26, 26, 26, 26);
+            this.dataGridViewPaymentTypes.Margin = new System.Windows.Forms.Padding(26);
             this.dataGridViewPaymentTypes.MultiSelect = false;
             this.dataGridViewPaymentTypes.Name = "dataGridViewPaymentTypes";
             this.dataGridViewPaymentTypes.ReadOnly = true;
@@ -340,7 +340,7 @@ namespace WindowsFormsAppUI.Forms
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.buttonSave.ForeColor = System.Drawing.Color.White;
             this.buttonSave.Location = new System.Drawing.Point(370, 354);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(26, 26, 26, 26);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(26);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(204, 82);
             this.buttonSave.TabIndex = 10;
