@@ -1,4 +1,7 @@
-﻿using System.Drawing.Printing;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppUI.Helpers
@@ -13,15 +16,19 @@ namespace WindowsFormsAppUI.Helpers
     {
         PrintDocument printDocument = new PrintDocument();
         PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
+        string name;
+        int paperWidth;
+        int paperHeight=100;
+        PrintType printType;
 
         public PrintHelper(PrintType printType, string name)
         {
-            printDocument.PrintPage += new PrintPageEventHandler(OnPrintPage);
+            this.printType = printType;
+            this.name = name;
 
-            int size = UnitConvert.PrintTypeToMM(printType);
+            printDocument.PrintPage += PrintDocument_PrintPage;
 
-            PaperSize paperSize = new PaperSize(name, size, size);
-            printDocument.DefaultPageSettings.PaperSize = paperSize;
+            paperWidth = UnitConvert.MmToPixel(UnitConvert.PrintTypeToMM(printType));
 
             PrintController printController = new StandardPrintController();
             printDocument.PrintController = printController;
@@ -29,11 +36,29 @@ namespace WindowsFormsAppUI.Helpers
             // printDocument.Print();
             printPreviewDialog.Document = printDocument;
             printPreviewDialog.ShowDialog();
+            printDocument.Dispose();
         }
 
-        private void OnPrintPage(object sender, PrintPageEventArgs e)
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-           
+            List<List<string>> tableData = new List<List<string>>
+            {
+                new List<string> { "Ürün 1", "2", "10", "20"},
+                new List<string> { "Ürün 2", "4", "15", "60" },
+                new List<string> { "Ürün 3", "4", "15", "60" },
+                new List<string> { "Ürün 4", "4", "15", "60" },
+            };
+            List<string> headers = new List<string> { "Ürün", "Birim", "Ölçü", "Fiyat" };
+
+            SimpleReport simpleReport = new SimpleReport(e, paperWidth, printType);
+
+            simpleReport.DrawText("POS Receipt", true, StringAlignment.Center);
+            simpleReport.DrawLine();
+            simpleReport.DrawText("Date: " + DateTime.Now.ToString());
+            simpleReport.DrawLine();
+            simpleReport.DrawTable(tableData, headers);
+            simpleReport.DrawLine();
+            simpleReport.DrawText("Total:", "$30.00");
         }
     }
 }

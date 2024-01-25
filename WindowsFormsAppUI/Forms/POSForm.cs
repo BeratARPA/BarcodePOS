@@ -766,8 +766,8 @@ namespace WindowsFormsAppUI.Forms
         {
             if (_orders.Count != 0)
             {
-                //PrintHelper printHelper = new PrintHelper(PrintType.MM80, "test80mm");
-                PrintHelper printHelper = new PrintHelper(PrintType.MM58, "test58mm");
+                PrintHelper printHelper80 = new PrintHelper(PrintType.MM80, "test80mm");
+                PrintHelper printHelper58 = new PrintHelper(PrintType.MM58, "test58mm");
             }
         }
 
