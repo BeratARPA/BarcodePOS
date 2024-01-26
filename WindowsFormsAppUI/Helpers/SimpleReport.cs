@@ -1,119 +1,191 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Printing;
+using System.Linq;
+using System.Windows;
+using System.Windows.Documents;
+using System.Windows.Media;
 
 namespace WindowsFormsAppUI.Helpers
 {
     public class SimpleReport
     {
-        private readonly Graphics graphics;
-        private readonly int paperWidth;
-        private readonly PrintType printType;
-        public int PaperHeight;
+        private readonly LengthConverter _lengthConverter = new LengthConverter();
+        private readonly GridLengthConverter _gridLengthConverter = new GridLengthConverter();
 
-        public SimpleReport(PrintPageEventArgs e, int paperWidth, PrintType printType)
+        public FlowDocument Document { get; set; }
+        public Paragraph Header { get; set; }
+        public IDictionary<string, Paragraph> Paragraphs { get; set; }
+        public IDictionary<string, Table> Tables { get; set; }
+        public IDictionary<string, GridLength[]> ColumnLengths { get; set; }
+        public IDictionary<string, TextAlignment[]> ColumnTextAlignments { get; set; }
+
+        public SimpleReport()
         {
-            this.paperWidth = paperWidth;
-            this.printType = printType;
-
-            graphics = e.Graphics;
-            PaperHeight = 0;
+            Paragraphs = new Dictionary<string, Paragraph>();
+            Tables = new Dictionary<string, Table>();
+            ColumnLengths = new Dictionary<string, GridLength[]>();
+            ColumnTextAlignments = new Dictionary<string, TextAlignment[]>();
+            Header = new Paragraph { TextAlignment = TextAlignment.Center, FontSize = 10 };
+            Document = new FlowDocument(Header);
         }
 
-        private Font GetTextFont(bool bold = false, bool isTitle = false)
+        public void AddColumnLength(string tableName, params string[] values)
         {
-            int fontSize = 8;
-
-            if (printType == PrintType.MM80)
+            if (!ColumnLengths.ContainsKey(tableName))
             {
-                fontSize += 2;
+                ColumnLengths.Add(tableName, new GridLength[0]);
             }
 
-            if (isTitle)
+            ColumnLengths[tableName] = values.Select(StringToGridLength).ToArray();
+        }
+
+        public void AddColumTextAlignment(string tableName, params TextAlignment[] values)
+        {
+            if (!ColumnTextAlignments.ContainsKey(tableName))
             {
-                fontSize += 2;
-            }
-         
-            return (bold) ? new Font("Arial", fontSize, FontStyle.Bold) : new Font("Arial", fontSize);            
-        }
-
-        public void DrawText(string text, bool bold = false, StringAlignment alignment = StringAlignment.Near)
-        {
-            Font drawFont = GetTextFont(bold);
-            SolidBrush drawBrush = new SolidBrush(Color.Black);
-
-            StringFormat stringFormat = new StringFormat();
-            stringFormat.Alignment = alignment;
-
-            RectangleF rectangle = new RectangleF(10, PaperHeight, paperWidth - 20, drawFont.GetHeight());
-
-            graphics.DrawString(text, drawFont, drawBrush, rectangle, stringFormat);
-            PaperHeight += (int)drawFont.GetHeight();
-        }
-
-        public void DrawText(string leftText, string rightText, bool bold = false)
-        {
-            Font drawFont = GetTextFont(bold);
-            SolidBrush drawBrush = new SolidBrush(Color.Black);
-
-            float rightWidth = graphics.MeasureString(rightText, drawFont).Width;
-
-            float leftX = 10;
-            float rightX = paperWidth - 10 - rightWidth;
-
-            graphics.DrawString(leftText, drawFont, drawBrush, new PointF(leftX, PaperHeight));
-            graphics.DrawString(rightText, drawFont, drawBrush, new PointF(rightX, PaperHeight));
-
-            PaperHeight += (int)drawFont.GetHeight();
-        }
-
-        public void DrawTable(List<List<string>> tableData, List<string> columnHeaders)
-        {
-            Font headerFont = GetTextFont(true, true);
-            Font dataFont = GetTextFont();
-            SolidBrush drawBrush = new SolidBrush(Color.Black);
-
-            float columnWidth = (paperWidth - 20) / tableData[0].Count; 
-
-            for (int i = 0; i < columnHeaders.Count; i++)
-            {
-                graphics.DrawString(columnHeaders[i], headerFont, drawBrush, 20 + i * columnWidth, PaperHeight);
+                ColumnTextAlignments.Add(tableName, new TextAlignment[0]);
             }
 
-            PaperHeight += 15;
+            ColumnTextAlignments[tableName] = values;
+        }
 
-            DrawLine();
+        public void AddTable(string tableName, params string[] headers)
+        {
+            var table = new Table();
 
-            foreach (var data in tableData)
+            Document.Blocks.Add(table);
+            Tables.Add(tableName, table);
+
+            var lengths = ColumnLengths.ContainsKey(tableName) ? ColumnLengths[tableName] : new[] { GridLength.Auto, GridLength.Auto, new GridLength(1, GridUnitType.Star) };
+
+            for (var i = 0; i < headers.Count(); i++)
             {
-                for (int i = 0; i < data.Count; i++)
+                var c = new TableColumn
                 {
-                    graphics.DrawString(data[i], dataFont, drawBrush, 20 + i * columnWidth, PaperHeight);
+                    Width = lengths[i],
+                };
+
+                table.Columns.Add(c);
+            }
+
+            var rows = new TableRowGroup();
+            table.RowGroups.Add(rows);
+            rows.Rows.Add(CreateRow(headers, ColumnTextAlignments.ContainsKey(tableName) ? ColumnTextAlignments[tableName] : new[] { TextAlignment.Left }, true, true));
+        }
+
+        public void AddHeader(string text)
+        {
+            AddNewLine(Header, text, true);
+        }
+
+        public void AddParagraph(string paragraphName)
+        {
+            var p = new Paragraph { TextAlignment = TextAlignment.Left, FontSize = 10 };
+            Document.Blocks.Add(p);
+            Paragraphs.Add(paragraphName, p);
+        }
+
+        public void AddParagraphLine(string paragraphName, string line)
+        {
+            AddParagraphLine(paragraphName, line, false);
+        }
+
+        public void AddParagraphLine(string paragraphName, string line, bool bold)
+        {
+            Paragraphs[paragraphName].Inlines.Add(new Run(line) { FontWeight = bold ? FontWeights.Bold : FontWeights.Normal });
+            Paragraphs[paragraphName].Inlines.Add(new LineBreak());
+        }
+
+        public void AddRow(string tableName, params string[] values)
+        {
+            Tables[tableName].RowGroups[0].Rows.Add(CreateRow(values, ColumnTextAlignments.ContainsKey(tableName) ? ColumnTextAlignments[tableName] : new[] { TextAlignment.Left }, false, false));
+        }
+
+        public void AddBoldRow(string tableName, params string[] values)
+        {
+            Tables[tableName].RowGroups[0].Rows.Add(CreateRow(values, ColumnTextAlignments.ContainsKey(tableName) ? ColumnTextAlignments[tableName] : new[] { TextAlignment.Left }, true, false));
+        }
+
+        public void AddFooter(string footerName, string line, bool bold)
+        {
+            var p = new Paragraph { TextAlignment = TextAlignment.Center, FontSize = 10 };
+            Document.Blocks.Add(p);
+            Paragraphs.Add(footerName, p);
+
+            AddFooterLine(footerName, line, bold);
+        }
+
+        public void AddFooterLine(string footerName, string line, bool bold)
+        {
+            Paragraphs[footerName].Inlines.Add(new Run(line) { FontWeight = bold ? FontWeights.Bold : FontWeights.Normal });
+            Paragraphs[footerName].Inlines.Add(new LineBreak());
+        }
+
+        private static void AddNewLine(Paragraph p, string text, bool bold)
+        {
+            p.Inlines.Add(new Run(text) { FontWeight = bold ? FontWeights.Bold : FontWeights.Normal });
+            p.Inlines.Add(new LineBreak());
+        }
+
+        public void AddLink(string text)
+        {
+            var hp = new Hyperlink(new Run(text)) { Name = text.Replace(" ", "_") };
+            Header.Inlines.Add(hp);
+            Header.Inlines.Add(new LineBreak());
+        }
+
+        public TableRow CreateRow(string[] values, TextAlignment[] alignment, bool bold, bool isTable)
+        {
+            var row = new TableRow();
+            TableCell lastCell = null;
+            int index = 0;
+            foreach (var value in values)
+            {
+                var val = value ?? "";
+                var r = new Run(val) { FontWeight = bold ? FontWeights.Bold : FontWeights.Normal };
+
+                if (string.IsNullOrEmpty(val) && lastCell != null)
+                {
+                    lastCell.ColumnSpan++;
+                }
+                else
+                {
+                    var p = new Paragraph(r);
+                    p.FontSize = 10;
+                    p.TextAlignment = alignment.Length <= index ? alignment[alignment.Length - 1] : alignment[index];
+                    if (!isTable)
+                    {
+                        lastCell = new TableCell(p)
+                        {
+                            BorderBrush = Brushes.Black,
+                        };
+                    }
+                    else
+                    {
+                        lastCell = new TableCell(p)
+                        {
+                            BorderBrush = Brushes.Black,
+                            BorderThickness = new Thickness(0, 0, 0, 2)
+                        };
+                    }
+
+                    row.Cells.Add(lastCell);
                 }
 
-                PaperHeight += 20;
+                index++;
             }
+
+            return row;
         }
 
-        public void DrawEmptyLine(int height)
+        private GridLength StringToGridLength(string value)
         {
-            PaperHeight += height;
+            return (GridLength)_gridLengthConverter.ConvertFromString(value);
         }
 
-        public void DrawLine()
+        private double StringToLength(string value)
         {
-            DrawEmptyLine(10);
-            Pen pen = new Pen(Color.Black, 1);
-            graphics.DrawLine(pen, 10, PaperHeight, paperWidth - 10, PaperHeight);
-            PaperHeight += 5;
-            DrawEmptyLine(10);
+            return (double)_lengthConverter.ConvertFromString(value);
         }
 
-        public void DrawRectangle(int width, int height)
-        {
-            Pen pen = new Pen(Color.Black, 1);
-            graphics.DrawRectangle(pen, 10, PaperHeight, width, height);
-            PaperHeight += height + 5;
-        }
     }
 }

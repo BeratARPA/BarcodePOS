@@ -1,10 +1,7 @@
 ﻿using Database.Data;
 using Database.Models;
-using DevExpress.XtraEditors;
-using DevExpress.XtraPrinting.Export.Pdf.Compression;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
@@ -766,8 +763,8 @@ namespace WindowsFormsAppUI.Forms
         {
             if (_orders.Count != 0)
             {
-                PrintHelper printHelper80 = new PrintHelper(PrintType.MM80, "test80mm");
-                PrintHelper printHelper58 = new PrintHelper(PrintType.MM58, "test58mm");
+                ReceiptTemplates receiptTemplates = new ReceiptTemplates();
+                receiptTemplates.KitchenReceipt(_orders);
             }
         }
 

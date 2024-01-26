@@ -12,6 +12,7 @@ namespace Database.Data
         void Delete(T entity);
         void DeleteAll(List<T> entities);
         T Get(Expression<Func<T, bool>> filter = null);
+        T GetById(int id);
         List<T> GetAll(Expression<Func<T, bool>> filter = null);
         void UpdateColumn<TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression, TProperty value);
     }

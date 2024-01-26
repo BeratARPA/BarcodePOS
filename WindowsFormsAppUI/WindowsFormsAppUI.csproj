@@ -57,10 +57,15 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -170,6 +175,7 @@
     <Compile Include="Forms\TicketsForm.Designer.cs">
       <DependentUpon>TicketsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AsyncPrintTask.cs" />
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\DiscountHelper.cs" />
     <Compile Include="Helpers\FolderLocations.cs" />
@@ -178,7 +184,8 @@
     <Compile Include="Helpers\LoggedInUser.cs" />
     <Compile Include="Helpers\MachineName.cs" />
     <Compile Include="Helpers\NavigationManager.cs" />
-    <Compile Include="Helpers\PrintHelper.cs" />
+    <Compile Include="Helpers\PrintersHelper.cs" />
+    <Compile Include="Helpers\ReceiptTemplates.cs" />
     <Compile Include="Helpers\ResizeLayout.cs" />
     <Compile Include="Helpers\SimpleReport.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
