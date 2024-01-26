@@ -50,6 +50,11 @@ namespace Database.Data
             return _context.Set<T>().Where(filter).FirstOrDefault();
         }
 
+        public T GetById(int id)
+        {
+            return _context.Set<T>().Find(id);
+        }
+
         public List<T> GetAll(Expression<Func<T, bool>> filter = null)
         {
             return filter == null
@@ -61,6 +66,6 @@ namespace Database.Data
         {
             _context.Entry(entity).Property(propertyExpression).CurrentValue = value;
             _context.SaveChanges();
-        }
+        }     
     }
 }
