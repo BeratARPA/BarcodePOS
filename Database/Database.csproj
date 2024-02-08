@@ -57,12 +57,13 @@
     <Compile Include="Enums\TypeDatabase.cs" />
     <Compile Include="Helpers\DatabaseType.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
-    <Compile Include="Migrations\202401191420563_InitialCreate.cs" />
-    <Compile Include="Migrations\202401191420563_InitialCreate.designer.cs">
-      <DependentUpon>202401191420563_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202402080338097_InitialCreate.cs" />
+    <Compile Include="Migrations\202402080338097_InitialCreate.designer.cs">
+      <DependentUpon>202402080338097_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CompanyInformation.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\PaymentType.cs" />
@@ -88,8 +89,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202401191420563_InitialCreate.resx">
-      <DependentUpon>202401191420563_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202402080338097_InitialCreate.resx">
+      <DependentUpon>202402080338097_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

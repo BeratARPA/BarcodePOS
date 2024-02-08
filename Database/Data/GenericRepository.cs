@@ -55,6 +55,13 @@ namespace Database.Data
             return _context.Set<T>().Find(id);
         }
 
+        public List<T> GetAllAsNoTracking(Expression<Func<T, bool>> filter = null)
+        {
+            return filter == null
+                ? _context.Set<T>().AsNoTracking().ToList()
+                : _context.Set<T>().AsNoTracking().Where(filter).ToList();
+        }
+
         public List<T> GetAll(Expression<Func<T, bool>> filter = null)
         {
             return filter == null
