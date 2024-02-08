@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AnExceptionOccurredInComponent" xml:space="preserve">
+    <value>An exception occurred in component {0}. We have created a bug report that you can send to us. We will treat this report confidentially and anonymously.</value>
+  </data>
   <data name="BackgroundColor" xml:space="preserve">
     <value>Background Color</value>
   </data>
@@ -165,6 +168,9 @@
   <data name="Date" xml:space="preserve">
     <value>Date</value>
   </data>
+  <data name="Definition" xml:space="preserve">
+    <value>Definition</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
@@ -173,6 +179,9 @@
   </data>
   <data name="DomesticProduction" xml:space="preserve">
     <value>Domestic Production</value>
+  </data>
+  <data name="DontSend" xml:space="preserve">
+    <value>Don't Send</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
@@ -189,11 +198,23 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="ErrorReportCouldNotBeCreated!" xml:space="preserve">
+    <value>Error report could not be created!</value>
+  </data>
+  <data name="ErrorReportCouldNotBeSent!" xml:space="preserve">
+    <value>Error report could not be sent!</value>
+  </data>
+  <data name="ErrorReportSent" xml:space="preserve">
+    <value>Error report sent.</value>
+  </data>
   <data name="FontSize" xml:space="preserve">
     <value>Font Size</value>
   </data>
   <data name="ForegroundColor" xml:space="preserve">
     <value>Foreground Color</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
   </data>
   <data name="Image" xml:space="preserve">
     <value>Image</value>
@@ -240,6 +261,9 @@
   <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
   <data name="Ok" xml:space="preserve">
     <value>Ok</value>
   </data>
@@ -270,6 +294,9 @@
   <data name="Print" xml:space="preserve">
     <value>Print</value>
   </data>
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
   <data name="Products" xml:space="preserve">
     <value>Products</value>
   </data>
@@ -294,6 +321,9 @@
   <data name="Reports" xml:space="preserve">
     <value>Reports</value>
   </data>
+  <data name="Restart" xml:space="preserve">
+    <value>Restart</value>
+  </data>
   <data name="Revenues" xml:space="preserve">
     <value>Revenues</value>
   </data>
@@ -306,11 +336,17 @@
   <data name="Small" xml:space="preserve">
     <value>Small</value>
   </data>
+  <data name="StackTrace" xml:space="preserve">
+    <value>Stack Trace</value>
+  </data>
   <data name="Start" xml:space="preserve">
     <value>Start</value>
   </data>
   <data name="Stocks" xml:space="preserve">
     <value>Stocks</value>
+  </data>
+  <data name="SubmitErrorReport" xml:space="preserve">
+    <value>Submit Error Report</value>
   </data>
   <data name="Tables" xml:space="preserve">
     <value>Tables</value>
@@ -339,6 +375,9 @@
   <data name="TicketTotal" xml:space="preserve">
     <value>Ticket Total</value>
   </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
   <data name="Total" xml:space="preserve">
     <value>Total</value>
   </data>
@@ -351,6 +390,9 @@
   <data name="Turn" xml:space="preserve">
     <value>Turn</value>
   </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
   <data name="User" xml:space="preserve">
     <value>User</value>
   </data>
@@ -359,6 +401,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Users</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>View</value>

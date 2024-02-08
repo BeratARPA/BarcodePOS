@@ -660,13 +660,13 @@ namespace WindowsFormsAppUI.Forms
 
         private void buttonProductsWitoutBarcode_Click(object sender, EventArgs e)
         {
-            var products = _products.Where(x => x.Barcode == " ").ToList();
+            var products = _products.Where(x => x.Barcode == "").ToList();
             CreateProducts(products);
         }
 
         private void buttonProductsWithBarcode_Click(object sender, EventArgs e)
         {
-            var products = _products.Where(x => x.Barcode != " ").ToList();
+            var products = _products.Where(x => x.Barcode != "").ToList();
             CreateProducts(products);
         }
 
@@ -764,7 +764,7 @@ namespace WindowsFormsAppUI.Forms
             if (_orders.Count != 0)
             {
                 ReceiptTemplates receiptTemplates = new ReceiptTemplates();
-                receiptTemplates.KitchenReceipt(_orders);
+                receiptTemplates.KitchenReceipt(_orders,_ticket);
             }
         }
 

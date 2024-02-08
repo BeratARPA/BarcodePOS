@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AnExceptionOccurredInComponent" xml:space="preserve">
+    <value>{0} bileşeninde bir istisna oluştu. Bize gönderebileceğiniz bir hata raporu oluşturduk. Bu raporu gizli ve isimsiz olarak ele alacağız.</value>
+  </data>
   <data name="BackgroundColor" xml:space="preserve">
     <value>Arkaplan Rengi</value>
   </data>
@@ -165,6 +168,9 @@
   <data name="Date" xml:space="preserve">
     <value>Tarih</value>
   </data>
+  <data name="Definition" xml:space="preserve">
+    <value>Tanım</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Sil</value>
   </data>
@@ -173,6 +179,9 @@
   </data>
   <data name="DomesticProduction" xml:space="preserve">
     <value>Yerli Üretim</value>
+  </data>
+  <data name="DontSend" xml:space="preserve">
+    <value>Gönderme</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Düzenle</value>
@@ -189,11 +198,23 @@
   <data name="Error" xml:space="preserve">
     <value>Hata</value>
   </data>
+  <data name="ErrorReportCouldNotBeCreated!" xml:space="preserve">
+    <value>Hata raporu oluşturulamadı!</value>
+  </data>
+  <data name="ErrorReportCouldNotBeSent!" xml:space="preserve">
+    <value>Hata raporu gönderilemedi!</value>
+  </data>
+  <data name="ErrorReportSent" xml:space="preserve">
+    <value>Hata raporu gönderildi.</value>
+  </data>
   <data name="FontSize" xml:space="preserve">
     <value>Yazı Boyutu</value>
   </data>
   <data name="ForegroundColor" xml:space="preserve">
     <value>Yazı Rengi</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>Genel</value>
   </data>
   <data name="Image" xml:space="preserve">
     <value>Görsel</value>
@@ -240,6 +261,9 @@
   <data name="No" xml:space="preserve">
     <value>Hayır</value>
   </data>
+  <data name="Note" xml:space="preserve">
+    <value>Not</value>
+  </data>
   <data name="Ok" xml:space="preserve">
     <value>Tamam</value>
   </data>
@@ -270,6 +294,9 @@
   <data name="Print" xml:space="preserve">
     <value>Yazdır</value>
   </data>
+  <data name="Product" xml:space="preserve">
+    <value>Ürün</value>
+  </data>
   <data name="Products" xml:space="preserve">
     <value>Ürünler</value>
   </data>
@@ -294,6 +321,9 @@
   <data name="Reports" xml:space="preserve">
     <value>Raporlar</value>
   </data>
+  <data name="Restart" xml:space="preserve">
+    <value>Yeniden Başlat</value>
+  </data>
   <data name="Revenues" xml:space="preserve">
     <value>Hasılatlar</value>
   </data>
@@ -306,11 +336,17 @@
   <data name="Small" xml:space="preserve">
     <value>Küçük</value>
   </data>
+  <data name="StackTrace" xml:space="preserve">
+    <value>Yığın İzleme</value>
+  </data>
   <data name="Start" xml:space="preserve">
     <value>Başlangıç</value>
   </data>
   <data name="Stocks" xml:space="preserve">
     <value>Stoklar</value>
+  </data>
+  <data name="SubmitErrorReport" xml:space="preserve">
+    <value>Hata Raporu Gönder</value>
   </data>
   <data name="Tables" xml:space="preserve">
     <value>Masalar</value>
@@ -339,6 +375,9 @@
   <data name="TicketTotal" xml:space="preserve">
     <value>Fiş Toplamı</value>
   </data>
+  <data name="Time" xml:space="preserve">
+    <value>Zaman</value>
+  </data>
   <data name="Total" xml:space="preserve">
     <value>Toplam</value>
   </data>
@@ -351,6 +390,9 @@
   <data name="Turn" xml:space="preserve">
     <value>Döndür</value>
   </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Birim</value>
+  </data>
   <data name="User" xml:space="preserve">
     <value>Kullanıcı</value>
   </data>
@@ -359,6 +401,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Kullanıcılar</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Değer</value>
   </data>
   <data name="View" xml:space="preserve">
     <value>Görüntüle</value>

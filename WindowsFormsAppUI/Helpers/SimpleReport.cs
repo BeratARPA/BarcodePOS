@@ -120,6 +120,13 @@ namespace WindowsFormsAppUI.Helpers
             Paragraphs[footerName].Inlines.Add(new LineBreak());
         }
 
+        public void AddLine()
+        {
+            var p = new Paragraph { TextAlignment = TextAlignment.Center, FontSize = 1, BorderBrush = Brushes.Black, BorderThickness = new Thickness(0, 0, 0, 2) };
+            Document.Blocks.Add(p);
+            Paragraphs.Add("Line", p);
+        }
+
         private static void AddNewLine(Paragraph p, string text, bool bold)
         {
             p.Inlines.Add(new Run(text) { FontWeight = bold ? FontWeights.Bold : FontWeights.Normal });

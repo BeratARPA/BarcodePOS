@@ -40,6 +40,18 @@
                 .Index(t => t.CategoryId);
             
             CreateTable(
+                "dbo.CompanyInformations",
+                c => new
+                    {
+                        CompanyInformationId = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        Address = c.String(),
+                        Phone = c.String(),
+                        EMail = c.String(),
+                    })
+                .PrimaryKey(t => t.CompanyInformationId);
+            
+            CreateTable(
                 "dbo.Orders",
                 c => new
                     {
@@ -180,6 +192,7 @@
             DropTable("dbo.Payments");
             DropTable("dbo.Tickets");
             DropTable("dbo.Orders");
+            DropTable("dbo.CompanyInformations");
             DropTable("dbo.Products");
             DropTable("dbo.Categories");
         }
