@@ -27,6 +27,7 @@ namespace WindowsFormsAppUI.Forms
         private List<Product> _products = new List<Product>();
         private List<Category> _category = new List<Category>();
         private List<PaymentType> _paymentTypes = new List<PaymentType>();
+        private ReceiptTemplates receiptTemplates = new ReceiptTemplates();
 
         private int _previousFormIndex;
 
@@ -119,6 +120,8 @@ namespace WindowsFormsAppUI.Forms
         {
             if (_ticket != null)
             {
+                _ticket.Orders = _genericRepositoryOrder.GetAll(x => x.TicketId == _ticket.TicketId);
+                _ticket.Payments = _genericRepositoryPayment.GetAll(x => x.TicketId == _ticket.TicketId);
                 foreach (Order order in _ticket.Orders)
                 {
                     var product = _genericRepositoryProduct.GetAll(x => x.ProductId == order.ProductId).FirstOrDefault();
@@ -211,6 +214,7 @@ namespace WindowsFormsAppUI.Forms
                 ProductName = product.Name,
                 Price = product.Price,
                 Quantity = quantity,
+                SentToKitchen = false,
                 TerminalName = GlobalVariables.TerminalName,
                 CreatingUserName = LoggedInUser.CurrentUser.Fullname,
                 CreatedDateTime = DateTime.Now,
@@ -477,8 +481,16 @@ namespace WindowsFormsAppUI.Forms
                     ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
                 }
 
+                List<Order> notSentToKitchenOrder = new List<Order>();
+
                 foreach (Order order in _orders)
                 {
+                    bool orderSentToKitchen = _genericRepositoryOrder.GetAllAsNoTracking(x => x.OrderId == order.OrderId).FirstOrDefault().SentToKitchen;
+                    if (!orderSentToKitchen)
+                    {
+                        notSentToKitchenOrder.Add(order);
+                    }
+
                     var existingOrder = _genericRepositoryOrder.GetAll(x => x.TicketId == ticket.TicketId && x.ProductId == order.ProductId).FirstOrDefault();
                     if (existingOrder != null)
                     {
@@ -491,6 +503,16 @@ namespace WindowsFormsAppUI.Forms
                     {
                         order.TicketId = ticket.TicketId;
                         _genericRepositoryOrder.Add(order);
+                    }                
+                }
+
+                if (notSentToKitchenOrder.Count > 0)
+                {
+                    receiptTemplates.KitchenReceipt(notSentToKitchenOrder, _ticket);
+
+                    foreach (Order order in notSentToKitchenOrder)
+                    {
+                        _genericRepositoryOrder.UpdateColumn(order, x => x.SentToKitchen, true);
                     }
                 }
 
@@ -763,8 +785,7 @@ namespace WindowsFormsAppUI.Forms
         {
             if (_orders.Count != 0)
             {
-                ReceiptTemplates receiptTemplates = new ReceiptTemplates();
-                receiptTemplates.KitchenReceipt(_orders,_ticket);
+                receiptTemplates.KitchenReceipt(_orders, _ticket);
             }
         }
 

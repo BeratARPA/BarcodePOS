@@ -16,5 +16,6 @@ namespace Database.Data
         List<T> GetAllAsNoTracking(Expression<Func<T, bool>> filter = null);
         List<T> GetAll(Expression<Func<T, bool>> filter = null);
         void UpdateColumn<TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression, TProperty value);
+        TProperty GetColumnValue<T, TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression);
     }
 }
