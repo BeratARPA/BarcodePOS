@@ -94,11 +94,7 @@ namespace WindowsFormsAppUI.Forms
                 Guid.TryParse(selectedRow.Cells["TicketGuid"].Value.ToString(), out ticketGuid);
 
                 var ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == ticketGuid).FirstOrDefault();
-                var orders = _genericRepositoryOrder.GetAll(x => x.TicketId == ticket.TicketId);
-                var payments = _genericRepositoryPayment.GetAll(x => x.TicketId == ticket.TicketId);
-                ticket.Orders = orders;
-                ticket.Payments = payments;
-
+            
                 if (ticket != null)
                 {
                     NavigationManager.OpenForm(new POSForm(2, ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);

@@ -73,6 +73,13 @@ namespace Database.Data
         {
             _context.Entry(entity).Property(propertyExpression).CurrentValue = value;
             _context.SaveChanges();
-        }     
+        }
+
+        public TProperty GetColumnValue<T, TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression)
+        {
+            var propertyName = ((MemberExpression)propertyExpression.Body).Member.Name;
+            var propertyValue = entity.GetType().GetProperty(propertyName).GetValue(entity, null);
+            return (TProperty)propertyValue;
+        }
     }
 }
