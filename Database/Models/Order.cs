@@ -13,7 +13,6 @@ namespace Database.Models
         public string ProductName { get; set; }
         public double Price { get; set; }
         public double Quantity { get; set; }
-        public bool SentToKitchen { get; set; }
         public string TerminalName { get; set; }
         public string CreatingUserName { get; set; }
         public DateTime CreatedDateTime { get; set; }

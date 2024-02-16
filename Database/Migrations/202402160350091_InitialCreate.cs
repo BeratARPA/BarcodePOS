@@ -61,7 +61,6 @@
                         ProductName = c.String(),
                         Price = c.Double(nullable: false),
                         Quantity = c.Double(nullable: false),
-                        SentToKitchen = c.Boolean(nullable: false),
                         TerminalName = c.String(),
                         CreatingUserName = c.String(),
                         CreatedDateTime = c.DateTime(nullable: false),

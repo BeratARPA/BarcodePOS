@@ -333,6 +333,9 @@
   <data name="Save" xml:space="preserve">
     <value>Kaydet</value>
   </data>
+  <data name="SendToKitchen" xml:space="preserve">
+    <value>Mutfağa Gönder</value>
+  </data>
   <data name="Small" xml:space="preserve">
     <value>Küçük</value>
   </data>
@@ -356,6 +359,9 @@
   </data>
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>Değişiklikler kaydedildi.</value>
+  </data>
+  <data name="ThereAreProductsThatAreNotSentToTheKitchenWouldYouLikeToSendIt?" xml:space="preserve">
+    <value>Mutfağa gönderilmeyen ürünler var! Göndermek ister misiniz?</value>
   </data>
   <data name="TheTablesWillJoinDoYouWantToContinue?" xml:space="preserve">
     <value>Masalar birleşecek, devam etmek istiyor musunuz?</value>
