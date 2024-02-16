@@ -26,6 +26,7 @@ namespace WindowsFormsAppUI.Forms
         private List<Order> _orders = new List<Order>();
         private List<Product> _products = new List<Product>();
         private List<Category> _category = new List<Category>();
+        private List<Order> _productsSentToKitchen = new List<Order>();
         private List<PaymentType> _paymentTypes = new List<PaymentType>();
         private ReceiptTemplates receiptTemplates = new ReceiptTemplates();
 
@@ -88,32 +89,22 @@ namespace WindowsFormsAppUI.Forms
             buttonTicketDelete.Text = GlobalVariables.CultureHelper.GetText("TicketCancellation");
             buttonOpenTheDrawer.Text = GlobalVariables.CultureHelper.GetText("OpenDrawer");
             buttonChangeTable.Text = GlobalVariables.CultureHelper.GetText("ChangeTable");
+            buttonSendToKitchen.Text = GlobalVariables.CultureHelper.GetText("SendToKitchen");
         }
 
         public void CloseAndOpenTicket()
         {
-            if (!_ticket.IsOpened)
-            {
-                tableLayoutPanelProducts.Enabled = false;
-                tableLayoutPanelPaymentTypes.Enabled = false;
-                numeratorUserControl.Enabled = false;
-                tableLayoutPanelCategories.Enabled = false;
-                flowLayoutPanelOrders.Enabled = false;
-                buttonDiscount.Enabled = false;
-                buttonMultiplePayment.Enabled = false;
-                buttonClose.Enabled = true;
-            }
-            else
-            {
-                tableLayoutPanelProducts.Enabled = true;
-                tableLayoutPanelPaymentTypes.Enabled = true;
-                numeratorUserControl.Enabled = true;
-                tableLayoutPanelCategories.Enabled = true;
-                flowLayoutPanelOrders.Enabled = true;
-                buttonDiscount.Enabled = true;
-                buttonMultiplePayment.Enabled = true;
-                buttonClose.Enabled = true;
-            }
+            bool isOpened = _ticket.IsOpened;
+            tableLayoutPanelProducts.Enabled = isOpened;
+            tableLayoutPanelPaymentTypes.Enabled = isOpened;
+            numeratorUserControl.Enabled = isOpened;
+            tableLayoutPanelCategories.Enabled = isOpened;
+            flowLayoutPanelOrders.Enabled = isOpened;
+            buttonDiscount.Enabled = isOpened;
+            buttonMultiplePayment.Enabled = isOpened;
+            buttonSendToKitchen.Enabled = isOpened;
+            buttonChangeTable.Enabled = isOpened;
+            buttonClose.Enabled = true;
         }
 
         public void CreateTicket()
@@ -214,7 +205,6 @@ namespace WindowsFormsAppUI.Forms
                 ProductName = product.Name,
                 Price = product.Price,
                 Quantity = quantity,
-                SentToKitchen = false,
                 TerminalName = GlobalVariables.TerminalName,
                 CreatingUserName = LoggedInUser.CurrentUser.Fullname,
                 CreatedDateTime = DateTime.Now,
@@ -222,6 +212,7 @@ namespace WindowsFormsAppUI.Forms
             };
 
             _orders.Add(order);
+            AddProductSentToKitchen(order.ProductId, quantity);
 
             return order;
         }
@@ -350,7 +341,53 @@ namespace WindowsFormsAppUI.Forms
             order.Quantity = totalQuantity;
             order.Price = productOnCardUserControl._product.Price;
             order.LastUpdateDateTime = DateTime.Now;
+
+            AddProductSentToKitchen(order.ProductId, quantity);
+
             _ticket.LastOrderDate = DateTime.Now;
+        }
+
+        public void AddProductSentToKitchen(int productId, double quantity)
+        {
+            var existingOrder = _productsSentToKitchen.Find(x => x.ProductId == productId);
+            if (existingOrder != null)
+            {
+                existingOrder.Quantity += quantity;
+            }
+            else
+            {
+                var product = _genericRepositoryProduct.GetById(productId);
+                Order order = new Order
+                {
+                    TicketId = _ticket.TicketId,
+                    ProductId = product.ProductId,
+                    ProductName = product.Name,
+                    Price = product.Price,
+                    Quantity = quantity,
+                    TerminalName = GlobalVariables.TerminalName,
+                    CreatingUserName = LoggedInUser.CurrentUser.Fullname,
+                    CreatedDateTime = DateTime.Now,
+                    LastUpdateDateTime = DateTime.Now
+                };
+
+                _productsSentToKitchen.Add(order);
+            }
+        }
+
+        public void DeleteProductSentToKitchen(int productId, double quantity)
+        {
+            var existingOrder = _productsSentToKitchen.Find(x => x.ProductId == productId);
+            if (existingOrder != null)
+            {
+                if (existingOrder.Quantity == 1)
+                {
+                    _productsSentToKitchen.Remove(existingOrder);
+                }
+                else if (existingOrder.Quantity > 1)
+                {
+                    existingOrder.Quantity -= quantity;
+                }
+            }
         }
 
         public double CheckToNumerator()
@@ -481,16 +518,8 @@ namespace WindowsFormsAppUI.Forms
                     ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
                 }
 
-                List<Order> notSentToKitchenOrder = new List<Order>();
-
                 foreach (Order order in _orders)
                 {
-                    bool orderSentToKitchen = _genericRepositoryOrder.GetAllAsNoTracking(x => x.OrderId == order.OrderId).FirstOrDefault().SentToKitchen;
-                    if (!orderSentToKitchen)
-                    {
-                        notSentToKitchenOrder.Add(order);
-                    }
-
                     var existingOrder = _genericRepositoryOrder.GetAll(x => x.TicketId == ticket.TicketId && x.ProductId == order.ProductId).FirstOrDefault();
                     if (existingOrder != null)
                     {
@@ -503,17 +532,12 @@ namespace WindowsFormsAppUI.Forms
                     {
                         order.TicketId = ticket.TicketId;
                         _genericRepositoryOrder.Add(order);
-                    }                
+                    }
                 }
 
-                if (notSentToKitchenOrder.Count > 0)
+                if (_productsSentToKitchen.Count > 0)
                 {
-                    receiptTemplates.KitchenReceipt(notSentToKitchenOrder, _ticket);
-
-                    foreach (Order order in notSentToKitchenOrder)
-                    {
-                        _genericRepositoryOrder.UpdateColumn(order, x => x.SentToKitchen, true);
-                    }
+                    receiptTemplates.KitchenReceipt(_productsSentToKitchen, _ticket);
                 }
 
                 var ordersInDatabase = _genericRepositoryOrder.GetAll(x => x.TicketId == ticket.TicketId);
@@ -526,6 +550,7 @@ namespace WindowsFormsAppUI.Forms
         {
             _ticket = null;
             _orders.Clear();
+            _productsSentToKitchen.Clear();
             flowLayoutPanelOrders.Controls.Clear();
             CreateTicket();
             IsTable();
@@ -549,6 +574,9 @@ namespace WindowsFormsAppUI.Forms
             if (index >= 0)
             {
                 var order = _orders.Find(x => x.ProductId == productOnCardUserControl._order.ProductId);
+                
+                DeleteProductSentToKitchen(order.ProductId, CheckToNumerator());
+
                 if (productOnCardUserControl.Quantity == 1 || CheckToNumerator() > productOnCardUserControl.Quantity)
                 {
                     flowLayoutPanelOrders.Controls.RemoveAt(index);
@@ -570,7 +598,7 @@ namespace WindowsFormsAppUI.Forms
                 {
                     flowLayoutPanelOrders.Controls.RemoveAt(index);
                     _orders.Remove(order);
-                }
+                }               
 
                 CalculateTotalBalance();
 
@@ -795,6 +823,23 @@ namespace WindowsFormsAppUI.Forms
             {
                 SaveTicket();
                 NavigationManager.OpenForm(new TablesForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            }
+        }
+
+        private void buttonSendToKitchen_Click(object sender, EventArgs e)
+        {
+            if (_orders.Count != 0)
+            {
+                if (_productsSentToKitchen.Count > 0)
+                {
+                    receiptTemplates.KitchenReceipt(_productsSentToKitchen, _ticket);
+                    return;
+                }
+
+                if (GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("ThereAreProductsThatAreNotSentToTheKitchenWouldYouLikeToSendIt?"), GlobalVariables.CultureHelper.GetText("Information"), MessageButton.YesNo, MessageIcon.Information) == DialogResult.Yes)
+                {
+                    receiptTemplates.KitchenReceipt(_productsSentToKitchen, _ticket);
+                }
             }
         }
     }
