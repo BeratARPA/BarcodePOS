@@ -813,7 +813,7 @@ namespace WindowsFormsAppUI.Forms
         {
             if (_orders.Count != 0)
             {
-                receiptTemplates.KitchenReceipt(_orders, _ticket);
+                receiptTemplates.TicketReceipt(_orders, _ticket);
             }
         }
 

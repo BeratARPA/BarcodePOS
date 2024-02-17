@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
   <data name="AnExceptionOccurredInComponent" xml:space="preserve">
     <value>An exception occurred in component {0}. We have created a bug report that you can send to us. We will treat this report confidentially and anonymously.</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="CategorySales" xml:space="preserve">
     <value>Category Sales</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Change</value>
   </data>
   <data name="ChangeTable" xml:space="preserve">
     <value>Change Table</value>
@@ -309,14 +315,17 @@
   <data name="QuickMenu" xml:space="preserve">
     <value>Quick Menu</value>
   </data>
+  <data name="ReceiptDiscount" xml:space="preserve">
+    <value>Discount</value>
+  </data>
+  <data name="ReceiptFooter" xml:space="preserve">
+    <value>Thank You Come Again!</value>
+  </data>
   <data name="ReceiptWillBeDeleted(Cancel)DoYouWantToContinue?" xml:space="preserve">
     <value>Receipt will be deleted(Cancel) Do you want to continue?</value>
   </data>
   <data name="Rectangle" xml:space="preserve">
     <value>Rectangle</value>
-  </data>
-  <data name="RemainderOfMoney" xml:space="preserve">
-    <value>Remainder of Money</value>
   </data>
   <data name="Reports" xml:space="preserve">
     <value>Reports</value>
@@ -350,6 +359,9 @@
   </data>
   <data name="SubmitErrorReport" xml:space="preserve">
     <value>Submit Error Report</value>
+  </data>
+  <data name="Table" xml:space="preserve">
+    <value>Table</value>
   </data>
   <data name="Tables" xml:space="preserve">
     <value>Tables</value>

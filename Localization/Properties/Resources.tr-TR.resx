@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Amount" xml:space="preserve">
+    <value>Fiyat</value>
+  </data>
   <data name="AnExceptionOccurredInComponent" xml:space="preserve">
     <value>{0} bileşeninde bir istisna oluştu. Bize gönderebileceğiniz bir hata raporu oluşturduk. Bu raporu gizli ve isimsiz olarak ele alacağız.</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="CategorySales" xml:space="preserve">
     <value>Kategori Satışları</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Para Üstü</value>
   </data>
   <data name="ChangeTable" xml:space="preserve">
     <value>Masa Değiştir</value>
@@ -309,14 +315,17 @@
   <data name="QuickMenu" xml:space="preserve">
     <value>Hızlı Menü</value>
   </data>
+  <data name="ReceiptDiscount" xml:space="preserve">
+    <value>İndirim</value>
+  </data>
+  <data name="ReceiptFooter" xml:space="preserve">
+    <value>Yine Bekleriz!</value>
+  </data>
   <data name="ReceiptWillBeDeleted(Cancel)DoYouWantToContinue?" xml:space="preserve">
     <value>Fiş silinecek(İptal) Devam etmek istiyor musunuz?</value>
   </data>
   <data name="Rectangle" xml:space="preserve">
     <value>Dikdörtgen</value>
-  </data>
-  <data name="RemainderOfMoney" xml:space="preserve">
-    <value>Para Üstü</value>
   </data>
   <data name="Reports" xml:space="preserve">
     <value>Raporlar</value>
@@ -350,6 +359,9 @@
   </data>
   <data name="SubmitErrorReport" xml:space="preserve">
     <value>Hata Raporu Gönder</value>
+  </data>
+  <data name="Table" xml:space="preserve">
+    <value>Masa</value>
   </data>
   <data name="Tables" xml:space="preserve">
     <value>Masalar</value>
