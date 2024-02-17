@@ -114,17 +114,22 @@ namespace WindowsFormsAppUI.Helpers
             AddFooterLine(footerName, line, bold);
         }
 
+        public void AddText(string tableName, string leftText, string rightText)
+        {
+            Tables[tableName].RowGroups[0].Rows.Add(CreateRow(new string[] { leftText, rightText }, new TextAlignment[] { TextAlignment.Left, TextAlignment.Right }, false, false));
+        }
+
         public void AddFooterLine(string footerName, string line, bool bold)
         {
             Paragraphs[footerName].Inlines.Add(new Run(line) { FontWeight = bold ? FontWeights.Bold : FontWeights.Normal });
             Paragraphs[footerName].Inlines.Add(new LineBreak());
         }
 
-        public void AddLine()
+        public void AddLine(string name)
         {
             var p = new Paragraph { TextAlignment = TextAlignment.Center, FontSize = 1, BorderBrush = Brushes.Black, BorderThickness = new Thickness(0, 0, 0, 2) };
             Document.Blocks.Add(p);
-            Paragraphs.Add("Line", p);
+            Paragraphs.Add(name, p);
         }
 
         private static void AddNewLine(Paragraph p, string text, bool bold)

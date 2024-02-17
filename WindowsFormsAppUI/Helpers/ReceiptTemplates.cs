@@ -19,6 +19,52 @@ namespace WindowsFormsAppUI.Helpers
             CompanyName = _genericRepositoryCompanyInformation.GetById(1).Name;
         }
 
+        public void TicketReceipt(List<Order> orders, Ticket ticket)
+        {
+            double totalBalance = 0;
+
+            SimpleReport report = new SimpleReport();
+
+            report.AddHeader(CompanyName);
+
+            report.AddParagraph("Description");
+            report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("TicketNumber") + ": " + ticket.TicketNumber);
+            report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("Time") + ": " + ticket.Date);
+            report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("User") + ": " + ticket.CreatedUserName);
+            if (ticket.TableId != 0)
+            {
+                report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("Table") + ": " + TableName.GetName(ticket.TableId));
+            }
+
+            report.AddLine("line1");
+
+            report.AddColumTextAlignment("Orders", TextAlignment.Left, TextAlignment.Center, TextAlignment.Center);
+            report.AddColumnLength("Orders", "60*", "20*", "20*");
+            report.AddTable("Orders", GlobalVariables.CultureHelper.GetText("Product"), GlobalVariables.CultureHelper.GetText("Unit"), GlobalVariables.CultureHelper.GetText("Amount"));
+            foreach (var order in orders)
+            {
+                totalBalance += order.Price * order.Quantity;
+                report.AddRow("Orders", order.ProductName, order.Quantity.ToString(), string.Format("{0:C}", order.Price * order.Quantity));
+            }
+
+            report.AddLine("line2");
+
+            report.AddTable("Total");
+            report.AddText("Total", GlobalVariables.CultureHelper.GetText("Total") + ":", string.Format("{0:C}", totalBalance));
+            if (ticket.Discount != 0)
+            {
+                totalBalance = DiscountHelper.Calculate(totalBalance, ticket.Discount);
+                report.AddText("Total", GlobalVariables.CultureHelper.GetText("ReceiptDiscount") + ":", string.Format("{0:C}", DiscountHelper.discountAmount));
+                report.AddText("Total", GlobalVariables.CultureHelper.GetText("General") + ":", string.Format("{0:C}", totalBalance));
+            }
+
+            report.AddFooter("Footer", GlobalVariables.CultureHelper.GetText("ReceiptFooter"), true);
+
+            PrinterSettings printerSettings = new PrinterSettings();
+            var printQueue = PrintersHelper.GetPrinter(printerSettings.PrinterName);
+            AsyncPrintTask.Exec(true, () => PrintersHelper.PrintFlowDocument(printQueue, report.Document));
+        }
+
         #region Kitchen
         public void KitchenReceipt(List<Order> orders, Ticket ticket)
         {
@@ -58,16 +104,20 @@ namespace WindowsFormsAppUI.Helpers
             report.AddHeader(CompanyName);
 
             report.AddParagraph("Description");
-            report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("TicketNumber") +": " + ticket.TicketNumber);
+            report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("TicketNumber") + ": " + ticket.TicketNumber);
             report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("Time") + ": " + ticket.Date);
+            if (ticket.TableId != 0)
+            {
+                report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("Table") + ": " + TableName.GetName(ticket.TableId));
+            }
             if (!string.IsNullOrEmpty(ticket.Note))
             {
-                report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("Note")+": " + ticket.Note);
+                report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("Note") + ": " + ticket.Note);
             }
 
-            report.AddLine();
+            report.AddLine("line1");
 
-            report.AddColumTextAlignment("Orders", TextAlignment.Left, TextAlignment.Center, TextAlignment.Center);
+            report.AddColumTextAlignment("Orders", TextAlignment.Left, TextAlignment.Center);
             report.AddColumnLength("Orders", "80*", "20*");
             report.AddTable("Orders", GlobalVariables.CultureHelper.GetText("Product"), GlobalVariables.CultureHelper.GetText("Unit"));
             foreach (var order in orders)

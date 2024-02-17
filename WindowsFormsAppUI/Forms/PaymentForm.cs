@@ -61,7 +61,7 @@ namespace WindowsFormsAppUI.Forms
             this.Text = GlobalVariables.CultureHelper.GetText("MultiplePayments");
             label1.Text = GlobalVariables.CultureHelper.GetText("Balance");
             label4.Text = GlobalVariables.CultureHelper.GetText("BalancePaid");
-            label5.Text = GlobalVariables.CultureHelper.GetText("RemainderOfMoney");
+            label5.Text = GlobalVariables.CultureHelper.GetText("Change");
         }
 
         public double CheckToNumerator()
