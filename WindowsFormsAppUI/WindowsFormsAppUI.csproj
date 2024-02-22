@@ -8,7 +8,7 @@
     <ProjectGuid>{13E55F8F-4FD6-4031-9161-CA3B0A628B93}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>WindowsFormsAppUI</RootNamespace>
-    <AssemblyName>WindowsFormsAppUI</AssemblyName>
+    <AssemblyName>BarcodePOS</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,6 +34,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>NewIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.Desktop.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -182,6 +185,7 @@
       <DependentUpon>TicketsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AsyncPrintTask.cs" />
+    <Compile Include="Helpers\CashDrawer.cs" />
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\DiscountHelper.cs" />
     <Compile Include="Helpers\FolderLocations.cs" />
@@ -376,6 +380,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BeratARPA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NewIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
