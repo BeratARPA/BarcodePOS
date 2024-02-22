@@ -165,6 +165,9 @@
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="Comma" xml:space="preserve">
+    <value>.</value>
+  </data>
   <data name="CreateBarcode" xml:space="preserve">
     <value>Create Barcode</value>
   </data>
@@ -341,6 +344,9 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="SendToKitchen" xml:space="preserve">
     <value>Send to Kitchen</value>

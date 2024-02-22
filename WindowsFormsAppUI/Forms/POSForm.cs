@@ -90,6 +90,7 @@ namespace WindowsFormsAppUI.Forms
             buttonOpenTheDrawer.Text = GlobalVariables.CultureHelper.GetText("OpenDrawer");
             buttonChangeTable.Text = GlobalVariables.CultureHelper.GetText("ChangeTable");
             buttonSendToKitchen.Text = GlobalVariables.CultureHelper.GetText("SendToKitchen");
+            buttonSearch.Text = GlobalVariables.CultureHelper.GetText("Search");
         }
 
         public void CloseAndOpenTicket()
@@ -97,6 +98,7 @@ namespace WindowsFormsAppUI.Forms
             bool isOpened = _ticket.IsOpened;
             tableLayoutPanelProducts.Enabled = isOpened;
             tableLayoutPanelPaymentTypes.Enabled = isOpened;
+            tableLayoutPanelSearch.Enabled = isOpened;
             numeratorUserControl.Enabled = isOpened;
             tableLayoutPanelCategories.Enabled = isOpened;
             flowLayoutPanelOrders.Enabled = isOpened;
@@ -475,7 +477,7 @@ namespace WindowsFormsAppUI.Forms
             //Return
             if (totalBalance == 0)
             {
-                tableLayoutPanelMiddle.RowStyles[2].Height = 0;
+                tableLayoutPanelMiddle.RowStyles[3].Height = 0;
                 return 0;
             }
 
@@ -492,7 +494,7 @@ namespace WindowsFormsAppUI.Forms
 
             _ticket.RemainingAmount = totalBalance;
 
-            tableLayoutPanelMiddle.RowStyles[2].Height = 100;
+            tableLayoutPanelMiddle.RowStyles[3].Height = 100;
 
             return totalBalance;
         }
@@ -841,6 +843,17 @@ namespace WindowsFormsAppUI.Forms
                     receiptTemplates.KitchenReceipt(_productsSentToKitchen, _ticket);
                 }
             }
+        }
+
+        private void buttonOpenTheDrawer_Click(object sender, EventArgs e)
+        {
+            CashDrawer.OpenCashdrawer();
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            var products = _products.Where(x => x.Name.ToLower().Contains(textBoxSearchProduct.Text.ToLower())).ToList();
+            CreateProducts(products);
         }
     }
 }

@@ -178,7 +178,7 @@ namespace WindowsFormsAppUI.Forms
 
                     _genericRepositoryOrder.DeleteAll(_ticket.Orders.ToList());
                     _genericRepositoryOrder.DeleteAll(openTicket.Orders.ToList());
-                    if (_ticket.Payments != null || openTicket.Payments != null)
+                    if (_ticket.Payments != null && openTicket.Payments != null)
                     {
                         _genericRepositoryPayment.DeleteAll(_ticket.Payments.ToList());
                         _genericRepositoryPayment.DeleteAll(openTicket.Payments.ToList());

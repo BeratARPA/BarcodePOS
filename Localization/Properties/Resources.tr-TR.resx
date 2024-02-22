@@ -165,6 +165,9 @@
   <data name="Close" xml:space="preserve">
     <value>Kapat</value>
   </data>
+  <data name="Comma" xml:space="preserve">
+    <value>,</value>
+  </data>
   <data name="CreateBarcode" xml:space="preserve">
     <value>Barkod Oluştur</value>
   </data>
@@ -312,6 +315,9 @@
   <data name="ProductsWithoutBarcode" xml:space="preserve">
     <value>Barkodsuz Ürünler</value>
   </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Birim</value>
+  </data>
   <data name="QuickMenu" xml:space="preserve">
     <value>Hızlı Menü</value>
   </data>
@@ -341,6 +347,9 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>Kaydet</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Ara</value>
   </data>
   <data name="SendToKitchen" xml:space="preserve">
     <value>Mutfağa Gönder</value>
@@ -407,9 +416,6 @@
   </data>
   <data name="Turn" xml:space="preserve">
     <value>Döndür</value>
-  </data>
-  <data name="Unit" xml:space="preserve">
-    <value>Birim</value>
   </data>
   <data name="User" xml:space="preserve">
     <value>Kullanıcı</value>

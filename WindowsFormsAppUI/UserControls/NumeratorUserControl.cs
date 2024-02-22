@@ -18,6 +18,7 @@ namespace WindowsFormsAppUI.UserControls
         public void UpdateUILanguage()
         {
             buttonClear.Text = GlobalVariables.CultureHelper.GetText("Clear");          
+            buttonComma.Text = GlobalVariables.CultureHelper.GetText("Comma");          
         }
 
         public string NumeratorDisplay
