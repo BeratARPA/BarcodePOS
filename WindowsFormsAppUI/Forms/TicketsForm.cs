@@ -1,6 +1,7 @@
 ﻿using Database.Data;
 using Database.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
@@ -25,6 +26,9 @@ namespace WindowsFormsAppUI.Forms
 
             dateTimePickerStart.DateTime = DateTime.Now;
             dateTimePickerEnd.DateTime = DateTime.Now;
+
+            AddFilterComboBox();
+            comboBoxFilter.SelectedItem = GlobalVariables.CultureHelper.GetText("AllTickets");
         }
 
         public void UpdateUILanguage()
@@ -40,7 +44,14 @@ namespace WindowsFormsAppUI.Forms
             label5.Text = GlobalVariables.CultureHelper.GetText("TotalBalance");
         }
 
-        public void AddTicketsDataGridView()
+        public void AddFilterComboBox()
+        {
+            comboBoxFilter.Items.Add(GlobalVariables.CultureHelper.GetText("AllTickets"));
+            comboBoxFilter.Items.Add(GlobalVariables.CultureHelper.GetText("OpenTickets"));
+            comboBoxFilter.Items.Add(GlobalVariables.CultureHelper.GetText("ClosedTickets"));
+        }
+
+        public void AddTicketsDataGridView(int index = 0)
         {
             dataGridViewTickets.Rows.Clear();
 
@@ -49,10 +60,27 @@ namespace WindowsFormsAppUI.Forms
             endDate = endDate.AddDays(1);
 
             double totalAmount = 0;
-            var tickets = _genericRepositoryTicket.GetAll(x => x.Date >= startDate.Date && x.Date <= endDate.Date);
+
+            List<Ticket> tickets = null;
+            switch (index)
+            {
+                case 0:
+                    tickets = _genericRepositoryTicket.GetAll(x => x.Date >= startDate.Date && x.Date <= endDate.Date);
+                    break;
+                case 1:
+                    tickets = _genericRepositoryTicket.GetAll(x => x.Date >= startDate.Date && x.Date <= endDate.Date && x.IsOpened == true);
+                    break;
+                case 2:
+                    tickets = _genericRepositoryTicket.GetAll(x => x.Date >= startDate.Date && x.Date <= endDate.Date && x.IsOpened == false);
+                    break;
+                default:
+                    tickets = _genericRepositoryTicket.GetAll(x => x.Date >= startDate.Date && x.Date <= endDate.Date);
+                    break;
+            }
+
             if (tickets != null)
             {
-                DataGridViewButtonColumn dataGridViewButtonColumn = new DataGridViewButtonColumn
+                DataGridViewButtonColumn dataGridViewShowButtonColumn = new DataGridViewButtonColumn
                 {
                     Text = GlobalVariables.CultureHelper.GetText("View"),
                     HeaderText = "",
@@ -63,7 +91,19 @@ namespace WindowsFormsAppUI.Forms
                     FlatStyle = FlatStyle.Flat
                 };
 
-                dataGridViewTickets.Columns.Add(dataGridViewButtonColumn);
+                DataGridViewButtonColumn dataGridViewPaymentButtonColumn = new DataGridViewButtonColumn
+                {
+                    Text = GlobalVariables.CultureHelper.GetText("Payments"),
+                    HeaderText = "",
+                    SortMode = DataGridViewColumnSortMode.Automatic,
+                    Resizable = DataGridViewTriState.True,
+                    UseColumnTextForButtonValue = true,
+                    Name = "Payment",
+                    FlatStyle = FlatStyle.Flat
+                };
+
+                dataGridViewTickets.Columns.Add(dataGridViewPaymentButtonColumn);
+                dataGridViewTickets.Columns.Add(dataGridViewShowButtonColumn);
             }
 
             foreach (Ticket ticket in tickets)
@@ -86,7 +126,7 @@ namespace WindowsFormsAppUI.Forms
 
         private void dataGridViewTickets_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridViewTickets.Columns["Show"].Index && e.RowIndex >= 0)
+            if (dataGridViewTickets.Columns["Show"] != null && e.ColumnIndex == dataGridViewTickets.Columns["Show"].Index && e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dataGridViewTickets.Rows[e.RowIndex];
 
@@ -94,20 +134,41 @@ namespace WindowsFormsAppUI.Forms
                 Guid.TryParse(selectedRow.Cells["TicketGuid"].Value.ToString(), out ticketGuid);
 
                 var ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == ticketGuid).FirstOrDefault();
-            
+
                 if (ticket != null)
                 {
                     NavigationManager.OpenForm(new POSForm(2, ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
-                    GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
+                    GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;                    
                 }
+            }
+
+            if (dataGridViewTickets.Columns["Payment"] != null && e.ColumnIndex == dataGridViewTickets.Columns["Payment"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridViewTickets.Rows[e.RowIndex];
+
+                PaymentsForm paymentsForm = new PaymentsForm(Convert.ToInt32(selectedRow.Cells["TicketId"].Value));
+                paymentsForm.ShowDialog();
             }
         }
 
         private void dateTimePickerEnd_EditValueChanged(object sender, EventArgs e)
         {
-            DataGridViewColumn column = dataGridViewTickets.Columns["Show"];
-            dataGridViewTickets.Columns.Remove(column);
-            AddTicketsDataGridView();
+            RemoveColumn();
+            AddTicketsDataGridView(comboBoxFilter.SelectedIndex);
+        }
+
+        private void comboBoxFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RemoveColumn();
+            AddTicketsDataGridView(comboBoxFilter.SelectedIndex);
+        }
+
+        public void RemoveColumn()
+        {
+            DataGridViewColumn showColumn = dataGridViewTickets.Columns["Show"];
+            DataGridViewColumn paymentColumn = dataGridViewTickets.Columns["Payment"];
+            dataGridViewTickets.Columns.Remove(showColumn);
+            dataGridViewTickets.Columns.Remove(paymentColumn);
         }
     }
 }

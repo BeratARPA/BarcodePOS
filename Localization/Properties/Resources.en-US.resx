@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllTickets" xml:space="preserve">
+    <value>All Tickets</value>
+  </data>
   <data name="Amount" xml:space="preserve">
     <value>Amount</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
+  </data>
+  <data name="ClosedTickets" xml:space="preserve">
+    <value>Closed Tickets</value>
   </data>
   <data name="Comma" xml:space="preserve">
     <value>.</value>
@@ -231,6 +237,9 @@
   <data name="Information" xml:space="preserve">
     <value>Information</value>
   </data>
+  <data name="IsCalling" xml:space="preserve">
+    <value>{0} is Calling...</value>
+  </data>
   <data name="Label" xml:space="preserve">
     <value>Label</value>
   </data>
@@ -281,6 +290,15 @@
   </data>
   <data name="OpeningClosing" xml:space="preserve">
     <value>Opening-Closing</value>
+  </data>
+  <data name="OpenTickets" xml:space="preserve">
+    <value>Open Tickets</value>
+  </data>
+  <data name="Payment" xml:space="preserve">
+    <value>Payment</value>
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Payments</value>
   </data>
   <data name="PaymentTypes" xml:space="preserve">
     <value>Payment Types</value>

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AllTickets" xml:space="preserve">
+    <value>Tüm Fişler</value>
+  </data>
   <data name="Amount" xml:space="preserve">
     <value>Fiyat</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="Close" xml:space="preserve">
     <value>Kapat</value>
+  </data>
+  <data name="ClosedTickets" xml:space="preserve">
+    <value>Kapalı Fişler</value>
   </data>
   <data name="Comma" xml:space="preserve">
     <value>,</value>
@@ -231,6 +237,9 @@
   <data name="Information" xml:space="preserve">
     <value>Bilgi</value>
   </data>
+  <data name="IsCalling" xml:space="preserve">
+    <value>{0} Arıyor...</value>
+  </data>
   <data name="Label" xml:space="preserve">
     <value>Etiket</value>
   </data>
@@ -281,6 +290,15 @@
   </data>
   <data name="OpeningClosing" xml:space="preserve">
     <value>Açılış-Kapanış</value>
+  </data>
+  <data name="OpenTickets" xml:space="preserve">
+    <value>Açık Fişler</value>
+  </data>
+  <data name="Payment" xml:space="preserve">
+    <value>Ödeme</value>
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Ödemeler</value>
   </data>
   <data name="PaymentTypes" xml:space="preserve">
     <value>Ödeme Tipleri</value>

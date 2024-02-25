@@ -14,6 +14,7 @@ namespace WindowsFormsAppUI.Forms
         private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<User> _genericRepositoryUser = new GenericRepository<User>(GlobalVariables.SQLContext);
 
         private List<PaymentType> _paymentTypes = new List<PaymentType>();
         private Ticket _ticket = null;
@@ -52,6 +53,7 @@ namespace WindowsFormsAppUI.Forms
 
             tableLayoutPanelMain.RowStyles[1].Height = 0;
             tableLayoutPanelMain.RowStyles[2].Height = 0;
+            tableLayoutPanel2.RowStyles[2].Height = 0;
 
             CheckToTenderedAmount();
         }
@@ -62,6 +64,10 @@ namespace WindowsFormsAppUI.Forms
             label1.Text = GlobalVariables.CultureHelper.GetText("Balance");
             label4.Text = GlobalVariables.CultureHelper.GetText("BalancePaid");
             label5.Text = GlobalVariables.CultureHelper.GetText("Change");
+            dataGridViewPayments.Columns[0].HeaderText = GlobalVariables.CultureHelper.GetText("Payment");
+            dataGridViewPayments.Columns[1].HeaderText = GlobalVariables.CultureHelper.GetText("Date");
+            dataGridViewPayments.Columns[2].HeaderText = GlobalVariables.CultureHelper.GetText("Amount");
+            dataGridViewPayments.Columns[3].HeaderText = GlobalVariables.CultureHelper.GetText("User");
         }
 
         public double CheckToNumerator()
@@ -119,6 +125,21 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
+        public void AddPaymentDataGridView()
+        {
+            dataGridViewPayments.Rows.Clear();
+
+            var payments = _genericRepositoryPayment.GetAll(x => x.TicketId == _ticket.TicketId);
+            foreach (var payment in payments)
+            {
+                var user = _genericRepositoryUser.GetById(payment.UserId);
+
+                dataGridViewPayments.Rows.Add(payment.Name, payment.Date.ToString("dd/MM/yyyy HH:mm"), string.Format("{0:C}", payment.TenderedAmount), user.Fullname);
+            }
+
+            dataGridViewPayments.ClearSelection();
+        }
+
         public void CheckToTenderedAmount()
         {
             double tenderedAmount = 0;
@@ -128,6 +149,12 @@ namespace WindowsFormsAppUI.Forms
                 foreach (Payment payment in _ticket.Payments)
                 {
                     tenderedAmount += payment.TenderedAmount;
+                }
+
+                if (_ticket.Payments.Count > 0)
+                {
+                    AddPaymentDataGridView();
+                    tableLayoutPanel2.RowStyles[2].Height = 150;
                 }
             }
 
