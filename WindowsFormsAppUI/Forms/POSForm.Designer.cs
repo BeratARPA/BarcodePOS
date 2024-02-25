@@ -49,6 +49,7 @@ namespace WindowsFormsAppUI.Forms
             this.buttonOpenTheDrawer = new System.Windows.Forms.Button();
             this.buttonChangeTable = new System.Windows.Forms.Button();
             this.flowLayoutPanelOrders = new System.Windows.Forms.FlowLayoutPanel();
+            this.numeratorUserControl = new WindowsFormsAppUI.UserControls.NumeratorUserControl();
             this.tableLayoutPanelMiddle = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelProducts = new System.Windows.Forms.TableLayoutPanel();
             this.labelTable = new System.Windows.Forms.Label();
@@ -67,7 +68,6 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelSearch = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxSearchProduct = new System.Windows.Forms.TextBox();
-            this.numeratorUserControl = new WindowsFormsAppUI.UserControls.NumeratorUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelCategories.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -402,6 +402,18 @@ namespace WindowsFormsAppUI.Forms
             this.flowLayoutPanelOrders.Size = new System.Drawing.Size(320, 200);
             this.flowLayoutPanelOrders.TabIndex = 0;
             // 
+            // numeratorUserControl
+            // 
+            this.numeratorUserControl.BackColor = System.Drawing.Color.Transparent;
+            this.numeratorUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numeratorUserControl.Location = new System.Drawing.Point(0, 200);
+            this.numeratorUserControl.Margin = new System.Windows.Forms.Padding(0);
+            this.numeratorUserControl.Name = "numeratorUserControl";
+            this.numeratorUserControl.NumeratorDisplay = "";
+            this.numeratorUserControl.Size = new System.Drawing.Size(320, 250);
+            this.numeratorUserControl.TabIndex = 2;
+            this.numeratorUserControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeratorTextBoxPin_KeyPress);
+            // 
             // tableLayoutPanelMiddle
             // 
             this.tableLayoutPanelMiddle.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
@@ -654,7 +666,7 @@ namespace WindowsFormsAppUI.Forms
             // 
             this.tableLayoutPanelSearch.ColumnCount = 2;
             this.tableLayoutPanelSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanelSearch.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanelSearch.Controls.Add(this.buttonSearch, 1, 0);
             this.tableLayoutPanelSearch.Controls.Add(this.textBoxSearchProduct, 0, 0);
             this.tableLayoutPanelSearch.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -676,10 +688,10 @@ namespace WindowsFormsAppUI.Forms
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearch.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonSearch.ForeColor = System.Drawing.Color.White;
-            this.buttonSearch.Location = new System.Drawing.Point(323, 3);
+            this.buttonSearch.Location = new System.Drawing.Point(283, 3);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(57, 29);
+            this.buttonSearch.Size = new System.Drawing.Size(97, 29);
             this.buttonSearch.TabIndex = 10;
             this.buttonSearch.Text = "Ara";
             this.buttonSearch.UseVisualStyleBackColor = false;
@@ -695,20 +707,8 @@ namespace WindowsFormsAppUI.Forms
             this.textBoxSearchProduct.Location = new System.Drawing.Point(3, 3);
             this.textBoxSearchProduct.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.textBoxSearchProduct.Name = "textBoxSearchProduct";
-            this.textBoxSearchProduct.Size = new System.Drawing.Size(320, 30);
+            this.textBoxSearchProduct.Size = new System.Drawing.Size(280, 30);
             this.textBoxSearchProduct.TabIndex = 4;
-            // 
-            // numeratorUserControl
-            // 
-            this.numeratorUserControl.BackColor = System.Drawing.Color.Transparent;
-            this.numeratorUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numeratorUserControl.Location = new System.Drawing.Point(0, 200);
-            this.numeratorUserControl.Margin = new System.Windows.Forms.Padding(0);
-            this.numeratorUserControl.Name = "numeratorUserControl";
-            this.numeratorUserControl.NumeratorDisplay = "";
-            this.numeratorUserControl.Size = new System.Drawing.Size(320, 250);
-            this.numeratorUserControl.TabIndex = 2;
-            this.numeratorUserControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeratorTextBoxPin_KeyPress);
             // 
             // POSForm
             // 

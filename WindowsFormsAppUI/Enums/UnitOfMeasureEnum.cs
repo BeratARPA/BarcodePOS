@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppUI.Enums
 {
-    public enum UnitOfMeasure
+    public enum UnitOfMeasureEnum
     {
         Kilogram,
         Piece,

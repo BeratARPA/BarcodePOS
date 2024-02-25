@@ -1,5 +1,5 @@
 ﻿using System;
-using System.CodeDom;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Forms;
 using WindowsFormsAppUI.Helpers;
@@ -8,11 +8,55 @@ namespace WindowsFormsAppUI
 {
     public partial class ShellForm : Form
     {
+        [DllImport("cid.dll", EntryPoint = "CidData", CharSet = CharSet.Ansi)]
+        [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]
+        public static extern string CidData();
+
+        [DllImport("cid.dll", EntryPoint = "CidStart")]
+        public static extern string CidStart();
+
+        public class ConstCharPtrMarshaler : ICustomMarshaler
+        {
+            public object MarshalNativeToManaged(IntPtr pNativeData)
+            {
+                return Marshal.PtrToStringAnsi(pNativeData);
+            }
+
+            public IntPtr MarshalManagedToNative(object ManagedObj)
+            {
+                return IntPtr.Zero;
+            }
+
+            public void CleanUpNativeData(IntPtr pNativeData)
+            {
+            }
+
+            public void CleanUpManagedData(object ManagedObj)
+            {
+            }
+
+            public int GetNativeDataSize()
+            {
+                return IntPtr.Size;
+            }
+
+            static readonly ConstCharPtrMarshaler instance = new ConstCharPtrMarshaler();
+
+            public static ICustomMarshaler GetInstance(string cookie)
+            {
+                return instance;
+            }
+        }
+
         private readonly Timer _timer;
+        private readonly Timer _timer_CallerID;
 
         public ShellForm()
         {
             InitializeComponent();
+
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
 
             GlobalVariables.CultureHelper.ChangeCulture(Properties.Settings.Default.CurrentLanguage);
             UpdateUILanguage();
@@ -24,6 +68,10 @@ namespace WindowsFormsAppUI
 
             _timer = new Timer();
             _timer.Tick += TimerTick;
+
+            _timer_CallerID = new Timer();
+            _timer_CallerID.Tick += CallerID;
+
             labelTime.Text = "...";
 
             this.ResizeBegin += (s, e) =>
@@ -43,6 +91,30 @@ namespace WindowsFormsAppUI
         {
             _timer.Interval = 1000;
             _timer.Start();
+
+            _timer_CallerID.Interval = 1000;
+            _timer_CallerID.Start();
+
+            try
+            {
+                CidStart();
+            }
+            catch { }
+        }
+
+        private void CallerID(object sender, EventArgs e)
+        {
+            string data = CidData();
+            if (data != "")
+            {
+                string[] words = data.Split(',');
+                string serial = words[0];
+                string line = words[1];
+                string phoneNumber = words[2];
+
+                CustomerCallingForm customerCallingForm = new CustomerCallingForm();
+                customerCallingForm.ShowAlert(phoneNumber);
+            }
         }
 
         public void UpdateUILanguage()
@@ -60,6 +132,20 @@ namespace WindowsFormsAppUI
         {
             NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             buttonMainMenu.Enabled = false;
+        }
+
+        private void label1_DoubleClick(object sender, EventArgs e)
+        {
+            if (FormBorderStyle == FormBorderStyle.Sizable)
+            {
+                FormBorderStyle = FormBorderStyle.None;
+                WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                FormBorderStyle = FormBorderStyle.Sizable;
+                WindowState = FormWindowState.Normal;
+            }
         }
     }
 }
