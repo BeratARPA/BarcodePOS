@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsFormsAppUI.Enums;
 using WindowsFormsAppUI.Helpers;
 using WindowsFormsAppUI.UserControls;
 
@@ -499,7 +500,7 @@ namespace WindowsFormsAppUI.Forms
             return totalBalance;
         }
 
-        public void SaveTicket()
+        public async void SaveTicket()
         {
             Ticket ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
 
@@ -545,6 +546,8 @@ namespace WindowsFormsAppUI.Forms
                 var ordersInDatabase = _genericRepositoryOrder.GetAll(x => x.TicketId == ticket.TicketId);
                 var ordersToRemove = ordersInDatabase.Where(dbOrder => !_orders.Any(order => order.ProductId == dbOrder.ProductId)).ToList();
                 _genericRepositoryOrder.DeleteAll(ordersToRemove);
+
+                await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
             }
         }
 

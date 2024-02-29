@@ -49,7 +49,7 @@ namespace WindowsFormsAppUI
             };
         }
 
-        private void ShellForm_Load(object sender, EventArgs e)
+        private async void ShellForm_Load(object sender, EventArgs e)
         {
             _timer.Interval = 1000;
             _timer.Start();
@@ -66,6 +66,8 @@ namespace WindowsFormsAppUI
                 _timer_CallerID.Stop();
             }
             #endregion
+
+            await GlobalVariables.webSocketClient.Connect(Properties.Settings.Default.ServerName, Properties.Settings.Default.Port);
         }
 
         #region CallerID
