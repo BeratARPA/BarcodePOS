@@ -42,6 +42,7 @@ namespace WindowsFormsAppUI.Forms
             DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement9 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement10 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement12 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
             this.tileControl = new DevExpress.XtraEditors.TileControl();
             this.tileGroupMain = new DevExpress.XtraEditors.TileGroup();
@@ -63,6 +64,7 @@ namespace WindowsFormsAppUI.Forms
             this.simpleButtonMedium = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonWide = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonLarge = new DevExpress.XtraEditors.SimpleButton();
+            this.tileItemCustomers = new DevExpress.XtraEditors.TileItem();
             this.SuspendLayout();
             // 
             // tileControl
@@ -75,7 +77,7 @@ namespace WindowsFormsAppUI.Forms
             this.tileControl.IndentBetweenItems = 5;
             this.tileControl.ItemContentAnimation = DevExpress.XtraEditors.TileItemContentAnimationType.Fade;
             this.tileControl.Location = new System.Drawing.Point(0, 0);
-            this.tileControl.MaxId = 14;
+            this.tileControl.MaxId = 15;
             this.tileControl.Name = "tileControl";
             this.tileControl.RowCount = 3;
             this.tileControl.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.TouchScrollBar;
@@ -237,6 +239,7 @@ namespace WindowsFormsAppUI.Forms
             this.tileGroup2.Items.Add(this.tileItemPersonalization);
             this.tileGroup2.Items.Add(this.tileItemManagement);
             this.tileGroup2.Items.Add(this.tileItemLogout);
+            this.tileGroup2.Items.Add(this.tileItemCustomers);
             this.tileGroup2.Name = "tileGroup2";
             // 
             // tileItemTechnicalSupport
@@ -333,8 +336,8 @@ namespace WindowsFormsAppUI.Forms
             // 
             // tileItem1
             // 
-            tileItemElement11.Text = "tileItem1";
-            this.tileItem1.Elements.Add(tileItemElement11);
+            tileItemElement12.Text = "tileItem1";
+            this.tileItem1.Elements.Add(tileItemElement12);
             this.tileItem1.Id = 9;
             this.tileItem1.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem1.Name = "tileItem1";
@@ -486,6 +489,30 @@ namespace WindowsFormsAppUI.Forms
             this.simpleButtonLarge.Visible = false;
             this.simpleButtonLarge.Click += new System.EventHandler(this.simpleButtonLarge_Click);
             // 
+            // tileItemCustomers
+            // 
+            this.tileItemCustomers.AppearanceItem.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.tileItemCustomers.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tileItemCustomers.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            this.tileItemCustomers.AppearanceItem.Normal.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.tileItemCustomers.AppearanceItem.Normal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tileItemCustomers.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileItemCustomers.AppearanceItem.Normal.Options.UseBorderColor = true;
+            this.tileItemCustomers.AppearanceItem.Normal.Options.UseFont = true;
+            tileItemElement11.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileItemElement11.ImageOptions.ImageBorder = DevExpress.XtraEditors.TileItemElementImageBorderMode.None;
+            tileItemElement11.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
+            tileItemElement11.ImageOptions.ImageToTextIndent = 10;
+            tileItemElement11.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage10")));
+            tileItemElement11.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
+            tileItemElement11.Text = "Müşteriler";
+            this.tileItemCustomers.Elements.Add(tileItemElement11);
+            this.tileItemCustomers.Id = 14;
+            this.tileItemCustomers.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
+            this.tileItemCustomers.Name = "tileItemCustomers";
+            this.tileItemCustomers.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemCustomers_ItemClick);
+            this.tileItemCustomers.RightItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemReports_RightItemClick);
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,5 +556,6 @@ namespace WindowsFormsAppUI.Forms
         private DevExpress.XtraEditors.SimpleButton simpleButtonWide;
         private DevExpress.XtraEditors.SimpleButton simpleButtonLarge;
         private DevExpress.XtraEditors.TileItem tileItemTables;
+        private DevExpress.XtraEditors.TileItem tileItemCustomers;
     }
 }

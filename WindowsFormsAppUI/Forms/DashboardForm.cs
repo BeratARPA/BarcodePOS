@@ -43,6 +43,7 @@ namespace WindowsFormsAppUI.Forms
             tileItemPersonalization.Text = GlobalVariables.CultureHelper.GetText("Personalization");
             tileItemLogout.Text = GlobalVariables.CultureHelper.GetText("Logout");
             tileItemTables.Text = GlobalVariables.CultureHelper.GetText("Tables");
+            tileItemCustomers.Text = GlobalVariables.CultureHelper.GetText("Customers");
         }
 
         private void tileItemManagement_ItemClick(object sender, TileItemEventArgs e)
@@ -128,6 +129,15 @@ namespace WindowsFormsAppUI.Forms
             if (!editMode)
             {
                 NavigationManager.OpenForm(new TablesForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
+            }
+        }
+
+        private void tileItemCustomers_ItemClick(object sender, TileItemEventArgs e)
+        {
+            if (!editMode)
+            {
+                NavigationManager.OpenForm(new CustomersForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
             }
         }
@@ -281,6 +291,6 @@ namespace WindowsFormsAppUI.Forms
             int itemSize = Convert.ToInt32(button.Tag);
 
             ItemSize(itemSize, tileItem);
-        }
+        }      
     }
 }

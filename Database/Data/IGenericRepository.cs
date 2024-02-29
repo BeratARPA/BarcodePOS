@@ -6,8 +6,8 @@ namespace Database.Data
 {
     public interface IGenericRepository<T> where T : class, new()
     {
-        void Add(T entity);
-        void AddAll(List<T> entities);
+        T Add(T entity);
+        List<T> AddAll(List<T> entities);
         void Update(T entity);
         void Delete(T entity);
         void DeleteAll(List<T> entities);

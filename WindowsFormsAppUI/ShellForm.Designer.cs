@@ -93,6 +93,7 @@
             this.label1.Text = "BarcodePOS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label1.DoubleClick += new System.EventHandler(this.label1_DoubleClick);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             // 
             // labelTime
             // 

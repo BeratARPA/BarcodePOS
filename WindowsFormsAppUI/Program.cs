@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Database.Data;
+using System;
 using System.Threading;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Forms;
@@ -50,6 +51,7 @@ namespace WindowsFormsAppUI
             // Whatever else your application does on startup
 
             FolderLocations.CreateFolders();
+            DataSeeder.Seed();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

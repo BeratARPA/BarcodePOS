@@ -14,6 +14,8 @@ namespace Database.Data
 
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<CompanyInformation> CompanyInformations { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<OldCalling> OldCallings { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<PaymentType> PaymentTypes { get; set; }

@@ -77,7 +77,7 @@ namespace WindowsFormsAppUI.Helpers
         public static void OpenCashdrawer()
         {
             PrinterSettings printerSettings = new PrinterSettings();
-            PrintRaw(printerSettings.PrinterName, "\x1B\x70\x30\x40\x40");
+            PrintRaw(printerSettings.PrinterName, "\x1B\x70\x0\x19\xFA");
         }
     }
 }

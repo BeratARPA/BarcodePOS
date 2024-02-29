@@ -1,12 +1,17 @@
-﻿using System;
+﻿using Database.Data;
+using Database.Models;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Enums;
+using WindowsFormsAppUI.Helpers;
 
 namespace WindowsFormsAppUI.Forms
 {
     public partial class CustomerCallingForm : Form
     {
+        private readonly GenericRepository<Customer> _genericRepositoryCustomer = new GenericRepository<Customer>(GlobalVariables.SQLContext);
+
         public CustomerCallingForm()
         {
             InitializeComponent();
@@ -44,7 +49,19 @@ namespace WindowsFormsAppUI.Forms
 
             this.x = Screen.PrimaryScreen.WorkingArea.Width - base.Width - 5;
 
-            labelPhoneNumber.Text = phoneNumber;
+            var customer = _genericRepositoryCustomer.Get(x => x.PhoneNumber == phoneNumber);
+            if (customer != null)
+            {
+                labelPhoneNumber.Text = customer.Name;
+                labelDate.Text = DateTime.Now.ToString();
+                labelDescription.Text = string.Format(GlobalVariables.CultureHelper.GetText("IsCalling"), customer.Name);
+            }
+            else
+            {
+                labelPhoneNumber.Text = phoneNumber;
+                labelDate.Text = DateTime.Now.ToString();
+                labelDescription.Text = string.Format(GlobalVariables.CultureHelper.GetText("IsCalling"), phoneNumber);
+            }
 
             this.Show();
             this.action = CustomerCallingEnum.Start;

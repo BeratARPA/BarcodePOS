@@ -180,6 +180,9 @@
   <data name="CreateProductLabel" xml:space="preserve">
     <value>Etiketi Oluştur</value>
   </data>
+  <data name="Customers" xml:space="preserve">
+    <value>Müşteriler</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Tarih</value>
   </data>

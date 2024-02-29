@@ -180,6 +180,9 @@
   <data name="CreateProductLabel" xml:space="preserve">
     <value>Create Product Label</value>
   </data>
+  <data name="Customers" xml:space="preserve">
+    <value>Customers</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Date</value>
   </data>
