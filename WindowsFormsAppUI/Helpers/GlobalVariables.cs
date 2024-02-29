@@ -1,4 +1,5 @@
 ﻿using Database.Data;
+using System.Net.WebSockets;
 using WindowsFormsAppUI.Forms;
 
 namespace WindowsFormsAppUI.Helpers
@@ -10,5 +11,6 @@ namespace WindowsFormsAppUI.Helpers
         public static string TerminalName = MachineName.Get();
         public static SQLContext SQLContext = new SQLContext();
         public static CultureHelper CultureHelper = new CultureHelper();
+        public static WebSocketClient webSocketClient = new WebSocketClient();
     }
 }

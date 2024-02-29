@@ -15,6 +15,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -136,6 +136,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ClientCommandsEnum.cs" />
     <Compile Include="Enums\CustomerCallingEnum.cs" />
     <Compile Include="Enums\UnitOfMeasureEnum.cs" />
     <Compile Include="Forms\CategoryPersonalizationForm.cs">
@@ -276,6 +277,7 @@
     <Compile Include="Helpers\TableName.cs" />
     <Compile Include="Helpers\TicketNumberHelper.cs" />
     <Compile Include="Helpers\UnitConvert.cs" />
+    <Compile Include="Helpers\WebSocketClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShellForm.cs">

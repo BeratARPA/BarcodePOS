@@ -57,7 +57,7 @@
             this.accordionControlElement5});
             this.accordionControl1.ExpandElementMode = DevExpress.XtraBars.Navigation.ExpandElementMode.Multiple;
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(2);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsFooter.ActiveGroupDisplayMode = DevExpress.XtraBars.Navigation.ActiveGroupDisplayMode.GroupHeaderAndContent;
             this.accordionControl1.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
@@ -72,7 +72,7 @@
             this.accordionControlElementUsers});
             this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.Name = "accordionControlElement1";
-            this.accordionControlElement1.Text = "Element1";
+            this.accordionControlElement1.Text = "Genel";
             // 
             // accordionControlElementUsers
             // 
@@ -100,7 +100,7 @@
             this.accordionControlElementUsers.Height = 50;
             this.accordionControlElementUsers.Name = "accordionControlElementUsers";
             this.accordionControlElementUsers.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElementUsers.Text = "Kullanıcılar";
+            this.accordionControlElementUsers.Text = "Yerel Ayarlar";
             // 
             // accordionControlElement2
             // 
@@ -142,7 +142,7 @@
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.accordionControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManagementForm";
             this.ShowInTaskbar = false;
             this.Text = "BarcodePOS";
