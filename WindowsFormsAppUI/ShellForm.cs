@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Database.Data;
+using Database.Models;
+using System;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Forms;
@@ -8,48 +11,7 @@ namespace WindowsFormsAppUI
 {
     public partial class ShellForm : Form
     {
-        [DllImport("cid.dll", EntryPoint = "CidData", CharSet = CharSet.Ansi)]
-        [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]
-        public static extern string CidData();
-
-        [DllImport("cid.dll", EntryPoint = "CidStart")]
-        public static extern string CidStart();
-
-        public class ConstCharPtrMarshaler : ICustomMarshaler
-        {
-            public object MarshalNativeToManaged(IntPtr pNativeData)
-            {
-                return Marshal.PtrToStringAnsi(pNativeData);
-            }
-
-            public IntPtr MarshalManagedToNative(object ManagedObj)
-            {
-                return IntPtr.Zero;
-            }
-
-            public void CleanUpNativeData(IntPtr pNativeData)
-            {
-            }
-
-            public void CleanUpManagedData(object ManagedObj)
-            {
-            }
-
-            public int GetNativeDataSize()
-            {
-                return IntPtr.Size;
-            }
-
-            static readonly ConstCharPtrMarshaler instance = new ConstCharPtrMarshaler();
-
-            public static ICustomMarshaler GetInstance(string cookie)
-            {
-                return instance;
-            }
-        }
-
         private readonly Timer _timer;
-        private readonly Timer _timer_CallerID;
 
         public ShellForm()
         {
@@ -92,15 +54,65 @@ namespace WindowsFormsAppUI
             _timer.Interval = 1000;
             _timer.Start();
 
-            _timer_CallerID.Interval = 1000;
-            _timer_CallerID.Start();
-
+            #region CallerID           
             try
             {
+                _timer_CallerID.Interval = 1000;
+                _timer_CallerID.Start();
                 CidStart();
             }
-            catch { }
+            catch
+            {
+                _timer_CallerID.Stop();
+            }
+            #endregion
         }
+
+        #region CallerID
+        private readonly GenericRepository<OldCalling> _genericRepositoryOldCalling = new GenericRepository<OldCalling>(GlobalVariables.SQLContext);
+
+        private readonly Timer _timer_CallerID;
+
+        [DllImport("cid.dll", EntryPoint = "CidData", CharSet = CharSet.Ansi)]
+        [return: MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(ConstCharPtrMarshaler))]
+        public static extern string CidData();
+
+        [DllImport("cid.dll", EntryPoint = "CidStart")]
+        public static extern string CidStart();
+
+        public class ConstCharPtrMarshaler : ICustomMarshaler
+        {
+            public object MarshalNativeToManaged(IntPtr pNativeData)
+            {
+                return Marshal.PtrToStringAnsi(pNativeData);
+            }
+
+            public IntPtr MarshalManagedToNative(object ManagedObj)
+            {
+                return IntPtr.Zero;
+            }
+
+            public void CleanUpNativeData(IntPtr pNativeData)
+            {
+            }
+
+            public void CleanUpManagedData(object ManagedObj)
+            {
+            }
+
+            public int GetNativeDataSize()
+            {
+                return IntPtr.Size;
+            }
+
+            static readonly ConstCharPtrMarshaler instance = new ConstCharPtrMarshaler();
+
+            public static ICustomMarshaler GetInstance(string cookie)
+            {
+                return instance;
+            }
+        }
+
 
         private void CallerID(object sender, EventArgs e)
         {
@@ -112,10 +124,13 @@ namespace WindowsFormsAppUI
                 string line = words[1];
                 string phoneNumber = words[2];
 
+                _genericRepositoryOldCalling.Add(new OldCalling { Serial = serial, Line = line, PhoneNumber = phoneNumber, CallingDateTime = DateTime.Now });
+
                 CustomerCallingForm customerCallingForm = new CustomerCallingForm();
                 customerCallingForm.ShowAlert(phoneNumber);
             }
         }
+        #endregion
 
         public void UpdateUILanguage()
         {
@@ -146,6 +161,14 @@ namespace WindowsFormsAppUI
                 FormBorderStyle = FormBorderStyle.Sizable;
                 WindowState = FormWindowState.Normal;
             }
+        }
+
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
+            //if (ModifierKeys == (Keys.Control | Keys.Shift))
+            //{                
+            //    this.Scale(new SizeF(1.1f, 1.1f));
+            //}
         }
     }
 }

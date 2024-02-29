@@ -15,16 +15,20 @@ namespace Database.Data
             _context = context;
         }
 
-        public void Add(T entity)
+        public T Add(T entity)
         {
             _context.Entry(entity).State = EntityState.Added;
             _context.SaveChanges();
+
+            return entity;
         }
 
-        public void AddAll(List<T> entities)
+        public List<T> AddAll(List<T> entities)
         {
             _context.Set<T>().AddRange(entities);
             _context.SaveChanges();
+
+            return entities;
         }
 
         public void Update(T entity)

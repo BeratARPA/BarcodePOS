@@ -430,7 +430,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelMiddle.Name = "tableLayoutPanelMiddle";
             this.tableLayoutPanelMiddle.RowCount = 5;
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
@@ -443,12 +443,12 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelProducts.ColumnCount = 1;
             this.tableLayoutPanelProducts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelProducts.Location = new System.Drawing.Point(1, 70);
+            this.tableLayoutPanelProducts.Location = new System.Drawing.Point(1, 71);
             this.tableLayoutPanelProducts.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelProducts.Name = "tableLayoutPanelProducts";
             this.tableLayoutPanelProducts.RowCount = 1;
             this.tableLayoutPanelProducts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelProducts.Size = new System.Drawing.Size(383, 327);
+            this.tableLayoutPanelProducts.Size = new System.Drawing.Size(383, 326);
             this.tableLayoutPanelProducts.TabIndex = 2;
             // 
             // labelTable
@@ -675,7 +675,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelSearch.Name = "tableLayoutPanelSearch";
             this.tableLayoutPanelSearch.RowCount = 1;
             this.tableLayoutPanelSearch.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelSearch.Size = new System.Drawing.Size(383, 35);
+            this.tableLayoutPanelSearch.Size = new System.Drawing.Size(383, 36);
             this.tableLayoutPanelSearch.TabIndex = 4;
             // 
             // buttonSearch
@@ -691,7 +691,7 @@ namespace WindowsFormsAppUI.Forms
             this.buttonSearch.Location = new System.Drawing.Point(283, 3);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(97, 29);
+            this.buttonSearch.Size = new System.Drawing.Size(97, 30);
             this.buttonSearch.TabIndex = 10;
             this.buttonSearch.Text = "Ara";
             this.buttonSearch.UseVisualStyleBackColor = false;

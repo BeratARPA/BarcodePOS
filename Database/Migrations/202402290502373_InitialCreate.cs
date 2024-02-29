@@ -52,6 +52,32 @@
                 .PrimaryKey(t => t.CompanyInformationId);
             
             CreateTable(
+                "dbo.Customers",
+                c => new
+                    {
+                        CustomerId = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        PhoneNumber = c.String(),
+                        Address = c.String(),
+                        Note = c.String(),
+                        CreatedDateTime = c.DateTime(nullable: false),
+                        LastUpdateDateTime = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.CustomerId);
+            
+            CreateTable(
+                "dbo.OldCallings",
+                c => new
+                    {
+                        OldCallingId = c.Int(nullable: false, identity: true),
+                        Serial = c.String(),
+                        Line = c.String(),
+                        PhoneNumber = c.String(),
+                        CallingDateTime = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.OldCallingId);
+            
+            CreateTable(
                 "dbo.Orders",
                 c => new
                     {
@@ -193,6 +219,8 @@
             DropTable("dbo.Payments");
             DropTable("dbo.Tickets");
             DropTable("dbo.Orders");
+            DropTable("dbo.OldCallings");
+            DropTable("dbo.Customers");
             DropTable("dbo.CompanyInformations");
             DropTable("dbo.Products");
             DropTable("dbo.Categories");

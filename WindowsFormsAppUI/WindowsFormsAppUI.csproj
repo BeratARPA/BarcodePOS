@@ -156,6 +156,12 @@
     <Compile Include="Forms\CustomerCallingForm.Designer.cs">
       <DependentUpon>CustomerCallingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CustomersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomersForm.Designer.cs">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +296,12 @@
     <Compile Include="UserControls\NumeratorUserControl.Designer.cs">
       <DependentUpon>NumeratorUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\PaginationUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PaginationUserControl.Designer.cs">
+      <DependentUpon>PaginationUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PaymentTypeUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -322,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomerCallingForm.resx">
       <DependentUpon>CustomerCallingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomersForm.resx">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
@@ -390,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\NumeratorUserControl.resx">
       <DependentUpon>NumeratorUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PaginationUserControl.resx">
+      <DependentUpon>PaginationUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PaymentTypeUserControl.resx">
       <DependentUpon>PaymentTypeUserControl.cs</DependentUpon>
