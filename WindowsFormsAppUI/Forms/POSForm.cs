@@ -3,6 +3,7 @@ using Database.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Enums;
 using WindowsFormsAppUI.Helpers;
@@ -120,6 +121,8 @@ namespace WindowsFormsAppUI.Forms
                 {
                     var product = _genericRepositoryProduct.GetAll(x => x.ProductId == order.ProductId).FirstOrDefault();
                     ProductUserControl productUserControl = new ProductUserControl(product);
+
+                    Task.Delay(250).Wait();
 
                     ProductOnCardUserControl newProductOnCard = CreateNewProductOnCard(productUserControl, order);
                     flowLayoutPanelOrders.Controls.Add(newProductOnCard);
