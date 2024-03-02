@@ -131,7 +131,7 @@ namespace WindowsFormsAppUI.Forms
                 Guid ticketGuid;
                 Guid.TryParse(selectedRow.Cells["TicketGuid"].Value.ToString(), out ticketGuid);
 
-                var ticket = _genericRepositoryTicket.GetAllAsNoTracking(x => x.TicketGuid == ticketGuid).FirstOrDefault();
+                var ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == ticketGuid).FirstOrDefault();
 
                 if (ticket != null)
                 {
