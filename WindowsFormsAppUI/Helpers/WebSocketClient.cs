@@ -13,7 +13,7 @@ namespace WindowsFormsAppUI.Helpers
     {
         private ClientWebSocket _clientWebSocket;
 
-        public async Task Connect(string serverName = "192.168.1.243", int port = 8080)
+        public async Task Connect(string serverName = "localhost", int port = 8080)
         {
             try
             {
@@ -25,8 +25,10 @@ namespace WindowsFormsAppUI.Helpers
                     return;
                 }
 
+                _clientWebSocket.Options.SetRequestHeader("Terminal-Name", GlobalVariables.TerminalName);
+
                 await _clientWebSocket.ConnectAsync(new Uri(string.Format("ws://{0}:{1}/", serverName, port)), CancellationToken.None);
-                AddLog("Sunucuya bağlandı: " + _clientWebSocket.GetHashCode());
+                AddLog("Sunucuya bağlandı.");
 
                 await Task.Run(ReceiveMessages);
             }
@@ -46,19 +48,15 @@ namespace WindowsFormsAppUI.Helpers
         {
             byte[] buffer = new byte[1024];
 
-            while (_clientWebSocket.State == WebSocketState.Open)
+            while (_clientWebSocket != null && _clientWebSocket.State == WebSocketState.Open)
             {
                 WebSocketReceiveResult result = await _clientWebSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
                 var serverMessage = Encoding.UTF8.GetString(buffer, 0, result.Count);
 
                 #region Events
-                TablesForm tablesForm = null;
-                TicketsForm ticketsForm = null;
-
                 if (serverMessage == ClientCommandsEnum.REFRESH.ToString())
                 {
-
-                    tablesForm = (TablesForm)GetForm.Get("TablesForm");
+                    TablesForm tablesForm = (TablesForm)GetForm.Get("TablesForm");
                     if (tablesForm != null)
                     {
                         tablesForm.Invoke((MethodInvoker)delegate
@@ -68,7 +66,7 @@ namespace WindowsFormsAppUI.Helpers
                         });
                     }
 
-                    ticketsForm = (TicketsForm)GetForm.Get("TicketsForm");
+                    TicketsForm ticketsForm = (TicketsForm)GetForm.Get("TicketsForm");
                     if (ticketsForm != null)
                     {
                         ticketsForm.Invoke((MethodInvoker)delegate
@@ -101,11 +99,14 @@ namespace WindowsFormsAppUI.Helpers
                 AddLog("Bağlantı kesildi.");
 
                 await _clientWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "İstemci tarafından kapatıldı.", CancellationToken.None);
-                _clientWebSocket = null;
             }
             catch (Exception ex)
             {
                 AddLog("Bağlantı kapatma hatası: " + ex.Message);
+            }
+            finally
+            {
+                _clientWebSocket = null;
             }
         }
 

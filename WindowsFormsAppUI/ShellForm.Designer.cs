@@ -197,6 +197,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BarcodePOS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ShellForm_FormClosing);
             this.Load += new System.EventHandler(this.ShellForm_Load);
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

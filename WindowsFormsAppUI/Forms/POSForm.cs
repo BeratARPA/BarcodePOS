@@ -500,7 +500,7 @@ namespace WindowsFormsAppUI.Forms
             return totalBalance;
         }
 
-        public async void SaveTicket()
+        public void SaveTicket()
         {
             Ticket ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
 
@@ -546,8 +546,6 @@ namespace WindowsFormsAppUI.Forms
                 var ordersInDatabase = _genericRepositoryOrder.GetAll(x => x.TicketId == ticket.TicketId);
                 var ordersToRemove = ordersInDatabase.Where(dbOrder => !_orders.Any(order => order.ProductId == dbOrder.ProductId)).ToList();
                 _genericRepositoryOrder.DeleteAll(ordersToRemove);
-
-                await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
             }
         }
 
@@ -557,6 +555,7 @@ namespace WindowsFormsAppUI.Forms
             _orders.Clear();
             _productsSentToKitchen.Clear();
             flowLayoutPanelOrders.Controls.Clear();
+
             CreateTicket();
             IsTable();
             CalculateTotalBalance();
@@ -611,7 +610,7 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        private void PaymentTypeUserControl_Click(object sender, EventArgs e)
+        private async void PaymentTypeUserControl_Click(object sender, EventArgs e)
         {
             if (_orders.Count != 0)
             {
@@ -649,6 +648,8 @@ namespace WindowsFormsAppUI.Forms
                 _genericRepositoryTicket.UpdateColumn(ticket, x => x.IsOpened, false);
 
                 ClearTicket();
+
+                await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
             }
         }
 
@@ -661,7 +662,7 @@ namespace WindowsFormsAppUI.Forms
             numeratorUserControl.Clear();
         }
 
-        private void buttonClose_Click(object sender, EventArgs e)
+        private async void buttonClose_Click(object sender, EventArgs e)
         {
             if (!_ticket.IsOpened)
             {
@@ -672,13 +673,25 @@ namespace WindowsFormsAppUI.Forms
             }
 
             SaveTicket();
+
+            if (_orders.Count > 0)
+            {
+                await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
+            }
+
             ClearTicket();
             Navigate();
         }
 
-        private void buttonNewTicket_Click(object sender, EventArgs e)
+        private async void buttonNewTicket_Click(object sender, EventArgs e)
         {
             SaveTicket();
+
+            if (_orders.Count > 0)
+            {
+                await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
+            }
+
             ClearTicket();
         }
 
@@ -775,7 +788,7 @@ namespace WindowsFormsAppUI.Forms
             numeratorUserControl.Clear();
         }
 
-        public void DeleteTicket()
+        public async void DeleteTicket()
         {
             if (GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("ReceiptWillBeDeleted(Cancel)DoYouWantToContinue?"), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.YesNo, MessageIcon.Warning) != DialogResult.Yes)
             {
@@ -798,16 +811,24 @@ namespace WindowsFormsAppUI.Forms
             }
 
             ClearTicket();
+
+            await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
         }
 
         private void buttonTicketDelete_Click(object sender, EventArgs e)
         {
-            DeleteTicket();
+            DeleteTicket();           
         }
 
-        private void buttonTickets_Click(object sender, EventArgs e)
+        private async void buttonTickets_Click(object sender, EventArgs e)
         {
             SaveTicket();
+
+            if (_orders.Count > 0)
+            {
+                await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
+            }
+
             ClearTicket();
 
             NavigationManager.OpenForm(new TicketsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
@@ -822,11 +843,12 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        private void buttonChangeTable_Click(object sender, EventArgs e)
+        private async void buttonChangeTable_Click(object sender, EventArgs e)
         {
             if (_orders.Count != 0)
             {
-                SaveTicket();
+                SaveTicket();              
+
                 NavigationManager.OpenForm(new TablesForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             }
         }
@@ -839,11 +861,6 @@ namespace WindowsFormsAppUI.Forms
                 {
                     receiptTemplates.KitchenReceipt(_productsSentToKitchen, _ticket);
                     return;
-                }
-
-                if (GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("ThereAreProductsThatAreNotSentToTheKitchenWouldYouLikeToSendIt?"), GlobalVariables.CultureHelper.GetText("Information"), MessageButton.YesNo, MessageIcon.Information) == DialogResult.Yes)
-                {
-                    receiptTemplates.KitchenReceipt(_productsSentToKitchen, _ticket);
                 }
             }
         }

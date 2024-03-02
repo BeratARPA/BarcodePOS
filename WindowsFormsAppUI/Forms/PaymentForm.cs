@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsFormsAppUI.Enums;
 using WindowsFormsAppUI.Helpers;
 using WindowsFormsAppUI.UserControls;
 
@@ -185,7 +186,7 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        private void PaymentTypeUserControl_Click(object sender, EventArgs e)
+        private async void PaymentTypeUserControl_Click(object sender, EventArgs e)
         {
             double tenderedAmount = CheckToNumerator();
             if (tenderedAmount != 0)
@@ -230,6 +231,8 @@ namespace WindowsFormsAppUI.Forms
 
                     _posForm.ClearTicket();
 
+                    await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
+
                     this.Close();
                 }
                 else if (tenderedAmount < _ticket.RemainingAmount)
@@ -268,6 +271,8 @@ namespace WindowsFormsAppUI.Forms
                 CheckToMoneyChange();
                 CheckToTenderedAmount();
                 numeratorUserControl.Clear();
+
+                await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
             }
         }
 
