@@ -843,7 +843,7 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        private async void buttonChangeTable_Click(object sender, EventArgs e)
+        private void buttonChangeTable_Click(object sender, EventArgs e)
         {
             if (_orders.Count != 0)
             {

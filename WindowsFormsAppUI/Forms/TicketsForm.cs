@@ -11,8 +11,6 @@ namespace WindowsFormsAppUI.Forms
     public partial class TicketsForm : Form
     {
         private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Order> _genericRepositoryOrder = new GenericRepository<Order>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
 
         public TicketsForm()
         {
@@ -65,16 +63,16 @@ namespace WindowsFormsAppUI.Forms
             switch (index)
             {
                 case 0:
-                    tickets = _genericRepositoryTicket.GetAll(x => x.Date >= startDate.Date && x.Date <= endDate.Date);
+                    tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate.Date && x.Date <= endDate.Date);
                     break;
                 case 1:
-                    tickets = _genericRepositoryTicket.GetAll(x => x.Date >= startDate.Date && x.Date <= endDate.Date && x.IsOpened == true);
+                    tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate.Date && x.Date <= endDate.Date && x.IsOpened == true);
                     break;
                 case 2:
-                    tickets = _genericRepositoryTicket.GetAll(x => x.Date >= startDate.Date && x.Date <= endDate.Date && x.IsOpened == false);
+                    tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate.Date && x.Date <= endDate.Date && x.IsOpened == false);
                     break;
                 default:
-                    tickets = _genericRepositoryTicket.GetAll(x => x.Date >= startDate.Date && x.Date <= endDate.Date);
+                    tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate.Date && x.Date <= endDate.Date);
                     break;
             }
 
@@ -133,7 +131,7 @@ namespace WindowsFormsAppUI.Forms
                 Guid ticketGuid;
                 Guid.TryParse(selectedRow.Cells["TicketGuid"].Value.ToString(), out ticketGuid);
 
-                var ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == ticketGuid).FirstOrDefault();
+                var ticket = _genericRepositoryTicket.GetAllAsNoTracking(x => x.TicketGuid == ticketGuid).FirstOrDefault();
 
                 if (ticket != null)
                 {
