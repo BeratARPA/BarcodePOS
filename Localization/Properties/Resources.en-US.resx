@@ -399,9 +399,6 @@
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>The changes have been saved.</value>
   </data>
-  <data name="ThereAreProductsThatAreNotSentToTheKitchenWouldYouLikeToSendIt?" xml:space="preserve">
-    <value>There are products that are not sent to the kitchen! Would you like to send it?</value>
-  </data>
   <data name="TheTablesWillJoinDoYouWantToContinue?" xml:space="preserve">
     <value>The tables will join, do you want to continue?</value>
   </data>

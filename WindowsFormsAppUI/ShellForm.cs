@@ -1,7 +1,6 @@
 ﻿using Database.Data;
 using Database.Models;
 using System;
-using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Forms;
@@ -171,6 +170,11 @@ namespace WindowsFormsAppUI
             //{                
             //    this.Scale(new SizeF(1.1f, 1.1f));
             //}
+        }
+
+        private async void ShellForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            await GlobalVariables.webSocketClient.Disconnect();
         }
     }
 }

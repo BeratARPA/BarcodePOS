@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsFormsAppUI.Enums;
 using WindowsFormsAppUI.Helpers;
 
 namespace WindowsFormsAppUI.Forms
@@ -118,7 +119,7 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        private void tileItemTable_Click(object sender, TileItemEventArgs e)
+        private async void tileItemTable_Click(object sender, TileItemEventArgs e)
         {
             TileItem tableItem = (TileItem)sender;
 
@@ -194,6 +195,8 @@ namespace WindowsFormsAppUI.Forms
                 CreateSections();
                 CreateTables(section.SectionId);
                 _ticket = null;
+
+                await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
                 return;
             }
             #endregion

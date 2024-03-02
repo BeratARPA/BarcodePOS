@@ -13,7 +13,7 @@ namespace WebSocketServer
     {
         private HttpListener _listener;
         private CancellationTokenSource _cancellationTokenSource;
-        private readonly List<WebSocket> _connectedSockets = new List<WebSocket>();
+        private readonly Dictionary<WebSocket, string> _connectedSockets = new Dictionary<WebSocket, string>();
 
         public ShellForm()
         {
@@ -72,8 +72,12 @@ namespace WebSocketServer
             {
                 webSocketContext = await context.AcceptWebSocketAsync(subProtocol: null);
                 WebSocket clientSocket = webSocketContext.WebSocket;
-                _connectedSockets.Add(clientSocket); // Yeni istemciyi bağlı istemciler listesine ekle
-                AddLog("Yeni istemci bağlandı: " + clientSocket.GetHashCode());
+
+                string clientTerminalName = context.Request.Headers["Terminal-Name"];
+                _connectedSockets.Add(clientSocket, clientTerminalName);
+
+                AddLog($"Yeni istemci bağlandı: {clientTerminalName} ({clientSocket.GetHashCode()})");
+
                 await HandleClient(clientSocket);
             }
             catch (Exception ex)
@@ -86,31 +90,44 @@ namespace WebSocketServer
             {
                 if (webSocketContext != null && webSocketContext.WebSocket != null)
                 {
-                    _connectedSockets.Remove(webSocketContext.WebSocket); // İstemci bağlantısını listeden kaldır
+                    _connectedSockets.Remove(webSocketContext.WebSocket);
                     await webSocketContext.WebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Sunucu tarafından kapatıldı.", CancellationToken.None);
                 }
             }
         }
 
+        private string GetTerminalName(WebSocket webSocket)
+        {
+            foreach (var socket in _connectedSockets)
+            {
+                if (socket.Key == webSocket)
+                {
+                    return socket.Value;
+                }
+            }
+
+            return webSocket.GetHashCode().ToString();
+        }
+
         private async Task HandleClient(WebSocket clientWebSocket)
         {
-            byte[] buffer = new byte[1024];
-
             try
             {
+                byte[] buffer = new byte[1024];
+
                 while (clientWebSocket.State == WebSocketState.Open)
                 {
                     WebSocketReceiveResult result = await clientWebSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
                     string clientMessage = Encoding.UTF8.GetString(buffer, 0, result.Count);
-                    AddLog("İstemciden gelen mesaj: " + clientMessage);
 
-                    // Sunucudaki tüm bağlı istemcilere mesaj gönder
+                    AddLog($"{GetTerminalName(clientWebSocket)}: {clientMessage}");
+
                     foreach (var socket in _connectedSockets)
                     {
-                        if (socket != clientWebSocket && socket.State == WebSocketState.Open)
+                        if (!socket.Key.Equals(clientWebSocket) && socket.Key.State == WebSocketState.Open)
                         {
                             byte[] responseBuffer = Encoding.UTF8.GetBytes(clientMessage);
-                            await socket.SendAsync(new ArraySegment<byte>(responseBuffer), WebSocketMessageType.Text, true, CancellationToken.None);
+                            await socket.Key.SendAsync(new ArraySegment<byte>(responseBuffer), WebSocketMessageType.Text, true, CancellationToken.None);
                         }
                     }
 
@@ -119,14 +136,13 @@ namespace WebSocketServer
             }
             catch (WebSocketException ex)
             {
-                // Istemci tarafında bir hata oluştu, istemci bağlantısını kapat
                 if (ex.WebSocketErrorCode == WebSocketError.ConnectionClosedPrematurely)
                 {
-                    AddLog("İstemci bağlantısı beklenmedik şekilde kapandı.");
+                    AddLog($"({GetTerminalName(clientWebSocket)}) İstemci bağlantısı beklenmedik şekilde kapandı.");
                 }
                 else
                 {
-                    AddLog("İstemci bağlantı hatası: " + ex.Message);
+                    AddLog($"({GetTerminalName(clientWebSocket)}) İstemci bağlantı hatası: " + ex.Message);
                 }
             }
         }

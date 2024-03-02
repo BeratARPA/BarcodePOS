@@ -402,9 +402,6 @@
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>Değişiklikler kaydedildi.</value>
   </data>
-  <data name="ThereAreProductsThatAreNotSentToTheKitchenWouldYouLikeToSendIt?" xml:space="preserve">
-    <value>Mutfağa gönderilmeyen ürünler var! Göndermek ister misiniz?</value>
-  </data>
   <data name="TheTablesWillJoinDoYouWantToContinue?" xml:space="preserve">
     <value>Masalar birleşecek, devam etmek istiyor musunuz?</value>
   </data>

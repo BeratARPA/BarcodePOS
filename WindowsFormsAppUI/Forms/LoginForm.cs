@@ -1,6 +1,7 @@
 ﻿using Database.Data;
 using Database.Models;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
 
@@ -36,9 +37,11 @@ namespace WindowsFormsAppUI.Forms
             LoggedInUser.Login(user);
         }
 
-        private void buttonShutdown_Click(object sender, EventArgs e)
+        private async void buttonShutdown_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            await GlobalVariables.webSocketClient.Disconnect();
+
+            Environment.Exit(0);
         }
     }
 }
