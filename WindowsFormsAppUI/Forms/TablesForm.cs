@@ -13,11 +13,11 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class TablesForm : Form
     {
-        private readonly IGenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>();
-        private readonly IGenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>();
-        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>();
-        private readonly IGenericRepository<Order> _genericRepositoryOrder = new GenericRepository<Order>();
-        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>();
+        private readonly IGenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Order> _genericRepositoryOrder = new GenericRepository<Order>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
 
         private List<Section> _sections = new List<Section>();
         private List<Table> _tables = new List<Table>();
@@ -63,7 +63,7 @@ namespace WindowsFormsAppUI.Forms
                     .Select(table => new
                     {
                         Table = table,
-                        Ticket = _genericRepositoryTicket.GetAllAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true).FirstOrDefault()
+                        Ticket = _genericRepositoryTicket.GetAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true)
                     })
                     .Where(x => x.Ticket != null)
                     .Count();
@@ -100,7 +100,7 @@ namespace WindowsFormsAppUI.Forms
                     tileItemTable.Text = TableName.GetName(table.TableId);
                     tileItemTable.ItemClick += tileItemTable_Click;
 
-                    var ticket = _genericRepositoryTicket.GetAllAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true).FirstOrDefault();
+                    var ticket = _genericRepositoryTicket.GetAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true);
                     if (ticket != null)
                     {
                         //TableColor
@@ -124,8 +124,8 @@ namespace WindowsFormsAppUI.Forms
             TileItem tableItem = (TileItem)sender;
 
             int tableId = Convert.ToInt32(tableItem.Tag);
-            var table = _genericRepositoryTable.GetAllAsNoTracking(x => x.TableId == tableId).FirstOrDefault();
-            var section = _genericRepositorySection.GetAllAsNoTracking(x => x.SectionId == table.SectionId).FirstOrDefault();
+            var table = _genericRepositoryTable.GetAsNoTracking(x => x.TableId == tableId);
+            var section = _genericRepositorySection.GetAsNoTracking(x => x.SectionId == table.SectionId);
             var ticket = _genericRepositoryTicket.Get(x => x.TableId == table.TableId && x.IsOpened == true);
 
             #region ChangeTable

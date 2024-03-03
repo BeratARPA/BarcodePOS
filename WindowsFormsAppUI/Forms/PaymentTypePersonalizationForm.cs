@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class PaymentTypePersonalizationForm : Form
     {
-        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>();
+        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
 
         public PaymentTypePersonalizationForm()
         {
@@ -140,7 +140,7 @@ namespace WindowsFormsAppUI.Forms
             }
 
             int paymentTypeId = (int)dataGridViewPaymentTypes.CurrentRow.Cells[0].Value;
-            var paymentType = _genericRepositoryPaymentType.GetAll(x => x.PaymentTypeId == paymentTypeId).FirstOrDefault();
+            var paymentType = _genericRepositoryPaymentType.Get(x => x.PaymentTypeId == paymentTypeId);
             if (paymentType != null)
             {
                 _genericRepositoryPaymentType.UpdateColumn(paymentType, x => x.BackColor, comboBoxBackColors.Text);

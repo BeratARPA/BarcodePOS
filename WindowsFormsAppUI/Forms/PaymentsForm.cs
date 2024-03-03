@@ -8,8 +8,8 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class PaymentsForm : Form
     {
-        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>();
-        private readonly IGenericRepository<User> _genericRepositoryUser = new GenericRepository<User>();
+        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<User> _genericRepositoryUser = new GenericRepository<User>(GlobalVariables.SQLContext);
 
         private int _ticketId;
 

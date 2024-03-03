@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class ProductPersonalizationForm : Form
     {
-        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>();
+        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>(GlobalVariables.SQLContext);
 
         public ProductPersonalizationForm()
         {
@@ -123,7 +123,7 @@ namespace WindowsFormsAppUI.Forms
             }
 
             int productId = (int)dataGridViewProducts.CurrentRow.Cells[0].Value;
-            var product = _genericRepositoryProduct.GetAll(x => x.ProductId == productId).FirstOrDefault();
+            var product = _genericRepositoryProduct.Get(x => x.ProductId == productId);
             if (product != null)
             {
                 _genericRepositoryProduct.UpdateColumn(product, x => x.BackColor, comboBoxBackColors.Text);

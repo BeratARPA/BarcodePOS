@@ -5,7 +5,7 @@ namespace WindowsFormsAppUI.Helpers
 {
     public class TableName
     {
-        private static readonly IGenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>();
+        private static readonly IGenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>(GlobalVariables.SQLContext);
 
         public static string GetName(int tableId)
         {

@@ -3,7 +3,6 @@ using Database.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Enums;
 using WindowsFormsAppUI.Helpers;
@@ -13,14 +12,14 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class POSForm : Form
     {
-        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>();
-        private readonly IGenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>();
-        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>();
-        private readonly IGenericRepository<Order> _genericRepositoryOrder = new GenericRepository<Order>();
-        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>();
-        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>();
-        private readonly IGenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>();
-        private readonly IGenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>();
+        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Order> _genericRepositoryOrder = new GenericRepository<Order>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>(GlobalVariables.SQLContext);
 
         private Ticket _ticket = new Ticket();
         private Section _section = new Section();
@@ -119,7 +118,7 @@ namespace WindowsFormsAppUI.Forms
                 _ticket.Payments = _genericRepositoryPayment.GetAll(x => x.TicketId == _ticket.TicketId);
                 foreach (Order order in _ticket.Orders)
                 {
-                    var product = _genericRepositoryProduct.GetAll(x => x.ProductId == order.ProductId).FirstOrDefault();
+                    var product = _genericRepositoryProduct.Get(x => x.ProductId == order.ProductId);
                     ProductUserControl productUserControl = new ProductUserControl(product);
 
                     ProductOnCardUserControl newProductOnCard = CreateNewProductOnCard(productUserControl, order);
@@ -503,7 +502,7 @@ namespace WindowsFormsAppUI.Forms
 
         public void SaveTicket()
         {
-            Ticket ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+            Ticket ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
 
             if (_orders.Count == 0 && ticket != null)
             {
@@ -519,12 +518,12 @@ namespace WindowsFormsAppUI.Forms
                 else
                 {
                     _genericRepositoryTicket.Add(_ticket);
-                    ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+                    ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                 }
 
                 foreach (Order order in _orders)
                 {
-                    var existingOrder = _genericRepositoryOrder.GetAll(x => x.TicketId == ticket.TicketId && x.ProductId == order.ProductId).FirstOrDefault();
+                    var existingOrder = _genericRepositoryOrder.Get(x => x.TicketId == ticket.TicketId && x.ProductId == order.ProductId);
                     if (existingOrder != null)
                     {
                         existingOrder.LastUpdateDateTime = order.LastUpdateDateTime;
@@ -622,11 +621,11 @@ namespace WindowsFormsAppUI.Forms
                     return;
                 }
 
-                Ticket ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+                Ticket ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                 if (ticket == null)
                 {
                     SaveTicket();
-                    ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+                    ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                 }
 
                 Payment payment = new Payment
@@ -755,7 +754,7 @@ namespace WindowsFormsAppUI.Forms
                     return;
                 }
 
-                var productWithBarcode = _genericRepositoryProduct.GetAll(x => x.Barcode == barcode).FirstOrDefault();
+                var productWithBarcode = _genericRepositoryProduct.Get(x => x.Barcode == barcode);
                 if (productWithBarcode != null)
                 {
                     ProductUserControl productUserControl = new ProductUserControl(productWithBarcode);
@@ -796,7 +795,7 @@ namespace WindowsFormsAppUI.Forms
                 return;
             }
 
-            var ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+            var ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
             if (ticket != null)
             {
                 var payments = _genericRepositoryPayment.GetAll(x => x.TicketId == ticket.TicketId);

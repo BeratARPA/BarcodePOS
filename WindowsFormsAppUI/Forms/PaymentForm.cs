@@ -2,7 +2,6 @@
 using Database.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Enums;
 using WindowsFormsAppUI.Helpers;
@@ -12,10 +11,10 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class PaymentForm : Form
     {
-        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>();
-        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>();
-        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>();
-        private readonly IGenericRepository<User> _genericRepositoryUser = new GenericRepository<User>();
+        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<User> _genericRepositoryUser = new GenericRepository<User>(GlobalVariables.SQLContext);
 
         private List<PaymentType> _paymentTypes = new List<PaymentType>();
         private Ticket _ticket = null;
@@ -201,11 +200,11 @@ namespace WindowsFormsAppUI.Forms
                 if (tenderedAmount >= _ticket.RemainingAmount)
                 {
                     Ticket ticket = null;
-                    ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+                    ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                     if (ticket == null)
                     {
                         _posForm.SaveTicket();
-                        ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+                        ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                     }
 
                     Payment payment = new Payment
@@ -238,11 +237,11 @@ namespace WindowsFormsAppUI.Forms
                 else if (tenderedAmount < _ticket.RemainingAmount)
                 {
                     Ticket ticket = null;
-                    ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+                    ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                     if (ticket == null)
                     {
                         _posForm.SaveTicket();
-                        ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == _ticket.TicketGuid).FirstOrDefault();
+                        ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                     }
 
                     double remainingAmount = ticket.RemainingAmount - tenderedAmount;

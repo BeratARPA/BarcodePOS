@@ -9,6 +9,7 @@ namespace Database.Data
     {
         public SQLContext() : base("name=" + DatabaseType.GetConnectionString((TypeDatabase)Properties.Settings.Default.DatabaseType))
         {
+            Configuration.LazyLoadingEnabled = true;
         }
 
         public virtual DbSet<Category> Categories { get; set; }
