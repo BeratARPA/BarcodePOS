@@ -63,7 +63,7 @@ namespace WindowsFormsAppUI.Forms
                     .Select(table => new
                     {
                         Table = table,
-                        Ticket = _genericRepositoryTicket.GetAllAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true)
+                        Ticket = _genericRepositoryTicket.GetAllAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true).FirstOrDefault()
                     })
                     .Where(x => x.Ticket != null)
                     .Count();
@@ -100,7 +100,7 @@ namespace WindowsFormsAppUI.Forms
                     tileItemTable.Text = TableName.GetName(table.TableId);
                     tileItemTable.ItemClick += tileItemTable_Click;
 
-                    var ticket = _genericRepositoryTicket.Get(x => x.TableId == table.TableId && x.IsOpened == true);
+                    var ticket = _genericRepositoryTicket.GetAllAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true).FirstOrDefault();
                     if (ticket != null)
                     {
                         //TableColor
