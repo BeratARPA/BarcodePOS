@@ -194,13 +194,13 @@ namespace WindowsFormsAppUI.Forms
                 CreateTables(section.SectionId);
                 _ticket = null;
 
+                await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
                 return;
             }
             #endregion
 
             NavigationManager.OpenForm(new POSForm(1, ticket == null ? null : ticket, section, table), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
-            GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
-            await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
+            GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;        
         }
 
         private void tileItemSection_Click(object sender, TileItemEventArgs e)
