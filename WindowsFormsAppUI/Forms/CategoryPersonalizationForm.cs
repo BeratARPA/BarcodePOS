@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class CategoryPersonalizationForm : Form
     {
-        private IGenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>(GlobalVariables.SQLContext);
+        private IGenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>();
 
         public CategoryPersonalizationForm()
         {

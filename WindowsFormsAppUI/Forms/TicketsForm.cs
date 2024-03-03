@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class TicketsForm : Form
     {
-        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>();
 
         public TicketsForm()
         {

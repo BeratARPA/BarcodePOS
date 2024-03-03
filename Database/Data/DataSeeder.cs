@@ -8,17 +8,15 @@ namespace Database.Data
     {
         public static void Seed()
         {
-            SQLContext _context = new SQLContext();
-
-            GenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>(_context);
-            GenericRepository<CompanyInformation> _genericRepositoryCompanyInformation = new GenericRepository<CompanyInformation>(_context);
-            GenericRepository<Customer> _genericRepositoryCustomer = new GenericRepository<Customer>(_context);
-            GenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(_context);
-            GenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>(_context);
-            GenericRepository<Role> _genericRepositoryRole = new GenericRepository<Role>(_context);
-            GenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>(_context);
-            GenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>(_context);
-            GenericRepository<User> _genericRepositoryUser = new GenericRepository<User>(_context);
+            GenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>();
+            GenericRepository<CompanyInformation> _genericRepositoryCompanyInformation = new GenericRepository<CompanyInformation>();
+            GenericRepository<Customer> _genericRepositoryCustomer = new GenericRepository<Customer>();
+            GenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>();
+            GenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>();
+            GenericRepository<Role> _genericRepositoryRole = new GenericRepository<Role>();
+            GenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>();
+            GenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>();
+            GenericRepository<User> _genericRepositoryUser = new GenericRepository<User>();
 
             #region Role&User
             var roleExist = _genericRepositoryRole.Get(x => x.Name == "Admin");

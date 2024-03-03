@@ -66,11 +66,17 @@ namespace WindowsFormsAppUI
             }
             #endregion
 
+            if (Properties.Settings.Default.OpenWindows)
+            {
+                OpenWindowsForm openWindowsForm = new OpenWindowsForm();
+                openWindowsForm.Show();
+            }
+
             await GlobalVariables.webSocketClient.Connect(Properties.Settings.Default.ServerName, Properties.Settings.Default.Port);
         }
 
         #region CallerID
-        private readonly GenericRepository<OldCalling> _genericRepositoryOldCalling = new GenericRepository<OldCalling>(GlobalVariables.SQLContext);
+        private readonly GenericRepository<OldCalling> _genericRepositoryOldCalling = new GenericRepository<OldCalling>();
 
         private readonly Timer _timer_CallerID;
 

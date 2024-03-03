@@ -13,11 +13,11 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class TablesForm : Form
     {
-        private readonly IGenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Order> _genericRepositoryOrder = new GenericRepository<Order>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>();
+        private readonly IGenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>();
+        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>();
+        private readonly IGenericRepository<Order> _genericRepositoryOrder = new GenericRepository<Order>();
+        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>();
 
         private List<Section> _sections = new List<Section>();
         private List<Table> _tables = new List<Table>();

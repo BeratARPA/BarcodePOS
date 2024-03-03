@@ -9,8 +9,8 @@ namespace WindowsFormsAppUI.Helpers
 {
     public class ReceiptTemplates
     {
-        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<CompanyInformation> _genericRepositoryCompanyInformation = new GenericRepository<CompanyInformation>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>();
+        private readonly IGenericRepository<CompanyInformation> _genericRepositoryCompanyInformation = new GenericRepository<CompanyInformation>();
 
         private readonly string CompanyName;
 

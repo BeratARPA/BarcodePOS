@@ -24,7 +24,7 @@ namespace WindowsFormsAppUI.Forms
 
         private readonly string strErrorLog = "";
 
-        private readonly IGenericRepository<CompanyInformation> _genericRepositoryCompanyInformation = new GenericRepository<CompanyInformation>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<CompanyInformation> _genericRepositoryCompanyInformation = new GenericRepository<CompanyInformation>();
 
         public CrashHandlerForm(Exception e)
         {

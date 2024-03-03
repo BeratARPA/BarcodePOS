@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class ProductPersonalizationForm : Form
     {
-        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>();
 
         public ProductPersonalizationForm()
         {

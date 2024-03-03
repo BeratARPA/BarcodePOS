@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class PaymentTypePersonalizationForm : Form
     {
-        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>();
 
         public PaymentTypePersonalizationForm()
         {

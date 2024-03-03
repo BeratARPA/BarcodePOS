@@ -13,14 +13,14 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class POSForm : Form
     {
-        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Order> _genericRepositoryOrder = new GenericRepository<Order>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>();
+        private readonly IGenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>();
+        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>();
+        private readonly IGenericRepository<Order> _genericRepositoryOrder = new GenericRepository<Order>();
+        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>();
+        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>();
+        private readonly IGenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>();
+        private readonly IGenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>();
 
         private Ticket _ticket = new Ticket();
         private Section _section = new Section();
