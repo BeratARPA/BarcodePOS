@@ -9,7 +9,9 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;         
+
         }
 
         protected override void Seed(Data.SQLContext context)
