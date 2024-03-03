@@ -126,7 +126,7 @@ namespace WindowsFormsAppUI.Forms
             int tableId = Convert.ToInt32(tableItem.Tag);
             var table = _genericRepositoryTable.Get(x => x.TableId == tableId);
             var section = _genericRepositorySection.Get(x => x.SectionId == table.SectionId);
-            var ticket = _genericRepositoryTicket.GetAllAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true).FirstOrDefault();
+            var ticket = _genericRepositoryTicket.Get(x => x.TableId == table.TableId && x.IsOpened == true);
 
             #region ChangeTable
             if (_ticket != null && _ticket.TableId != tableId)
