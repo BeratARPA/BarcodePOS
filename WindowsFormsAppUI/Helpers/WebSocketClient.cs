@@ -63,6 +63,8 @@ namespace WindowsFormsAppUI.Helpers
                 WebSocketReceiveResult result = await _clientWebSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
                 var serverMessage = Encoding.UTF8.GetString(buffer, 0, result.Count);
 
+                AddLog(serverMessage);
+
                 #region Events
                 if (serverMessage == ClientCommandsEnum.REFRESH.ToString())
                 {
