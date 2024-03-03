@@ -40,8 +40,11 @@ namespace WindowsFormsAppUI.Helpers
 
         public async Task Send(string message)
         {
-            byte[] buffer = Encoding.UTF8.GetBytes(message);
-            await _clientWebSocket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, endOfMessage: true, CancellationToken.None);
+            if (_clientWebSocket.State == WebSocketState.Open)
+            {
+                byte[] buffer = Encoding.UTF8.GetBytes(message);
+                await _clientWebSocket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Text, endOfMessage: true, CancellationToken.None);
+            }
         }
 
         private async Task ReceiveMessages()

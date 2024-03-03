@@ -33,8 +33,8 @@ namespace WindowsFormsAppUI.Forms
 
         private void TablesForm_Load(object sender, EventArgs e)
         {
-            _sections = _genericRepositorySection.GetAll();
-            _tables = _genericRepositoryTable.GetAll();
+            _sections = _genericRepositorySection.GetAllAsNoTracking();
+            _tables = _genericRepositoryTable.GetAllAsNoTracking();
 
             CreateSections();
             CreateTables(1);
@@ -63,7 +63,7 @@ namespace WindowsFormsAppUI.Forms
                     .Select(table => new
                     {
                         Table = table,
-                        Ticket = _genericRepositoryTicket.Get(x => x.TableId == table.TableId && x.IsOpened == true)
+                        Ticket = _genericRepositoryTicket.GetAllAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true)
                     })
                     .Where(x => x.Ticket != null)
                     .Count();
