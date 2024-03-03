@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Database.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -17,71 +18,191 @@ namespace Database.Data
 
         public T Add(T entity)
         {
-            _context.Entry(entity).State = EntityState.Added;
-            _context.SaveChanges();
+            try
+            {
+                _context.Entry(entity).State = EntityState.Added;
+                _context.SaveChanges();
 
-            return entity;
+                Logger.Log($"Added a new {typeof(T).Name}: {entity}");
+
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }           
         }
 
         public List<T> AddAll(List<T> entities)
         {
-            _context.Set<T>().AddRange(entities);
-            _context.SaveChanges();
+            try
+            {
+                _context.Set<T>().AddRange(entities);
+                _context.SaveChanges();
 
-            return entities;
+                Logger.Log($"Added a new {typeof(T).Name}: {entities}");
+
+                return entities;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }
         }
 
         public void Update(T entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            _context.SaveChanges();
+            try
+            {
+                _context.Entry(entity).State = EntityState.Modified;
+                _context.SaveChanges();
+
+                Logger.Log($"Updated a {typeof(T).Name}: {entity}");
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }
         }
 
         public void Delete(T entity)
         {
-            _context.Entry(entity).State = EntityState.Deleted;
-            _context.SaveChanges();
+            try
+            {
+                _context.Entry(entity).State = EntityState.Deleted;
+                _context.SaveChanges();
+
+                Logger.Log($"Deleted a {typeof(T).Name}: {entity}");
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }
         }
 
         public void DeleteAll(List<T> entities)
         {
-            _context.Set<T>().RemoveRange(entities);
-            _context.SaveChanges();
+            try
+            {
+                _context.Set<T>().RemoveRange(entities);
+                _context.SaveChanges();
+
+                Logger.Log($"Deleted a {typeof(T).Name}: {entities}");
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }
         }
 
         public T Get(Expression<Func<T, bool>> filter = null)
         {
-            return _context.Set<T>().Where(filter).FirstOrDefault();
+            try
+            {
+                var entity = _context.Set<T>().Where(filter).FirstOrDefault();
+
+                Logger.Log($"Received a {typeof(T).Name}: {entity}");
+
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }           
         }
 
         public T GetAsNoTracking(Expression<Func<T, bool>> filter = null)
         {
-            return _context.Set<T>().AsNoTracking().Where(filter).FirstOrDefault();
+            try
+            {
+                var entity = _context.Set<T>().AsNoTracking().Where(filter).FirstOrDefault();
+
+                Logger.Log($"Received a {typeof(T).Name}: {entity}");
+
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }
         }
 
         public T GetById(int id)
         {
-            return _context.Set<T>().Find(id);
+            try
+            {
+                var entity = _context.Set<T>().Find(id);
+
+                Logger.Log($"Received a {typeof(T).Name}: {entity}");
+
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }
         }
 
         public List<T> GetAllAsNoTracking(Expression<Func<T, bool>> filter = null)
         {
-            return filter == null
-                ? _context.Set<T>().AsNoTracking().ToList()
-                : _context.Set<T>().AsNoTracking().Where(filter).ToList();
+            try
+            {
+                var entities = filter == null
+                    ? _context.Set<T>().AsNoTracking().ToList()
+                    : _context.Set<T>().AsNoTracking().Where(filter).ToList();
+
+                Logger.Log($"Received a {typeof(T).Name}: {entities}");
+
+                return entities;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }
         }
 
         public List<T> GetAll(Expression<Func<T, bool>> filter = null)
         {
-            return filter == null
-                ? _context.Set<T>().AsNoTracking().ToList()
-                : _context.Set<T>().Where(filter).ToList();
+            try
+            {
+                var entities = filter == null
+                    ? _context.Set<T>().AsNoTracking().ToList()
+                    : _context.Set<T>().Where(filter).ToList();
+
+                Logger.Log($"Received a {typeof(T).Name}: {entities}");
+
+                return entities;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }
         }
 
         public void UpdateColumn<TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression, TProperty value)
         {
-            _context.Entry(entity).Property(propertyExpression).CurrentValue = value;
-            _context.SaveChanges();
+            try
+            {
+                _context.Entry(entity).Property(propertyExpression).CurrentValue = value;
+                _context.SaveChanges();
+
+                Logger.Log($"Updated {typeof(T).Name} Column: {entity}");
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }
         }
     }
 }
