@@ -122,8 +122,6 @@ namespace WindowsFormsAppUI.Forms
                     var product = _genericRepositoryProduct.GetAll(x => x.ProductId == order.ProductId).FirstOrDefault();
                     ProductUserControl productUserControl = new ProductUserControl(product);
 
-                    Task.Delay(250).Wait();
-
                     ProductOnCardUserControl newProductOnCard = CreateNewProductOnCard(productUserControl, order);
                     flowLayoutPanelOrders.Controls.Add(newProductOnCard);
 
