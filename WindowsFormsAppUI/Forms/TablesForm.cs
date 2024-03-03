@@ -126,13 +126,14 @@ namespace WindowsFormsAppUI.Forms
             int tableId = Convert.ToInt32(tableItem.Tag);
             var table = _genericRepositoryTable.Get(x => x.TableId == tableId);
             var section = _genericRepositorySection.Get(x => x.SectionId == table.SectionId);
-            var ticket = _genericRepositoryTicket.Get(x => x.TableId == table.TableId && x.IsOpened == true);
+            var ticket = _genericRepositoryTicket.GetAllAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true).FirstOrDefault();
 
             #region ChangeTable
             if (_ticket != null && _ticket.TableId != tableId)
             {
                 #region MargeTable
-                if (ticket != null)
+                var openTicket = _genericRepositoryTicket.Get(x => x.TableId == tableId && x.IsOpened == true);
+                if (openTicket != null)
                 {
                     Ticket newTicket = new Ticket
                     {
@@ -144,8 +145,8 @@ namespace WindowsFormsAppUI.Forms
                         LastOrderDate = DateTime.Now,
                         LastPaymentDate = DateTime.Now,
                         IsOpened = true,
-                        RemainingAmount = _ticket.TotalAmount + ticket.TotalAmount,
-                        TotalAmount = _ticket.TotalAmount + ticket.TotalAmount,
+                        RemainingAmount = _ticket.TotalAmount + openTicket.TotalAmount,
+                        TotalAmount = _ticket.TotalAmount + openTicket.TotalAmount,
                         Discount = 0,
                         TerminalName = GlobalVariables.TerminalName,
                         Note = "",
@@ -156,7 +157,7 @@ namespace WindowsFormsAppUI.Forms
                     newTicket = _genericRepositoryTicket.Add(newTicket);
 
                     List<Order> newOrders = _ticket.Orders
-                        .Concat(ticket.Orders)
+                        .Concat(openTicket.Orders)
                         .GroupBy(order => order.ProductId)
                         .Select(groupedOrders => new Order
                         {
@@ -175,14 +176,14 @@ namespace WindowsFormsAppUI.Forms
                     _genericRepositoryOrder.AddAll(newOrders);
 
                     _genericRepositoryOrder.DeleteAll(_ticket.Orders.ToList());
-                    _genericRepositoryOrder.DeleteAll(ticket.Orders.ToList());
-                    if (_ticket.Payments != null && ticket.Payments != null)
+                    _genericRepositoryOrder.DeleteAll(openTicket.Orders.ToList());
+                    if (_ticket.Payments != null && openTicket.Payments != null)
                     {
                         _genericRepositoryPayment.DeleteAll(_ticket.Payments.ToList());
-                        _genericRepositoryPayment.DeleteAll(ticket.Payments.ToList());
+                        _genericRepositoryPayment.DeleteAll(openTicket.Payments.ToList());
                     }
                     _genericRepositoryTicket.Delete(_ticket);
-                    _genericRepositoryTicket.Delete(ticket);
+                    _genericRepositoryTicket.Delete(openTicket);
                 }
                 #endregion
 
