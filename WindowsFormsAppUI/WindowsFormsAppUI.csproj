@@ -145,6 +145,12 @@
     <Compile Include="Forms\CategoryPersonalizationForm.Designer.cs">
       <DependentUpon>CategoryPersonalizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ClientConsoleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClientConsoleForm.Designer.cs">
+      <DependentUpon>ClientConsoleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CrashHandlerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,6 +336,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\CategoryPersonalizationForm.resx">
       <DependentUpon>CategoryPersonalizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClientConsoleForm.resx">
+      <DependentUpon>ClientConsoleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CrashHandlerForm.resx">
       <DependentUpon>CrashHandlerForm.cs</DependentUpon>

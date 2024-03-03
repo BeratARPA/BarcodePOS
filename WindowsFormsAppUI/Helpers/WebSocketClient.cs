@@ -12,11 +12,18 @@ namespace WindowsFormsAppUI.Helpers
     public class WebSocketClient
     {
         private ClientWebSocket _clientWebSocket;
+        private ClientConsoleForm _clientConsoleForm;
 
         public async Task Connect(string serverName = "localhost", int port = 8080)
         {
             try
             {
+                if (Properties.Settings.Default.ClientConsole)
+                {
+                    _clientConsoleForm = new ClientConsoleForm();
+                    _clientConsoleForm.Show();
+                }
+
                 _clientWebSocket = new ClientWebSocket();
 
                 if (_clientWebSocket.State == WebSocketState.Open || _clientWebSocket.State == WebSocketState.Connecting)
@@ -115,7 +122,14 @@ namespace WindowsFormsAppUI.Helpers
 
         public void AddLog(string log)
         {
-            Console.WriteLine(log);
+            if (_clientConsoleForm.listBoxLogs.InvokeRequired)
+            {
+                _clientConsoleForm.listBoxLogs.Invoke(new Action<string>(AddLog), log);
+            }
+            else
+            {
+                _clientConsoleForm.listBoxLogs.Items.Add(log);
+            }
         }
     }
 }

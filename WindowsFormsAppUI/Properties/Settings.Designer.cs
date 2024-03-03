@@ -58,5 +58,17 @@ namespace WindowsFormsAppUI.Properties {
                 this["Port"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ClientConsole {
+            get {
+                return ((bool)(this["ClientConsole"]));
+            }
+            set {
+                this["ClientConsole"] = value;
+            }
+        }
     }
 }

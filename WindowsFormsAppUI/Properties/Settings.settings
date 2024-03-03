@@ -11,5 +11,8 @@
     <Setting Name="Port" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">8080</Value>
     </Setting>
+    <Setting Name="ClientConsole" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
