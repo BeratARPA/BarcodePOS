@@ -15,7 +15,7 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class CustomersForm : Form
     {
-        private readonly GenericRepository<Customer> _genericRepositoryCustomer = new GenericRepository<Customer>();
+        private readonly GenericRepository<Customer> _genericRepositoryCustomer = new GenericRepository<Customer>(GlobalVariables.SQLContext);
         private List<Customer> _customers = new List<Customer>();
 
         public CustomersForm()

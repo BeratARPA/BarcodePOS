@@ -76,7 +76,7 @@ namespace WindowsFormsAppUI
         }
 
         #region CallerID
-        private readonly GenericRepository<OldCalling> _genericRepositoryOldCalling = new GenericRepository<OldCalling>();
+        private readonly GenericRepository<OldCalling> _genericRepositoryOldCalling = new GenericRepository<OldCalling>(GlobalVariables.SQLContext);
 
         private readonly Timer _timer_CallerID;
 

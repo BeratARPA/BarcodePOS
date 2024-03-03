@@ -9,7 +9,7 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class LoginForm : Form
     {
-        private readonly IGenericRepository<User> _genericRepository = new GenericRepository<User>();
+        private readonly IGenericRepository<User> _genericRepository = new GenericRepository<User>(GlobalVariables.SQLContext);
 
         public LoginForm()
         {

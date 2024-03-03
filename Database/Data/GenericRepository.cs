@@ -8,105 +8,80 @@ namespace Database.Data
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class, new()
     {
+        private SQLContext _context;
+
+        public GenericRepository(SQLContext context)
+        {
+            _context = context;
+        }
+
         public T Add(T entity)
         {
-            using (SQLContext context = new SQLContext())
-            {
-                context.Entry(entity).State = EntityState.Added;
-                context.SaveChanges();
+            _context.Entry(entity).State = EntityState.Added;
+            _context.SaveChanges();
 
-                return entity;
-            }
+            return entity;
         }
 
         public List<T> AddAll(List<T> entities)
         {
-            using (SQLContext context = new SQLContext())
-            {
-                context.Set<T>().AddRange(entities);
-                context.SaveChanges();
+            _context.Set<T>().AddRange(entities);
+            _context.SaveChanges();
 
-                return entities;
-            }
+            return entities;
         }
 
         public void Update(T entity)
         {
-            using (SQLContext context = new SQLContext())
-            {
-                context.Entry(entity).State = EntityState.Modified;
-                context.SaveChanges();
-            }
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public void Delete(T entity)
         {
-            using (SQLContext context = new SQLContext())
-            {
-                context.Entry(entity).State = EntityState.Deleted;
-                context.SaveChanges();
-            }
+            _context.Entry(entity).State = EntityState.Deleted;
+            _context.SaveChanges();
         }
 
         public void DeleteAll(List<T> entities)
         {
-            using (SQLContext context = new SQLContext())
-            {
-                context.Set<T>().RemoveRange(entities);
-                context.SaveChanges();
-            }
+            _context.Set<T>().RemoveRange(entities);
+            _context.SaveChanges();
         }
 
         public T Get(Expression<Func<T, bool>> filter = null)
         {
-            using (SQLContext context = new SQLContext())
-            {
-                return context.Set<T>().Where(filter).FirstOrDefault();
-            }
+            return _context.Set<T>().Where(filter).FirstOrDefault();
+        }
+
+        public T GetAsNoTracking(Expression<Func<T, bool>> filter = null)
+        {
+            return _context.Set<T>().AsNoTracking().Where(filter).FirstOrDefault();
         }
 
         public T GetById(int id)
         {
-            using (SQLContext context = new SQLContext())
-            {
-                return context.Set<T>().Find(id);
-            }
+            return _context.Set<T>().Find(id);
         }
 
         public List<T> GetAllAsNoTracking(Expression<Func<T, bool>> filter = null)
         {
-            using (SQLContext context = new SQLContext())
-            {
-                return filter == null
-                ? context.Set<T>().AsNoTracking().ToList()
-                : context.Set<T>().AsNoTracking().Where(filter).ToList();
-            }
+            return filter == null
+                ? _context.Set<T>().AsNoTracking().ToList()
+                : _context.Set<T>().AsNoTracking().Where(filter).ToList();
         }
 
         public List<T> GetAll(Expression<Func<T, bool>> filter = null)
         {
-            using (SQLContext context = new SQLContext())
-            {
-                return filter == null
-                ? context.Set<T>().AsNoTracking().ToList()
-                : context.Set<T>().Where(filter).ToList();
-            }
+            return filter == null
+                ? _context.Set<T>().AsNoTracking().ToList()
+                : _context.Set<T>().Where(filter).ToList();
         }
 
         public void UpdateColumn<TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression, TProperty value)
         {
-            using (SQLContext context = new SQLContext())
-            {
-                context.Entry(entity).Property(propertyExpression).CurrentValue = value;
-                context.SaveChanges();
-            }
-        }
-
-        public TProperty GetColumnValue<T, TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression)
-        {
-            var propertyName = ((MemberExpression)propertyExpression.Body).Member.Name;
-            var propertyValue = entity.GetType().GetProperty(propertyName).GetValue(entity, null);
-            return (TProperty)propertyValue;
+            _context.Entry(entity).Property(propertyExpression).CurrentValue = value;
+            _context.SaveChanges();
         }
     }
 }

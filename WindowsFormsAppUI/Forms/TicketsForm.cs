@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class TicketsForm : Form
     {
-        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>();
+        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
 
         public TicketsForm()
         {
@@ -131,7 +131,7 @@ namespace WindowsFormsAppUI.Forms
                 Guid ticketGuid;
                 Guid.TryParse(selectedRow.Cells["TicketGuid"].Value.ToString(), out ticketGuid);
 
-                var ticket = _genericRepositoryTicket.GetAll(x => x.TicketGuid == ticketGuid).FirstOrDefault();
+                var ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == ticketGuid);
 
                 if (ticket != null)
                 {

@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class CategoryPersonalizationForm : Form
     {
-        private IGenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>();
+        private IGenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>(GlobalVariables.SQLContext);
 
         public CategoryPersonalizationForm()
         {
@@ -140,7 +140,7 @@ namespace WindowsFormsAppUI.Forms
             }
 
             int categoryId = (int)dataGridViewCategories.CurrentRow.Cells[0].Value;
-            var category = _genericRepositoryCategory.GetAll(x => x.CategoryId == categoryId).FirstOrDefault();
+            var category = _genericRepositoryCategory.Get(x => x.CategoryId == categoryId);
             if (category != null)
             {
                 _genericRepositoryCategory.UpdateColumn(category, x => x.BackColor, comboBoxBackColors.Text);

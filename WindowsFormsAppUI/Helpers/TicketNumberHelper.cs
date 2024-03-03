@@ -6,7 +6,7 @@ namespace WindowsFormsAppUI.Helpers
 {
     public class TicketNumberHelper
     {
-        private static readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>();
+        private static readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
 
         public static int GetNumber()
         {
