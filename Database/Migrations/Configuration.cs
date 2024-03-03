@@ -10,7 +10,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;         
+            AutomaticMigrationDataLossAllowed = true;        
 
         }
 
