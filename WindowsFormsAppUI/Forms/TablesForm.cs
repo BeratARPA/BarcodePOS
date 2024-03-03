@@ -134,7 +134,6 @@ namespace WindowsFormsAppUI.Forms
                 #region MargeTable
                 if (ticket != null)
                 {
-
                     Ticket newTicket = new Ticket
                     {
                         TicketGuid = Guid.NewGuid(),
