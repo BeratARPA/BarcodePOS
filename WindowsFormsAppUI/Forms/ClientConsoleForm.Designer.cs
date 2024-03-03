@@ -34,7 +34,7 @@
             // 
             // listBoxLogs
             // 
-            this.listBoxLogs.BackColor = System.Drawing.SystemColors.Control;
+            this.listBoxLogs.BackColor = System.Drawing.Color.White;
             this.listBoxLogs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBoxLogs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxLogs.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -50,6 +50,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(384, 261);
             this.Controls.Add(this.listBoxLogs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

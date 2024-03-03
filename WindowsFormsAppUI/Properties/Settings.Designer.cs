@@ -70,5 +70,17 @@ namespace WindowsFormsAppUI.Properties {
                 this["ClientConsole"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool OpenWindows {
+            get {
+                return ((bool)(this["OpenWindows"]));
+            }
+            set {
+                this["OpenWindows"] = value;
+            }
+        }
     }
 }

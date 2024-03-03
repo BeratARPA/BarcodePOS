@@ -199,6 +199,12 @@
     <Compile Include="Forms\MessageBoxForm.Designer.cs">
       <DependentUpon>MessageBoxForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\OpenWindowsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OpenWindowsForm.Designer.cs">
+      <DependentUpon>OpenWindowsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PaymentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -363,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MessageBoxForm.resx">
       <DependentUpon>MessageBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OpenWindowsForm.resx">
+      <DependentUpon>OpenWindowsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PaymentForm.resx">
       <DependentUpon>PaymentForm.cs</DependentUpon>

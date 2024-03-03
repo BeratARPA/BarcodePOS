@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class CustomerCallingForm : Form
     {
-        private readonly GenericRepository<Customer> _genericRepositoryCustomer = new GenericRepository<Customer>(GlobalVariables.SQLContext);
+        private readonly GenericRepository<Customer> _genericRepositoryCustomer = new GenericRepository<Customer>();
 
         public CustomerCallingForm()
         {
