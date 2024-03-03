@@ -132,8 +132,7 @@ namespace WindowsFormsAppUI.Forms
             if (_ticket != null && _ticket.TableId != tableId)
             {
                 #region MargeTable
-                var openTicket = _genericRepositoryTicket.Get(x => x.TableId == tableId && x.IsOpened == true);
-                if (openTicket != null)
+                if (ticket != null)
                 {
 
                     Ticket newTicket = new Ticket
@@ -146,8 +145,8 @@ namespace WindowsFormsAppUI.Forms
                         LastOrderDate = DateTime.Now,
                         LastPaymentDate = DateTime.Now,
                         IsOpened = true,
-                        RemainingAmount = _ticket.TotalAmount + openTicket.TotalAmount,
-                        TotalAmount = _ticket.TotalAmount + openTicket.TotalAmount,
+                        RemainingAmount = _ticket.TotalAmount + ticket.TotalAmount,
+                        TotalAmount = _ticket.TotalAmount + ticket.TotalAmount,
                         Discount = 0,
                         TerminalName = GlobalVariables.TerminalName,
                         Note = "",
@@ -155,11 +154,10 @@ namespace WindowsFormsAppUI.Forms
                         CreatedUserName = LoggedInUser.CurrentUser.Fullname,
                     };
 
-                    _genericRepositoryTicket.Add(newTicket);
-                    newTicket = _genericRepositoryTicket.Get(x => x.TicketGuid == newTicket.TicketGuid);
+                    newTicket = _genericRepositoryTicket.Add(newTicket);
 
                     List<Order> newOrders = _ticket.Orders
-                        .Concat(openTicket.Orders)
+                        .Concat(ticket.Orders)
                         .GroupBy(order => order.ProductId)
                         .Select(groupedOrders => new Order
                         {
@@ -178,14 +176,14 @@ namespace WindowsFormsAppUI.Forms
                     _genericRepositoryOrder.AddAll(newOrders);
 
                     _genericRepositoryOrder.DeleteAll(_ticket.Orders.ToList());
-                    _genericRepositoryOrder.DeleteAll(openTicket.Orders.ToList());
-                    if (_ticket.Payments != null && openTicket.Payments != null)
+                    _genericRepositoryOrder.DeleteAll(ticket.Orders.ToList());
+                    if (_ticket.Payments != null && ticket.Payments != null)
                     {
                         _genericRepositoryPayment.DeleteAll(_ticket.Payments.ToList());
-                        _genericRepositoryPayment.DeleteAll(openTicket.Payments.ToList());
+                        _genericRepositoryPayment.DeleteAll(ticket.Payments.ToList());
                     }
                     _genericRepositoryTicket.Delete(_ticket);
-                    _genericRepositoryTicket.Delete(openTicket);
+                    _genericRepositoryTicket.Delete(ticket);
                 }
                 #endregion
 
