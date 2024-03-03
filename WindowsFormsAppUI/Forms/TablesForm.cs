@@ -124,8 +124,8 @@ namespace WindowsFormsAppUI.Forms
             TileItem tableItem = (TileItem)sender;
 
             int tableId = Convert.ToInt32(tableItem.Tag);
-            var table = _genericRepositoryTable.Get(x => x.TableId == tableId);
-            var section = _genericRepositorySection.Get(x => x.SectionId == table.SectionId);
+            var table = _genericRepositoryTable.GetAllAsNoTracking(x => x.TableId == tableId).FirstOrDefault();
+            var section = _genericRepositorySection.GetAllAsNoTracking(x => x.SectionId == table.SectionId).FirstOrDefault();
             var ticket = _genericRepositoryTicket.Get(x => x.TableId == table.TableId && x.IsOpened == true);
 
             #region ChangeTable
