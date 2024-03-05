@@ -180,6 +180,18 @@
   <data name="CreateProductLabel" xml:space="preserve">
     <value>Etiketi Oluştur</value>
   </data>
+  <data name="CustomerAddress" xml:space="preserve">
+    <value>Adres</value>
+  </data>
+  <data name="CustomerName" xml:space="preserve">
+    <value>Müşteri Adı</value>
+  </data>
+  <data name="CustomerNote" xml:space="preserve">
+    <value>Not</value>
+  </data>
+  <data name="CustomerPhoneNumber" xml:space="preserve">
+    <value>Telefon Numarası</value>
+  </data>
   <data name="Customers" xml:space="preserve">
     <value>Müşteriler</value>
   </data>
@@ -375,6 +387,12 @@
   <data name="Search" xml:space="preserve">
     <value>Ara</value>
   </data>
+  <data name="Select" xml:space="preserve">
+    <value>Seç</value>
+  </data>
+  <data name="SelectCustomer" xml:space="preserve">
+    <value>Müşteri Seç</value>
+  </data>
   <data name="SendToKitchen" xml:space="preserve">
     <value>Mutfağa Gönder</value>
   </data>
@@ -440,6 +458,9 @@
   </data>
   <data name="Turn" xml:space="preserve">
     <value>Döndür</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Güncelle</value>
   </data>
   <data name="User" xml:space="preserve">
     <value>Kullanıcı</value>

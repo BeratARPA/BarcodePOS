@@ -280,7 +280,7 @@
     <Compile Include="Helpers\AsyncPrintTask.cs" />
     <Compile Include="Helpers\CashDrawer.cs" />
     <Compile Include="Helpers\CultureHelper.cs" />
-    <Compile Include="Helpers\CustomerName.cs" />
+    <Compile Include="Helpers\CustomerHelper.cs" />
     <Compile Include="Helpers\DiscountHelper.cs" />
     <Compile Include="Helpers\FolderLocations.cs" />
     <Compile Include="Helpers\GetForm.cs" />

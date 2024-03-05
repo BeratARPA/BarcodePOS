@@ -180,6 +180,18 @@
   <data name="CreateProductLabel" xml:space="preserve">
     <value>Create Product Label</value>
   </data>
+  <data name="CustomerAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="CustomerName" xml:space="preserve">
+    <value>Customer Name</value>
+  </data>
+  <data name="CustomerNote" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="CustomerPhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
   <data name="Customers" xml:space="preserve">
     <value>Customers</value>
   </data>
@@ -372,6 +384,12 @@
   <data name="Search" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="Select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="SelectCustomer" xml:space="preserve">
+    <value>Select Customer</value>
+  </data>
   <data name="SendToKitchen" xml:space="preserve">
     <value>Send to Kitchen</value>
   </data>
@@ -440,6 +458,9 @@
   </data>
   <data name="Unit" xml:space="preserve">
     <value>Unit</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
   </data>
   <data name="User" xml:space="preserve">
     <value>User</value>
