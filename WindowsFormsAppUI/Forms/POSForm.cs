@@ -111,6 +111,7 @@ namespace WindowsFormsAppUI.Forms
             buttonMultiplePayment.Enabled = isOpened;
             buttonSendToKitchen.Enabled = isOpened;
             buttonChangeTable.Enabled = isOpened;
+            buttonSelectCustomer.Enabled = isOpened;
             buttonClose.Enabled = true;
         }
 
@@ -233,6 +234,7 @@ namespace WindowsFormsAppUI.Forms
                 ProductName = product.Name,
                 Price = product.Price,
                 Quantity = quantity,
+                CalculatePrice = true,
                 TerminalName = GlobalVariables.TerminalName,
                 CreatingUserName = LoggedInUser.CurrentUser.Fullname,
                 CreatedDateTime = DateTime.Now,
@@ -585,6 +587,8 @@ namespace WindowsFormsAppUI.Forms
             IsTable();
             CalculateTotalBalance();
             CloseAndOpenTicket();
+            IsTable();
+            CustomerAvailable();
         }
 
         private void CategoryUserControl_Click(object sender, EventArgs e)
