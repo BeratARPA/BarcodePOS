@@ -10,6 +10,7 @@ namespace Database.Models
         public int TicketId { get; set; }
         public Guid TicketGuid { get; set; }
         public int TableId { get; set; }
+        public int CustomerId { get; set; }
         public DateTime LastUpdateDate { get; set; }
         public string TicketNumber { get; set; }
         public DateTime Date { get; set; }

@@ -19,7 +19,7 @@ namespace Database.Data
         public T Add(T entity)
         {
             try
-            {
+            {                
                 _context.Entry(entity).State = EntityState.Added;
                 _context.SaveChanges();
 
@@ -60,6 +60,22 @@ namespace Database.Data
                 _context.SaveChanges();
 
                 Logger.Log($"Updated a {typeof(T).Name}: {entity}");
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }
+        }
+
+        public void UpdateColumn<TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression, TProperty value)
+        {
+            try
+            {
+                _context.Entry(entity).Property(propertyExpression).CurrentValue = value;
+                _context.SaveChanges();
+
+                Logger.Log($"Updated {typeof(T).Name} Column: {entity}");
             }
             catch (Exception ex)
             {
@@ -187,22 +203,6 @@ namespace Database.Data
                 Logger.Log($"Error occurred: {ex.Message}");
                 throw;
             }
-        }
-
-        public void UpdateColumn<TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression, TProperty value)
-        {
-            try
-            {
-                _context.Entry(entity).Property(propertyExpression).CurrentValue = value;
-                _context.SaveChanges();
-
-                Logger.Log($"Updated {typeof(T).Name} Column: {entity}");
-            }
-            catch (Exception ex)
-            {
-                Logger.Log($"Error occurred: {ex.Message}");
-                throw;
-            }
-        }
+        }     
     }
 }

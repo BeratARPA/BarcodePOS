@@ -318,6 +318,9 @@
   <data name="POS" xml:space="preserve">
     <value>POS</value>
   </data>
+  <data name="POSCustomer" xml:space="preserve">
+    <value>Customer: {0}</value>
+  </data>
   <data name="POSTable" xml:space="preserve">
     <value>Table: {0}</value>
   </data>
@@ -398,6 +401,9 @@
   </data>
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>The changes have been saved.</value>
+  </data>
+  <data name="ThereIsACustomerRegisteredAt" xml:space="preserve">
+    <value>There is a customer registered at {0}.</value>
   </data>
   <data name="TheTablesWillJoinDoYouWantToContinue?" xml:space="preserve">
     <value>The tables will join, do you want to continue?</value>

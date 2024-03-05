@@ -104,6 +104,7 @@
                         TicketId = c.Int(nullable: false, identity: true),
                         TicketGuid = c.Guid(nullable: false),
                         TableId = c.Int(nullable: false),
+                        CustomerId = c.Int(nullable: false),
                         LastUpdateDate = c.DateTime(nullable: false),
                         TicketNumber = c.String(),
                         Date = c.DateTime(nullable: false),

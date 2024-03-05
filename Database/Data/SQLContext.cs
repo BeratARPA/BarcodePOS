@@ -9,8 +9,7 @@ namespace Database.Data
     {
         public SQLContext() : base("name=" + DatabaseType.GetConnectionString((TypeDatabase)Properties.Settings.Default.DatabaseType))
         {
-            Configuration.LazyLoadingEnabled = true;
-            Configuration.ProxyCreationEnabled = true;
+
         }
 
         public virtual DbSet<Category> Categories { get; set; }
@@ -25,7 +24,7 @@ namespace Database.Data
         public virtual DbSet<Section> Sections { get; set; }
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<Ticket> Tickets { get; set; }
-        public virtual DbSet<User> Users { get; set; }     
+        public virtual DbSet<User> Users { get; set; }      
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

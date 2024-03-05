@@ -12,18 +12,20 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class POSForm : Form
     {
-        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<Order> _genericRepositoryOrder = new GenericRepository<Order>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<Table> _genericRepositoryTable = new GenericRepository<Table>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Customer> _genericRepositoryCustomer = new GenericRepository<Customer>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
 
+        private Table _table = new Table();
         private Ticket _ticket = new Ticket();
         private Section _section = new Section();
-        private Table _table = new Table();
+        private Customer _customer = new Customer();
         private List<Order> _orders = new List<Order>();
         private List<Product> _products = new List<Product>();
         private List<Category> _category = new List<Category>();
@@ -43,17 +45,18 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        public POSForm(int previousFormIndex = 0, Ticket ticket = null, Section section = null, Table table = null)
+        public POSForm(int previousFormIndex = 0, Ticket ticket = null, Section section = null, Table table = null, Customer customer = null)
         {
             InitializeComponent();
             UpdateUILanguage();
 
             numeratorUserControl.textBoxPin.KeyPress += new KeyPressEventHandler(NumeratorTextBoxPin_KeyPress);
 
-            _previousFormIndex = previousFormIndex;
+            _table = table;
             _ticket = ticket;
             _section = section;
-            _table = table;
+            _customer = customer;
+            _previousFormIndex = previousFormIndex;
         }
 
         private void POSForm_Load(object sender, EventArgs e)
@@ -61,6 +64,7 @@ namespace WindowsFormsAppUI.Forms
             CreateTicket();
 
             IsTable();
+            CustomerAvailable();            
 
             CloseAndOpenTicket();
 
@@ -151,6 +155,27 @@ namespace WindowsFormsAppUI.Forms
             };
 
             _ticket = ticket;
+        }
+
+        public void CustomerAvailable()
+        {
+            if (_ticket.CustomerId != 0)
+            {
+                _customer = _genericRepositoryCustomer.Get(x => x.CustomerId == _ticket.CustomerId);
+            }
+
+            if (_customer != null)
+            {
+                _ticket.CustomerId = _customer.CustomerId;
+                labelCustomer.Text = string.Format(GlobalVariables.CultureHelper.GetText("POSCustomer"), CustomerName.GetName(_customer.CustomerId));
+                tableLayoutPanelMiddle.RowStyles[1].Height = 50;
+                buttonNewTicket.Enabled = false;
+            }
+            else
+            {
+                _ticket.CustomerId = 0;
+                tableLayoutPanelMiddle.RowStyles[1].Height = 0;
+            }
         }
 
         public void IsTable()
@@ -478,7 +503,7 @@ namespace WindowsFormsAppUI.Forms
             //Return
             if (totalBalance == 0)
             {
-                tableLayoutPanelMiddle.RowStyles[3].Height = 0;
+                tableLayoutPanelMiddle.RowStyles[4].Height = 0;
                 return 0;
             }
 
@@ -495,7 +520,7 @@ namespace WindowsFormsAppUI.Forms
 
             _ticket.RemainingAmount = totalBalance;
 
-            tableLayoutPanelMiddle.RowStyles[3].Height = 100;
+            tableLayoutPanelMiddle.RowStyles[4].Height = 100;
 
             return totalBalance;
         }
@@ -578,7 +603,7 @@ namespace WindowsFormsAppUI.Forms
             if (index >= 0)
             {
                 var order = _orders.Find(x => x.ProductId == productOnCardUserControl._order.ProductId);
-                
+
                 DeleteProductSentToKitchen(order.ProductId, CheckToNumerator());
 
                 if (productOnCardUserControl.Quantity == 1 || CheckToNumerator() > productOnCardUserControl.Quantity)
@@ -602,7 +627,7 @@ namespace WindowsFormsAppUI.Forms
                 {
                     flowLayoutPanelOrders.Controls.RemoveAt(index);
                     _orders.Remove(order);
-                }               
+                }
 
                 CalculateTotalBalance();
 
@@ -708,6 +733,10 @@ namespace WindowsFormsAppUI.Forms
                     break;
                 case 2:
                     NavigationManager.OpenForm(new TicketsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                    GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
+                    break;
+                case 3:
+                    NavigationManager.OpenForm(new CustomersForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                     GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
                     break;
                 default:
@@ -817,7 +846,7 @@ namespace WindowsFormsAppUI.Forms
 
         private void buttonTicketDelete_Click(object sender, EventArgs e)
         {
-            DeleteTicket();           
+            DeleteTicket();
         }
 
         private async void buttonTickets_Click(object sender, EventArgs e)
@@ -847,7 +876,7 @@ namespace WindowsFormsAppUI.Forms
         {
             if (_orders.Count != 0)
             {
-                SaveTicket();              
+                SaveTicket();
 
                 NavigationManager.OpenForm(new TablesForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             }
@@ -874,6 +903,16 @@ namespace WindowsFormsAppUI.Forms
         {
             var products = _products.Where(x => x.Name.ToLower().Contains(textBoxSearchProduct.Text.ToLower())).ToList();
             CreateProducts(products);
+        }
+
+        private void buttonSelectCustomer_Click(object sender, EventArgs e)
+        {
+            if (_orders.Count != 0)
+            {
+                SaveTicket();
+
+                NavigationManager.OpenForm(new CustomersForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            }
         }
     }
 }

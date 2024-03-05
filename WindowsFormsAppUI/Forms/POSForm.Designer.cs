@@ -49,7 +49,6 @@ namespace WindowsFormsAppUI.Forms
             this.buttonOpenTheDrawer = new System.Windows.Forms.Button();
             this.buttonChangeTable = new System.Windows.Forms.Button();
             this.flowLayoutPanelOrders = new System.Windows.Forms.FlowLayoutPanel();
-            this.numeratorUserControl = new WindowsFormsAppUI.UserControls.NumeratorUserControl();
             this.tableLayoutPanelMiddle = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelProducts = new System.Windows.Forms.TableLayoutPanel();
             this.labelTable = new System.Windows.Forms.Label();
@@ -68,6 +67,9 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelSearch = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxSearchProduct = new System.Windows.Forms.TextBox();
+            this.labelCustomer = new System.Windows.Forms.Label();
+            this.numeratorUserControl = new WindowsFormsAppUI.UserControls.NumeratorUserControl();
+            this.buttonSelectCustomer = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelCategories.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -246,6 +248,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel4.Controls.Add(this.buttonPrint, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.buttonOpenTheDrawer, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.buttonChangeTable, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.buttonSelectCustomer, 1, 3);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 450);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
@@ -261,7 +264,6 @@ namespace WindowsFormsAppUI.Forms
             // buttonSendToKitchen
             // 
             this.buttonSendToKitchen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
-            this.tableLayoutPanel4.SetColumnSpan(this.buttonSendToKitchen, 2);
             this.buttonSendToKitchen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSendToKitchen.FlatAppearance.BorderSize = 0;
             this.buttonSendToKitchen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
@@ -272,7 +274,7 @@ namespace WindowsFormsAppUI.Forms
             this.buttonSendToKitchen.Location = new System.Drawing.Point(4, 115);
             this.buttonSendToKitchen.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSendToKitchen.Name = "buttonSendToKitchen";
-            this.buttonSendToKitchen.Size = new System.Drawing.Size(312, 31);
+            this.buttonSendToKitchen.Size = new System.Drawing.Size(152, 31);
             this.buttonSendToKitchen.TabIndex = 12;
             this.buttonSendToKitchen.Text = "Mutfağa Gönder";
             this.buttonSendToKitchen.UseVisualStyleBackColor = false;
@@ -402,33 +404,23 @@ namespace WindowsFormsAppUI.Forms
             this.flowLayoutPanelOrders.Size = new System.Drawing.Size(320, 200);
             this.flowLayoutPanelOrders.TabIndex = 0;
             // 
-            // numeratorUserControl
-            // 
-            this.numeratorUserControl.BackColor = System.Drawing.Color.Transparent;
-            this.numeratorUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numeratorUserControl.Location = new System.Drawing.Point(0, 200);
-            this.numeratorUserControl.Margin = new System.Windows.Forms.Padding(0);
-            this.numeratorUserControl.Name = "numeratorUserControl";
-            this.numeratorUserControl.NumeratorDisplay = "";
-            this.numeratorUserControl.Size = new System.Drawing.Size(320, 250);
-            this.numeratorUserControl.TabIndex = 2;
-            this.numeratorUserControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeratorTextBoxPin_KeyPress);
-            // 
             // tableLayoutPanelMiddle
             // 
             this.tableLayoutPanelMiddle.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanelMiddle.ColumnCount = 1;
             this.tableLayoutPanelMiddle.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelMiddle.Controls.Add(this.tableLayoutPanelProducts, 0, 2);
+            this.tableLayoutPanelMiddle.Controls.Add(this.tableLayoutPanelProducts, 0, 3);
             this.tableLayoutPanelMiddle.Controls.Add(this.labelTable, 0, 0);
-            this.tableLayoutPanelMiddle.Controls.Add(this.tableLayoutPanel3, 0, 4);
-            this.tableLayoutPanelMiddle.Controls.Add(this.tableLayoutPanelLabels, 0, 3);
-            this.tableLayoutPanelMiddle.Controls.Add(this.tableLayoutPanelSearch, 0, 1);
+            this.tableLayoutPanelMiddle.Controls.Add(this.tableLayoutPanel3, 0, 5);
+            this.tableLayoutPanelMiddle.Controls.Add(this.tableLayoutPanelLabels, 0, 4);
+            this.tableLayoutPanelMiddle.Controls.Add(this.tableLayoutPanelSearch, 0, 2);
+            this.tableLayoutPanelMiddle.Controls.Add(this.labelCustomer, 0, 1);
             this.tableLayoutPanelMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelMiddle.Location = new System.Drawing.Point(95, 0);
             this.tableLayoutPanelMiddle.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelMiddle.Name = "tableLayoutPanelMiddle";
-            this.tableLayoutPanelMiddle.RowCount = 5;
+            this.tableLayoutPanelMiddle.RowCount = 6;
+            this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -443,12 +435,12 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelProducts.ColumnCount = 1;
             this.tableLayoutPanelProducts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelProducts.Location = new System.Drawing.Point(1, 71);
+            this.tableLayoutPanelProducts.Location = new System.Drawing.Point(1, 104);
             this.tableLayoutPanelProducts.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelProducts.Name = "tableLayoutPanelProducts";
             this.tableLayoutPanelProducts.RowCount = 1;
             this.tableLayoutPanelProducts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelProducts.Size = new System.Drawing.Size(383, 326);
+            this.tableLayoutPanelProducts.Size = new System.Drawing.Size(383, 293);
             this.tableLayoutPanelProducts.TabIndex = 2;
             // 
             // labelTable
@@ -670,7 +662,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelSearch.Controls.Add(this.buttonSearch, 1, 0);
             this.tableLayoutPanelSearch.Controls.Add(this.textBoxSearchProduct, 0, 0);
             this.tableLayoutPanelSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelSearch.Location = new System.Drawing.Point(1, 34);
+            this.tableLayoutPanelSearch.Location = new System.Drawing.Point(1, 67);
             this.tableLayoutPanelSearch.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelSearch.Name = "tableLayoutPanelSearch";
             this.tableLayoutPanelSearch.RowCount = 1;
@@ -709,6 +701,51 @@ namespace WindowsFormsAppUI.Forms
             this.textBoxSearchProduct.Name = "textBoxSearchProduct";
             this.textBoxSearchProduct.Size = new System.Drawing.Size(280, 30);
             this.textBoxSearchProduct.TabIndex = 4;
+            // 
+            // labelCustomer
+            // 
+            this.labelCustomer.AutoSize = true;
+            this.labelCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelCustomer.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.labelCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.labelCustomer.Location = new System.Drawing.Point(1, 34);
+            this.labelCustomer.Margin = new System.Windows.Forms.Padding(0);
+            this.labelCustomer.Name = "labelCustomer";
+            this.labelCustomer.Size = new System.Drawing.Size(383, 32);
+            this.labelCustomer.TabIndex = 0;
+            this.labelCustomer.Text = "Müşteri:";
+            this.labelCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // numeratorUserControl
+            // 
+            this.numeratorUserControl.BackColor = System.Drawing.Color.Transparent;
+            this.numeratorUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numeratorUserControl.Location = new System.Drawing.Point(0, 200);
+            this.numeratorUserControl.Margin = new System.Windows.Forms.Padding(0);
+            this.numeratorUserControl.Name = "numeratorUserControl";
+            this.numeratorUserControl.NumeratorDisplay = "";
+            this.numeratorUserControl.Size = new System.Drawing.Size(320, 250);
+            this.numeratorUserControl.TabIndex = 2;
+            this.numeratorUserControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeratorTextBoxPin_KeyPress);
+            // 
+            // buttonSelectCustomer
+            // 
+            this.buttonSelectCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            this.buttonSelectCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSelectCustomer.FlatAppearance.BorderSize = 0;
+            this.buttonSelectCustomer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonSelectCustomer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonSelectCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSelectCustomer.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonSelectCustomer.ForeColor = System.Drawing.Color.White;
+            this.buttonSelectCustomer.Location = new System.Drawing.Point(164, 115);
+            this.buttonSelectCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSelectCustomer.Name = "buttonSelectCustomer";
+            this.buttonSelectCustomer.Size = new System.Drawing.Size(152, 31);
+            this.buttonSelectCustomer.TabIndex = 12;
+            this.buttonSelectCustomer.Text = "Müşteri Seç";
+            this.buttonSelectCustomer.UseVisualStyleBackColor = false;
+            this.buttonSelectCustomer.Click += new System.EventHandler(this.buttonSelectCustomer_Click);
             // 
             // POSForm
             // 
@@ -778,5 +815,7 @@ namespace WindowsFormsAppUI.Forms
         public TextBox textBoxSearchProduct;
         private TableLayoutPanel tableLayoutPanelSearch;
         private Button buttonSearch;
+        private Label labelCustomer;
+        private Button buttonSelectCustomer;
     }
 }

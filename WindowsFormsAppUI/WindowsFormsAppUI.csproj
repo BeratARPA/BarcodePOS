@@ -253,6 +253,12 @@
     <Compile Include="Forms\ReportsForm.Designer.cs">
       <DependentUpon>ReportsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SaveCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SaveCustomerForm.Designer.cs">
+      <DependentUpon>SaveCustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\TablesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +280,7 @@
     <Compile Include="Helpers\AsyncPrintTask.cs" />
     <Compile Include="Helpers\CashDrawer.cs" />
     <Compile Include="Helpers\CultureHelper.cs" />
+    <Compile Include="Helpers\CustomerName.cs" />
     <Compile Include="Helpers\DiscountHelper.cs" />
     <Compile Include="Helpers\FolderLocations.cs" />
     <Compile Include="Helpers\GetForm.cs" />
@@ -396,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReportsForm.resx">
       <DependentUpon>ReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SaveCustomerForm.resx">
+      <DependentUpon>SaveCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TablesForm.resx">
       <DependentUpon>TablesForm.cs</DependentUpon>
