@@ -16,6 +16,7 @@ namespace WindowsFormsAppUI.Forms
         public SaveCustomerForm(string name = "", Customer customer = null, Ticket ticket = null)
         {
             InitializeComponent();
+            UpdateUILanguage();
 
             _ticket = ticket;
             _customer = customer;
@@ -31,6 +32,16 @@ namespace WindowsFormsAppUI.Forms
                 textBoxAddress.Text = _customer.Address;
                 textBoxNote.Text = _customer.Note;
             }
+        }
+
+        public void UpdateUILanguage()
+        {
+            label1.Text = GlobalVariables.CultureHelper.GetText("CustomerName");
+            label2.Text = GlobalVariables.CultureHelper.GetText("CustomerPhoneNumber");
+            label3.Text = GlobalVariables.CultureHelper.GetText("CustomerAddress");
+            label4.Text = GlobalVariables.CultureHelper.GetText("CustomerNote");
+            buttonClose.Text = GlobalVariables.CultureHelper.GetText("Close");
+            buttonSave.Text = GlobalVariables.CultureHelper.GetText("Save");
         }
 
         private void buttonClose_Click(object sender, EventArgs e)

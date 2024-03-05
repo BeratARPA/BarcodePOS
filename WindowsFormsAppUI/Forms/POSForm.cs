@@ -82,9 +82,6 @@ namespace WindowsFormsAppUI.Forms
             buttonProductsWitoutBarcode.Text = GlobalVariables.CultureHelper.GetText("ProductsWithoutBarcode");
             buttonProductsWithBarcode.Text = GlobalVariables.CultureHelper.GetText("BarcodeProducts");
             buttonQuickMenu.Text = GlobalVariables.CultureHelper.GetText("QuickMenu");
-            label4.Text = GlobalVariables.CultureHelper.GetText("TicketTotal");
-            labelDiscountPercent.Text = GlobalVariables.CultureHelper.GetText("Discount");
-            label1.Text = GlobalVariables.CultureHelper.GetText("Balance");
             buttonMultiplePayment.Text = GlobalVariables.CultureHelper.GetText("MultiplePayments");
             buttonNewTicket.Text = GlobalVariables.CultureHelper.GetText("NewTicket");
             buttonClose.Text = GlobalVariables.CultureHelper.GetText("Close");
@@ -96,6 +93,9 @@ namespace WindowsFormsAppUI.Forms
             buttonChangeTable.Text = GlobalVariables.CultureHelper.GetText("ChangeTable");
             buttonSendToKitchen.Text = GlobalVariables.CultureHelper.GetText("SendToKitchen");
             buttonSearch.Text = GlobalVariables.CultureHelper.GetText("Search");
+            buttonSelectCustomer.Text = GlobalVariables.CultureHelper.GetText("SelectCustomer");
+            label4.Text = GlobalVariables.CultureHelper.GetText("TicketTotal");
+            label1.Text = GlobalVariables.CultureHelper.GetText("Balance");
         }
 
         public void CloseAndOpenTicket()
@@ -168,7 +168,7 @@ namespace WindowsFormsAppUI.Forms
             if (_customer != null)
             {
                 _ticket.CustomerId = _customer.CustomerId;
-                labelCustomer.Text = string.Format(GlobalVariables.CultureHelper.GetText("POSCustomer"), CustomerName.GetName(_customer.CustomerId));
+                labelCustomer.Text = string.Format(GlobalVariables.CultureHelper.GetText("POSCustomer"), CustomerHelper.GetName(_customer.CustomerId));
                 tableLayoutPanelMiddle.RowStyles[1].Height = 50;
                 buttonNewTicket.Enabled = false;
             }

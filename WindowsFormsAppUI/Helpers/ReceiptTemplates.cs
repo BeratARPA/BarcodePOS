@@ -35,6 +35,15 @@ namespace WindowsFormsAppUI.Helpers
             {
                 report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("Table") + ": " + TableName.GetName(ticket.TableId));
             }
+            if (!string.IsNullOrEmpty(ticket.Note))
+            {
+                report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("Note") + ": " + ticket.Note);
+            }
+            if (ticket.CustomerId != 0)
+            {
+                report.AddParagraphLine("Description", string.Format(GlobalVariables.CultureHelper.GetText("POSCustomer"), CustomerHelper.GetNameAndPhoneNumber(ticket.CustomerId)));
+                report.AddParagraphLine("Description", GlobalVariables.CultureHelper.GetText("CustomerAddress") + ": " + CustomerHelper.GetAddress(ticket.CustomerId));
+            }
 
             report.AddLine("line1");
 

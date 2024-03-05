@@ -19,6 +19,7 @@ namespace WindowsFormsAppUI.Forms
         public CustomersForm(Ticket ticket = null)
         {
             InitializeComponent();
+            UpdateUILanguage();
 
             _ticket = ticket;
         }
@@ -30,7 +31,19 @@ namespace WindowsFormsAppUI.Forms
             GetCustomers();
             paginationUserControl1.TotalRecords = _customers.Count;
 
-            Fill();        
+            Fill();
+        }
+
+        public void UpdateUILanguage()
+        {
+            dataGridViewCustomers.Columns[1].HeaderText = GlobalVariables.CultureHelper.GetText("CustomerName");
+            dataGridViewCustomers.Columns[2].HeaderText = GlobalVariables.CultureHelper.GetText("CustomerPhoneNumber");
+            dataGridViewCustomers.Columns[3].HeaderText = GlobalVariables.CultureHelper.GetText("CustomerAddress");
+            dataGridViewCustomers.Columns[4].HeaderText = GlobalVariables.CultureHelper.GetText("CustomerNote");
+            buttonSelect.Text = GlobalVariables.CultureHelper.GetText("Select");
+            buttonUpdate.Text = GlobalVariables.CultureHelper.GetText("Update");
+            buttonSave.Text = GlobalVariables.CultureHelper.GetText("Save");
+            buttonSearch.Text = GlobalVariables.CultureHelper.GetText("Search");
         }
 
         public void AddCustomerDataGridView(List<Customer> customers)
