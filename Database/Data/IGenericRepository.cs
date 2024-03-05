@@ -9,6 +9,7 @@ namespace Database.Data
         T Add(T entity);
         List<T> AddAll(List<T> entities);
         void Update(T entity);
+        void UpdateColumn<TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression, TProperty value);
         void Delete(T entity);
         void DeleteAll(List<T> entities);
         T Get(Expression<Func<T, bool>> filter = null);
@@ -16,6 +17,5 @@ namespace Database.Data
         T GetById(int id);
         List<T> GetAllAsNoTracking(Expression<Func<T, bool>> filter = null);
         List<T> GetAll(Expression<Func<T, bool>> filter = null);
-        void UpdateColumn<TProperty>(T entity, Expression<Func<T, TProperty>> propertyExpression, TProperty value);
     }
 }

@@ -318,6 +318,9 @@
   <data name="POS" xml:space="preserve">
     <value>Satış Noktası</value>
   </data>
+  <data name="POSCustomer" xml:space="preserve">
+    <value>Müşteri: {0}</value>
+  </data>
   <data name="POSTable" xml:space="preserve">
     <value>Masa: {0}</value>
   </data>
@@ -401,6 +404,9 @@
   </data>
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>Değişiklikler kaydedildi.</value>
+  </data>
+  <data name="ThereIsACustomerRegisteredAt" xml:space="preserve">
+    <value>{0} numaraya kayıtlı müşterimiz var!</value>
   </data>
   <data name="TheTablesWillJoinDoYouWantToContinue?" xml:space="preserve">
     <value>Masalar birleşecek, devam etmek istiyor musunuz?</value>
