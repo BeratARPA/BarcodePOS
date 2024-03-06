@@ -2,41 +2,60 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsAppUI.Helpers;
 
 namespace WindowsFormsAppUI.UserControls
 {
     public partial class ProductUserControl : UserControl
     {
+        public int _index;
         public Product _product;
-        public event EventHandler ProductClick;
 
-        public ProductUserControl(Product product)
+        public event EventHandler ProductClick;
+        public event EventHandler SelectProductClick;
+
+        public ProductUserControl(Product product, int index)
         {
             InitializeComponent();
 
             _product = product;
+            _index = index;
         }
 
         private void ProductUserControl_Load(object sender, EventArgs e)
         {
-            Name = _product.Name;
-            Price = _product.Price;
-            Image = _product.ImageURL;
+            buttonSelectProduct.Text = GlobalVariables.CultureHelper.GetText("SelectProduct");
+            labelPrice.Dock = DockStyle.None;
+            labelName.Dock = DockStyle.None;
 
-            string[] backColorArgb = _product.BackColor.Split(',');
-            string[] foreColorArgb = _product.ForeColor.Split(',');
+            if (_product != null)
+            {
+                Name = _product.Name;
+                Price = _product.Price;
+                Image = _product.ImageURL;
 
-            this.BackColor = Color.FromArgb(50, Convert.ToInt32(backColorArgb[0]), Convert.ToInt32(backColorArgb[1]), Convert.ToInt32(backColorArgb[2]));
+                string[] backColorArgb = _product.BackColor.Split(',');
+                string[] foreColorArgb = _product.ForeColor.Split(',');
 
-            labelName.Parent = pictureBoxImage;
-            labelName.BackColor = Color.FromArgb(50, Convert.ToInt32(backColorArgb[0]), Convert.ToInt32(backColorArgb[1]), Convert.ToInt32(backColorArgb[2]));
-            labelName.ForeColor = Color.FromArgb(Convert.ToInt32(foreColorArgb[0]), Convert.ToInt32(foreColorArgb[1]), Convert.ToInt32(foreColorArgb[2]));
-            labelName.Font = new Font("Microsoft Sans Serif", _product.FontSize);
+                this.BackColor = Color.FromArgb(50, Convert.ToInt32(backColorArgb[0]), Convert.ToInt32(backColorArgb[1]), Convert.ToInt32(backColorArgb[2]));
 
-            labelPrice.Parent = pictureBoxImage;
-            labelPrice.BackColor = Color.FromArgb(50, Convert.ToInt32(backColorArgb[0]), Convert.ToInt32(backColorArgb[1]), Convert.ToInt32(backColorArgb[2]));
-            labelPrice.ForeColor = Color.FromArgb(Convert.ToInt32(foreColorArgb[0]), Convert.ToInt32(foreColorArgb[1]), Convert.ToInt32(foreColorArgb[2]));
-            labelPrice.Font = new Font("Microsoft Sans Serif", _product.FontSize);
+                labelName.Parent = pictureBoxImage;
+                labelName.BackColor = Color.FromArgb(50, Convert.ToInt32(backColorArgb[0]), Convert.ToInt32(backColorArgb[1]), Convert.ToInt32(backColorArgb[2]));
+                labelName.ForeColor = Color.FromArgb(Convert.ToInt32(foreColorArgb[0]), Convert.ToInt32(foreColorArgb[1]), Convert.ToInt32(foreColorArgb[2]));
+                labelName.Font = new Font("Microsoft Sans Serif", _product.FontSize);
+
+                labelPrice.Parent = pictureBoxImage;
+                labelPrice.BackColor = Color.FromArgb(50, Convert.ToInt32(backColorArgb[0]), Convert.ToInt32(backColorArgb[1]), Convert.ToInt32(backColorArgb[2]));
+                labelPrice.ForeColor = Color.FromArgb(Convert.ToInt32(foreColorArgb[0]), Convert.ToInt32(foreColorArgb[1]), Convert.ToInt32(foreColorArgb[2]));
+                labelPrice.Font = new Font("Microsoft Sans Serif", _product.FontSize);
+
+                buttonSelectProduct.Dock = DockStyle.None;
+                buttonSelectProduct.SendToBack();
+                buttonSelectProduct.Visible = false;
+
+                labelPrice.Dock = DockStyle.Top;
+                labelName.Dock = DockStyle.Bottom;
+            }
         }
 
         private string _name;
@@ -73,13 +92,18 @@ namespace WindowsFormsAppUI.UserControls
                 {
                     pictureBoxImage.LoadAsync(value);
                 }
-                catch{}
+                catch { }
             }
         }
 
         private void labelPrice_Click(object sender, EventArgs e)
         {
             ProductClick?.Invoke(this, e);
+        }
+
+        private void buttonSelectProduct_Click(object sender, EventArgs e)
+        {
+            SelectProductClick?.Invoke(this, e);
         }
     }
 }

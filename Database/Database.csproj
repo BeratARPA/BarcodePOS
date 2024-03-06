@@ -59,9 +59,9 @@
     <Compile Include="Helpers\DatabaseType.cs" />
     <Compile Include="Helpers\Logger.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
-    <Compile Include="Migrations\202403041950490_InitialCreate.cs" />
-    <Compile Include="Migrations\202403041950490_InitialCreate.designer.cs">
-      <DependentUpon>202403041950490_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202403060145559_InitialCreate.cs" />
+    <Compile Include="Migrations\202403060145559_InitialCreate.designer.cs">
+      <DependentUpon>202403060145559_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -93,8 +93,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202403041950490_InitialCreate.resx">
-      <DependentUpon>202403041950490_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202403060145559_InitialCreate.resx">
+      <DependentUpon>202403060145559_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

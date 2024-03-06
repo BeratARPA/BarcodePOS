@@ -282,6 +282,7 @@
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\CustomerHelper.cs" />
     <Compile Include="Helpers\DiscountHelper.cs" />
+    <Compile Include="Helpers\FileOperations.cs" />
     <Compile Include="Helpers\FolderLocations.cs" />
     <Compile Include="Helpers\GetForm.cs" />
     <Compile Include="Helpers\GlobalVariables.cs" />
