@@ -247,6 +247,12 @@
     <Compile Include="Forms\ProductPersonalizationForm.Designer.cs">
       <DependentUpon>ProductPersonalizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\QuickMenuSelectProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QuickMenuSelectProductForm.Designer.cs">
+      <DependentUpon>QuickMenuSelectProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ReportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductPersonalizationForm.resx">
       <DependentUpon>ProductPersonalizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QuickMenuSelectProductForm.resx">
+      <DependentUpon>QuickMenuSelectProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReportsForm.resx">
       <DependentUpon>ReportsForm.cs</DependentUpon>

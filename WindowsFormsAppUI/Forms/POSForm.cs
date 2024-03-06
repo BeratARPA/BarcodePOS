@@ -992,7 +992,10 @@ namespace WindowsFormsAppUI.Forms
 
         private void ProductUserControl_SelectProductClick(object sender, EventArgs e)
         {
+            ProductUserControl productUserControl = (ProductUserControl)sender;
 
+            QuickMenuSelectProductForm quickMenuSelectProductForm = new QuickMenuSelectProductForm(productUserControl._index);
+            quickMenuSelectProductForm.ShowDialog();
         }
 
         public List<Product> GetQuickMenu()

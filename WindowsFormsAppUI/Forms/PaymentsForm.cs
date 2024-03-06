@@ -31,7 +31,6 @@ namespace WindowsFormsAppUI.Forms
                 this.Opacity = 1;
                 this.ResumeLayout(true);
             };
-
         }
 
         private void PaymentsForm_Load(object sender, EventArgs e)
