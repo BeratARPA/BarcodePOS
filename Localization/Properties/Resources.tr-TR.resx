@@ -393,6 +393,9 @@
   <data name="SelectCustomer" xml:space="preserve">
     <value>Müşteri Seç</value>
   </data>
+  <data name="SelectProduct" xml:space="preserve">
+    <value>Ürün Seç</value>
+  </data>
   <data name="SendToKitchen" xml:space="preserve">
     <value>Mutfağa Gönder</value>
   </data>

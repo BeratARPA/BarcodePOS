@@ -34,6 +34,7 @@ namespace WindowsFormsAppUI.UserControls
             this.pictureBoxImage = new System.Windows.Forms.PictureBox();
             this.labelName = new System.Windows.Forms.Label();
             this.labelPrice = new System.Windows.Forms.Label();
+            this.buttonSelectProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,12 +78,28 @@ namespace WindowsFormsAppUI.UserControls
             this.labelPrice.TabIndex = 2;
             this.labelPrice.Text = "Price";
             this.labelPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelPrice.Click += new System.EventHandler(this.labelPrice_Click);
+            // 
+            // buttonSelectProduct
+            // 
+            this.buttonSelectProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSelectProduct.FlatAppearance.BorderSize = 0;
+            this.buttonSelectProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSelectProduct.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonSelectProduct.Location = new System.Drawing.Point(0, 43);
+            this.buttonSelectProduct.Name = "buttonSelectProduct";
+            this.buttonSelectProduct.Size = new System.Drawing.Size(150, 64);
+            this.buttonSelectProduct.TabIndex = 3;
+            this.buttonSelectProduct.Text = "Select Product";
+            this.buttonSelectProduct.UseVisualStyleBackColor = true;
+            this.buttonSelectProduct.Click += new System.EventHandler(this.buttonSelectProduct_Click);
             // 
             // ProductUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Controls.Add(this.buttonSelectProduct);
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.pictureBoxImage);
@@ -99,5 +116,6 @@ namespace WindowsFormsAppUI.UserControls
         private PictureBox pictureBoxImage;
         private Label labelName;
         private Label labelPrice;
+        private Button buttonSelectProduct;
     }
 }

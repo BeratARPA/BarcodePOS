@@ -50,6 +50,7 @@ namespace WindowsFormsAppUI.Forms
             this.buttonChangeTable = new System.Windows.Forms.Button();
             this.buttonSelectCustomer = new System.Windows.Forms.Button();
             this.flowLayoutPanelOrders = new System.Windows.Forms.FlowLayoutPanel();
+            this.numeratorUserControl = new WindowsFormsAppUI.UserControls.NumeratorUserControl();
             this.tableLayoutPanelMiddle = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelProducts = new System.Windows.Forms.TableLayoutPanel();
             this.labelTable = new System.Windows.Forms.Label();
@@ -69,7 +70,6 @@ namespace WindowsFormsAppUI.Forms
             this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxSearchProduct = new System.Windows.Forms.TextBox();
             this.labelCustomer = new System.Windows.Forms.Label();
-            this.numeratorUserControl = new WindowsFormsAppUI.UserControls.NumeratorUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelCategories.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -217,6 +217,7 @@ namespace WindowsFormsAppUI.Forms
             this.buttonQuickMenu.TabIndex = 9;
             this.buttonQuickMenu.Text = "Hızlı Menü";
             this.buttonQuickMenu.UseVisualStyleBackColor = false;
+            this.buttonQuickMenu.Click += new System.EventHandler(this.buttonQuickMenu_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -422,6 +423,18 @@ namespace WindowsFormsAppUI.Forms
             this.flowLayoutPanelOrders.Name = "flowLayoutPanelOrders";
             this.flowLayoutPanelOrders.Size = new System.Drawing.Size(320, 260);
             this.flowLayoutPanelOrders.TabIndex = 0;
+            // 
+            // numeratorUserControl
+            // 
+            this.numeratorUserControl.BackColor = System.Drawing.Color.Transparent;
+            this.numeratorUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numeratorUserControl.Location = new System.Drawing.Point(0, 260);
+            this.numeratorUserControl.Margin = new System.Windows.Forms.Padding(0);
+            this.numeratorUserControl.Name = "numeratorUserControl";
+            this.numeratorUserControl.NumeratorDisplay = "";
+            this.numeratorUserControl.Size = new System.Drawing.Size(320, 200);
+            this.numeratorUserControl.TabIndex = 2;
+            this.numeratorUserControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeratorTextBoxPin_KeyPress);
             // 
             // tableLayoutPanelMiddle
             // 
@@ -734,18 +747,6 @@ namespace WindowsFormsAppUI.Forms
             this.labelCustomer.TabIndex = 0;
             this.labelCustomer.Text = "Müşteri:";
             this.labelCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // numeratorUserControl
-            // 
-            this.numeratorUserControl.BackColor = System.Drawing.Color.Transparent;
-            this.numeratorUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numeratorUserControl.Location = new System.Drawing.Point(0, 260);
-            this.numeratorUserControl.Margin = new System.Windows.Forms.Padding(0);
-            this.numeratorUserControl.Name = "numeratorUserControl";
-            this.numeratorUserControl.NumeratorDisplay = "";
-            this.numeratorUserControl.Size = new System.Drawing.Size(320, 200);
-            this.numeratorUserControl.TabIndex = 2;
-            this.numeratorUserControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeratorTextBoxPin_KeyPress);
             // 
             // POSForm
             // 

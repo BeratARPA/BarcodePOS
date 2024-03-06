@@ -26,6 +26,7 @@
                     {
                         ProductId = c.Int(nullable: false, identity: true),
                         CategoryId = c.Int(nullable: false),
+                        Index = c.Int(nullable: false),
                         Barcode = c.String(),
                         Name = c.String(),
                         Price = c.Double(nullable: false),

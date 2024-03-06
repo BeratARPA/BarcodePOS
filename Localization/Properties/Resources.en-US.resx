@@ -390,6 +390,9 @@
   <data name="SelectCustomer" xml:space="preserve">
     <value>Select Customer</value>
   </data>
+  <data name="SelectProduct" xml:space="preserve">
+    <value>Select Product</value>
+  </data>
   <data name="SendToKitchen" xml:space="preserve">
     <value>Send to Kitchen</value>
   </data>
