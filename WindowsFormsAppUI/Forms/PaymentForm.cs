@@ -203,7 +203,7 @@ namespace WindowsFormsAppUI.Forms
                     ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                     if (ticket == null)
                     {
-                        _posForm.SaveTicket();
+                        _posForm.SaveTicket(true);
                         ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                     }
 
@@ -240,7 +240,7 @@ namespace WindowsFormsAppUI.Forms
                     ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                     if (ticket == null)
                     {
-                        _posForm.SaveTicket();
+                        _posForm.SaveTicket(true);
                         ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                     }
 

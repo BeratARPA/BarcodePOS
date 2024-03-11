@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace WindowsFormsAppUI.Helpers
@@ -76,6 +77,32 @@ namespace WindowsFormsAppUI.Helpers
 
             File.Delete(_filePath);
             Console.WriteLine("File deleted.");
+        }
+
+        public void FindAndRemoveLine(T data)
+        {
+            List<string> lines = new List<string>();
+
+            if (!File.Exists(_filePath))
+            {
+                Console.WriteLine("File does not exist.");
+                return;
+            }
+
+            using (StreamReader sr = new StreamReader(_filePath))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (!line.Trim().Equals(data.ToString().Trim()))
+                    {
+                        lines.Add(line);
+                    }
+                }
+            }
+
+            File.WriteAllLines(_filePath, lines);
+            Console.WriteLine("Line removed from the file.");
         }
 
         private bool IsDataExists(T data)

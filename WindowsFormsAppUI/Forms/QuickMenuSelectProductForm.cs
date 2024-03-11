@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI.Forms
     {
         private readonly GenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>(GlobalVariables.SQLContext);
 
-        private readonly FileOperations<string> fileOperations = new FileOperations<string>("QuickMenu.txt");
+        private readonly FileOperations<string> fileOperations = new FileOperations<string>(FolderLocations.barcodePOSFolderPath + "QuickMenu.txt");
 
         private int _index;
 
@@ -70,8 +70,25 @@ namespace WindowsFormsAppUI.Forms
 
             string productId = dataGridViewProducts.CurrentRow.Cells[0].Value.ToString();
 
+            string text = "#" + _index + "/" + productId;
+
+            string file = fileOperations.ReadFile();
+            string[] menus = file.Split('#');
+            foreach (var menu in menus)
+            {
+                if (!string.IsNullOrEmpty(menu))
+                {
+                    string[] properties = menu.Split('/');
+
+                    if (Convert.ToInt32(properties[1]) == Convert.ToInt32(productId))
+                    {
+                        fileOperations.FindAndRemoveLine("#" + menu);
+                    }
+                }
+            }
+
             fileOperations.CreateFile();
-            fileOperations.WriteToFile("#" + _index + "/" + productId, true);
+            fileOperations.WriteToFile(text, true);
 
             POSForm _posForm = (POSForm)GetForm.Get("POSForm");
             _posForm.CreateQuickMenu(_posForm.GetQuickMenu());
