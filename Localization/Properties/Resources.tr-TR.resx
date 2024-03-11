@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddNote" xml:space="preserve">
+    <value>Not Ekle</value>
+  </data>
   <data name="AllTickets" xml:space="preserve">
     <value>Tüm Fişler</value>
   </data>
@@ -333,6 +336,9 @@
   <data name="POSCustomer" xml:space="preserve">
     <value>Müşteri: {0}</value>
   </data>
+  <data name="POSNote" xml:space="preserve">
+    <value>Not: {0}</value>
+  </data>
   <data name="POSTable" xml:space="preserve">
     <value>Masa: {0}</value>
   </data>
@@ -395,6 +401,9 @@
   </data>
   <data name="SelectProduct" xml:space="preserve">
     <value>Ürün Seç</value>
+  </data>
+  <data name="SendAllProductsToTheKitchen?" xml:space="preserve">
+    <value>Tüm ürünler mutfağa gönderilsin mi?</value>
   </data>
   <data name="SendToKitchen" xml:space="preserve">
     <value>Mutfağa Gönder</value>

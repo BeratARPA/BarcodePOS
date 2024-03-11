@@ -33,7 +33,7 @@ namespace WindowsFormsAppUI.Forms
         private List<PaymentType> _paymentTypes = new List<PaymentType>();
         private ReceiptTemplates receiptTemplates = new ReceiptTemplates();
 
-        private readonly FileOperations<string> fileOperations = new FileOperations<string>("QuickMenu.txt");
+        private readonly FileOperations<string> fileOperations = new FileOperations<string>(FolderLocations.barcodePOSFolderPath + "QuickMenu.txt");
 
         private int _previousFormIndex;
 
@@ -67,6 +67,7 @@ namespace WindowsFormsAppUI.Forms
 
             IsTable();
             CustomerAvailable();
+            NoteAvailable();
 
             CloseAndOpenTicket();
 
@@ -98,6 +99,7 @@ namespace WindowsFormsAppUI.Forms
             buttonSelectCustomer.Text = GlobalVariables.CultureHelper.GetText("SelectCustomer");
             label4.Text = GlobalVariables.CultureHelper.GetText("TicketTotal");
             label1.Text = GlobalVariables.CultureHelper.GetText("Balance");
+            buttonNote.Text = GlobalVariables.CultureHelper.GetText("AddNote");
         }
 
         public void CloseAndOpenTicket()
@@ -114,6 +116,7 @@ namespace WindowsFormsAppUI.Forms
             buttonSendToKitchen.Enabled = isOpened;
             buttonChangeTable.Enabled = isOpened;
             buttonSelectCustomer.Enabled = isOpened;
+            buttonNote.Enabled = isOpened;
             buttonClose.Enabled = true;
         }
 
@@ -178,6 +181,20 @@ namespace WindowsFormsAppUI.Forms
             {
                 _ticket.CustomerId = 0;
                 tableLayoutPanelMiddle.RowStyles[1].Height = 0;
+            }
+        }
+
+        public void NoteAvailable()
+        {
+            if (!string.IsNullOrEmpty(_ticket.Note))
+            {
+                labelNote.Text = string.Format(GlobalVariables.CultureHelper.GetText("POSNote"), _ticket.Note);
+                tableLayoutPanelMiddle.RowStyles[2].Height = 50;
+            }
+            else
+            {
+                _ticket.Note = "";
+                tableLayoutPanelMiddle.RowStyles[2].Height = 0;
             }
         }
 
@@ -507,7 +524,7 @@ namespace WindowsFormsAppUI.Forms
             //Return
             if (totalBalance == 0)
             {
-                tableLayoutPanelMiddle.RowStyles[4].Height = 0;
+                tableLayoutPanelMiddle.RowStyles[5].Height = 0;
                 return 0;
             }
 
@@ -524,12 +541,12 @@ namespace WindowsFormsAppUI.Forms
 
             _ticket.RemainingAmount = totalBalance;
 
-            tableLayoutPanelMiddle.RowStyles[4].Height = 100;
+            tableLayoutPanelMiddle.RowStyles[5].Height = 100;
 
             return totalBalance;
         }
 
-        public void SaveTicket()
+        public void SaveTicket(bool sendToKitchen)
         {
             Ticket ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
 
@@ -567,7 +584,7 @@ namespace WindowsFormsAppUI.Forms
                     }
                 }
 
-                if (_productsSentToKitchen.Count > 0)
+                if (_productsSentToKitchen.Count > 0 && sendToKitchen)
                 {
                     receiptTemplates.KitchenReceipt(_productsSentToKitchen, _ticket);
                 }
@@ -655,7 +672,7 @@ namespace WindowsFormsAppUI.Forms
                 Ticket ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                 if (ticket == null)
                 {
-                    SaveTicket();
+                    SaveTicket(true);
                     ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                 }
 
@@ -703,7 +720,7 @@ namespace WindowsFormsAppUI.Forms
                 return;
             }
 
-            SaveTicket();
+            SaveTicket(true);
 
             if (_orders.Count > 0)
             {
@@ -716,7 +733,7 @@ namespace WindowsFormsAppUI.Forms
 
         private async void buttonNewTicket_Click(object sender, EventArgs e)
         {
-            SaveTicket();
+            SaveTicket(true);
 
             if (_orders.Count > 0)
             {
@@ -857,7 +874,7 @@ namespace WindowsFormsAppUI.Forms
 
         private async void buttonTickets_Click(object sender, EventArgs e)
         {
-            SaveTicket();
+            SaveTicket(true);
 
             if (_orders.Count > 0)
             {
@@ -882,7 +899,7 @@ namespace WindowsFormsAppUI.Forms
         {
             if (_orders.Count != 0)
             {
-                SaveTicket();
+                SaveTicket(true);
 
                 NavigationManager.OpenForm(new TablesForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             }
@@ -896,6 +913,15 @@ namespace WindowsFormsAppUI.Forms
                 {
                     receiptTemplates.KitchenReceipt(_productsSentToKitchen, _ticket);
                     return;
+                }
+                else
+                {
+                    if (GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("SendAllProductsToTheKitchen?"), GlobalVariables.CultureHelper.GetText("Information"), MessageButton.YesNo, MessageIcon.Information) != DialogResult.Yes)
+                    {
+                        return;
+                    }
+
+                    receiptTemplates.KitchenReceipt(_orders, _ticket);
                 }
             }
         }
@@ -915,7 +941,7 @@ namespace WindowsFormsAppUI.Forms
         {
             if (_orders.Count != 0)
             {
-                SaveTicket();
+                SaveTicket(true);
 
                 NavigationManager.OpenForm(new CustomersForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             }
@@ -1025,6 +1051,13 @@ namespace WindowsFormsAppUI.Forms
         private void buttonQuickMenu_Click(object sender, EventArgs e)
         {
             CreateQuickMenu(GetQuickMenu());
+        }
+
+        private void buttonNote_Click(object sender, EventArgs e)
+        {
+            _ticket.Note = textBoxSearchProduct.Text;
+
+            NoteAvailable();
         }
     }
 }
