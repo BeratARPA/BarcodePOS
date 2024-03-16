@@ -73,12 +73,7 @@ namespace WindowsFormsAppUI.UserControls
                 }
             }
         }
-
-        private void MenuItemRemove_Click(object sender, EventArgs e)
-        {
-            ProductRightClick?.Invoke(this, e);
-        }
-
+        
         private string _name;
         public string Name
         {
@@ -115,6 +110,11 @@ namespace WindowsFormsAppUI.UserControls
                 }
                 catch { }
             }
+        }
+
+        private void MenuItemRemove_Click(object sender, EventArgs e)
+        {
+            ProductRightClick?.Invoke(this, e);
         }
 
         private void labelPrice_Click(object sender, EventArgs e)
