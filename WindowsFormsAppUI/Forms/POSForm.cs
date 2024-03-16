@@ -1,5 +1,6 @@
 ﻿using Database.Data;
 using Database.Models;
+using DevExpress.Utils.About;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -999,12 +1000,13 @@ namespace WindowsFormsAppUI.Forms
                 {
                     var product = products.Where(x => x.Index == productIndex).FirstOrDefault();
 
-                    ProductUserControl productUserControl = new ProductUserControl(product == null ? null : product, productIndex)
+                    ProductUserControl productUserControl = new ProductUserControl(product == null ? null : product, productIndex, true)
                     {
                         Dock = DockStyle.Fill
                     };
 
                     productUserControl.ProductClick += ProductUserControl_Click;
+                    productUserControl.ProductRightClick += ProductUserControl_RightClick;
                     productUserControl.SelectProductClick += ProductUserControl_SelectProductClick;
 
                     tableLayoutPanelProducts.Controls.Add(productUserControl);
@@ -1014,6 +1016,28 @@ namespace WindowsFormsAppUI.Forms
             }
 
             tableLayoutPanelProducts.ResumeLayout();
+        }
+
+        private void ProductUserControl_RightClick(object sender, EventArgs e)
+        {
+            ProductUserControl productUserControl = (ProductUserControl)sender;
+
+            string file = fileOperations.ReadFile();
+            string[] menus = file.Split('#');
+            foreach (var menu in menus)
+            {
+                if (!string.IsNullOrEmpty(menu))
+                {
+                    string[] properties = menu.Split('/');
+
+                    if (Convert.ToInt32(properties[1]) == Convert.ToInt32(productUserControl._product.ProductId))
+                    {
+                        fileOperations.FindAndRemoveLine("#" + menu);
+                    }
+                }
+            }
+
+            CreateQuickMenu(GetQuickMenu());
         }
 
         private void ProductUserControl_SelectProductClick(object sender, EventArgs e)
