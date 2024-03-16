@@ -152,6 +152,7 @@ namespace WindowsFormsAppUI.Forms
                 LastOrderDate = DateTime.Now,
                 LastPaymentDate = DateTime.Now,
                 IsOpened = true,
+                IsPrinted = false,
                 RemainingAmount = 0,
                 TotalAmount = 0,
                 Discount = 0,
@@ -370,6 +371,8 @@ namespace WindowsFormsAppUI.Forms
                 ProductOnCardUserControl newProductOnCard = CreateNewProductOnCard(productUserControl);
                 flowLayoutPanelOrders.Controls.Add(newProductOnCard);
             }
+
+            _ticket.IsPrinted = false;
 
             CalculateTotalBalance();
         }
@@ -893,6 +896,7 @@ namespace WindowsFormsAppUI.Forms
             if (_orders.Count != 0)
             {
                 receiptTemplates.TicketReceipt(_orders, _ticket);
+                _ticket.IsPrinted = true;
             }
         }
 

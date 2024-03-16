@@ -112,6 +112,7 @@
                         LastOrderDate = c.DateTime(nullable: false),
                         LastPaymentDate = c.DateTime(nullable: false),
                         IsOpened = c.Boolean(nullable: false),
+                        IsPrinted = c.Boolean(nullable: false),
                         RemainingAmount = c.Double(nullable: false),
                         TotalAmount = c.Double(nullable: false),
                         Discount = c.Double(nullable: false),
