@@ -9,17 +9,21 @@ namespace WindowsFormsAppUI.UserControls
     public partial class ProductUserControl : UserControl
     {
         public int _index;
+        public bool _quickMenu;
         public Product _product;
+        private ContextMenuStrip _contextMenuStrip;
 
         public event EventHandler ProductClick;
         public event EventHandler SelectProductClick;
+        public event EventHandler ProductRightClick;
 
-        public ProductUserControl(Product product, int index)
+        public ProductUserControl(Product product, int index, bool quickMenu = false)
         {
             InitializeComponent();
 
             _product = product;
             _index = index;
+            _quickMenu = quickMenu;
         }
 
         private void ProductUserControl_Load(object sender, EventArgs e)
@@ -55,7 +59,24 @@ namespace WindowsFormsAppUI.UserControls
 
                 labelPrice.Dock = DockStyle.Top;
                 labelName.Dock = DockStyle.Bottom;
+
+                if (_quickMenu)
+                {
+                    _contextMenuStrip = new ContextMenuStrip();
+
+                    ToolStripMenuItem removeMenuItem = new ToolStripMenuItem
+                    {
+                        Text = GlobalVariables.CultureHelper.GetText("Delete")
+                    };
+                    removeMenuItem.Click += MenuItemRemove_Click;
+                    _contextMenuStrip.Items.Add(removeMenuItem);
+                }
             }
+        }
+
+        private void MenuItemRemove_Click(object sender, EventArgs e)
+        {
+            ProductRightClick?.Invoke(this, e);
         }
 
         private string _name;
@@ -98,6 +119,16 @@ namespace WindowsFormsAppUI.UserControls
 
         private void labelPrice_Click(object sender, EventArgs e)
         {
+            if (_quickMenu)
+            {
+                MouseEventArgs mouseEvent = e as MouseEventArgs;
+                if (mouseEvent != null && mouseEvent.Button == MouseButtons.Right)
+                {
+                    _contextMenuStrip.Show(this, mouseEvent.Location);
+                    return;
+                }
+            }
+
             ProductClick?.Invoke(this, e);
         }
 
