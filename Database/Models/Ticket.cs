@@ -17,6 +17,7 @@ namespace Database.Models
         public DateTime LastOrderDate { get; set; }
         public DateTime LastPaymentDate { get; set; }
         public bool IsOpened { get; set; }
+        public bool IsPrinted { get; set; }
         public double RemainingAmount { get; set; }
         public double TotalAmount { get; set; }
         public double Discount { get; set; }

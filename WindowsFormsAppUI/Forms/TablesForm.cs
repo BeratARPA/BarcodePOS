@@ -105,6 +105,10 @@ namespace WindowsFormsAppUI.Forms
                     {
                         //TableColor
                         tileItemTable.AppearanceItem.Normal.BackColor = Color.Orange;
+                        if (ticket.IsPrinted)
+                        {
+                            tileItemTable.AppearanceItem.Normal.BackColor = Color.IndianRed;
+                        }
 
                         //TotalAmount
                         TileItemElement middleElement = new TileItemElement();
@@ -200,7 +204,7 @@ namespace WindowsFormsAppUI.Forms
             #endregion
 
             NavigationManager.OpenForm(new POSForm(1, ticket == null ? null : ticket, section, table), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
-            GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;        
+            GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
         }
 
         private void tileItemSection_Click(object sender, TileItemEventArgs e)
