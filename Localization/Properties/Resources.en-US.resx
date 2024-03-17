@@ -120,6 +120,9 @@
   <data name="AddNote" xml:space="preserve">
     <value>Add Note</value>
   </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>All Products</value>
+  </data>
   <data name="AllTickets" xml:space="preserve">
     <value>All Tickets</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="CreateProductLabel" xml:space="preserve">
     <value>Create Product Label</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Customer</value>
   </data>
   <data name="CustomerAddress" xml:space="preserve">
     <value>Address</value>

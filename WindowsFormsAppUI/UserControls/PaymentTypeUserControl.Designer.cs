@@ -43,6 +43,8 @@
             this.labelName.Text = "Name";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelName.Click += new System.EventHandler(this.PaymentUserControl_Click);
+            this.labelName.MouseEnter += new System.EventHandler(this.PaymentTypeUserControl_MouseEnter);
+            this.labelName.MouseLeave += new System.EventHandler(this.PaymentTypeUserControl_MouseLeave);
             // 
             // PaymentTypeUserControl
             // 
@@ -53,6 +55,8 @@
             this.Name = "PaymentTypeUserControl";
             this.Load += new System.EventHandler(this.PaymentUserControl_Load);
             this.Click += new System.EventHandler(this.PaymentUserControl_Click);
+            this.MouseEnter += new System.EventHandler(this.PaymentTypeUserControl_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.PaymentTypeUserControl_MouseLeave);
             this.ResumeLayout(false);
 
         }

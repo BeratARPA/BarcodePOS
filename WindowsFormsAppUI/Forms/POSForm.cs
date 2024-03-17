@@ -85,6 +85,7 @@ namespace WindowsFormsAppUI.Forms
         {
             buttonProductsWitoutBarcode.Text = GlobalVariables.CultureHelper.GetText("ProductsWithoutBarcode");
             buttonProductsWithBarcode.Text = GlobalVariables.CultureHelper.GetText("BarcodeProducts");
+            buttonAllProducts.Text = GlobalVariables.CultureHelper.GetText("AllProducts");
             buttonQuickMenu.Text = GlobalVariables.CultureHelper.GetText("QuickMenu");
             buttonMultiplePayment.Text = GlobalVariables.CultureHelper.GetText("MultiplePayments");
             buttonNewTicket.Text = GlobalVariables.CultureHelper.GetText("NewTicket");
@@ -794,6 +795,11 @@ namespace WindowsFormsAppUI.Forms
             CreateProducts(products);
         }
 
+        private void buttonAllProducts_Click(object sender, EventArgs e)
+        {
+            CreateProducts(_products);
+        }
+
         private void NumeratorTextBoxPin_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Only allow digits (0-9) or comma (,) characters
@@ -1086,6 +1092,6 @@ namespace WindowsFormsAppUI.Forms
             _ticket.Note = textBoxSearchProduct.Text;
 
             NoteAvailable();
-        }
+        }        
     }
 }

@@ -51,6 +51,8 @@ namespace WindowsFormsAppUI.UserControls
             this.pictureBoxImage.TabIndex = 0;
             this.pictureBoxImage.TabStop = false;
             this.pictureBoxImage.Click += new System.EventHandler(this.labelPrice_Click);
+            this.pictureBoxImage.MouseEnter += new System.EventHandler(this.ProductUserControl_MouseEnter);
+            this.pictureBoxImage.MouseLeave += new System.EventHandler(this.ProductUserControl_MouseLeave);
             // 
             // labelName
             // 
@@ -65,6 +67,8 @@ namespace WindowsFormsAppUI.UserControls
             this.labelName.Text = "Name";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelName.Click += new System.EventHandler(this.labelPrice_Click);
+            this.labelName.MouseEnter += new System.EventHandler(this.ProductUserControl_MouseEnter);
+            this.labelName.MouseLeave += new System.EventHandler(this.ProductUserControl_MouseLeave);
             // 
             // labelPrice
             // 
@@ -79,6 +83,8 @@ namespace WindowsFormsAppUI.UserControls
             this.labelPrice.Text = "Price";
             this.labelPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelPrice.Click += new System.EventHandler(this.labelPrice_Click);
+            this.labelPrice.MouseEnter += new System.EventHandler(this.ProductUserControl_MouseEnter);
+            this.labelPrice.MouseLeave += new System.EventHandler(this.ProductUserControl_MouseLeave);
             // 
             // buttonSelectProduct
             // 
@@ -93,6 +99,8 @@ namespace WindowsFormsAppUI.UserControls
             this.buttonSelectProduct.Text = "Select Product";
             this.buttonSelectProduct.UseVisualStyleBackColor = true;
             this.buttonSelectProduct.Click += new System.EventHandler(this.buttonSelectProduct_Click);
+            this.buttonSelectProduct.MouseEnter += new System.EventHandler(this.ProductUserControl_MouseEnter);
+            this.buttonSelectProduct.MouseLeave += new System.EventHandler(this.ProductUserControl_MouseLeave);
             // 
             // ProductUserControl
             // 
@@ -107,6 +115,8 @@ namespace WindowsFormsAppUI.UserControls
             this.Name = "ProductUserControl";
             this.Load += new System.EventHandler(this.ProductUserControl_Load);
             this.Click += new System.EventHandler(this.labelPrice_Click);
+            this.MouseEnter += new System.EventHandler(this.ProductUserControl_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.ProductUserControl_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.ResumeLayout(false);
 

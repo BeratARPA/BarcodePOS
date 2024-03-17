@@ -45,5 +45,15 @@ namespace WindowsFormsAppUI.UserControls
         {
             PaymentTypeClick?.Invoke(this, e);
         }
+
+        private void PaymentTypeUserControl_MouseEnter(object sender, EventArgs e)
+        {
+            this.Padding = new Padding(5, 5, 5, 5);
+        }
+
+        private void PaymentTypeUserControl_MouseLeave(object sender, EventArgs e)
+        {
+            this.Padding = new Padding(0, 0, 0, 0);
+        }
     }
 }

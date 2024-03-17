@@ -110,12 +110,33 @@ namespace WindowsFormsAppUI.Forms
                             tileItemTable.AppearanceItem.Normal.BackColor = Color.IndianRed;
                         }
 
-                        //TotalAmount
-                        TileItemElement middleElement = new TileItemElement();
+                        //Customer
+                        if (ticket.CustomerId != 0)
+                        {
+                            TileItemElement customerElement = new TileItemElement();
 
-                        middleElement.Text = string.Format("{0:C}", ticket.TotalAmount);
-                        middleElement.TextAlignment = TileItemContentAlignment.BottomRight;
-                        tileItemTable.Elements.Add(middleElement);
+                            customerElement.Text = CustomerHelper.GetName(ticket.CustomerId);
+                            customerElement.TextAlignment = TileItemContentAlignment.TopLeft;
+                            tileItemTable.Elements.Add(customerElement);
+                        }
+
+                        //TotalAmount
+                        TileItemElement totalAmountElement = new TileItemElement();
+
+                        totalAmountElement.Text = string.Format("{0:C}", ticket.TotalAmount);
+                        totalAmountElement.TextAlignment = TileItemContentAlignment.BottomRight;
+                        tileItemTable.Elements.Add(totalAmountElement);
+
+                        //DateTime
+                        TimeSpan difference = ticket.Date - DateTime.Now;
+                        difference = TimeSpan.FromTicks(Math.Abs(difference.Ticks));
+                        string timeDifference = $"{ticket.Date.ToString("HH:mm")}\n{difference.Days:00}:{difference.Hours:00}:{difference.Minutes:00}:{difference.Seconds:00}";
+
+                        TileItemElement dateTimeElement = new TileItemElement();
+
+                        dateTimeElement.Text = timeDifference;
+                        dateTimeElement.TextAlignment = TileItemContentAlignment.BottomLeft;
+                        tileItemTable.Elements.Add(dateTimeElement);
                     }
 
                     tileGroupTables.Items.Add(tileItemTable);
