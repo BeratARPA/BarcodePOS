@@ -120,6 +120,9 @@
   <data name="AddNote" xml:space="preserve">
     <value>Not Ekle</value>
   </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>Tüm Ürünler</value>
+  </data>
   <data name="AllTickets" xml:space="preserve">
     <value>Tüm Fişler</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="CreateProductLabel" xml:space="preserve">
     <value>Etiketi Oluştur</value>
+  </data>
+  <data name="Customer" xml:space="preserve">
+    <value>Müşteri</value>
   </data>
   <data name="CustomerAddress" xml:space="preserve">
     <value>Adres</value>
@@ -470,6 +476,9 @@
   </data>
   <data name="Turn" xml:space="preserve">
     <value>Döndür</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Birim</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>Güncelle</value>

@@ -37,7 +37,8 @@ namespace WindowsFormsAppUI.Forms
             dataGridViewTickets.Columns[4].HeaderText = GlobalVariables.CultureHelper.GetText("Date");
             dataGridViewTickets.Columns[5].HeaderText = GlobalVariables.CultureHelper.GetText("OpeningClosing");
             dataGridViewTickets.Columns[6].HeaderText = GlobalVariables.CultureHelper.GetText("User");
-            dataGridViewTickets.Columns[7].HeaderText = GlobalVariables.CultureHelper.GetText("Total");
+            dataGridViewTickets.Columns[7].HeaderText = GlobalVariables.CultureHelper.GetText("Customer");
+            dataGridViewTickets.Columns[8].HeaderText = GlobalVariables.CultureHelper.GetText("Total");
             label3.Text = GlobalVariables.CultureHelper.GetText("TotalTicket");
             label5.Text = GlobalVariables.CultureHelper.GetText("TotalBalance");
         }
@@ -112,7 +113,7 @@ namespace WindowsFormsAppUI.Forms
                     openedClosed += "-" + ticket.LastPaymentDate.ToString("HH:mm");
                 }
 
-                dataGridViewTickets.Rows.Add(ticket.TicketId, ticket.TicketGuid, ticket.Date, ticket.TicketNumber, ticket.Date.ToString("dd/MM/yyyy"), openedClosed, ticket.CreatedUserName, string.Format("{0:C}", ticket.TotalAmount));
+                dataGridViewTickets.Rows.Add(ticket.TicketId, ticket.TicketGuid, ticket.Date, ticket.TicketNumber, ticket.Date.ToString("dd/MM/yyyy"), openedClosed, ticket.CreatedUserName, ticket.CustomerId != 0 ? CustomerHelper.GetNameAndPhoneNumber(ticket.CustomerId) : "-", string.Format("{0:C}", ticket.TotalAmount));
                 totalAmount += ticket.TotalAmount;
             }
 
@@ -136,7 +137,7 @@ namespace WindowsFormsAppUI.Forms
                 if (ticket != null)
                 {
                     NavigationManager.OpenForm(new POSForm(2, ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
-                    GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;                    
+                    GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
                 }
             }
 

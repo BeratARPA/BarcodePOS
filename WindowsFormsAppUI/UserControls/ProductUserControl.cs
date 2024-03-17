@@ -73,7 +73,7 @@ namespace WindowsFormsAppUI.UserControls
                 }
             }
         }
-        
+
         private string _name;
         public string Name
         {
@@ -135,6 +135,16 @@ namespace WindowsFormsAppUI.UserControls
         private void buttonSelectProduct_Click(object sender, EventArgs e)
         {
             SelectProductClick?.Invoke(this, e);
+        }
+
+        private void ProductUserControl_MouseEnter(object sender, EventArgs e)
+        {
+            this.Padding = new Padding(5, 5, 5, 5);
+        }
+
+        private void ProductUserControl_MouseLeave(object sender, EventArgs e)
+        {
+            this.Padding = new Padding(0, 0, 0, 0);
         }
     }
 }

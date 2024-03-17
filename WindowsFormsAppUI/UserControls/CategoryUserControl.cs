@@ -45,5 +45,15 @@ namespace WindowsFormsAppUI.UserControls
         {
             CategoryTypeClick?.Invoke(this, e);
         }
+
+        private void CategoryUserControl_MouseEnter(object sender, EventArgs e)
+        {
+            this.Padding = new Padding(5, 5, 5, 5);
+        }
+
+        private void CategoryUserControl_MouseLeave(object sender, EventArgs e)
+        {
+            this.Padding = new Padding(0, 0, 0, 0);
+        }
     }
 }
