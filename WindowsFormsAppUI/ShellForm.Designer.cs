@@ -37,11 +37,14 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.labelUserFullname = new System.Windows.Forms.Label();
             this.buttonMainMenu = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonKeyboard = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
             this.tableLayoutPanelMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanelMain
@@ -116,6 +119,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 511);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -175,6 +179,39 @@
             this.buttonMainMenu.Visible = false;
             this.buttonMainMenu.Click += new System.EventHandler(this.buttonMainMenu_Click);
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Controls.Add(this.buttonKeyboard, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(392, 50);
+            this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // buttonKeyboard
+            // 
+            this.buttonKeyboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            this.buttonKeyboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonKeyboard.FlatAppearance.BorderSize = 0;
+            this.buttonKeyboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonKeyboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonKeyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonKeyboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonKeyboard.ForeColor = System.Drawing.Color.White;
+            this.buttonKeyboard.Location = new System.Drawing.Point(10, 10);
+            this.buttonKeyboard.Margin = new System.Windows.Forms.Padding(10);
+            this.buttonKeyboard.Name = "buttonKeyboard";
+            this.buttonKeyboard.Size = new System.Drawing.Size(130, 30);
+            this.buttonKeyboard.TabIndex = 0;
+            this.buttonKeyboard.Text = "Klavye";
+            this.buttonKeyboard.UseVisualStyleBackColor = false;
+            this.buttonKeyboard.Click += new System.EventHandler(this.buttonKeyboard_Click);
+            // 
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -205,6 +242,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -219,5 +257,7 @@
         public System.Windows.Forms.Button buttonMainMenu;
         public System.Windows.Forms.Label labelUserFullname;
         public System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        public System.Windows.Forms.Button buttonKeyboard;
     }
 }

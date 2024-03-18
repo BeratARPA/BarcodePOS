@@ -303,6 +303,7 @@
     <Compile Include="Helpers\TableName.cs" />
     <Compile Include="Helpers\TicketNumberHelper.cs" />
     <Compile Include="Helpers\UnitConvert.cs" />
+    <Compile Include="Helpers\VirtualKeyboardHelper.cs" />
     <Compile Include="Helpers\WebSocketClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -518,6 +519,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="NewIcon.ico" />
+    <Content Include="Touch Screen Keyboard.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

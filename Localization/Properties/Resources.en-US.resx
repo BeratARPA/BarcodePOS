@@ -264,6 +264,12 @@
   <data name="IsCalling" xml:space="preserve">
     <value>{0} is Calling...</value>
   </data>
+  <data name="Keyboard" xml:space="preserve">
+    <value>Keyboard</value>
+  </data>
+  <data name="KeyboardNotFound!" xml:space="preserve">
+    <value>Keyboard not found!</value>
+  </data>
   <data name="Label" xml:space="preserve">
     <value>Label</value>
   </data>
