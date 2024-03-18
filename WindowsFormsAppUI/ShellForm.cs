@@ -142,6 +142,7 @@ namespace WindowsFormsAppUI
         public void UpdateUILanguage()
         {
             buttonMainMenu.Text = GlobalVariables.CultureHelper.GetText("MainMenu");
+            buttonKeyboard.Text = GlobalVariables.CultureHelper.GetText("Keyboard");
         }
 
         private void TimerTick(object sender, EventArgs e)
@@ -181,6 +182,11 @@ namespace WindowsFormsAppUI
         private async void ShellForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             await GlobalVariables.webSocketClient.Disconnect();
+        }
+
+        private void buttonKeyboard_Click(object sender, EventArgs e)
+        {
+            VirtualKeyboardHelper.Run();
         }
     }
 }

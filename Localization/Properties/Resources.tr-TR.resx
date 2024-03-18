@@ -264,6 +264,12 @@
   <data name="IsCalling" xml:space="preserve">
     <value>{0} Arıyor...</value>
   </data>
+  <data name="Keyboard" xml:space="preserve">
+    <value>Klavye</value>
+  </data>
+  <data name="KeyboardNotFound!" xml:space="preserve">
+    <value>Klavye bulunamadı!</value>
+  </data>
   <data name="Label" xml:space="preserve">
     <value>Etiket</value>
   </data>
