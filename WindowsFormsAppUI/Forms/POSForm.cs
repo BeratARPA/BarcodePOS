@@ -109,6 +109,8 @@ namespace WindowsFormsAppUI.Forms
             bool isOpened = _ticket.IsOpened;
             tableLayoutPanelProducts.Enabled = isOpened;
             tableLayoutPanelPaymentTypes.Enabled = isOpened;
+            tableLayoutPanelTable.Enabled = isOpened;
+            tableLayoutPanelCustomer.Enabled = isOpened;
             tableLayoutPanelSearch.Enabled = isOpened;
             numeratorUserControl.Enabled = isOpened;
             tableLayoutPanelCategories.Enabled = isOpened;
@@ -439,7 +441,14 @@ namespace WindowsFormsAppUI.Forms
                 }
                 else if (existingOrder.Quantity > 1)
                 {
-                    existingOrder.Quantity -= quantity;
+                    if (quantity > existingOrder.Quantity)
+                    {
+                        _productsSentToKitchen.Remove(existingOrder);
+                    }
+                    else
+                    {
+                        existingOrder.Quantity -= quantity;
+                    }
                 }
             }
         }
@@ -1092,6 +1101,27 @@ namespace WindowsFormsAppUI.Forms
             _ticket.Note = textBoxSearchProduct.Text;
 
             NoteAvailable();
-        }        
+        }
+
+        private void buttonCustomerCancel_Click(object sender, EventArgs e)
+        {
+            if (_ticket.CustomerId != 0)
+            {
+                _ticket.CustomerId = 0;
+                _customer = null;
+                CustomerAvailable();
+            }
+        }
+
+        private void buttonTableCancel_Click(object sender, EventArgs e)
+        {
+            if (_ticket.TableId != 0)
+            {
+                _ticket.TableId = 0;
+                _section = null;
+                _table = null;
+                IsTable();
+            }
+        }
     }
 }
