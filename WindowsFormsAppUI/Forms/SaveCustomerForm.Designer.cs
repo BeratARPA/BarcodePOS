@@ -41,6 +41,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.buttonCreateAccount = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -204,11 +205,13 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.buttonSave, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.buttonClose, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonCreateAccount, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(650, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -253,6 +256,26 @@
             this.buttonClose.UseVisualStyleBackColor = false;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // buttonCreateAccount
+            // 
+            this.buttonCreateAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            this.buttonCreateAccount.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonCreateAccount.FlatAppearance.BorderSize = 0;
+            this.buttonCreateAccount.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonCreateAccount.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonCreateAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreateAccount.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonCreateAccount.ForeColor = System.Drawing.Color.White;
+            this.buttonCreateAccount.Location = new System.Drawing.Point(4, 204);
+            this.buttonCreateAccount.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCreateAccount.Name = "buttonCreateAccount";
+            this.buttonCreateAccount.Size = new System.Drawing.Size(142, 92);
+            this.buttonCreateAccount.TabIndex = 10;
+            this.buttonCreateAccount.Text = "Hesap Oluştur";
+            this.buttonCreateAccount.UseVisualStyleBackColor = false;
+            this.buttonCreateAccount.Visible = false;
+            this.buttonCreateAccount.Click += new System.EventHandler(this.buttonCreateAccount_Click);
+            // 
             // SaveCustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,5 +311,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Button buttonCreateAccount;
     }
 }

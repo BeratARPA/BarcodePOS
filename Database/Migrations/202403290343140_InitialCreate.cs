@@ -8,6 +8,18 @@
         public override void Up()
         {
             CreateTable(
+                "dbo.Accounts",
+                c => new
+                    {
+                        AccountId = c.Int(nullable: false, identity: true),
+                        CustomerId = c.Int(nullable: false),
+                        Name = c.String(),
+                        Amount = c.Double(nullable: false),
+                        Date = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.AccountId);
+            
+            CreateTable(
                 "dbo.Categories",
                 c => new
                     {
@@ -63,6 +75,7 @@
                         Note = c.String(),
                         CreatedDateTime = c.DateTime(nullable: false),
                         LastUpdateDateTime = c.DateTime(nullable: false),
+                        IsAccount = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.CustomerId);
             
@@ -227,6 +240,7 @@
             DropTable("dbo.CompanyInformations");
             DropTable("dbo.Products");
             DropTable("dbo.Categories");
+            DropTable("dbo.Accounts");
         }
     }
 }

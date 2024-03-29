@@ -180,6 +180,9 @@
   <data name="Comma" xml:space="preserve">
     <value>,</value>
   </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>Hesap Oluştur</value>
+  </data>
   <data name="CreateBarcode" xml:space="preserve">
     <value>Barkod Oluştur</value>
   </data>

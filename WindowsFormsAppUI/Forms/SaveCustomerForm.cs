@@ -31,6 +31,7 @@ namespace WindowsFormsAppUI.Forms
                 textBoxPhoneNumber.Text = _customer.PhoneNumber;
                 textBoxAddress.Text = _customer.Address;
                 textBoxNote.Text = _customer.Note;
+                buttonCreateAccount.Visible = true;
             }
         }
 
@@ -42,6 +43,7 @@ namespace WindowsFormsAppUI.Forms
             label4.Text = GlobalVariables.CultureHelper.GetText("CustomerNote");
             buttonClose.Text = GlobalVariables.CultureHelper.GetText("Close");
             buttonSave.Text = GlobalVariables.CultureHelper.GetText("Save");
+            buttonCreateAccount.Text = GlobalVariables.CultureHelper.GetText("CreateAccount");
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
@@ -57,6 +59,14 @@ namespace WindowsFormsAppUI.Forms
                 return;
             }
 
+            var customerExist = _genericRepositoryCustomer.GetAsNoTracking(x => x.PhoneNumber == textBoxPhoneNumber.Text);
+            if (customerExist != null)
+            {
+                GlobalVariables.MessageBoxForm.ShowMessage(string.Format(GlobalVariables.CultureHelper.GetText("ThereIsACustomerRegisteredAt"), customerExist.PhoneNumber), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.OK, MessageIcon.Warning);
+                return;
+            }
+
+            //Update
             if (_customer != null)
             {
                 _customer.Name = textBoxName.Text;
@@ -70,13 +80,7 @@ namespace WindowsFormsAppUI.Forms
                 GoCustomersForm();
             }
 
-            var customerExist = _genericRepositoryCustomer.GetAsNoTracking(x => x.PhoneNumber == textBoxPhoneNumber.Text);
-            if (customerExist != null)
-            {
-                GlobalVariables.MessageBoxForm.ShowMessage(string.Format(GlobalVariables.CultureHelper.GetText("ThereIsACustomerRegisteredAt"), customerExist.PhoneNumber), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.OK, MessageIcon.Warning);
-                return;
-            }
-
+            //Save            
             if (!String.IsNullOrEmpty(textBoxPhoneNumber.Text))
             {
                 Customer customer = new Customer
@@ -87,6 +91,7 @@ namespace WindowsFormsAppUI.Forms
                     Note = textBoxNote.Text,
                     CreatedDateTime = DateTime.Now,
                     LastUpdateDateTime = DateTime.Now,
+                    IsAccount = false
                 };
 
                 _genericRepositoryCustomer.Add(customer);
@@ -102,6 +107,16 @@ namespace WindowsFormsAppUI.Forms
 
             if (_ticket != null)
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
+        }
+
+        private void buttonCreateAccount_Click(object sender, EventArgs e)
+        {
+            if (_customer != null)
+            {
+                _genericRepositoryCustomer.UpdateColumn(_customer, x => x.IsAccount, true);
+
+                GoCustomersForm();
+            }
         }
     }
 }

@@ -13,5 +13,6 @@ namespace Database.Models
         public string Note { get; set; }
         public DateTime CreatedDateTime { get; set; }
         public DateTime LastUpdateDateTime { get; set; }
+        public bool IsAccount { get; set; }
     }
 }
