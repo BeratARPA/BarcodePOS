@@ -161,7 +161,8 @@ namespace Database.Data
                         Address = "Test Address" + i,
                         Note = "Test Note",
                         CreatedDateTime = DateTime.Now,
-                        LastUpdateDateTime = DateTime.Now
+                        LastUpdateDateTime = DateTime.Now,
+                        IsAccount = false
                     };
 
                     _genericRepositoryCustomer.Add(customer);

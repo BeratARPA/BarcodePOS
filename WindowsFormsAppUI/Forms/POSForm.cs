@@ -1,6 +1,6 @@
 ﻿using Database.Data;
 using Database.Models;
-using DevExpress.Utils.About;
+using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -276,6 +276,24 @@ namespace WindowsFormsAppUI.Forms
             tableLayoutPanelPaymentTypes.Controls.Clear();
 
             int columnCount = 1;
+            if (_customer != null && _customer.IsAccount)
+            {
+                PaymentTypeUserControl customerPaymentTypeUserControl = new PaymentTypeUserControl(new PaymentType { Name = _customer.Name, BackColor = "15,15,15", ForeColor = "15,15,15", FontSize = 15 })
+                {
+                    Dock = DockStyle.Fill
+                };
+
+                tableLayoutPanelPaymentTypes.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+                tableLayoutPanelPaymentTypes.ColumnCount = columnCount;
+                tableLayoutPanelPaymentTypes.RowCount = 1;
+
+                customerPaymentTypeUserControl.PaymentTypeClick += CustomerPaymentTypeUserControl_Click;
+
+                tableLayoutPanelPaymentTypes.Controls.Add(customerPaymentTypeUserControl);
+
+                columnCount++;
+            }
+
             foreach (PaymentType paymentType in paymentTypes)
             {
                 PaymentTypeUserControl paymentTypeUserControl = new PaymentTypeUserControl(paymentType)
@@ -292,6 +310,13 @@ namespace WindowsFormsAppUI.Forms
                 tableLayoutPanelPaymentTypes.Controls.Add(paymentTypeUserControl);
 
                 columnCount++;
+            }
+        }
+
+        private void CustomerPaymentTypeUserControl_Click(object sender, EventArgs e)
+        {
+            if (_customer != null)
+            {
             }
         }
 

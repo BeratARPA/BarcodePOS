@@ -12,6 +12,7 @@ namespace Database.Data
 
         }
 
+        public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<CompanyInformation> CompanyInformations { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
