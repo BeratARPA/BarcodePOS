@@ -11,7 +11,6 @@ namespace Database.Models
         public string PrinterName { get; set; }
         public string BackColor { get; set; }
         public string ForeColor { get; set; }
-        public int FontSize { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }

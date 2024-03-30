@@ -249,9 +249,6 @@
   <data name="ErrorReportSent" xml:space="preserve">
     <value>Error report sent.</value>
   </data>
-  <data name="FontSize" xml:space="preserve">
-    <value>Font Size</value>
-  </data>
   <data name="ForegroundColor" xml:space="preserve">
     <value>Foreground Color</value>
   </data>

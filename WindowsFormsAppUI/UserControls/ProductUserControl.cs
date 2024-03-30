@@ -1,5 +1,6 @@
 ﻿using Database.Models;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
@@ -46,12 +47,10 @@ namespace WindowsFormsAppUI.UserControls
                 labelName.Parent = pictureBoxImage;
                 labelName.BackColor = Color.FromArgb(50, Convert.ToInt32(backColorArgb[0]), Convert.ToInt32(backColorArgb[1]), Convert.ToInt32(backColorArgb[2]));
                 labelName.ForeColor = Color.FromArgb(Convert.ToInt32(foreColorArgb[0]), Convert.ToInt32(foreColorArgb[1]), Convert.ToInt32(foreColorArgb[2]));
-                labelName.Font = new Font("Microsoft Sans Serif", _product.FontSize);
 
                 labelPrice.Parent = pictureBoxImage;
                 labelPrice.BackColor = Color.FromArgb(50, Convert.ToInt32(backColorArgb[0]), Convert.ToInt32(backColorArgb[1]), Convert.ToInt32(backColorArgb[2]));
                 labelPrice.ForeColor = Color.FromArgb(Convert.ToInt32(foreColorArgb[0]), Convert.ToInt32(foreColorArgb[1]), Convert.ToInt32(foreColorArgb[2]));
-                labelPrice.Font = new Font("Microsoft Sans Serif", _product.FontSize);
 
                 buttonSelectProduct.Dock = DockStyle.None;
                 buttonSelectProduct.SendToBack();
@@ -137,14 +136,16 @@ namespace WindowsFormsAppUI.UserControls
             SelectProductClick?.Invoke(this, e);
         }
 
-        private void ProductUserControl_MouseEnter(object sender, EventArgs e)
+        private void ProductUserControl_Resize(object sender, EventArgs e)
         {
-            this.Padding = new Padding(5, 5, 5, 5);
-        }
+            int divide = 15;
 
-        private void ProductUserControl_MouseLeave(object sender, EventArgs e)
-        {
-            this.Padding = new Padding(0, 0, 0, 0);
+            var controls = new List<Control> { labelName, labelPrice, buttonSelectProduct };
+            for (int i = 0; i < controls.Count; i++)
+            {
+                int controlSize = controls[i].Height + controls[i].Width;
+                controls[i].Font = new Font("Microsoft Sans Serif", controlSize / divide);
+            }
         }
     }
 }

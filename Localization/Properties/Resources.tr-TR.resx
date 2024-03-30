@@ -249,9 +249,6 @@
   <data name="ErrorReportSent" xml:space="preserve">
     <value>Hata raporu gönderildi.</value>
   </data>
-  <data name="FontSize" xml:space="preserve">
-    <value>Yazı Boyutu</value>
-  </data>
   <data name="ForegroundColor" xml:space="preserve">
     <value>Yazı Rengi</value>
   </data>

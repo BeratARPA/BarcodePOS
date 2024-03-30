@@ -15,7 +15,6 @@ namespace Database.Models
         public string ImageURL { get; set; }
         public string BackColor { get; set; }
         public string ForeColor { get; set; }
-        public int FontSize { get; set; }
         public int UnitOfMeasure { get; set; }
 
         [ForeignKey("CategoryId")]

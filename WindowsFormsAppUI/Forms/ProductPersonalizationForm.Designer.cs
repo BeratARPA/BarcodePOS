@@ -41,13 +41,10 @@ namespace WindowsFormsAppUI.Forms
             this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BackgroundColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ForegroundColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FontSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxBackColors = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDownFontSize = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxForeColors = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -56,7 +53,6 @@ namespace WindowsFormsAppUI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,8 +93,7 @@ namespace WindowsFormsAppUI.Forms
             this.ProductId,
             this.CategoryName,
             this.BackgroundColor,
-            this.ForegroundColor,
-            this.FontSize});
+            this.ForegroundColor});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -111,7 +106,7 @@ namespace WindowsFormsAppUI.Forms
             this.dataGridViewProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewProducts.EnableHeadersVisualStyles = false;
             this.dataGridViewProducts.Location = new System.Drawing.Point(17, 17);
-            this.dataGridViewProducts.Margin = new System.Windows.Forms.Padding(17, 17, 17, 17);
+            this.dataGridViewProducts.Margin = new System.Windows.Forms.Padding(17);
             this.dataGridViewProducts.MultiSelect = false;
             this.dataGridViewProducts.Name = "dataGridViewProducts";
             this.dataGridViewProducts.ReadOnly = true;
@@ -161,14 +156,6 @@ namespace WindowsFormsAppUI.Forms
             this.ForegroundColor.Name = "ForegroundColor";
             this.ForegroundColor.ReadOnly = true;
             // 
-            // FontSize
-            // 
-            this.FontSize.FillWeight = 20F;
-            this.FontSize.HeaderText = "Yazı Boyutu";
-            this.FontSize.MinimumWidth = 8;
-            this.FontSize.Name = "FontSize";
-            this.FontSize.ReadOnly = true;
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
@@ -187,13 +174,11 @@ namespace WindowsFormsAppUI.Forms
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
+            this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.comboBoxBackColors, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label2, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.numericUpDownFontSize, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.comboBoxForeColors, 0, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -217,7 +202,7 @@ namespace WindowsFormsAppUI.Forms
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 43);
+            this.label1.Size = new System.Drawing.Size(394, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Arkaplan Renkleri";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -238,46 +223,6 @@ namespace WindowsFormsAppUI.Forms
             this.comboBoxBackColors.TabIndex = 1;
             this.comboBoxBackColors.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBoxColors_DrawItem);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(183, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(214, 43);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Yazı Boyutu";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // numericUpDownFontSize
-            // 
-            this.numericUpDownFontSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.numericUpDownFontSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericUpDownFontSize.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDownFontSize.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.numericUpDownFontSize.ForeColor = System.Drawing.Color.White;
-            this.numericUpDownFontSize.Location = new System.Drawing.Point(183, 46);
-            this.numericUpDownFontSize.Maximum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            this.numericUpDownFontSize.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDownFontSize.Name = "numericUpDownFontSize";
-            this.numericUpDownFontSize.Size = new System.Drawing.Size(214, 34);
-            this.numericUpDownFontSize.TabIndex = 2;
-            this.numericUpDownFontSize.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -286,7 +231,7 @@ namespace WindowsFormsAppUI.Forms
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(3, 86);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 43);
+            this.label3.Size = new System.Drawing.Size(394, 43);
             this.label3.TabIndex = 0;
             this.label3.Text = "Yazı Renkleri";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -334,7 +279,7 @@ namespace WindowsFormsAppUI.Forms
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.buttonSave.ForeColor = System.Drawing.Color.White;
             this.buttonSave.Location = new System.Drawing.Point(246, 230);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(17, 17, 17, 17);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(17);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(137, 53);
             this.buttonSave.TabIndex = 10;
@@ -359,7 +304,6 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -369,20 +313,17 @@ namespace WindowsFormsAppUI.Forms
 
         private TableLayoutPanel tableLayoutPanel1;
         private DataGridView dataGridViewProducts;
-        private DataGridViewTextBoxColumn ProductId;
-        private DataGridViewTextBoxColumn CategoryName;
-        private DataGridViewTextBoxColumn BackgroundColor;
-        private DataGridViewTextBoxColumn ForegroundColor;
-        private DataGridViewTextBoxColumn FontSize;
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
         private Label label1;
         private ComboBox comboBoxBackColors;
-        private Label label2;
-        private NumericUpDown numericUpDownFontSize;
         private Label label3;
         private ComboBox comboBoxForeColors;
         private TableLayoutPanel tableLayoutPanel4;
         private Button buttonSave;
+        private DataGridViewTextBoxColumn ProductId;
+        private DataGridViewTextBoxColumn CategoryName;
+        private DataGridViewTextBoxColumn BackgroundColor;
+        private DataGridViewTextBoxColumn ForegroundColor;
     }
 }
