@@ -162,7 +162,8 @@ namespace Database.Data
                         Note = "Test Note",
                         CreatedDateTime = DateTime.Now,
                         LastUpdateDateTime = DateTime.Now,
-                        IsAccount = false
+                        IsAccount = false,
+                        Balance = 0
                     };
 
                     _genericRepositoryCustomer.Add(customer);

@@ -19,6 +19,7 @@ namespace WindowsFormsAppUI.Forms
         private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<Section> _genericRepositorySection = new GenericRepository<Section>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Account> _genericRepositoryAccount = new GenericRepository<Account>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<Customer> _genericRepositoryCustomer = new GenericRepository<Customer>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
@@ -178,8 +179,8 @@ namespace WindowsFormsAppUI.Forms
             if (_customer != null)
             {
                 _ticket.CustomerId = _customer.CustomerId;
-                labelCustomer.Text = string.Format(GlobalVariables.CultureHelper.GetText("POSCustomer"), CustomerHelper.GetName(_customer.CustomerId));
-                tableLayoutPanelMiddle.RowStyles[1].Height = 50;
+                labelCustomer.Text = string.Format(GlobalVariables.CultureHelper.GetText("POSCustomer"), CustomerHelper.GetNameAndBalance(_customer.CustomerId));
+                tableLayoutPanelMiddle.RowStyles[1].Height = 25;
                 buttonNewTicket.Enabled = false;
             }
             else
@@ -194,7 +195,7 @@ namespace WindowsFormsAppUI.Forms
             if (!string.IsNullOrEmpty(_ticket.Note))
             {
                 labelNote.Text = string.Format(GlobalVariables.CultureHelper.GetText("POSNote"), _ticket.Note);
-                tableLayoutPanelMiddle.RowStyles[2].Height = 50;
+                tableLayoutPanelMiddle.RowStyles[2].Height = 25;
             }
             else
             {
@@ -215,7 +216,7 @@ namespace WindowsFormsAppUI.Forms
             {
                 _ticket.TableId = _table.TableId;
                 labelTable.Text = string.Format(GlobalVariables.CultureHelper.GetText("POSTable"), TableName.GetName(_table.TableId));
-                tableLayoutPanelMiddle.RowStyles[0].Height = 50;
+                tableLayoutPanelMiddle.RowStyles[0].Height = 25;
                 buttonNewTicket.Enabled = false;
             }
             else
@@ -278,7 +279,7 @@ namespace WindowsFormsAppUI.Forms
             int columnCount = 1;
             if (_customer != null && _customer.IsAccount)
             {
-                PaymentTypeUserControl customerPaymentTypeUserControl = new PaymentTypeUserControl(new PaymentType { Name = _customer.Name, BackColor = "15,15,15", ForeColor = "15,15,15" })
+                PaymentTypeUserControl customerPaymentTypeUserControl = new PaymentTypeUserControl(new PaymentType { PaymentTypeId = 0, Name = _customer.Name, BackColor = "157,156,161", ForeColor = "255,255,255" })
                 {
                     Dock = DockStyle.Fill
                 };
@@ -298,7 +299,7 @@ namespace WindowsFormsAppUI.Forms
             {
                 PaymentTypeUserControl paymentTypeUserControl = new PaymentTypeUserControl(paymentType)
                 {
-                    Dock = DockStyle.Fill
+                    Dock = DockStyle.Fill,
                 };
 
                 tableLayoutPanelPaymentTypes.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
@@ -313,10 +314,59 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        private void CustomerPaymentTypeUserControl_Click(object sender, EventArgs e)
+        private async void CustomerPaymentTypeUserControl_Click(object sender, EventArgs e)
         {
-            if (_customer != null)
+            if (_customer != null && _orders.Count != 0)
             {
+                PaymentTypeUserControl paymentTypeUserControl = (PaymentTypeUserControl)sender;
+
+                if (GlobalVariables.MessageBoxForm.ShowMessage(string.Format(GlobalVariables.CultureHelper.GetText("PaymentWillBeMadeInDoYouConfirm?"), paymentTypeUserControl._paymentType.Name), GlobalVariables.CultureHelper.GetText("Information"), MessageButton.YesNo, MessageIcon.Information) != DialogResult.Yes)
+                {
+                    return;
+                }
+
+                Ticket ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
+                if (ticket == null)
+                {
+                    SaveTicket(true);
+                    ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
+                }
+
+                Account account = new Account
+                {
+                    CustomerId = _customer.CustomerId,
+                    TicketId = ticket.TicketId,
+                    Name = $"Satış İşlemi [{CustomerHelper.GetNameAndPhoneNumber(_customer.CustomerId)}]",
+                    Amount = ticket.RemainingAmount,
+                    Date = DateTime.Now
+                };
+
+                _genericRepositoryAccount.Add(account);
+
+                CustomerHelper.UpdateBalance(_customer.CustomerId, ticket.RemainingAmount, false);
+
+                Payment payment = new Payment
+                {
+                    TicketId = ticket.TicketId,
+                    PaymentTypeId = paymentTypeUserControl._paymentType.PaymentTypeId,
+                    Name = paymentTypeUserControl._paymentType.Name,
+                    Description = CustomerHelper.GetNameAndPhoneNumber(_customer.CustomerId),
+                    Date = DateTime.Now,
+                    Amount = 0,
+                    TenderedAmount = ticket.RemainingAmount,
+                    UserId = LoggedInUser.CurrentUser.UserId,
+                    TerminalName = GlobalVariables.TerminalName
+                };
+
+                _genericRepositoryTicket.UpdateColumn(ticket, x => x.LastPaymentDate, DateTime.Now);
+                _genericRepositoryTicket.UpdateColumn(ticket, x => x.RemainingAmount, 0);
+
+                _genericRepositoryPayment.Add(payment);
+                _genericRepositoryTicket.UpdateColumn(ticket, x => x.IsOpened, false);
+
+                ClearTicket();
+
+                await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
             }
         }
 
@@ -580,7 +630,7 @@ namespace WindowsFormsAppUI.Forms
 
             _ticket.RemainingAmount = totalBalance;
 
-            tableLayoutPanelMiddle.RowStyles[5].Height = 100;
+            tableLayoutPanelMiddle.RowStyles[5].Height = 85;
 
             return totalBalance;
         }

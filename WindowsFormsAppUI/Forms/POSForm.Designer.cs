@@ -52,9 +52,16 @@ namespace WindowsFormsAppUI.Forms
             this.buttonSelectCustomer = new System.Windows.Forms.Button();
             this.buttonTickets = new System.Windows.Forms.Button();
             this.flowLayoutPanelOrders = new System.Windows.Forms.FlowLayoutPanel();
+            this.numeratorUserControl = new WindowsFormsAppUI.UserControls.NumeratorUserControl();
             this.tableLayoutPanelMiddle = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanelProducts = new System.Windows.Forms.TableLayoutPanel();
+            this.labelNote = new System.Windows.Forms.Label();
+            this.tableLayoutPanelCustomer = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonCustomerCancel = new System.Windows.Forms.Button();
+            this.labelCustomer = new System.Windows.Forms.Label();
+            this.tableLayoutPanelTable = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonTableCancel = new System.Windows.Forms.Button();
             this.labelTable = new System.Windows.Forms.Label();
+            this.tableLayoutPanelProducts = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonMultiplePayment = new System.Windows.Forms.Button();
             this.tableLayoutPanelPaymentTypes = new System.Windows.Forms.TableLayoutPanel();
@@ -70,13 +77,6 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelSearch = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxSearchProduct = new System.Windows.Forms.TextBox();
-            this.labelCustomer = new System.Windows.Forms.Label();
-            this.labelNote = new System.Windows.Forms.Label();
-            this.tableLayoutPanelTable = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanelCustomer = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonCustomerCancel = new System.Windows.Forms.Button();
-            this.buttonTableCancel = new System.Windows.Forms.Button();
-            this.numeratorUserControl = new WindowsFormsAppUI.UserControls.NumeratorUserControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelCategories.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -84,11 +84,11 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanelMiddle.SuspendLayout();
+            this.tableLayoutPanelCustomer.SuspendLayout();
+            this.tableLayoutPanelTable.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanelLabels.SuspendLayout();
             this.tableLayoutPanelSearch.SuspendLayout();
-            this.tableLayoutPanelTable.SuspendLayout();
-            this.tableLayoutPanelCustomer.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -476,6 +476,18 @@ namespace WindowsFormsAppUI.Forms
             this.flowLayoutPanelOrders.Size = new System.Drawing.Size(320, 200);
             this.flowLayoutPanelOrders.TabIndex = 0;
             // 
+            // numeratorUserControl
+            // 
+            this.numeratorUserControl.BackColor = System.Drawing.Color.Transparent;
+            this.numeratorUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numeratorUserControl.Location = new System.Drawing.Point(0, 200);
+            this.numeratorUserControl.Margin = new System.Windows.Forms.Padding(0);
+            this.numeratorUserControl.Name = "numeratorUserControl";
+            this.numeratorUserControl.NumeratorDisplay = "";
+            this.numeratorUserControl.Size = new System.Drawing.Size(320, 200);
+            this.numeratorUserControl.TabIndex = 2;
+            this.numeratorUserControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeratorTextBoxPin_KeyPress);
+            // 
             // tableLayoutPanelMiddle
             // 
             this.tableLayoutPanelMiddle.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
@@ -493,30 +505,113 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelMiddle.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelMiddle.Name = "tableLayoutPanelMiddle";
             this.tableLayoutPanelMiddle.RowCount = 7;
-            this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanelMiddle.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanelMiddle.Size = new System.Drawing.Size(330, 600);
             this.tableLayoutPanelMiddle.TabIndex = 3;
             // 
-            // tableLayoutPanelProducts
+            // labelNote
             // 
-            this.tableLayoutPanelProducts.AutoScroll = true;
-            this.tableLayoutPanelProducts.ColumnCount = 1;
-            this.tableLayoutPanelProducts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelProducts.Location = new System.Drawing.Point(1, 137);
-            this.tableLayoutPanelProducts.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanelProducts.Name = "tableLayoutPanelProducts";
-            this.tableLayoutPanelProducts.RowCount = 2;
-            this.tableLayoutPanelProducts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelProducts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelProducts.Size = new System.Drawing.Size(328, 260);
-            this.tableLayoutPanelProducts.TabIndex = 2;
+            this.labelNote.AutoSize = true;
+            this.labelNote.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelNote.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.labelNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.labelNote.Location = new System.Drawing.Point(1, 53);
+            this.labelNote.Margin = new System.Windows.Forms.Padding(0);
+            this.labelNote.Name = "labelNote";
+            this.labelNote.Size = new System.Drawing.Size(328, 25);
+            this.labelNote.TabIndex = 0;
+            this.labelNote.Text = "Not:";
+            this.labelNote.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanelCustomer
+            // 
+            this.tableLayoutPanelCustomer.ColumnCount = 2;
+            this.tableLayoutPanelCustomer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelCustomer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanelCustomer.Controls.Add(this.buttonCustomerCancel, 1, 0);
+            this.tableLayoutPanelCustomer.Controls.Add(this.labelCustomer, 0, 0);
+            this.tableLayoutPanelCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelCustomer.Location = new System.Drawing.Point(1, 27);
+            this.tableLayoutPanelCustomer.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanelCustomer.Name = "tableLayoutPanelCustomer";
+            this.tableLayoutPanelCustomer.RowCount = 1;
+            this.tableLayoutPanelCustomer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelCustomer.Size = new System.Drawing.Size(328, 25);
+            this.tableLayoutPanelCustomer.TabIndex = 1;
+            // 
+            // buttonCustomerCancel
+            // 
+            this.buttonCustomerCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.buttonCustomerCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonCustomerCancel.FlatAppearance.BorderSize = 0;
+            this.buttonCustomerCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(4)))), ((int)(((byte)(15)))));
+            this.buttonCustomerCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(4)))), ((int)(((byte)(15)))));
+            this.buttonCustomerCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCustomerCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.buttonCustomerCancel.ForeColor = System.Drawing.Color.White;
+            this.buttonCustomerCancel.Location = new System.Drawing.Point(228, 3);
+            this.buttonCustomerCancel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.buttonCustomerCancel.Name = "buttonCustomerCancel";
+            this.buttonCustomerCancel.Size = new System.Drawing.Size(97, 19);
+            this.buttonCustomerCancel.TabIndex = 10;
+            this.buttonCustomerCancel.Text = "X";
+            this.buttonCustomerCancel.UseVisualStyleBackColor = false;
+            this.buttonCustomerCancel.Click += new System.EventHandler(this.buttonCustomerCancel_Click);
+            // 
+            // labelCustomer
+            // 
+            this.labelCustomer.AutoSize = true;
+            this.labelCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelCustomer.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.labelCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            this.labelCustomer.Location = new System.Drawing.Point(0, 0);
+            this.labelCustomer.Margin = new System.Windows.Forms.Padding(0);
+            this.labelCustomer.Name = "labelCustomer";
+            this.labelCustomer.Size = new System.Drawing.Size(228, 25);
+            this.labelCustomer.TabIndex = 0;
+            this.labelCustomer.Text = "Müşteri:";
+            this.labelCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanelTable
+            // 
+            this.tableLayoutPanelTable.ColumnCount = 2;
+            this.tableLayoutPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanelTable.Controls.Add(this.buttonTableCancel, 1, 0);
+            this.tableLayoutPanelTable.Controls.Add(this.labelTable, 0, 0);
+            this.tableLayoutPanelTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelTable.Location = new System.Drawing.Point(1, 1);
+            this.tableLayoutPanelTable.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanelTable.Name = "tableLayoutPanelTable";
+            this.tableLayoutPanelTable.RowCount = 1;
+            this.tableLayoutPanelTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelTable.Size = new System.Drawing.Size(328, 25);
+            this.tableLayoutPanelTable.TabIndex = 0;
+            // 
+            // buttonTableCancel
+            // 
+            this.buttonTableCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.buttonTableCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonTableCancel.FlatAppearance.BorderSize = 0;
+            this.buttonTableCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(4)))), ((int)(((byte)(15)))));
+            this.buttonTableCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(4)))), ((int)(((byte)(15)))));
+            this.buttonTableCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTableCancel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.buttonTableCancel.ForeColor = System.Drawing.Color.White;
+            this.buttonTableCancel.Location = new System.Drawing.Point(228, 3);
+            this.buttonTableCancel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.buttonTableCancel.Name = "buttonTableCancel";
+            this.buttonTableCancel.Size = new System.Drawing.Size(97, 19);
+            this.buttonTableCancel.TabIndex = 10;
+            this.buttonTableCancel.Text = "X";
+            this.buttonTableCancel.UseVisualStyleBackColor = false;
+            this.buttonTableCancel.Click += new System.EventHandler(this.buttonTableCancel_Click);
             // 
             // labelTable
             // 
@@ -527,10 +622,25 @@ namespace WindowsFormsAppUI.Forms
             this.labelTable.Location = new System.Drawing.Point(0, 0);
             this.labelTable.Margin = new System.Windows.Forms.Padding(0);
             this.labelTable.Name = "labelTable";
-            this.labelTable.Size = new System.Drawing.Size(228, 32);
+            this.labelTable.Size = new System.Drawing.Size(228, 25);
             this.labelTable.TabIndex = 0;
             this.labelTable.Text = "Masa: ";
             this.labelTable.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanelProducts
+            // 
+            this.tableLayoutPanelProducts.AutoScroll = true;
+            this.tableLayoutPanelProducts.ColumnCount = 1;
+            this.tableLayoutPanelProducts.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelProducts.Location = new System.Drawing.Point(1, 116);
+            this.tableLayoutPanelProducts.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanelProducts.Name = "tableLayoutPanelProducts";
+            this.tableLayoutPanelProducts.RowCount = 2;
+            this.tableLayoutPanelProducts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelProducts.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelProducts.Size = new System.Drawing.Size(328, 296);
+            this.tableLayoutPanelProducts.TabIndex = 2;
             // 
             // tableLayoutPanel3
             // 
@@ -590,8 +700,8 @@ namespace WindowsFormsAppUI.Forms
             this.buttonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonClose.FlatAppearance.BorderSize = 0;
-            this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(4)))), ((int)(((byte)(15)))));
+            this.buttonClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(4)))), ((int)(((byte)(15)))));
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonClose.ForeColor = System.Drawing.Color.White;
@@ -635,14 +745,14 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelLabels.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanelLabels.Controls.Add(this.labelTicketTotal, 1, 0);
             this.tableLayoutPanelLabels.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelLabels.Location = new System.Drawing.Point(1, 398);
+            this.tableLayoutPanelLabels.Location = new System.Drawing.Point(1, 413);
             this.tableLayoutPanelLabels.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelLabels.Name = "tableLayoutPanelLabels";
             this.tableLayoutPanelLabels.RowCount = 3;
             this.tableLayoutPanelLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanelLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanelLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanelLabels.Size = new System.Drawing.Size(328, 100);
+            this.tableLayoutPanelLabels.Size = new System.Drawing.Size(328, 85);
             this.tableLayoutPanelLabels.TabIndex = 3;
             // 
             // labelDiscountPercent
@@ -651,10 +761,10 @@ namespace WindowsFormsAppUI.Forms
             this.labelDiscountPercent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelDiscountPercent.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.labelDiscountPercent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.labelDiscountPercent.Location = new System.Drawing.Point(10, 33);
+            this.labelDiscountPercent.Location = new System.Drawing.Point(10, 28);
             this.labelDiscountPercent.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.labelDiscountPercent.Name = "labelDiscountPercent";
-            this.labelDiscountPercent.Size = new System.Drawing.Size(154, 33);
+            this.labelDiscountPercent.Size = new System.Drawing.Size(154, 28);
             this.labelDiscountPercent.TabIndex = 0;
             this.labelDiscountPercent.Text = "İskonto 0,00%";
             this.labelDiscountPercent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -665,10 +775,10 @@ namespace WindowsFormsAppUI.Forms
             this.labelDiscount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelDiscount.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.labelDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.labelDiscount.Location = new System.Drawing.Point(164, 33);
+            this.labelDiscount.Location = new System.Drawing.Point(164, 28);
             this.labelDiscount.Margin = new System.Windows.Forms.Padding(0);
             this.labelDiscount.Name = "labelDiscount";
-            this.labelDiscount.Size = new System.Drawing.Size(164, 33);
+            this.labelDiscount.Size = new System.Drawing.Size(164, 28);
             this.labelDiscount.TabIndex = 0;
             this.labelDiscount.Text = "(0,00)";
             this.labelDiscount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -679,10 +789,10 @@ namespace WindowsFormsAppUI.Forms
             this.labelBalance.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelBalance.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.labelBalance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.labelBalance.Location = new System.Drawing.Point(164, 66);
+            this.labelBalance.Location = new System.Drawing.Point(164, 56);
             this.labelBalance.Margin = new System.Windows.Forms.Padding(0);
             this.labelBalance.Name = "labelBalance";
-            this.labelBalance.Size = new System.Drawing.Size(164, 34);
+            this.labelBalance.Size = new System.Drawing.Size(164, 29);
             this.labelBalance.TabIndex = 0;
             this.labelBalance.Text = "0,00";
             this.labelBalance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -693,10 +803,10 @@ namespace WindowsFormsAppUI.Forms
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(0, 66);
+            this.label1.Location = new System.Drawing.Point(0, 56);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 34);
+            this.label1.Size = new System.Drawing.Size(164, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bakiye";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -710,7 +820,7 @@ namespace WindowsFormsAppUI.Forms
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(164, 33);
+            this.label4.Size = new System.Drawing.Size(164, 28);
             this.label4.TabIndex = 0;
             this.label4.Text = "Fiş Toplamı";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -724,7 +834,7 @@ namespace WindowsFormsAppUI.Forms
             this.labelTicketTotal.Location = new System.Drawing.Point(164, 0);
             this.labelTicketTotal.Margin = new System.Windows.Forms.Padding(0);
             this.labelTicketTotal.Name = "labelTicketTotal";
-            this.labelTicketTotal.Size = new System.Drawing.Size(164, 33);
+            this.labelTicketTotal.Size = new System.Drawing.Size(164, 28);
             this.labelTicketTotal.TabIndex = 0;
             this.labelTicketTotal.Text = "0,00";
             this.labelTicketTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -737,7 +847,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanelSearch.Controls.Add(this.buttonSearch, 1, 0);
             this.tableLayoutPanelSearch.Controls.Add(this.textBoxSearchProduct, 0, 0);
             this.tableLayoutPanelSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelSearch.Location = new System.Drawing.Point(1, 100);
+            this.tableLayoutPanelSearch.Location = new System.Drawing.Point(1, 79);
             this.tableLayoutPanelSearch.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelSearch.Name = "tableLayoutPanelSearch";
             this.tableLayoutPanelSearch.RowCount = 1;
@@ -750,8 +860,8 @@ namespace WindowsFormsAppUI.Forms
             this.buttonSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
             this.buttonSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSearch.FlatAppearance.BorderSize = 0;
-            this.buttonSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(255)))));
+            this.buttonSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(255)))));
             this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearch.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonSearch.ForeColor = System.Drawing.Color.White;
@@ -777,116 +887,6 @@ namespace WindowsFormsAppUI.Forms
             this.textBoxSearchProduct.Size = new System.Drawing.Size(225, 30);
             this.textBoxSearchProduct.TabIndex = 4;
             // 
-            // labelCustomer
-            // 
-            this.labelCustomer.AutoSize = true;
-            this.labelCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelCustomer.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.labelCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.labelCustomer.Location = new System.Drawing.Point(0, 0);
-            this.labelCustomer.Margin = new System.Windows.Forms.Padding(0);
-            this.labelCustomer.Name = "labelCustomer";
-            this.labelCustomer.Size = new System.Drawing.Size(228, 32);
-            this.labelCustomer.TabIndex = 0;
-            this.labelCustomer.Text = "Müşteri:";
-            this.labelCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelNote
-            // 
-            this.labelNote.AutoSize = true;
-            this.labelNote.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelNote.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.labelNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.labelNote.Location = new System.Drawing.Point(1, 67);
-            this.labelNote.Margin = new System.Windows.Forms.Padding(0);
-            this.labelNote.Name = "labelNote";
-            this.labelNote.Size = new System.Drawing.Size(328, 32);
-            this.labelNote.TabIndex = 0;
-            this.labelNote.Text = "Not:";
-            this.labelNote.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanelTable
-            // 
-            this.tableLayoutPanelTable.ColumnCount = 2;
-            this.tableLayoutPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanelTable.Controls.Add(this.buttonTableCancel, 1, 0);
-            this.tableLayoutPanelTable.Controls.Add(this.labelTable, 0, 0);
-            this.tableLayoutPanelTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelTable.Location = new System.Drawing.Point(1, 1);
-            this.tableLayoutPanelTable.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanelTable.Name = "tableLayoutPanelTable";
-            this.tableLayoutPanelTable.RowCount = 1;
-            this.tableLayoutPanelTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelTable.Size = new System.Drawing.Size(328, 32);
-            this.tableLayoutPanelTable.TabIndex = 0;
-            // 
-            // tableLayoutPanelCustomer
-            // 
-            this.tableLayoutPanelCustomer.ColumnCount = 2;
-            this.tableLayoutPanelCustomer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelCustomer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanelCustomer.Controls.Add(this.buttonCustomerCancel, 1, 0);
-            this.tableLayoutPanelCustomer.Controls.Add(this.labelCustomer, 0, 0);
-            this.tableLayoutPanelCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelCustomer.Location = new System.Drawing.Point(1, 34);
-            this.tableLayoutPanelCustomer.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanelCustomer.Name = "tableLayoutPanelCustomer";
-            this.tableLayoutPanelCustomer.RowCount = 1;
-            this.tableLayoutPanelCustomer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelCustomer.Size = new System.Drawing.Size(328, 32);
-            this.tableLayoutPanelCustomer.TabIndex = 1;
-            // 
-            // buttonCustomerCancel
-            // 
-            this.buttonCustomerCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.buttonCustomerCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonCustomerCancel.FlatAppearance.BorderSize = 0;
-            this.buttonCustomerCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonCustomerCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonCustomerCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCustomerCancel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonCustomerCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonCustomerCancel.Location = new System.Drawing.Point(228, 3);
-            this.buttonCustomerCancel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.buttonCustomerCancel.Name = "buttonCustomerCancel";
-            this.buttonCustomerCancel.Size = new System.Drawing.Size(97, 26);
-            this.buttonCustomerCancel.TabIndex = 10;
-            this.buttonCustomerCancel.Text = "X";
-            this.buttonCustomerCancel.UseVisualStyleBackColor = false;
-            this.buttonCustomerCancel.Click += new System.EventHandler(this.buttonCustomerCancel_Click);
-            // 
-            // buttonTableCancel
-            // 
-            this.buttonTableCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.buttonTableCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonTableCancel.FlatAppearance.BorderSize = 0;
-            this.buttonTableCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonTableCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonTableCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTableCancel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonTableCancel.ForeColor = System.Drawing.Color.White;
-            this.buttonTableCancel.Location = new System.Drawing.Point(228, 3);
-            this.buttonTableCancel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.buttonTableCancel.Name = "buttonTableCancel";
-            this.buttonTableCancel.Size = new System.Drawing.Size(97, 26);
-            this.buttonTableCancel.TabIndex = 10;
-            this.buttonTableCancel.Text = "X";
-            this.buttonTableCancel.UseVisualStyleBackColor = false;
-            this.buttonTableCancel.Click += new System.EventHandler(this.buttonTableCancel_Click);
-            // 
-            // numeratorUserControl
-            // 
-            this.numeratorUserControl.BackColor = System.Drawing.Color.Transparent;
-            this.numeratorUserControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numeratorUserControl.Location = new System.Drawing.Point(0, 200);
-            this.numeratorUserControl.Margin = new System.Windows.Forms.Padding(0);
-            this.numeratorUserControl.Name = "numeratorUserControl";
-            this.numeratorUserControl.NumeratorDisplay = "";
-            this.numeratorUserControl.Size = new System.Drawing.Size(320, 200);
-            this.numeratorUserControl.TabIndex = 2;
-            this.numeratorUserControl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumeratorTextBoxPin_KeyPress);
-            // 
             // POSForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -907,15 +907,15 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanelMiddle.ResumeLayout(false);
             this.tableLayoutPanelMiddle.PerformLayout();
+            this.tableLayoutPanelCustomer.ResumeLayout(false);
+            this.tableLayoutPanelCustomer.PerformLayout();
+            this.tableLayoutPanelTable.ResumeLayout(false);
+            this.tableLayoutPanelTable.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanelLabels.ResumeLayout(false);
             this.tableLayoutPanelLabels.PerformLayout();
             this.tableLayoutPanelSearch.ResumeLayout(false);
             this.tableLayoutPanelSearch.PerformLayout();
-            this.tableLayoutPanelTable.ResumeLayout(false);
-            this.tableLayoutPanelTable.PerformLayout();
-            this.tableLayoutPanelCustomer.ResumeLayout(false);
-            this.tableLayoutPanelCustomer.PerformLayout();
             this.ResumeLayout(false);
 
         }

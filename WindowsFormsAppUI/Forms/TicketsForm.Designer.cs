@@ -52,7 +52,6 @@ namespace WindowsFormsAppUI.Forms
             this.labelTotalAmount = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridViewTickets = new System.Windows.Forms.DataGridView();
-            this.comboBoxFilter = new System.Windows.Forms.ComboBox();
             this.TicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TicketGuid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DT = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +61,7 @@ namespace WindowsFormsAppUI.Forms
             this.CreatedUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxFilter = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties.CalendarTimeProperties)).BeginInit();
@@ -297,18 +297,6 @@ namespace WindowsFormsAppUI.Forms
             this.dataGridViewTickets.TabIndex = 2;
             this.dataGridViewTickets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTickets_CellContentClick);
             // 
-            // comboBoxFilter
-            // 
-            this.comboBoxFilter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBoxFilter.FormattingEnabled = true;
-            this.comboBoxFilter.Location = new System.Drawing.Point(3, 68);
-            this.comboBoxFilter.Name = "comboBoxFilter";
-            this.comboBoxFilter.Size = new System.Drawing.Size(794, 36);
-            this.comboBoxFilter.TabIndex = 3;
-            this.comboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilter_SelectedIndexChanged);
-            // 
             // TicketId
             // 
             this.TicketId.HeaderText = "TicketId";
@@ -387,6 +375,18 @@ namespace WindowsFormsAppUI.Forms
             this.TotalAmount.MinimumWidth = 8;
             this.TotalAmount.Name = "TotalAmount";
             this.TotalAmount.ReadOnly = true;
+            // 
+            // comboBoxFilter
+            // 
+            this.comboBoxFilter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFilter.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.comboBoxFilter.FormattingEnabled = true;
+            this.comboBoxFilter.Location = new System.Drawing.Point(3, 68);
+            this.comboBoxFilter.Name = "comboBoxFilter";
+            this.comboBoxFilter.Size = new System.Drawing.Size(794, 36);
+            this.comboBoxFilter.TabIndex = 3;
+            this.comboBoxFilter.SelectedIndexChanged += new System.EventHandler(this.comboBoxFilter_SelectedIndexChanged);
             // 
             // TicketsForm
             // 
