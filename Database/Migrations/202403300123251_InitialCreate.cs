@@ -28,7 +28,6 @@
                         PrinterName = c.String(),
                         BackColor = c.String(),
                         ForeColor = c.String(),
-                        FontSize = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CategoryId);
             
@@ -45,7 +44,6 @@
                         ImageURL = c.String(),
                         BackColor = c.String(),
                         ForeColor = c.String(),
-                        FontSize = c.Int(nullable: false),
                         UnitOfMeasure = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ProductId)
@@ -163,7 +161,6 @@
                         Name = c.String(),
                         BackColor = c.String(),
                         ForeColor = c.String(),
-                        FontSize = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.PaymentTypeId);
             

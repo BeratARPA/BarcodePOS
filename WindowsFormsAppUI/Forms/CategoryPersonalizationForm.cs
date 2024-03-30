@@ -2,7 +2,6 @@
 using Database.Models;
 using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
 
@@ -28,12 +27,10 @@ namespace WindowsFormsAppUI.Forms
         {
             buttonSave.Text = GlobalVariables.CultureHelper.GetText("Save");
             label1.Text = GlobalVariables.CultureHelper.GetText("BackgroundColor");
-            label2.Text = GlobalVariables.CultureHelper.GetText("FontSize");
             label3.Text = GlobalVariables.CultureHelper.GetText("ForegroundColor");
             dataGridViewCategories.Columns[1].HeaderText= GlobalVariables.CultureHelper.GetText("Name");
             dataGridViewCategories.Columns[2].HeaderText= GlobalVariables.CultureHelper.GetText("BackgroundColor");
             dataGridViewCategories.Columns[3].HeaderText= GlobalVariables.CultureHelper.GetText("ForegroundColor");
-            dataGridViewCategories.Columns[4].HeaderText= GlobalVariables.CultureHelper.GetText("FontSize");
         }
 
         public void AddCategoriesDataGridView()
@@ -48,7 +45,6 @@ namespace WindowsFormsAppUI.Forms
                 dataGridViewCategories.Rows[i].Cells[1].Value = categories[i].Name;
                 dataGridViewCategories.Rows[i].Cells[2].Value = categories[i].BackColor;
                 dataGridViewCategories.Rows[i].Cells[3].Value = categories[i].ForeColor;
-                dataGridViewCategories.Rows[i].Cells[4].Value = categories[i].FontSize;
 
                 string[] backColorArgb = categories[i].BackColor.Split(',');
                 Color backColor = Color.FromArgb(Convert.ToInt32(backColorArgb[0]), Convert.ToInt32(backColorArgb[1]), Convert.ToInt32(backColorArgb[2]));
@@ -128,7 +124,6 @@ namespace WindowsFormsAppUI.Forms
         {
             comboBoxBackColors.Text = (string)dataGridViewCategories.CurrentRow.Cells[2].Value;
             comboBoxForeColors.Text = (string)dataGridViewCategories.CurrentRow.Cells[3].Value;
-            numericUpDownFontSize.Text = dataGridViewCategories.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -145,7 +140,6 @@ namespace WindowsFormsAppUI.Forms
             {
                 _genericRepositoryCategory.UpdateColumn(category, x => x.BackColor, comboBoxBackColors.Text);
                 _genericRepositoryCategory.UpdateColumn(category, x => x.ForeColor, comboBoxForeColors.Text);
-                _genericRepositoryCategory.UpdateColumn(category, x => x.FontSize, Convert.ToInt32(numericUpDownFontSize.Text));
 
                 AddCategoriesDataGridView();
             }

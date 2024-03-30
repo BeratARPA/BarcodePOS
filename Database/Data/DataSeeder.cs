@@ -71,9 +71,9 @@ namespace Database.Data
             {
                 List<Category> categories = new List<Category>
                 {
-                    new Category{ Name = "Salatalar",PrinterName = "PDF24",BackColor = "15,15,15",ForeColor = "15,15,15", FontSize = 15 },
-                    new Category{ Name = "Çorbalar",PrinterName = "PDF24",BackColor = "15,15,15",ForeColor = "15,15,15", FontSize = 15 },
-                    new Category{ Name = "Manav",PrinterName = "PDF24",BackColor = "15,15,15",ForeColor = "15,15,15", FontSize = 15 }
+                    new Category{ Name = "Salatalar",PrinterName = "PDF24",BackColor = "15,15,15",ForeColor = "15,15,15" },
+                    new Category{ Name = "Çorbalar",PrinterName = "PDF24",BackColor = "15,15,15",ForeColor = "15,15,15" },
+                    new Category{ Name = "Manav",PrinterName = "PDF24",BackColor = "15,15,15",ForeColor = "15,15,15" }
                 };
 
                 categories = _genericRepositoryCategory.AddAll(categories);
@@ -87,11 +87,11 @@ namespace Database.Data
                 {
                     List<Product> products = new List<Product>
                     {
-                        new Product{ CategoryId = categories[0].CategoryId,Index = 0,Barcode = "",Name = "Çoban",Price = 35.5,ImageURL = "",BackColor = "15,15,15",ForeColor = "15,15,15", FontSize = 15,UnitOfMeasure = 1 },
-                        new Product{ CategoryId = categories[0].CategoryId,Index = 0,Barcode = "",Name = "Sezar",Price = 26,ImageURL = "",BackColor = "15,15,15",ForeColor = "15,15,15", FontSize = 15,UnitOfMeasure = 1 },
-                        new Product{ CategoryId = categories[1].CategoryId,Index = 0,Barcode = "",Name = "Mercimek",Price = 54,ImageURL = "",BackColor = "15,15,15",ForeColor = "15,15,15", FontSize = 15,UnitOfMeasure = 1 },
-                        new Product{ CategoryId = categories[1].CategoryId,Index = 0,Barcode = "",Name = "Ezogelin",Price = 42,ImageURL = "",BackColor = "15,15,15",ForeColor = "15,15,15", FontSize = 15,UnitOfMeasure = 1 },
-                        new Product{ CategoryId = categories[2].CategoryId,Index = 0,Barcode = "",Name = "Domates",Price = 20.5,ImageURL = "",BackColor = "15,15,15",ForeColor = "15,15,15", FontSize = 15,UnitOfMeasure = 0 }
+                        new Product{ CategoryId = categories[0].CategoryId,Index = 0,Barcode = "",Name = "Çoban",Price = 35.5,ImageURL = "",BackColor = "15,15,15",ForeColor = "15,15,15",UnitOfMeasure = 1 },
+                        new Product{ CategoryId = categories[0].CategoryId,Index = 0,Barcode = "",Name = "Sezar",Price = 26,ImageURL = "",BackColor = "15,15,15",ForeColor = "15,15,15",UnitOfMeasure = 1 },
+                        new Product{ CategoryId = categories[1].CategoryId,Index = 0,Barcode = "",Name = "Mercimek",Price = 54,ImageURL = "",BackColor = "15,15,15",ForeColor = "15,15,15",UnitOfMeasure = 1 },
+                        new Product{ CategoryId = categories[1].CategoryId,Index = 0,Barcode = "",Name = "Ezogelin",Price = 42,ImageURL = "",BackColor = "15,15,15",ForeColor = "15,15,15",UnitOfMeasure = 1 },
+                        new Product{ CategoryId = categories[2].CategoryId,Index = 0,Barcode = "",Name = "Domates",Price = 20.5,ImageURL = "",BackColor = "15,15,15",ForeColor = "15,15,15",UnitOfMeasure = 0 }
                     };
 
                     products = _genericRepositoryProduct.AddAll(products);
@@ -106,8 +106,8 @@ namespace Database.Data
             {
                 List<PaymentType> paymentTypes = new List<PaymentType>
                 {
-                    new PaymentType{ Name = "Cash",BackColor = "15,15,15",ForeColor = "15,15,15",FontSize = 15 },
-                    new PaymentType{ Name = "Visa",BackColor = "15,15,15",ForeColor = "15,15,15",FontSize = 15 }
+                    new PaymentType{ Name = "Cash",BackColor = "15,15,15",ForeColor = "15,15,15" },
+                    new PaymentType{ Name = "Visa",BackColor = "15,15,15",ForeColor = "15,15,15" }
                 };
 
                 _genericRepositoryPaymentType.AddAll(paymentTypes);

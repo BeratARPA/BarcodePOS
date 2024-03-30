@@ -278,7 +278,7 @@ namespace WindowsFormsAppUI.Forms
             int columnCount = 1;
             if (_customer != null && _customer.IsAccount)
             {
-                PaymentTypeUserControl customerPaymentTypeUserControl = new PaymentTypeUserControl(new PaymentType { Name = _customer.Name, BackColor = "15,15,15", ForeColor = "15,15,15", FontSize = 15 })
+                PaymentTypeUserControl customerPaymentTypeUserControl = new PaymentTypeUserControl(new PaymentType { Name = _customer.Name, BackColor = "15,15,15", ForeColor = "15,15,15" })
                 {
                     Dock = DockStyle.Fill
                 };

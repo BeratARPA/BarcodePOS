@@ -2,7 +2,6 @@
 using Database.Models;
 using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
 
@@ -28,12 +27,10 @@ namespace WindowsFormsAppUI.Forms
         {
             buttonSave.Text = GlobalVariables.CultureHelper.GetText("Save");
             label1.Text = GlobalVariables.CultureHelper.GetText("BackgroundColor");
-            label2.Text = GlobalVariables.CultureHelper.GetText("FontSize");
             label3.Text = GlobalVariables.CultureHelper.GetText("ForegroundColor");
             dataGridViewPaymentTypes.Columns[1].HeaderText = GlobalVariables.CultureHelper.GetText("Name");
             dataGridViewPaymentTypes.Columns[2].HeaderText = GlobalVariables.CultureHelper.GetText("BackgroundColor");
             dataGridViewPaymentTypes.Columns[3].HeaderText = GlobalVariables.CultureHelper.GetText("ForegroundColor");
-            dataGridViewPaymentTypes.Columns[4].HeaderText = GlobalVariables.CultureHelper.GetText("FontSize");
         }
 
         public void AddCategoriesDataGridView()
@@ -47,8 +44,7 @@ namespace WindowsFormsAppUI.Forms
                 dataGridViewPaymentTypes.Rows[i].Cells[0].Value = paymentTypes[i].PaymentTypeId;
                 dataGridViewPaymentTypes.Rows[i].Cells[1].Value = paymentTypes[i].Name;
                 dataGridViewPaymentTypes.Rows[i].Cells[2].Value = paymentTypes[i].BackColor;
-                dataGridViewPaymentTypes.Rows[i].Cells[3].Value = paymentTypes[i].ForeColor;
-                dataGridViewPaymentTypes.Rows[i].Cells[4].Value = paymentTypes[i].FontSize;
+                dataGridViewPaymentTypes.Rows[i].Cells[3].Value = paymentTypes[i].ForeColor;               
 
                 string[] backColorArgb = paymentTypes[i].BackColor.Split(',');
                 Color backColor = Color.FromArgb(Convert.ToInt32(backColorArgb[0]), Convert.ToInt32(backColorArgb[1]), Convert.ToInt32(backColorArgb[2]));
@@ -111,7 +107,6 @@ namespace WindowsFormsAppUI.Forms
         {
             comboBoxBackColors.Text = (string)dataGridViewPaymentTypes.CurrentRow.Cells[2].Value;
             comboBoxForeColors.Text = (string)dataGridViewPaymentTypes.CurrentRow.Cells[3].Value;
-            numericUpDownFontSize.Text = dataGridViewPaymentTypes.CurrentRow.Cells[4].Value.ToString();
         }
 
         private void comboBoxColors_DrawItem(object sender, DrawItemEventArgs e)
@@ -145,7 +140,6 @@ namespace WindowsFormsAppUI.Forms
             {
                 _genericRepositoryPaymentType.UpdateColumn(paymentType, x => x.BackColor, comboBoxBackColors.Text);
                 _genericRepositoryPaymentType.UpdateColumn(paymentType, x => x.ForeColor, comboBoxForeColors.Text);
-                _genericRepositoryPaymentType.UpdateColumn(paymentType, x => x.FontSize, Convert.ToInt32(numericUpDownFontSize.Text));
 
                 AddCategoriesDataGridView();
             }

@@ -1,5 +1,7 @@
 ﻿using Database.Models;
+using DevExpress.XtraPrinting;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -27,7 +29,6 @@ namespace WindowsFormsAppUI.UserControls
             this.BackColor = Color.FromArgb(50, Convert.ToInt32(backColorArgb[0]), Convert.ToInt32(backColorArgb[1]), Convert.ToInt32(backColorArgb[2]));
 
             labelName.ForeColor = Color.FromArgb(Convert.ToInt32(foreColorArgb[0]), Convert.ToInt32(foreColorArgb[1]), Convert.ToInt32(foreColorArgb[2]));
-            labelName.Font = new Font("Microsoft Sans Serif", _category.FontSize);
         }
 
         private string _name;
@@ -46,14 +47,16 @@ namespace WindowsFormsAppUI.UserControls
             CategoryTypeClick?.Invoke(this, e);
         }
 
-        private void CategoryUserControl_MouseEnter(object sender, EventArgs e)
+        private void CategoryUserControl_Resize(object sender, EventArgs e)
         {
-            this.Padding = new Padding(5, 5, 5, 5);
-        }
+            int divide = 15;
 
-        private void CategoryUserControl_MouseLeave(object sender, EventArgs e)
-        {
-            this.Padding = new Padding(0, 0, 0, 0);
+            var controls = new List<Control> { labelName };
+            for (int i = 0; i < controls.Count; i++)
+            {
+                int controlSize = controls[i].Height + controls[i].Width;
+                controls[i].Font = new Font("Microsoft Sans Serif", controlSize / divide);
+            }
         }
     }
 }
