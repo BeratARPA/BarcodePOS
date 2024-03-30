@@ -148,5 +148,21 @@ namespace WindowsFormsAppUI.Forms
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
             }
         }
+
+        private void buttonAccountDetails_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewCustomers.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+
+            int customerId = Convert.ToInt32(dataGridViewCustomers.CurrentRow.Cells[0].Value);
+            var customer = _genericRepositoryCustomer.Get(x => x.CustomerId == customerId);
+            if (customer.IsAccount)
+            {
+                NavigationManager.OpenForm(new CustomerAccountDetailsForm(customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
+            }
+        }
     }
 }

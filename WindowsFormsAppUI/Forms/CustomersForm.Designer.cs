@@ -34,6 +34,7 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonSelect = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelSearch = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -45,7 +46,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paginationUserControl1 = new WindowsFormsAppUI.UserControls.PaginationUserControl();
-            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonAccountDetails = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -76,11 +77,13 @@
             this.tableLayoutPanel3.Controls.Add(this.buttonSave, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.buttonSelect, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonUpdate, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.buttonAccountDetails, 0, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(650, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowCount = 5;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
@@ -125,6 +128,25 @@
             this.buttonSelect.Text = "Seç";
             this.buttonSelect.UseVisualStyleBackColor = false;
             this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            this.buttonUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonUpdate.FlatAppearance.BorderSize = 0;
+            this.buttonUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
+            this.buttonUpdate.Location = new System.Drawing.Point(4, 104);
+            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(142, 92);
+            this.buttonUpdate.TabIndex = 10;
+            this.buttonUpdate.Text = "Güncelle";
+            this.buttonUpdate.UseVisualStyleBackColor = false;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -284,24 +306,24 @@
             this.paginationUserControl1.GoLast += new System.EventHandler(this.paginationUserControl1_GoLast);
             this.paginationUserControl1.PageSizeChanged += new System.EventHandler(this.paginationUserControl1_PageSizeChanged);
             // 
-            // buttonUpdate
+            // buttonAccountDetails
             // 
-            this.buttonUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
-            this.buttonUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonUpdate.FlatAppearance.BorderSize = 0;
-            this.buttonUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUpdate.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
-            this.buttonUpdate.Location = new System.Drawing.Point(4, 104);
-            this.buttonUpdate.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(142, 92);
-            this.buttonUpdate.TabIndex = 10;
-            this.buttonUpdate.Text = "Güncelle";
-            this.buttonUpdate.UseVisualStyleBackColor = false;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            this.buttonAccountDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            this.buttonAccountDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonAccountDetails.FlatAppearance.BorderSize = 0;
+            this.buttonAccountDetails.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonAccountDetails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonAccountDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAccountDetails.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonAccountDetails.ForeColor = System.Drawing.Color.White;
+            this.buttonAccountDetails.Location = new System.Drawing.Point(4, 304);
+            this.buttonAccountDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAccountDetails.Name = "buttonAccountDetails";
+            this.buttonAccountDetails.Size = new System.Drawing.Size(142, 92);
+            this.buttonAccountDetails.TabIndex = 10;
+            this.buttonAccountDetails.Text = "Hesap Detayları";
+            this.buttonAccountDetails.UseVisualStyleBackColor = false;
+            this.buttonAccountDetails.Click += new System.EventHandler(this.buttonAccountDetails_Click);
             // 
             // CustomersForm
             // 
@@ -343,5 +365,6 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonSelect;
         private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button buttonAccountDetails;
     }
 }

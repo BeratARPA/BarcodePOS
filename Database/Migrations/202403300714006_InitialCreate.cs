@@ -13,6 +13,7 @@
                     {
                         AccountId = c.Int(nullable: false, identity: true),
                         CustomerId = c.Int(nullable: false),
+                        TicketId = c.Int(nullable: false),
                         Name = c.String(),
                         Amount = c.Double(nullable: false),
                         Date = c.DateTime(nullable: false),
@@ -74,6 +75,7 @@
                         CreatedDateTime = c.DateTime(nullable: false),
                         LastUpdateDateTime = c.DateTime(nullable: false),
                         IsAccount = c.Boolean(nullable: false),
+                        Balance = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.CustomerId);
             

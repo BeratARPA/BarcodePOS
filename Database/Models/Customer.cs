@@ -14,5 +14,6 @@ namespace Database.Models
         public DateTime CreatedDateTime { get; set; }
         public DateTime LastUpdateDateTime { get; set; }
         public bool IsAccount { get; set; }
+        public double Balance { get; set; }
     }
 }
