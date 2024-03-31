@@ -345,23 +345,8 @@ namespace WindowsFormsAppUI.Forms
 
                 CustomerHelper.UpdateBalance(_customer.CustomerId, ticket.RemainingAmount, false);
 
-                Payment payment = new Payment
-                {
-                    TicketId = ticket.TicketId,
-                    PaymentTypeId = paymentTypeUserControl._paymentType.PaymentTypeId,
-                    Name = paymentTypeUserControl._paymentType.Name,
-                    Description = CustomerHelper.GetNameAndPhoneNumber(_customer.CustomerId),
-                    Date = DateTime.Now,
-                    Amount = 0,
-                    TenderedAmount = ticket.RemainingAmount,
-                    UserId = LoggedInUser.CurrentUser.UserId,
-                    TerminalName = GlobalVariables.TerminalName
-                };
-
                 _genericRepositoryTicket.UpdateColumn(ticket, x => x.LastPaymentDate, DateTime.Now);
                 _genericRepositoryTicket.UpdateColumn(ticket, x => x.RemainingAmount, 0);
-
-                _genericRepositoryPayment.Add(payment);
                 _genericRepositoryTicket.UpdateColumn(ticket, x => x.IsOpened, false);
 
                 ClearTicket();

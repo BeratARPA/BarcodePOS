@@ -141,7 +141,7 @@
                 c => new
                     {
                         PaymentId = c.Int(nullable: false, identity: true),
-                        TicketId = c.Int(nullable: false),
+                        TicketId = c.Int(),
                         PaymentTypeId = c.Int(nullable: false),
                         Name = c.String(),
                         Description = c.String(),
@@ -152,7 +152,7 @@
                         TerminalName = c.String(),
                     })
                 .PrimaryKey(t => t.PaymentId)
-                .ForeignKey("dbo.Tickets", t => t.TicketId, cascadeDelete: true)
+                .ForeignKey("dbo.Tickets", t => t.TicketId)
                 .Index(t => t.TicketId);
             
             CreateTable(

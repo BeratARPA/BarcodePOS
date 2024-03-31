@@ -11,14 +11,14 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class PaymentForm : Form
     {
-        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
-        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<User> _genericRepositoryUser = new GenericRepository<User>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
 
-        private List<PaymentType> _paymentTypes = new List<PaymentType>();
         private Ticket _ticket = null;
         private POSForm _posForm = null;
+        private List<PaymentType> _paymentTypes = new List<PaymentType>();
 
         public PaymentForm(Ticket ticket)
         {

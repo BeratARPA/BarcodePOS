@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
+using WindowsFormsAppUI.UserControls;
 
 namespace WindowsFormsAppUI.Forms
 {
@@ -11,9 +12,11 @@ namespace WindowsFormsAppUI.Forms
     {
         private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
         private readonly GenericRepository<Account> _genericRepositoryAccount = new GenericRepository<Account>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
 
         private Ticket _ticket;
         private Customer _customer;
+        private List<PaymentType> _paymentTypes = new List<PaymentType>();
 
         public CustomerAccountDetailsForm(Customer customer = null, Ticket ticket = null)
         {
@@ -33,11 +36,47 @@ namespace WindowsFormsAppUI.Forms
 
             labelCustomer.Text = CustomerHelper.GetNameAndBalance(_customer.CustomerId);
             labelTotalAmount.Text = _customer.Balance.ToString();
+
+            _paymentTypes = _genericRepositoryPaymentType.GetAll();
+            CreatePayments(_paymentTypes);
         }
 
         public void UpdateUILanguage()
         {
+            label1.Text = GlobalVariables.CultureHelper.GetText("Start");
+            label2.Text = GlobalVariables.CultureHelper.GetText("End");
             buttonClose.Text = GlobalVariables.CultureHelper.GetText("Close");
+            buttonFindTicket.Text = GlobalVariables.CultureHelper.GetText("FindTicket");
+            dataGridViewAccounts.Columns[3].HeaderText = GlobalVariables.CultureHelper.GetText("Date");
+            dataGridViewAccounts.Columns[4].HeaderText = GlobalVariables.CultureHelper.GetText("Description");
+            dataGridViewAccounts.Columns[5].HeaderText = GlobalVariables.CultureHelper.GetText("Total");
+            label5.Text = GlobalVariables.CultureHelper.GetText("TotalBalance");
+        }
+
+        public void CreatePayments(List<PaymentType> paymentTypes)
+        {
+            flowLayoutPanelPayment.Controls.Clear();
+
+            foreach (PaymentType paymentType in paymentTypes)
+            {
+                PaymentTypeUserControl paymentTypeUserControl = new PaymentTypeUserControl(paymentType)
+                {
+                    Width = 125,
+                    Height = 100
+                };
+
+                paymentTypeUserControl.PaymentTypeClick += PaymentTypeUserControl_Click;
+
+                flowLayoutPanelPayment.Controls.Add(paymentTypeUserControl);
+            }
+        }
+
+        private void PaymentTypeUserControl_Click(object sender, EventArgs e)
+        {
+            PaymentTypeUserControl paymentTypeUserControl = (PaymentTypeUserControl)sender;
+
+            NavigationManager.OpenForm(new CustomerAccountPaymentForm(paymentTypeUserControl._paymentType, _customer == null ? null : _customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
         }
 
         public void AddAccountsDataGridView()
