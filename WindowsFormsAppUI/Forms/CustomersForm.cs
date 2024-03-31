@@ -44,6 +44,7 @@ namespace WindowsFormsAppUI.Forms
             buttonUpdate.Text = GlobalVariables.CultureHelper.GetText("Update");
             buttonSave.Text = GlobalVariables.CultureHelper.GetText("Save");
             buttonSearch.Text = GlobalVariables.CultureHelper.GetText("Search");
+            buttonAccountDetails.Text = GlobalVariables.CultureHelper.GetText("AccountDetails");
         }
 
         public void AddCustomerDataGridView(List<Customer> customers)

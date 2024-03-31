@@ -8,7 +8,7 @@ namespace Database.Models
     {
         [Key]
         public int PaymentId { get; set; }
-        public int TicketId { get; set; }
+        public int? TicketId { get; set; }
         public int PaymentTypeId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

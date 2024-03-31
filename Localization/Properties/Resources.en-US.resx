@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountDetails" xml:space="preserve">
+    <value>Account Details</value>
+  </data>
+  <data name="AccountName" xml:space="preserve">
+    <value>Account Name</value>
+  </data>
   <data name="AddNote" xml:space="preserve">
     <value>Add Note</value>
   </data>
@@ -216,6 +222,9 @@
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
   <data name="Discount" xml:space="preserve">
     <value>Discount {0:N}%</value>
   </data>
@@ -248,6 +257,9 @@
   </data>
   <data name="ErrorReportSent" xml:space="preserve">
     <value>Error report sent.</value>
+  </data>
+  <data name="FindTicket" xml:space="preserve">
+    <value>Find Ticket</value>
   </data>
   <data name="ForegroundColor" xml:space="preserve">
     <value>Foreground Color</value>

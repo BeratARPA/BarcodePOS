@@ -163,6 +163,12 @@
     <Compile Include="Forms\CustomerAccountDetailsForm.Designer.cs">
       <DependentUpon>CustomerAccountDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CustomerAccountPaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerAccountPaymentForm.Designer.cs">
+      <DependentUpon>CustomerAccountPaymentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CustomerCallingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -372,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomerAccountDetailsForm.resx">
       <DependentUpon>CustomerAccountDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerAccountPaymentForm.resx">
+      <DependentUpon>CustomerAccountPaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomerCallingForm.resx">
       <DependentUpon>CustomerCallingForm.cs</DependentUpon>
