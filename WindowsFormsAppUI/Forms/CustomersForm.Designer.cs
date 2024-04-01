@@ -35,6 +35,7 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonSelect = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonAccountDetails = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelSearch = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -46,7 +47,7 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paginationUserControl1 = new WindowsFormsAppUI.UserControls.PaginationUserControl();
-            this.buttonAccountDetails = new System.Windows.Forms.Button();
+            this.buttonCustomerCard = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -78,11 +79,13 @@
             this.tableLayoutPanel3.Controls.Add(this.buttonSelect, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonUpdate, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.buttonAccountDetails, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.buttonCustomerCard, 0, 4);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(650, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 5;
+            this.tableLayoutPanel3.RowCount = 6;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
@@ -147,6 +150,25 @@
             this.buttonUpdate.Text = "Güncelle";
             this.buttonUpdate.UseVisualStyleBackColor = false;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // buttonAccountDetails
+            // 
+            this.buttonAccountDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            this.buttonAccountDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonAccountDetails.FlatAppearance.BorderSize = 0;
+            this.buttonAccountDetails.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonAccountDetails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonAccountDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAccountDetails.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonAccountDetails.ForeColor = System.Drawing.Color.White;
+            this.buttonAccountDetails.Location = new System.Drawing.Point(4, 304);
+            this.buttonAccountDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonAccountDetails.Name = "buttonAccountDetails";
+            this.buttonAccountDetails.Size = new System.Drawing.Size(142, 92);
+            this.buttonAccountDetails.TabIndex = 10;
+            this.buttonAccountDetails.Text = "Hesap Detayları";
+            this.buttonAccountDetails.UseVisualStyleBackColor = false;
+            this.buttonAccountDetails.Click += new System.EventHandler(this.buttonAccountDetails_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -306,24 +328,24 @@
             this.paginationUserControl1.GoLast += new System.EventHandler(this.paginationUserControl1_GoLast);
             this.paginationUserControl1.PageSizeChanged += new System.EventHandler(this.paginationUserControl1_PageSizeChanged);
             // 
-            // buttonAccountDetails
+            // buttonCustomerCard
             // 
-            this.buttonAccountDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
-            this.buttonAccountDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAccountDetails.FlatAppearance.BorderSize = 0;
-            this.buttonAccountDetails.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonAccountDetails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonAccountDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAccountDetails.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.buttonAccountDetails.ForeColor = System.Drawing.Color.White;
-            this.buttonAccountDetails.Location = new System.Drawing.Point(4, 304);
-            this.buttonAccountDetails.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonAccountDetails.Name = "buttonAccountDetails";
-            this.buttonAccountDetails.Size = new System.Drawing.Size(142, 92);
-            this.buttonAccountDetails.TabIndex = 10;
-            this.buttonAccountDetails.Text = "Hesap Detayları";
-            this.buttonAccountDetails.UseVisualStyleBackColor = false;
-            this.buttonAccountDetails.Click += new System.EventHandler(this.buttonAccountDetails_Click);
+            this.buttonCustomerCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            this.buttonCustomerCard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonCustomerCard.FlatAppearance.BorderSize = 0;
+            this.buttonCustomerCard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonCustomerCard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonCustomerCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCustomerCard.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonCustomerCard.ForeColor = System.Drawing.Color.White;
+            this.buttonCustomerCard.Location = new System.Drawing.Point(4, 404);
+            this.buttonCustomerCard.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCustomerCard.Name = "buttonCustomerCard";
+            this.buttonCustomerCard.Size = new System.Drawing.Size(142, 92);
+            this.buttonCustomerCard.TabIndex = 10;
+            this.buttonCustomerCard.Text = "Müşteri Kartı";
+            this.buttonCustomerCard.UseVisualStyleBackColor = false;
+            this.buttonCustomerCard.Click += new System.EventHandler(this.buttonCustomerCard_Click);
             // 
             // CustomersForm
             // 
@@ -366,5 +388,6 @@
         private System.Windows.Forms.Button buttonSelect;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonAccountDetails;
+        private System.Windows.Forms.Button buttonCustomerCard;
     }
 }

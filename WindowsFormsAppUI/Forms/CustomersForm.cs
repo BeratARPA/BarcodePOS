@@ -45,6 +45,7 @@ namespace WindowsFormsAppUI.Forms
             buttonSave.Text = GlobalVariables.CultureHelper.GetText("Save");
             buttonSearch.Text = GlobalVariables.CultureHelper.GetText("Search");
             buttonAccountDetails.Text = GlobalVariables.CultureHelper.GetText("AccountDetails");
+            buttonCustomerCard.Text = GlobalVariables.CultureHelper.GetText("CustomerCard");
         }
 
         public void AddCustomerDataGridView(List<Customer> customers)
@@ -111,7 +112,7 @@ namespace WindowsFormsAppUI.Forms
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            NavigationManager.OpenForm(new SaveCustomerForm(textBoxSearchCustomer.Text, null, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            NavigationManager.OpenForm(new SaveCustomerForm(textBoxSearchCustomer.Text, "", null, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
         }
 
@@ -145,7 +146,7 @@ namespace WindowsFormsAppUI.Forms
             var customer = _genericRepositoryCustomer.Get(x => x.CustomerId == customerId);
             if (customer != null)
             {
-                NavigationManager.OpenForm(new SaveCustomerForm(textBoxSearchCustomer.Text, customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new SaveCustomerForm("", "", customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
             }
         }
@@ -162,6 +163,22 @@ namespace WindowsFormsAppUI.Forms
             if (customer.IsAccount)
             {
                 NavigationManager.OpenForm(new CustomerAccountDetailsForm(customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
+            }
+        }
+
+        private void buttonCustomerCard_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewCustomers.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+
+            int customerId = Convert.ToInt32(dataGridViewCustomers.CurrentRow.Cells[0].Value);
+            var customer = _genericRepositoryCustomer.Get(x => x.CustomerId == customerId);
+            if (customer != null)
+            {
+                NavigationManager.OpenForm(new CustomerCardForm(customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
             }
         }

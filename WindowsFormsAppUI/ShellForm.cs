@@ -133,8 +133,11 @@ namespace WindowsFormsAppUI
 
                 _genericRepositoryOldCalling.Add(new OldCalling { Serial = serial, Line = line, PhoneNumber = phoneNumber, CallingDateTime = DateTime.Now });
 
-                CustomerCallingForm customerCallingForm = new CustomerCallingForm();
-                customerCallingForm.ShowAlert(phoneNumber);
+                if (LoggedInUser.CurrentUser != null)
+                {
+                    CustomerCallingForm customerCallingForm = new CustomerCallingForm();
+                    customerCallingForm.ShowAlert(phoneNumber);
+                }
             }
         }
         #endregion

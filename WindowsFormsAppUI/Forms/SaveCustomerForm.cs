@@ -13,7 +13,7 @@ namespace WindowsFormsAppUI.Forms
         private Ticket _ticket;
         private Customer _customer;
 
-        public SaveCustomerForm(string name = "", Customer customer = null, Ticket ticket = null)
+        public SaveCustomerForm(string name = "", string phoneNumber = "", Customer customer = null, Ticket ticket = null)
         {
             InitializeComponent();
             UpdateUILanguage();
@@ -21,6 +21,7 @@ namespace WindowsFormsAppUI.Forms
             _ticket = ticket;
             _customer = customer;
             textBoxName.Text = name;
+            textBoxPhoneNumber.Text = phoneNumber;
         }
 
         private void SaveCustomerForm_Load(object sender, EventArgs e)

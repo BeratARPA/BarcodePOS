@@ -201,6 +201,9 @@
   <data name="CustomerAddress" xml:space="preserve">
     <value>Address</value>
   </data>
+  <data name="CustomerCard" xml:space="preserve">
+    <value>Customer Card</value>
+  </data>
   <data name="CustomerName" xml:space="preserve">
     <value>Customer Name</value>
   </data>
@@ -287,6 +290,12 @@
   </data>
   <data name="Large" xml:space="preserve">
     <value>Large</value>
+  </data>
+  <data name="LastOrder" xml:space="preserve">
+    <value>Last Order</value>
+  </data>
+  <data name="LastOrderDate" xml:space="preserve">
+    <value>Last Order Date</value>
   </data>
   <data name="Load" xml:space="preserve">
     <value>Load</value>
@@ -485,6 +494,9 @@
   </data>
   <data name="TotalBalance" xml:space="preserve">
     <value>Total Balance</value>
+  </data>
+  <data name="TotalSales" xml:space="preserve">
+    <value>Total Sales</value>
   </data>
   <data name="TotalTicket" xml:space="preserve">
     <value>Total Ticket</value>
