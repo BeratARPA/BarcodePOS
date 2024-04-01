@@ -201,6 +201,9 @@
   <data name="CustomerAddress" xml:space="preserve">
     <value>Adres</value>
   </data>
+  <data name="CustomerCard" xml:space="preserve">
+    <value>Müşteri Kartı</value>
+  </data>
   <data name="CustomerName" xml:space="preserve">
     <value>Müşteri Adı</value>
   </data>
@@ -287,6 +290,12 @@
   </data>
   <data name="Large" xml:space="preserve">
     <value>Büyük</value>
+  </data>
+  <data name="LastOrder" xml:space="preserve">
+    <value>Son Sipariş</value>
+  </data>
+  <data name="LastOrderDate" xml:space="preserve">
+    <value>Son Sipariş Tarihi</value>
   </data>
   <data name="Load" xml:space="preserve">
     <value>Yükle</value>
@@ -488,6 +497,9 @@
   </data>
   <data name="TotalBalance" xml:space="preserve">
     <value>Toplam Bakiye</value>
+  </data>
+  <data name="TotalSales" xml:space="preserve">
+    <value>Toplam Satış</value>
   </data>
   <data name="TotalTicket" xml:space="preserve">
     <value>Toplam Fiş</value>

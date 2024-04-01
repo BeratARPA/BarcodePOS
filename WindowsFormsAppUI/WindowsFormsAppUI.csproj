@@ -175,6 +175,12 @@
     <Compile Include="Forms\CustomerCallingForm.Designer.cs">
       <DependentUpon>CustomerCallingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CustomerCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomerCardForm.Designer.cs">
+      <DependentUpon>CustomerCardForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CustomersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -385,6 +391,9 @@
     <EmbeddedResource Include="Forms\CustomerCallingForm.resx">
       <DependentUpon>CustomerCallingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomerCardForm.resx">
+      <DependentUpon>CustomerCardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomersForm.resx">
       <DependentUpon>CustomersForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -494,10 +503,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Database\Database.csproj">
       <Project>{d0a36cb3-3080-4e11-8ad7-395420a7d4cc}</Project>

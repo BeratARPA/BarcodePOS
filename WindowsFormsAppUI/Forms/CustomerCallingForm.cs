@@ -12,6 +12,9 @@ namespace WindowsFormsAppUI.Forms
     {
         private readonly GenericRepository<Customer> _genericRepositoryCustomer = new GenericRepository<Customer>(GlobalVariables.SQLContext);
 
+        private Customer _customer;
+        private string _phoneNumber;
+
         public CustomerCallingForm()
         {
             InitializeComponent();
@@ -22,12 +25,25 @@ namespace WindowsFormsAppUI.Forms
 
         private void CustomerCallingForm_Click(object sender, EventArgs e)
         {
+            if (_customer != null)
+            {
+                NavigationManager.OpenForm(new CustomerCardForm(_customer), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
+            }
+            else
+            {
+                NavigationManager.OpenForm(new SaveCustomerForm("", _phoneNumber, null, null), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
+            }
+
             action = CustomerCallingEnum.Close;
             this.timer.Interval = 1;
         }
 
         public void ShowAlert(string phoneNumber)
         {
+            _phoneNumber = phoneNumber;
+
             this.Opacity = 0.0;
             this.StartPosition = FormStartPosition.Manual;
             string formName;
@@ -49,12 +65,12 @@ namespace WindowsFormsAppUI.Forms
 
             this.x = Screen.PrimaryScreen.WorkingArea.Width - base.Width - 5;
 
-            var customer = _genericRepositoryCustomer.Get(x => x.PhoneNumber == phoneNumber);
-            if (customer != null)
+            _customer = _genericRepositoryCustomer.Get(x => x.PhoneNumber == phoneNumber);
+            if (_customer != null)
             {
-                labelPhoneNumber.Text = customer.Name;
+                labelPhoneNumber.Text = _customer.Name;
                 labelDate.Text = DateTime.Now.ToString();
-                labelDescription.Text = string.Format(GlobalVariables.CultureHelper.GetText("IsCalling"), customer.Name);
+                labelDescription.Text = string.Format(GlobalVariables.CultureHelper.GetText("IsCalling"), _customer.Name);
             }
             else
             {
