@@ -1,6 +1,7 @@
 ﻿using Database.Data;
 using Database.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
@@ -9,8 +10,8 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class CustomerCardForm : Form
     {
-        private readonly GenericRepository<Order> _genericRepositoryOrder = new GenericRepository<Order>(GlobalVariables.SQLContext);
         private readonly GenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
+        private readonly GenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>(GlobalVariables.SQLContext);
 
         private Ticket _ticket;
         private Customer _customer;
@@ -33,9 +34,28 @@ namespace WindowsFormsAppUI.Forms
                 labelAddress.Text = _customer.Address;
                 labelNote.Text = _customer.Note;
 
+                double totalSales = _genericRepositoryTicket.GetAll(x => x.CustomerId == _customer.CustomerId).Sum(x => x.TotalAmount);
+                labelTotalSales.Text = string.Format("{0:C}", totalSales);
+
                 Ticket ticket = _genericRepositoryTicket.GetAll(x => x.CustomerId == _customer.CustomerId).OrderByDescending(x => x.Date).FirstOrDefault();
                 if (ticket != null)
+                {
+                    double total = 0;
+
                     labelLastOrderDate.Text = ticket.Date.ToString();
+
+                    dataGridViewOrders.Rows.Clear();
+                    foreach (Order order in ticket.Orders)
+                    {
+                        int productUnitOfMeasure = _genericRepositoryProduct.GetById(order.ProductId).UnitOfMeasure;
+                        total += order.Price * order.Quantity;
+
+                        dataGridViewOrders.Rows.Add(order.Quantity.ToString() + $" {UnitConvert.UnitOfMeasureToString(productUnitOfMeasure)}", order.ProductName, string.Format("{0:C}", order.Price * order.Quantity));
+                    }
+                    dataGridViewOrders.ClearSelection();
+
+                    labelTotal.Text = string.Format("{0:C}", total);
+                }
             }
         }
 
@@ -69,7 +89,7 @@ namespace WindowsFormsAppUI.Forms
 
         private void buttonSelect_Click(object sender, EventArgs e)
         {
-            NavigationManager.OpenForm(new POSForm(0, null, null, null, _customer), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            NavigationManager.OpenForm(new POSForm(3, null, null, null, _customer), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
         }
     }
