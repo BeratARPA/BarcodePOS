@@ -28,6 +28,8 @@ namespace WindowsFormsAppUI.Forms
         {
             if (_customer != null)
             {
+                textBoxPhoneNumber.Enabled = false;
+
                 textBoxName.Text = _customer.Name;
                 textBoxPhoneNumber.Text = _customer.PhoneNumber;
                 textBoxAddress.Text = _customer.Address;
@@ -54,19 +56,11 @@ namespace WindowsFormsAppUI.Forms
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBoxName.Text) && String.IsNullOrEmpty(textBoxPhoneNumber.Text) && String.IsNullOrEmpty(textBoxAddress.Text))
+            if (String.IsNullOrEmpty(textBoxName.Text) || String.IsNullOrEmpty(textBoxPhoneNumber.Text) || String.IsNullOrEmpty(textBoxAddress.Text))
             {
-                GoCustomersForm();
                 return;
             }
-
-            var customerExist = _genericRepositoryCustomer.GetAsNoTracking(x => x.PhoneNumber == textBoxPhoneNumber.Text);
-            if (customerExist != null)
-            {
-                GlobalVariables.MessageBoxForm.ShowMessage(string.Format(GlobalVariables.CultureHelper.GetText("ThereIsACustomerRegisteredAt"), customerExist.PhoneNumber), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.OK, MessageIcon.Warning);
-                return;
-            }
-
+          
             //Update
             if (_customer != null)
             {
@@ -81,24 +75,28 @@ namespace WindowsFormsAppUI.Forms
                 GoCustomersForm();
             }
 
-            //Save            
-            if (!String.IsNullOrEmpty(textBoxPhoneNumber.Text))
+            var customerExist = _genericRepositoryCustomer.GetAsNoTracking(x => x.PhoneNumber == textBoxPhoneNumber.Text);
+            if (customerExist != null)
             {
-                Customer customer = new Customer
-                {
-                    Name = textBoxName.Text,
-                    PhoneNumber = textBoxPhoneNumber.Text,
-                    Address = textBoxAddress.Text,
-                    Note = textBoxNote.Text,
-                    CreatedDateTime = DateTime.Now,
-                    LastUpdateDateTime = DateTime.Now,
-                    IsAccount = false
-                };
-
-                _genericRepositoryCustomer.Add(customer);
-
-                GoCustomersForm();
+                GlobalVariables.MessageBoxForm.ShowMessage(string.Format(GlobalVariables.CultureHelper.GetText("ThereIsACustomerRegisteredAt"), customerExist.PhoneNumber), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.OK, MessageIcon.Warning);
+                return;
             }
+
+            //Save            
+            Customer customer = new Customer
+            {
+                Name = textBoxName.Text,
+                PhoneNumber = textBoxPhoneNumber.Text,
+                Address = textBoxAddress.Text,
+                Note = textBoxNote.Text,
+                CreatedDateTime = DateTime.Now,
+                LastUpdateDateTime = DateTime.Now,
+                IsAccount = false
+            };
+
+            _genericRepositoryCustomer.Add(customer);
+
+            GoCustomersForm();
         }
 
         private void GoCustomersForm()
