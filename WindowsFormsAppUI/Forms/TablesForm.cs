@@ -80,68 +80,162 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        public void CreateTables(int sectionId)
+        public void CreateTables(int sectionId, bool isOpen = false)
         {
-            if (sectionId != 0)
+            if (sectionId == 0)
+                return;
+
+            tileGroupTables.Items.Clear();
+            List<Table> tables;
+
+            if (sectionId == -1)
+                tables = _tables;
+            else
+                tables = _tables.FindAll(x => x.SectionId == sectionId);
+
+            TileItem tileItemTable = null;
+            foreach (var table in tables)
             {
-                tileGroupTables.Items.Clear();
+                if (sectionId == -1 && isOpen)
+                    tileItemTable = CreateTileItemForOpenTable(table);
+                else if (sectionId == -1 && !isOpen)
+                    tileItemTable = CreateTileItemForCloseTable(table);
+                else
+                    tileItemTable = CreateTileItemForTable(table);
 
-                foreach (var table in _tables.FindAll(x => x.SectionId == sectionId))
-                {
-                    TileItem tileItemTable = new TileItem();
-
-                    tileItemTable.AppearanceItem.Normal.BackColor = Color.FromArgb(157, 156, 161);
-                    tileItemTable.AppearanceItem.Normal.BorderColor = Color.FromArgb(255, 202, 10);
-                    tileItemTable.AppearanceItem.Hovered.BackColor = Color.FromArgb(255, 202, 10);
-                    tileItemTable.AppearanceItem.Normal.Font = new Font("Segoe UI", 12, FontStyle.Bold);
-                    tileItemTable.TextAlignment = TileItemContentAlignment.MiddleCenter;
-
-                    tileItemTable.Tag = table.TableId;
-                    tileItemTable.Text = TableName.GetName(table.TableId);
-                    tileItemTable.ItemClick += tileItemTable_Click;
-
-                    var ticket = _genericRepositoryTicket.GetAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true);
-                    if (ticket != null)
-                    {
-                        //TableColor
-                        tileItemTable.AppearanceItem.Normal.BackColor = Color.Orange;
-                        if (ticket.IsPrinted)
-                        {
-                            tileItemTable.AppearanceItem.Normal.BackColor = Color.IndianRed;
-                        }
-
-                        //Customer
-                        if (ticket.CustomerId != 0)
-                        {
-                            TileItemElement customerElement = new TileItemElement();
-
-                            customerElement.Text = CustomerHelper.GetName(ticket.CustomerId);
-                            customerElement.TextAlignment = TileItemContentAlignment.TopLeft;
-                            tileItemTable.Elements.Add(customerElement);
-                        }
-
-                        //TotalAmount
-                        TileItemElement totalAmountElement = new TileItemElement();
-
-                        totalAmountElement.Text = string.Format("{0:C}", ticket.TotalAmount);
-                        totalAmountElement.TextAlignment = TileItemContentAlignment.BottomRight;
-                        tileItemTable.Elements.Add(totalAmountElement);
-
-                        //DateTime
-                        TimeSpan difference = ticket.Date - DateTime.Now;
-                        difference = TimeSpan.FromTicks(Math.Abs(difference.Ticks));
-                        string timeDifference = $"{ticket.Date.ToString("HH:mm")}\n{difference.Days:00}:{difference.Hours:00}:{difference.Minutes:00}:{difference.Seconds:00}";
-
-                        TileItemElement dateTimeElement = new TileItemElement();
-
-                        dateTimeElement.Text = timeDifference;
-                        dateTimeElement.TextAlignment = TileItemContentAlignment.BottomLeft;
-                        tileItemTable.Elements.Add(dateTimeElement);
-                    }
-
+                if (tileItemTable != null)
                     tileGroupTables.Items.Add(tileItemTable);
-                }
             }
+        }
+
+        private TileItem CreateTileItemForTable(Table table)
+        {
+            TileItem tileItemTable = new TileItem();
+
+            // Set table properties
+            SetTableAppearance(tileItemTable);
+
+            tileItemTable.Tag = table.TableId;
+            tileItemTable.Text = TableName.GetName(table.TableId);
+            tileItemTable.ItemClick += tileItemTable_Click;
+
+            var ticket = _genericRepositoryTicket.GetAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true);
+            if (ticket != null)
+            {
+                // Printed Table appearance settings
+                SetPrintedTableAppearance(tileItemTable, ticket);
+
+                // Add customer information if available
+                if (ticket.CustomerId != 0)
+                {
+                    AddCustomerElement(tileItemTable, ticket.CustomerId);
+                }
+
+                // Add total amount element
+                AddTotalAmountElement(tileItemTable, ticket.TotalAmount);
+
+                // Add date-time element
+                AddDateTimeElement(tileItemTable, ticket.Date);
+            }
+
+            return tileItemTable;
+        }
+
+        private TileItem CreateTileItemForOpenTable(Table table)
+        {
+            var ticket = _genericRepositoryTicket.GetAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true);
+            if (ticket != null)
+            {
+                TileItem tileItemTable = new TileItem();
+
+                // Set table properties
+                SetTableAppearance(tileItemTable);
+
+                tileItemTable.Tag = table.TableId;
+                tileItemTable.Text = TableName.GetName(table.TableId);
+                tileItemTable.ItemClick += tileItemTable_Click;
+
+                // Printed Table appearance settings
+                SetPrintedTableAppearance(tileItemTable, ticket);
+
+                // Add customer information if available
+                if (ticket.CustomerId != 0)
+                {
+                    AddCustomerElement(tileItemTable, ticket.CustomerId);
+                }
+
+                // Add total amount element
+                AddTotalAmountElement(tileItemTable, ticket.TotalAmount);
+
+                // Add date-time element
+                AddDateTimeElement(tileItemTable, ticket.Date);
+
+                return tileItemTable;
+            }
+
+            return null;
+        }
+
+        private TileItem CreateTileItemForCloseTable(Table table)
+        {
+            var ticket = _genericRepositoryTicket.GetAsNoTracking(x => x.TableId == table.TableId && x.IsOpened == true);
+            if (ticket != null)
+            {
+                return null;
+            }
+
+            TileItem tileItemTable = new TileItem();
+
+            // Set table properties
+            SetTableAppearance(tileItemTable);
+
+            tileItemTable.Tag = table.TableId;
+            tileItemTable.Text = TableName.GetName(table.TableId);
+            tileItemTable.ItemClick += tileItemTable_Click;
+
+            return tileItemTable;
+        }
+
+        private void SetTableAppearance(TileItem tileItemTable)
+        {
+            tileItemTable.AppearanceItem.Normal.BackColor = Color.FromArgb(157, 156, 161);
+            tileItemTable.AppearanceItem.Normal.BorderColor = Color.FromArgb(255, 202, 10);
+            tileItemTable.AppearanceItem.Hovered.BackColor = Color.FromArgb(255, 202, 10);
+            tileItemTable.AppearanceItem.Normal.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            tileItemTable.TextAlignment = TileItemContentAlignment.MiddleCenter;
+        }
+
+        private void SetPrintedTableAppearance(TileItem tileItemTable, Ticket ticket)
+        {
+            tileItemTable.AppearanceItem.Normal.BackColor = ticket.IsPrinted ? Color.IndianRed : Color.Orange;
+        }
+
+        private void AddCustomerElement(TileItem tileItemTable, int customerId)
+        {
+            TileItemElement customerElement = new TileItemElement();
+            customerElement.Text = CustomerHelper.GetName(customerId);
+            customerElement.TextAlignment = TileItemContentAlignment.TopLeft;
+            tileItemTable.Elements.Add(customerElement);
+        }
+
+        private void AddTotalAmountElement(TileItem tileItemTable, double totalAmount)
+        {
+            TileItemElement totalAmountElement = new TileItemElement();
+            totalAmountElement.Text = string.Format("{0:C}", totalAmount);
+            totalAmountElement.TextAlignment = TileItemContentAlignment.BottomRight;
+            tileItemTable.Elements.Add(totalAmountElement);
+        }
+
+        private void AddDateTimeElement(TileItem tileItemTable, DateTime date)
+        {
+            TimeSpan difference = date - DateTime.Now;
+            difference = TimeSpan.FromTicks(Math.Abs(difference.Ticks));
+            string timeDifference = $"{date.ToString("HH:mm")}\n{difference.Days:00}:{difference.Hours:00}:{difference.Minutes:00}:{difference.Seconds:00}";
+
+            TileItemElement dateTimeElement = new TileItemElement();
+            dateTimeElement.Text = timeDifference;
+            dateTimeElement.TextAlignment = TileItemContentAlignment.BottomLeft;
+            tileItemTable.Elements.Add(dateTimeElement);
         }
 
         private async void tileItemTable_Click(object sender, TileItemEventArgs e)
@@ -232,6 +326,16 @@ namespace WindowsFormsAppUI.Forms
         {
             TileItem sectionItem = (TileItem)sender;
             CreateTables(Convert.ToInt32(sectionItem.Tag));
+        }
+
+        private void buttonOpenTables_Click(object sender, EventArgs e)
+        {
+            CreateTables(-1, true);
+        }
+
+        private void buttonCloseTables_Click(object sender, EventArgs e)
+        {
+            CreateTables(-1, false);
         }
     }
 }

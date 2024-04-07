@@ -22,5 +22,10 @@ namespace WindowsFormsAppUI.Forms
             accordionControlElementSalesTypes.Text = GlobalVariables.CultureHelper.GetText("SalesTypes");
             accordionControlElementUsers.Text = GlobalVariables.CultureHelper.GetText("Users");
         }
+
+        private void accordionControlElementRevenues_Click(object sender, System.EventArgs e)
+        {
+            NavigationManager.OpenForm(new RevenuesReportForm(), DockStyle.Fill, panelMain);
+        }
     }
 }

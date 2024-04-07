@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Windows;
+using System.Windows.Documents;
 
 namespace WindowsFormsAppUI.Helpers
 {
@@ -19,7 +20,7 @@ namespace WindowsFormsAppUI.Helpers
             CompanyName = _genericRepositoryCompanyInformation.GetById(1).Name;
         }
 
-        public void TicketReceipt(List<Order> orders, Ticket ticket)
+        public FlowDocument TicketReceipt(List<Order> orders, Ticket ticket)
         {
             double totalBalance = 0;
 
@@ -72,6 +73,8 @@ namespace WindowsFormsAppUI.Helpers
             PrinterSettings printerSettings = new PrinterSettings();
             var printQueue = PrintersHelper.GetPrinter(printerSettings.PrinterName);
             AsyncPrintTask.Exec(true, () => PrintersHelper.PrintFlowDocument(printQueue, report.Document));
+
+            return report.Document;
         }
 
         #region Kitchen

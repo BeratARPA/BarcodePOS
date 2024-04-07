@@ -62,12 +62,13 @@
             this.accordionControlElementUsers});
             this.accordionControl1.ExpandElementMode = DevExpress.XtraBars.Navigation.ExpandElementMode.Multiple;
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsFooter.ActiveGroupDisplayMode = DevExpress.XtraBars.Navigation.ActiveGroupDisplayMode.GroupHeaderAndContent;
             this.accordionControl1.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
             this.accordionControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Fluent;
-            this.accordionControl1.Size = new System.Drawing.Size(282, 923);
+            this.accordionControl1.Size = new System.Drawing.Size(188, 600);
             this.accordionControl1.TabIndex = 2;
             // 
             // accordionControlElementEndOfTheDay
@@ -125,6 +126,7 @@
             this.accordionControlElementRevenues.Name = "accordionControlElementRevenues";
             this.accordionControlElementRevenues.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElementRevenues.Text = "Hasılatlar";
+            this.accordionControlElementRevenues.Click += new System.EventHandler(this.accordionControlElementRevenues_Click);
             // 
             // accordionControlElementCategorySales
             // 
@@ -292,21 +294,22 @@
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(282, 0);
+            this.panelMain.Location = new System.Drawing.Point(188, 0);
             this.panelMain.Margin = new System.Windows.Forms.Padding(0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(918, 923);
+            this.panelMain.Size = new System.Drawing.Size(612, 600);
             this.panelMain.TabIndex = 3;
             // 
             // ReportsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1200, 923);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.accordionControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ReportsForm";
             this.ShowInTaskbar = false;
             this.Text = "BarcodePOS";

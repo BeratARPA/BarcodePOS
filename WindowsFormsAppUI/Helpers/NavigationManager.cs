@@ -9,7 +9,7 @@ namespace WindowsFormsAppUI.Helpers
             FormCollection formCollection = Application.OpenForms;
             for (int i = formCollection.Count - 1; i >= 0; i--)
             {
-                if (formCollection[i].Name != "ShellForm" && formCollection[i].Name != "DashboardForm" && formCollection[i].Name != "PersonalizationForm" && !formCollection[i].Name.Contains("CustomerCallingForm") && formCollection[i].Name != "ClientConsoleForm" && formCollection[i].Name != "OpenWindowsForm")
+                if (formCollection[i].Name != "ShellForm" && formCollection[i].Name != "DashboardForm" && formCollection[i].Name != "PersonalizationForm" && !formCollection[i].Name.Contains("CustomerCallingForm") && formCollection[i].Name != "ClientConsoleForm" && formCollection[i].Name != "OpenWindowsForm" && formCollection[i].Name != "ReportsForm")
                 {
                     formCollection[i].Close();
                 }
