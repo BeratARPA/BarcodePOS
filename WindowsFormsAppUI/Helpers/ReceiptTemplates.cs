@@ -49,7 +49,7 @@ namespace WindowsFormsAppUI.Helpers
             report.AddLine("line1");
 
             report.AddColumTextAlignment("Orders", TextAlignment.Left, TextAlignment.Center, TextAlignment.Center);
-            report.AddColumnLength("Orders", "60*", "20*", "20*");
+            report.AddColumnLength("Orders", "auto", "20*", "20*");
             report.AddTable("Orders", GlobalVariables.CultureHelper.GetText("Product"), GlobalVariables.CultureHelper.GetText("Unit"), GlobalVariables.CultureHelper.GetText("Amount"));
             foreach (var order in orders)
             {
@@ -70,10 +70,13 @@ namespace WindowsFormsAppUI.Helpers
 
             report.AddFooter("Footer", GlobalVariables.CultureHelper.GetText("ReceiptFooter"), true);
 
+            report.Document.PageWidth = 302;
+            report.Document.PageHeight = report.GetDocumentHeight();
+
             PrinterSettings printerSettings = new PrinterSettings();
             var printQueue = PrintersHelper.GetPrinter(printerSettings.PrinterName);
             AsyncPrintTask.Exec(true, () => PrintersHelper.PrintFlowDocument(printQueue, report.Document));
-
+           
             return report.Document;
         }
 
@@ -109,7 +112,7 @@ namespace WindowsFormsAppUI.Helpers
             }
         }
 
-        private void KitchenTemplate(List<Order> orders, Ticket ticket, string printerName)
+        public FlowDocument KitchenTemplate(List<Order> orders, Ticket ticket, string printerName)
         {
             SimpleReport report = new SimpleReport();
 
@@ -130,16 +133,21 @@ namespace WindowsFormsAppUI.Helpers
             report.AddLine("line1");
 
             report.AddColumTextAlignment("Orders", TextAlignment.Left, TextAlignment.Center);
-            report.AddColumnLength("Orders", "80*", "20*");
+            report.AddColumnLength("Orders", "auto", "20*");
             report.AddTable("Orders", GlobalVariables.CultureHelper.GetText("Product"), GlobalVariables.CultureHelper.GetText("Unit"));
             foreach (var order in orders)
             {
                 report.AddRow("Orders", order.ProductName, order.Quantity.ToString());
             }
 
+            report.Document.PageWidth = 302;
+            report.Document.PageHeight = report.GetDocumentHeight();
+
             PrinterSettings printerSettings = new PrinterSettings();
             var printQueue = PrintersHelper.GetPrinter(printerName);
             AsyncPrintTask.Exec(true, () => PrintersHelper.PrintFlowDocument(printQueue, report.Document));
+
+            return report.Document;
         }
         #endregion
     }

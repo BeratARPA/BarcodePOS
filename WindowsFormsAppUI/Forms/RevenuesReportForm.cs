@@ -3,7 +3,6 @@ using Database.Models;
 using System;
 using System.IO;
 using System.Linq;
-using System.Windows.Documents;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
 
@@ -18,16 +17,35 @@ namespace WindowsFormsAppUI.Forms
         public RevenuesReportForm()
         {
             InitializeComponent();
+            UpdateUILanguage();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void RevenuesReportForm_Load(object sender, EventArgs e)
         {
+            dateTimePickerStart.DateTime = DateTime.Now;
+            dateTimePickerEnd.DateTime = DateTime.Now;
+        }
+
+        public void UpdateUILanguage()
+        {
+            buttonPrint.Text = GlobalVariables.CultureHelper.GetText("Print");
+            buttonRefresh.Text = GlobalVariables.CultureHelper.GetText("Refresh");
+        }
+
+        private void buttonPrint_Click(object sender, EventArgs e)
+        {
+            string filePath = Path.Combine(FolderLocations.barcodePOSFolderPath, "RevenuesReport.pdf");
+
+            pdfViewer1.CloseDocument();
+
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+
             var ticket = _genericRepositoryTicket.GetById(18);
+            var report = receiptTemplates.KitchenTemplate(ticket.Orders.ToList(), ticket, "PDF24");
+            PdfConverter.ConvertToPdf(report, filePath);
 
-            var report = receiptTemplates.TicketReceipt(ticket.Orders.ToList(), ticket);
-            XpsConverter.ConvertToXps<FlowDocument>(report, Path.Combine(FolderLocations.barcodePOSFolderPath, "RevenuesReport.xps"));
-
-            webBrowser1.Navigate(Path.Combine(FolderLocations.barcodePOSFolderPath, "RevenuesReport.xps"));
+            pdfViewer1.LoadDocument(filePath);
         }
     }
 }

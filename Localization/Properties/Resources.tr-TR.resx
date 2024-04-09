@@ -408,6 +408,9 @@
   <data name="Rectangle" xml:space="preserve">
     <value>Dikdörtgen</value>
   </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Yenile</value>
+  </data>
   <data name="Reports" xml:space="preserve">
     <value>Raporlar</value>
   </data>
