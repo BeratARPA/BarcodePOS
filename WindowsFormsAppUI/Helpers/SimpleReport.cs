@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 
@@ -8,7 +10,6 @@ namespace WindowsFormsAppUI.Helpers
 {
     public class SimpleReport
     {
-        private readonly LengthConverter _lengthConverter = new LengthConverter();
         private readonly GridLengthConverter _gridLengthConverter = new GridLengthConverter();
 
         public FlowDocument Document { get; set; }
@@ -138,13 +139,6 @@ namespace WindowsFormsAppUI.Helpers
             p.Inlines.Add(new LineBreak());
         }
 
-        public void AddLink(string text)
-        {
-            var hp = new Hyperlink(new Run(text)) { Name = text.Replace(" ", "_") };
-            Header.Inlines.Add(hp);
-            Header.Inlines.Add(new LineBreak());
-        }
-
         public TableRow CreateRow(string[] values, TextAlignment[] alignment, bool bold, bool isTable)
         {
             var row = new TableRow();
@@ -194,10 +188,68 @@ namespace WindowsFormsAppUI.Helpers
             return (GridLength)_gridLengthConverter.ConvertFromString(value);
         }
 
-        private double StringToLength(string value)
+        public double GetDocumentHeight()
         {
-            return (double)_lengthConverter.ConvertFromString(value);
+            double totalHeight = 0;
+
+            foreach (var block in Document.Blocks)
+            {
+                if (block is Paragraph paragraph)
+                {
+                    totalHeight += MeasureParagraphHeight(paragraph);
+                }
+                else if (block is Table table)
+                {
+                    totalHeight += MeasureTableHeight(table);
+                }
+            }
+
+            return totalHeight + 35;
         }
 
+        private double MeasureParagraphHeight(Paragraph paragraph)
+        {
+            var textBlock = new TextBlock(new Run(new TextRange(paragraph.ContentStart, paragraph.ContentEnd).Text));
+            textBlock.TextWrapping = TextWrapping.Wrap;
+            textBlock.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+            return textBlock.DesiredSize.Height;
+        }
+
+        private double MeasureTableHeight(Table table)
+        {
+            double height = 0;
+
+            foreach (var row in table.RowGroups[0].Rows)
+            {
+                height += MeasureTableRowHeight(row);
+            }
+
+            return height;
+        }
+
+        private double MeasureTableRowHeight(TableRow row)
+        {
+            double maxHeight = 0;
+
+            foreach (var cell in row.Cells)
+            {
+                if (cell.Blocks.Count > 0)
+                {
+                    foreach (var block in cell.Blocks)
+                    {
+                        if (block is Paragraph paragraph)
+                        {
+                            double paragraphHeight = MeasureParagraphHeight(paragraph);
+                            if (paragraphHeight > maxHeight)
+                            {
+                                maxHeight = paragraphHeight;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return maxHeight;
+        }
     }
 }

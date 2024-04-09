@@ -8,19 +8,19 @@ using WindowsFormsAppUI.Helpers;
 
 namespace WindowsFormsAppUI.Forms
 {
-    public partial class RevenuesReportForm : Form
+    public partial class CancelledProductsReportForm : Form
     {
         private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
 
         private ReceiptTemplates receiptTemplates = new ReceiptTemplates();
 
-        public RevenuesReportForm()
+        public CancelledProductsReportForm()
         {
             InitializeComponent();
             UpdateUILanguage();
         }
 
-        private void RevenuesReportForm_Load(object sender, EventArgs e)
+        private void CancelledProductsReportForm_Load(object sender, EventArgs e)
         {
             dateTimePickerStart.DateTime = DateTime.Now;
             dateTimePickerEnd.DateTime = DateTime.Now;

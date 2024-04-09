@@ -405,6 +405,9 @@
   <data name="Rectangle" xml:space="preserve">
     <value>Rectangle</value>
   </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
   <data name="Reports" xml:space="preserve">
     <value>Reports</value>
   </data>

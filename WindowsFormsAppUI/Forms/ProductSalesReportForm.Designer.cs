@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsAppUI.Forms
 {
-    partial class RevenuesReportForm
+    partial class ProductSalesReportForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pdfViewer1 = new DevExpress.XtraPdfViewer.PdfViewer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pdfViewer1 = new DevExpress.XtraPdfViewer.PdfViewer();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonPrint = new System.Windows.Forms.Button();
             this.dateTimePickerStart = new DevExpress.XtraEditors.DateEdit();
@@ -44,20 +44,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerEnd.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerEnd.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pdfViewer1
-            // 
-            this.pdfViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pdfViewer1.Location = new System.Drawing.Point(160, 20);
-            this.pdfViewer1.LookAndFeel.SkinName = "DevExpress Dark Style";
-            this.pdfViewer1.LookAndFeel.TouchUIMode = DevExpress.Utils.DefaultBoolean.True;
-            this.pdfViewer1.Margin = new System.Windows.Forms.Padding(0, 20, 0, 20);
-            this.pdfViewer1.Name = "pdfViewer1";
-            this.pdfViewer1.NavigationPanePageVisibility = DevExpress.XtraPdfViewer.PdfNavigationPanePageVisibility.None;
-            this.pdfViewer1.ReadOnly = true;
-            this.pdfViewer1.Size = new System.Drawing.Size(480, 520);
-            this.pdfViewer1.TabIndex = 2;
-            this.pdfViewer1.ZoomMode = DevExpress.XtraPdfViewer.PdfZoomMode.FitToVisible;
             // 
             // tableLayoutPanel1
             // 
@@ -73,7 +59,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 600);
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.tableLayoutPanel1.TabIndex = 5;
             // 
             // tableLayoutPanel2
             // 
@@ -90,6 +76,20 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(800, 560);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // pdfViewer1
+            // 
+            this.pdfViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdfViewer1.Location = new System.Drawing.Point(160, 20);
+            this.pdfViewer1.LookAndFeel.SkinName = "DevExpress Dark Style";
+            this.pdfViewer1.LookAndFeel.TouchUIMode = DevExpress.Utils.DefaultBoolean.True;
+            this.pdfViewer1.Margin = new System.Windows.Forms.Padding(0, 20, 0, 20);
+            this.pdfViewer1.Name = "pdfViewer1";
+            this.pdfViewer1.NavigationPanePageVisibility = DevExpress.XtraPdfViewer.PdfNavigationPanePageVisibility.None;
+            this.pdfViewer1.ReadOnly = true;
+            this.pdfViewer1.Size = new System.Drawing.Size(480, 520);
+            this.pdfViewer1.TabIndex = 2;
+            this.pdfViewer1.ZoomMode = DevExpress.XtraPdfViewer.PdfZoomMode.FitToVisible;
             // 
             // tableLayoutPanel3
             // 
@@ -191,7 +191,7 @@
             this.buttonRefresh.Text = "Yenile";
             this.buttonRefresh.UseVisualStyleBackColor = false;
             // 
-            // RevenuesReportForm
+            // ProductSalesReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -199,10 +199,9 @@
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "RevenuesReportForm";
-            this.ShowInTaskbar = false;
+            this.Name = "ProductSalesReportForm";
             this.Text = "BarcodePOS";
-            this.Load += new System.EventHandler(this.RevenuesReportForm_Load);
+            this.Load += new System.EventHandler(this.ProductSalesReportForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -215,13 +214,14 @@
         }
 
         #endregion
-        private DevExpress.XtraPdfViewer.PdfViewer pdfViewer1;
+
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private DevExpress.XtraPdfViewer.PdfViewer pdfViewer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button buttonPrint;
         private DevExpress.XtraEditors.DateEdit dateTimePickerStart;
         private DevExpress.XtraEditors.DateEdit dateTimePickerEnd;
-        private System.Windows.Forms.Button buttonPrint;
         private System.Windows.Forms.Button buttonRefresh;
     }
 }

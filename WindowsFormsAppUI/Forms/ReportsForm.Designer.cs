@@ -62,7 +62,7 @@
             this.accordionControlElementUsers});
             this.accordionControl1.ExpandElementMode = DevExpress.XtraBars.Navigation.ExpandElementMode.Multiple;
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.accordionControl1.Margin = new System.Windows.Forms.Padding(2);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.OptionsFooter.ActiveGroupDisplayMode = DevExpress.XtraBars.Navigation.ActiveGroupDisplayMode.GroupHeaderAndContent;
             this.accordionControl1.OptionsMinimizing.AllowMinimizeMode = DevExpress.Utils.DefaultBoolean.True;
@@ -98,6 +98,7 @@
             this.accordionControlElementEndOfTheDay.Name = "accordionControlElementEndOfTheDay";
             this.accordionControlElementEndOfTheDay.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElementEndOfTheDay.Text = "Gün Sonu";
+            this.accordionControlElementEndOfTheDay.Click += new System.EventHandler(this.accordionControlElementEndOfTheDay_Click);
             // 
             // accordionControlElementRevenues
             // 
@@ -155,6 +156,7 @@
             this.accordionControlElementCategorySales.Name = "accordionControlElementCategorySales";
             this.accordionControlElementCategorySales.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElementCategorySales.Text = "Kategori Satışlar";
+            this.accordionControlElementCategorySales.Click += new System.EventHandler(this.accordionControlElementCategorySales_Click);
             // 
             // accordionControlElementProductSales
             // 
@@ -182,6 +184,7 @@
             this.accordionControlElementProductSales.Name = "accordionControlElementProductSales";
             this.accordionControlElementProductSales.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElementProductSales.Text = "Ürün Satışlar";
+            this.accordionControlElementProductSales.Click += new System.EventHandler(this.accordionControlElementProductSales_Click);
             // 
             // accordionControlElementCancelledProducts
             // 
@@ -209,6 +212,7 @@
             this.accordionControlElementCancelledProducts.Name = "accordionControlElementCancelledProducts";
             this.accordionControlElementCancelledProducts.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElementCancelledProducts.Text = "İptal Ürünler";
+            this.accordionControlElementCancelledProducts.Click += new System.EventHandler(this.accordionControlElementCancelledProducts_Click);
             // 
             // accordionControlElementTickets
             // 
@@ -236,6 +240,7 @@
             this.accordionControlElementTickets.Name = "accordionControlElementTickets";
             this.accordionControlElementTickets.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElementTickets.Text = "Siparişler";
+            this.accordionControlElementTickets.Click += new System.EventHandler(this.accordionControlElementTickets_Click);
             // 
             // accordionControlElementSalesTypes
             // 
@@ -263,6 +268,7 @@
             this.accordionControlElementSalesTypes.Name = "accordionControlElementSalesTypes";
             this.accordionControlElementSalesTypes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElementSalesTypes.Text = "Satış Tipleri";
+            this.accordionControlElementSalesTypes.Click += new System.EventHandler(this.accordionControlElementSalesTypes_Click);
             // 
             // accordionControlElementUsers
             // 
@@ -290,6 +296,7 @@
             this.accordionControlElementUsers.Name = "accordionControlElementUsers";
             this.accordionControlElementUsers.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElementUsers.Text = "Kullanıcılar";
+            this.accordionControlElementUsers.Click += new System.EventHandler(this.accordionControlElementUsers_Click);
             // 
             // panelMain
             // 
@@ -309,7 +316,7 @@
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.accordionControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ReportsForm";
             this.ShowInTaskbar = false;
             this.Text = "BarcodePOS";

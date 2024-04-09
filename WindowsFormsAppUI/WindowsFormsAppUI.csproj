@@ -97,6 +97,8 @@
     <Reference Include="DevExpress.Data.Desktop.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Drawing.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v22.1.Core, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v22.1.Drawing, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v22.1.Core, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v22.1.Core, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -105,10 +107,12 @@
     <Reference Include="DevExpress.XtraGrid.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraLayout.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraNavBar.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPdfViewer.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v22.1.Core, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v22.1.Core.Desktop, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v22.1, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -122,6 +126,14 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
     <Reference Include="System.Printing" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -134,16 +146,31 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="XpsToPdf, Version=1.0.6.0, Culture=neutral, PublicKeyToken=634e6cf25cccf9f5, processorArchitecture=MSIL">
+      <HintPath>..\packages\XpsToPdf.1.0.6\lib\net48\XpsToPdf.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\ClientCommandsEnum.cs" />
     <Compile Include="Enums\CustomerCallingEnum.cs" />
     <Compile Include="Enums\UnitOfMeasureEnum.cs" />
+    <Compile Include="Forms\CancelledProductsReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CancelledProductsReportForm.Designer.cs">
+      <DependentUpon>CancelledProductsReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CategoryPersonalizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CategoryPersonalizationForm.Designer.cs">
       <DependentUpon>CategoryPersonalizationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CategorySalesReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CategorySalesReportForm.Designer.cs">
+      <DependentUpon>CategorySalesReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ClientConsoleForm.cs">
       <SubType>Form</SubType>
@@ -192,6 +219,12 @@
     </Compile>
     <Compile Include="Forms\DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndOfTheDayReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EndOfTheDayReportForm.Designer.cs">
+      <DependentUpon>EndOfTheDayReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LabelPropertyForm.cs">
       <SubType>Form</SubType>
@@ -265,6 +298,12 @@
     <Compile Include="Forms\ProductPersonalizationForm.Designer.cs">
       <DependentUpon>ProductPersonalizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ProductSalesReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProductSalesReportForm.Designer.cs">
+      <DependentUpon>ProductSalesReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\QuickMenuSelectProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +321,12 @@
     </Compile>
     <Compile Include="Forms\RevenuesReportForm.Designer.cs">
       <DependentUpon>RevenuesReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SalesTypesReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SalesTypesReportForm.Designer.cs">
+      <DependentUpon>SalesTypesReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SaveCustomerForm.cs">
       <SubType>Form</SubType>
@@ -307,6 +352,18 @@
     <Compile Include="Forms\TicketsForm.Designer.cs">
       <DependentUpon>TicketsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TicketsReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TicketsReportForm.Designer.cs">
+      <DependentUpon>TicketsReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UsersReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UsersReportForm.Designer.cs">
+      <DependentUpon>UsersReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\AsyncPrintTask.cs" />
     <Compile Include="Helpers\CashDrawer.cs" />
     <Compile Include="Helpers\CultureHelper.cs" />
@@ -319,6 +376,7 @@
     <Compile Include="Helpers\LoggedInUser.cs" />
     <Compile Include="Helpers\MachineName.cs" />
     <Compile Include="Helpers\NavigationManager.cs" />
+    <Compile Include="Helpers\PdfConverter.cs" />
     <Compile Include="Helpers\PrintersHelper.cs" />
     <Compile Include="Helpers\ReceiptTemplates.cs" />
     <Compile Include="Helpers\ResizeLayout.cs" />
@@ -380,8 +438,14 @@
     <Compile Include="UserControls\ProductUserControl.Designer.cs">
       <DependentUpon>ProductUserControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\CancelledProductsReportForm.resx">
+      <DependentUpon>CancelledProductsReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CategoryPersonalizationForm.resx">
       <DependentUpon>CategoryPersonalizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CategorySalesReportForm.resx">
+      <DependentUpon>CategorySalesReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClientConsoleForm.resx">
       <DependentUpon>ClientConsoleForm.cs</DependentUpon>
@@ -406,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EndOfTheDayReportForm.resx">
+      <DependentUpon>EndOfTheDayReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LabelPropertyForm.resx">
       <DependentUpon>LabelPropertyForm.cs</DependentUpon>
@@ -443,6 +510,9 @@
     <EmbeddedResource Include="Forms\ProductPersonalizationForm.resx">
       <DependentUpon>ProductPersonalizationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductSalesReportForm.resx">
+      <DependentUpon>ProductSalesReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\QuickMenuSelectProductForm.resx">
       <DependentUpon>QuickMenuSelectProductForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -451,6 +521,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RevenuesReportForm.resx">
       <DependentUpon>RevenuesReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SalesTypesReportForm.resx">
+      <DependentUpon>SalesTypesReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SaveCustomerForm.resx">
       <DependentUpon>SaveCustomerForm.cs</DependentUpon>
@@ -463,6 +536,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TicketsForm.resx">
       <DependentUpon>TicketsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TicketsReportForm.resx">
+      <DependentUpon>TicketsReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UsersReportForm.resx">
+      <DependentUpon>UsersReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
