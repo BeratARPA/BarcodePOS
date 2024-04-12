@@ -313,12 +313,12 @@ namespace WindowsFormsAppUI.Forms
                 CreateTables(section.SectionId);
                 _ticket = null;
 
-                await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
+               await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
                 return;
             }
             #endregion
 
-          await  NavigationManager.OpenForm(new POSForm(1, ticket == null ? null : ticket, section, table), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            NavigationManager.OpenForm(new POSForm(1, ticket == null ? null : ticket, section, table), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
         }
 

@@ -71,11 +71,11 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        private async void PaymentTypeUserControl_Click(object sender, EventArgs e)
+        private void PaymentTypeUserControl_Click(object sender, EventArgs e)
         {
             PaymentTypeUserControl paymentTypeUserControl = (PaymentTypeUserControl)sender;
 
-           await NavigationManager.OpenForm(new CustomerAccountPaymentForm(paymentTypeUserControl._paymentType, _customer == null ? null : _customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            NavigationManager.OpenForm(new CustomerAccountPaymentForm(paymentTypeUserControl._paymentType, _customer == null ? null : _customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
         }
 
@@ -101,7 +101,7 @@ namespace WindowsFormsAppUI.Forms
             GoCustomersForm();
         }
 
-        private async void buttonFindTicket_Click(object sender, EventArgs e)
+        private void buttonFindTicket_Click(object sender, EventArgs e)
         {
             if (_ticket == null)
             {
@@ -116,16 +116,16 @@ namespace WindowsFormsAppUI.Forms
                     var ticket = _genericRepositoryTicket.Get(x => x.TicketId == ticketId);
                     if (ticket != null)
                     {
-                       await NavigationManager.OpenForm(new POSForm(3, ticket, null, null, _customer), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                        NavigationManager.OpenForm(new POSForm(3, ticket, null, null, _customer), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                         GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
                     }
                 }
             }
         }
 
-        private async void GoCustomersForm()
+        private void GoCustomersForm()
         {
-          await  NavigationManager.OpenForm(new CustomersForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            NavigationManager.OpenForm(new CustomersForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
 
             if (_ticket != null)

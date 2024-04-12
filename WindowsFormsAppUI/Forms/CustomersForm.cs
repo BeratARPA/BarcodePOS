@@ -110,13 +110,13 @@ namespace WindowsFormsAppUI.Forms
             Fill();
         }
 
-        private async void buttonSave_Click(object sender, EventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e)
         {
-          await  NavigationManager.OpenForm(new SaveCustomerForm(textBoxSearchCustomer.Text, "", null, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            NavigationManager.OpenForm(new SaveCustomerForm(textBoxSearchCustomer.Text, "", null, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
         }
 
-        private async void buttonSelect_Click(object sender, EventArgs e)
+        private void buttonSelect_Click(object sender, EventArgs e)
         {
             if (dataGridViewCustomers.SelectedRows.Count <= 0)
             {
@@ -130,12 +130,12 @@ namespace WindowsFormsAppUI.Forms
                 if (_ticket != null)
                     _ticket.CustomerId = customerId;
 
-               await NavigationManager.OpenForm(new POSForm(3, _ticket == null ? null : _ticket, null, null, customer), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new POSForm(3, _ticket == null ? null : _ticket, null, null, customer), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
             }
         }
 
-        private async void buttonUpdate_Click(object sender, EventArgs e)
+        private void buttonUpdate_Click(object sender, EventArgs e)
         {
             if (dataGridViewCustomers.SelectedRows.Count <= 0)
             {
@@ -146,12 +146,12 @@ namespace WindowsFormsAppUI.Forms
             var customer = _genericRepositoryCustomer.Get(x => x.CustomerId == customerId);
             if (customer != null)
             {
-               await NavigationManager.OpenForm(new SaveCustomerForm("", "", customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new SaveCustomerForm("", "", customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
             }
         }
 
-        private async void buttonAccountDetails_Click(object sender, EventArgs e)
+        private void buttonAccountDetails_Click(object sender, EventArgs e)
         {
             if (dataGridViewCustomers.SelectedRows.Count <= 0)
             {
@@ -162,12 +162,12 @@ namespace WindowsFormsAppUI.Forms
             var customer = _genericRepositoryCustomer.Get(x => x.CustomerId == customerId);
             if (customer.IsAccount)
             {
-              await  NavigationManager.OpenForm(new CustomerAccountDetailsForm(customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new CustomerAccountDetailsForm(customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
             }
         }
 
-        private async void buttonCustomerCard_Click(object sender, EventArgs e)
+        private void buttonCustomerCard_Click(object sender, EventArgs e)
         {
             if (dataGridViewCustomers.SelectedRows.Count <= 0)
             {
@@ -178,7 +178,7 @@ namespace WindowsFormsAppUI.Forms
             var customer = _genericRepositoryCustomer.Get(x => x.CustomerId == customerId);
             if (customer != null)
             {
-               await NavigationManager.OpenForm(new CustomerCardForm(customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new CustomerCardForm(customer, _ticket == null ? null : _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
             }
         }

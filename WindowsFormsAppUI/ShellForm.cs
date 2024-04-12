@@ -154,9 +154,9 @@ namespace WindowsFormsAppUI
             labelTime.Text = labelTime.Text.Contains(":") ? time.Replace(":", ".") : time;
         }
 
-        private async void buttonMainMenu_Click(object sender, EventArgs e)
+        private void buttonMainMenu_Click(object sender, EventArgs e)
         {
-          await  NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             buttonMainMenu.Enabled = false;
         }
 

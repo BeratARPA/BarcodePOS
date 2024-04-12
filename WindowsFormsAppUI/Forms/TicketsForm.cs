@@ -122,7 +122,7 @@ namespace WindowsFormsAppUI.Forms
             labelTotalAmount.Text = string.Format("{0:C}", totalAmount);
         }
 
-        private async void dataGridViewTickets_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewTickets_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewTickets.Columns["Show"] != null && e.ColumnIndex == dataGridViewTickets.Columns["Show"].Index && e.RowIndex >= 0)
             {
@@ -135,7 +135,7 @@ namespace WindowsFormsAppUI.Forms
 
                 if (ticket != null)
                 {
-                 await   NavigationManager.OpenForm(new POSForm(2, ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                    NavigationManager.OpenForm(new POSForm(2, ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                     GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
                 }
             }

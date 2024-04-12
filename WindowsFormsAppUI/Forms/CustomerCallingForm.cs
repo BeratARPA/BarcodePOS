@@ -23,16 +23,16 @@ namespace WindowsFormsAppUI.Forms
         public CustomerCallingEnum action;
         private int x, y;
 
-        private async void CustomerCallingForm_Click(object sender, EventArgs e)
+        private void CustomerCallingForm_Click(object sender, EventArgs e)
         {
             if (_customer != null)
             {
-               await NavigationManager.OpenForm(new CustomerCardForm(_customer), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new CustomerCardForm(_customer), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
             }
             else
             {
-               await NavigationManager.OpenForm(new SaveCustomerForm("", _phoneNumber, null, null), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new SaveCustomerForm("", _phoneNumber, null, null), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
             }
 

@@ -38,9 +38,9 @@ namespace WindowsFormsAppUI.Forms
             label4.Text = GlobalVariables.CultureHelper.GetText("AccountName");
         }
 
-        private async void GoCustomerAccountDetailsForm()
+        private void GoCustomerAccountDetailsForm()
         {
-           await NavigationManager.OpenForm(new CustomerAccountDetailsForm(_customer, _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            NavigationManager.OpenForm(new CustomerAccountDetailsForm(_customer, _ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
         }
 
