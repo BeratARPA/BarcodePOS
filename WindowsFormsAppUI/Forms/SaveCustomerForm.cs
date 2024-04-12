@@ -99,9 +99,9 @@ namespace WindowsFormsAppUI.Forms
             GoCustomersForm();
         }
 
-        private async void GoCustomersForm()
+        private void GoCustomersForm()
         {
-           await NavigationManager.OpenForm(new CustomersForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            NavigationManager.OpenForm(new CustomersForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
 
             if (_ticket != null)

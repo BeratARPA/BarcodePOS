@@ -1,12 +1,10 @@
-﻿using System.Threading.Tasks;
-using System.Windows.Forms;
-using WindowsFormsAppUI.Forms;
+﻿using System.Windows.Forms;
 
 namespace WindowsFormsAppUI.Helpers
 {
     public class NavigationManager
     {
-        public static async Task OpenForm(Form form, DockStyle dockStyle, Panel parentPanel, bool loadingForm = true)
+        public static void OpenForm(Form form, DockStyle dockStyle, Panel parentPanel)
         {
             parentPanel.Controls.Clear();
 
@@ -19,34 +17,12 @@ namespace WindowsFormsAppUI.Helpers
                 }
             }
 
-            LoadingScreenForm loadingScreen = null;
-            if (loadingForm)
-            {
-                loadingScreen = new LoadingScreenForm();
-                loadingScreen.Dock = dockStyle;
-                loadingScreen.TopLevel = false;
-                loadingScreen.TopMost = true;
-                loadingScreen.Show();
-
-                parentPanel.Controls.Add(loadingScreen);
-            }
-
             Form formSearch = Application.OpenForms[form.Name];
             if (formSearch != null)
             {
                 formSearch.Dock = dockStyle;
                 formSearch.TopLevel = false;
                 formSearch.TopMost = true;
-
-                if (loadingForm)
-                {
-                    formSearch.Load += (sender, e) =>
-                    {
-                        loadingScreen.Close();
-                        loadingScreen.Dispose();
-                    };
-                }
-
                 formSearch.Show();
 
                 parentPanel.Controls.Add(formSearch);
@@ -56,16 +32,6 @@ namespace WindowsFormsAppUI.Helpers
                 form.Dock = dockStyle;
                 form.TopLevel = false;
                 form.TopMost = true;
-
-                if (loadingForm)
-                {
-                    form.Load += (sender, e) =>
-                    {
-                        loadingScreen.Close();
-                        loadingScreen.Dispose();
-                    };
-                }
-
                 form.Show();
 
                 parentPanel.Controls.Add(form);

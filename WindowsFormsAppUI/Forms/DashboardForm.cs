@@ -46,46 +46,46 @@ namespace WindowsFormsAppUI.Forms
             tileItemCustomers.Text = GlobalVariables.CultureHelper.GetText("Customers");
         }
 
-        private async void tileItemManagement_ItemClick(object sender, TileItemEventArgs e)
+        private void tileItemManagement_ItemClick(object sender, TileItemEventArgs e)
         {
             if (!editMode)
             {
-               await NavigationManager.OpenForm(new ManagementForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new ManagementForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
             }
         }
 
-        private async void tileItemTickets_ItemClick(object sender, TileItemEventArgs e)
+        private void tileItemTickets_ItemClick(object sender, TileItemEventArgs e)
         {
             if (!editMode)
             {
-               await NavigationManager.OpenForm(new TicketsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new TicketsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
             }
         }
 
-        private async void tileItemPersonalization_ItemClick(object sender, TileItemEventArgs e)
+        private void tileItemPersonalization_ItemClick(object sender, TileItemEventArgs e)
         {
             if (!editMode)
             {
-               await NavigationManager.OpenForm(new PersonalizationForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new PersonalizationForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
             }
         }
 
-        private async void tileItemPOS_ItemClick(object sender, TileItemEventArgs e)
+        private void tileItemPOS_ItemClick(object sender, TileItemEventArgs e)
         {
             if (!editMode)
             {
-               await NavigationManager.OpenForm(new POSForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new POSForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             }
         }
 
-        private async void tileItemReports_ItemClick(object sender, TileItemEventArgs e)
+        private void tileItemReports_ItemClick(object sender, TileItemEventArgs e)
         {
             if (!editMode)
             {
-               await NavigationManager.OpenForm(new ReportsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new ReportsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
             }
         }
@@ -106,38 +106,38 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        private async void tileItemCreateProductLabel_ItemClick(object sender, TileItemEventArgs e)
+        private void tileItemCreateProductLabel_ItemClick(object sender, TileItemEventArgs e)
         {
             if (!editMode)
             {
-              await  NavigationManager.OpenForm(new ProductLabelDesignForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new ProductLabelDesignForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
             }
         }
 
-        private async void tileItemTechnicalSupport_ItemClick(object sender, TileItemEventArgs e)
+        private void tileItemTechnicalSupport_ItemClick(object sender, TileItemEventArgs e)
         {
             if (!editMode)
             {
-              await  NavigationManager.OpenForm(new TechnicalSupportForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new TechnicalSupportForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
             }
         }
 
-        private async void tileItemTables_ItemClick(object sender, TileItemEventArgs e)
+        private void tileItemTables_ItemClick(object sender, TileItemEventArgs e)
         {
             if (!editMode)
             {
-              await  NavigationManager.OpenForm(new TablesForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new TablesForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
             }
         }
 
-        private async void tileItemCustomers_ItemClick(object sender, TileItemEventArgs e)
+        private void tileItemCustomers_ItemClick(object sender, TileItemEventArgs e)
         {
             if (!editMode)
             {
-              await  NavigationManager.OpenForm(new CustomersForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new CustomersForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
             }
         }
