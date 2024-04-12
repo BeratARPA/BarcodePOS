@@ -56,10 +56,10 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(266, 200);
+            this.label4.Location = new System.Drawing.Point(266, 199);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(266, 200);
+            this.label4.Size = new System.Drawing.Size(266, 199);
             this.label4.TabIndex = 1;
             this.label4.Text = "Yükleniyor...";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
