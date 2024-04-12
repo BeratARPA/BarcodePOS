@@ -8,14 +8,13 @@ namespace WindowsFormsAppUI.Helpers
     {
         public static async Task OpenForm(Form form, DockStyle dockStyle, Panel parentPanel)
         {
-            // LoadingScreenForm'u oluştur ve parentPanel'e ekle
             LoadingScreenForm loadingScreen = new LoadingScreenForm();
             loadingScreen.TopLevel = false;
-            loadingScreen.Dock = DockStyle.Fill;
-            parentPanel.Controls.Add(loadingScreen);
+            loadingScreen.TopMost = true;
+            loadingScreen.Dock = dockStyle;
             loadingScreen.Show();
+            parentPanel.Controls.Add(loadingScreen);
 
-            // Form kapatma işlemleri
             FormCollection formCollection = Application.OpenForms;
             for (int i = formCollection.Count - 1; i >= 0; i--)
             {
@@ -25,10 +24,8 @@ namespace WindowsFormsAppUI.Helpers
                 }
             }
 
-            // ParentPanel'i temizle
             parentPanel.Controls.Clear();
 
-            // Formu ara ve kontrol et
             Form formSearch = Application.OpenForms[form.Name];
             if (formSearch != null)
             {
@@ -41,18 +38,15 @@ namespace WindowsFormsAppUI.Helpers
             }
             else
             {
-                // Formu ekle
                 form.Dock = dockStyle;
                 form.TopLevel = false;
                 form.TopMost = true;
 
-                // Formu yüklediğinde LoadingScreenForm'u kapat
                 form.Load += (sender, e) =>
                 {
                     loadingScreen.Close();
                 };
 
-                // Formu göster
                 form.Show();
                 parentPanel.Controls.Add(form);
             }
