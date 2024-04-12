@@ -25,7 +25,7 @@ namespace WindowsFormsAppUI
             GlobalVariables.ShellForm = this;
 
             ResizeLayout.CloseFooter();
-         await   NavigationManager.OpenForm(new LoginForm(), DockStyle.Fill, panelMain);
+            NavigationManager.OpenForm(new LoginForm(), DockStyle.Fill, panelMain);
 
             _timer = new Timer();
             _timer.Tick += TimerTick;
