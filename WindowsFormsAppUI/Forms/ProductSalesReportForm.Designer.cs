@@ -100,9 +100,9 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.Controls.Add(this.buttonPrint, 4, 0);
-            this.tableLayoutPanel3.Controls.Add(this.dateTimePickerStart, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.dateTimePickerEnd, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonRefresh, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dateTimePickerEnd, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dateTimePickerStart, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -135,7 +135,7 @@
             // 
             this.dateTimePickerStart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePickerStart.EditValue = null;
-            this.dateTimePickerStart.Location = new System.Drawing.Point(452, 2);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(302, 2);
             this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
             this.dateTimePickerStart.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F);
@@ -156,7 +156,7 @@
             // 
             this.dateTimePickerEnd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePickerEnd.EditValue = null;
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(302, 2);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(452, 2);
             this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
             this.dateTimePickerEnd.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F);

@@ -23,44 +23,44 @@ namespace WindowsFormsAppUI.Forms
             accordionControlElementUsers.Text = GlobalVariables.CultureHelper.GetText("Users");
         }
 
-        private void accordionControlElementEndOfTheDay_Click(object sender, System.EventArgs e)
-        {
-            NavigationManager.OpenForm(new EndOfTheDayReportForm(), DockStyle.Fill, panelMain);
+        private async void accordionControlElementEndOfTheDay_Click(object sender, System.EventArgs e)
+        {            
+          await  NavigationManager.OpenForm(new EndOfTheDayReportForm(), DockStyle.Fill, panelMain);
         }
 
-        private void accordionControlElementRevenues_Click(object sender, System.EventArgs e)
+        private async void accordionControlElementRevenues_Click(object sender, System.EventArgs e)
         {
-            NavigationManager.OpenForm(new RevenuesReportForm(), DockStyle.Fill, panelMain);
+          await  NavigationManager.OpenForm(new RevenuesReportForm(), DockStyle.Fill, panelMain);
         }
 
-        private void accordionControlElementCategorySales_Click(object sender, System.EventArgs e)
+        private async void accordionControlElementCategorySales_Click(object sender, System.EventArgs e)
         {
-            NavigationManager.OpenForm(new CategorySalesReportForm(), DockStyle.Fill, panelMain);
+           await NavigationManager.OpenForm(new CategorySalesReportForm(), DockStyle.Fill, panelMain);
         }
 
-        private void accordionControlElementProductSales_Click(object sender, System.EventArgs e)
+        private async void accordionControlElementProductSales_Click(object sender, System.EventArgs e)
         {
-            NavigationManager.OpenForm(new ProductSalesReportForm(), DockStyle.Fill, panelMain);
+           await NavigationManager.OpenForm(new ProductSalesReportForm(), DockStyle.Fill, panelMain);
         }
 
-        private void accordionControlElementCancelledProducts_Click(object sender, System.EventArgs e)
+        private async void accordionControlElementCancelledProducts_Click(object sender, System.EventArgs e)
         {
-            NavigationManager.OpenForm(new CancelledProductsReportForm(), DockStyle.Fill, panelMain);
+          await  NavigationManager.OpenForm(new CancelledProductsReportForm(), DockStyle.Fill, panelMain);
         }
 
-        private void accordionControlElementTickets_Click(object sender, System.EventArgs e)
+        private async void accordionControlElementTickets_Click(object sender, System.EventArgs e)
         {
-            NavigationManager.OpenForm(new TicketsReportForm(), DockStyle.Fill, panelMain);
+          await  NavigationManager.OpenForm(new TicketsReportForm(), DockStyle.Fill, panelMain);
         }
 
-        private void accordionControlElementSalesTypes_Click(object sender, System.EventArgs e)
+        private async void accordionControlElementSalesTypes_Click(object sender, System.EventArgs e)
         {
-            NavigationManager.OpenForm(new SalesTypesReportForm(), DockStyle.Fill, panelMain);
+           await NavigationManager.OpenForm(new SalesTypesReportForm(), DockStyle.Fill, panelMain);
         }
 
-        private void accordionControlElementUsers_Click(object sender, System.EventArgs e)
+        private async void accordionControlElementUsers_Click(object sender, System.EventArgs e)
         {
-            NavigationManager.OpenForm(new UsersReportForm(), DockStyle.Fill, panelMain);
+           await NavigationManager.OpenForm(new UsersReportForm(), DockStyle.Fill, panelMain);
         }       
     }
 }

@@ -19,19 +19,19 @@ namespace WindowsFormsAppUI.Forms
             accordionControlElementPaymentTypes.Text = GlobalVariables.CultureHelper.GetText("PaymentTypes");          
         }
 
-        private void accordionControlElementCategories_Click(object sender, EventArgs e)
+        private async void accordionControlElementCategories_Click(object sender, EventArgs e)
         {
-            NavigationManager.OpenForm(new CategoryPersonalizationForm(), DockStyle.Fill, panelMain);
+           await NavigationManager.OpenForm(new CategoryPersonalizationForm(), DockStyle.Fill, panelMain);
         }
 
-        private void accordionControlElementProducts_Click(object sender, EventArgs e)
+        private async void accordionControlElementProducts_Click(object sender, EventArgs e)
         {
-            NavigationManager.OpenForm(new ProductPersonalizationForm(), DockStyle.Fill, panelMain);
+           await NavigationManager.OpenForm(new ProductPersonalizationForm(), DockStyle.Fill, panelMain);
         }
 
-        private void accordionControlElementPaymentTypes_Click(object sender, EventArgs e)
+        private async void accordionControlElementPaymentTypes_Click(object sender, EventArgs e)
         {
-            NavigationManager.OpenForm(new PaymentTypePersonalizationForm(), DockStyle.Fill, panelMain);
+           await NavigationManager.OpenForm(new PaymentTypePersonalizationForm(), DockStyle.Fill, panelMain);
         }
     }
 }

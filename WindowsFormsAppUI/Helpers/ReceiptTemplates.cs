@@ -1,5 +1,6 @@
 ﻿using Database.Data;
 using Database.Models;
+using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.Linq;
@@ -18,6 +19,88 @@ namespace WindowsFormsAppUI.Helpers
         public ReceiptTemplates()
         {
             CompanyName = _genericRepositoryCompanyInformation.GetById(1).Name;
+        }
+
+        public FlowDocument CategorySalesReport(List<Ticket> tickets, List<Order> orders, List<Product> products, List<Category> categories)
+        {
+            double totalSales = 0;
+
+            SimpleReport report = new SimpleReport();
+
+            report.AddHeader("Kategori Satış Raporu");
+
+            var query = from t in tickets
+                        join o in orders on t.TicketId equals o.TicketId
+                        join p in products on o.ProductId equals p.ProductId
+                        join c in categories on p.CategoryId equals c.CategoryId
+                        where t.IsOpened == false
+                        group o by new { c.CategoryId, c.Name } into grouped
+                        select new
+                        {
+                            CategoryID = grouped.Key.CategoryId,
+                            CategoryName = grouped.Key.Name,
+                            TotalQuantity = grouped.Sum(x => x.Quantity)
+                        };
+
+
+            report.AddColumTextAlignment("Sales", TextAlignment.Left, TextAlignment.Center);
+            report.AddColumnLength("Sales", "auto", "20*");
+            report.AddTable("Sales", GlobalVariables.CultureHelper.GetText("Product"), GlobalVariables.CultureHelper.GetText("Unit"));
+            foreach (var categoriesSales in query)
+            {
+                totalSales += categoriesSales.TotalQuantity;
+                report.AddRow("Sales", categoriesSales.CategoryName, categoriesSales.TotalQuantity.ToString());
+            }
+
+            report.AddLine("line1");
+
+            report.AddRow("Sales", "", "");
+            report.AddRow("Sales", GlobalVariables.CultureHelper.GetText("Total") + ":", totalSales.ToString());
+
+            report.AddFooter("Footer", CompanyName, true);
+
+            report.Document.PageWidth = 302;
+            report.Document.PageHeight = report.GetDocumentHeight();
+
+            return report.Document;
+        }
+
+        public FlowDocument RevenuesReport(List<Payment> payments)
+        {
+            double totalRevenues = 0;
+
+            SimpleReport report = new SimpleReport();
+
+            report.AddHeader("Hasılat Raporu");
+
+            var paymentTotalAmounts = payments
+            .GroupBy(p => p.PaymentTypeId)
+            .Select(g => new
+            {
+                PaymentName = g.First().Name,
+                Total = g.Sum(p => p.TenderedAmount)
+            });
+
+            report.AddColumTextAlignment("Sales", TextAlignment.Left, TextAlignment.Center);
+            report.AddColumnLength("Sales", "auto", "20*");
+            report.AddTable("Sales", GlobalVariables.CultureHelper.GetText("Product"), GlobalVariables.CultureHelper.GetText("Unit"));
+            foreach (var paymentTotalAmount in paymentTotalAmounts)
+            {
+                totalRevenues += paymentTotalAmount.Total;
+                report.AddRow("Sales", paymentTotalAmount.PaymentName, string.Format("{0:C}", paymentTotalAmount.Total));
+            }
+
+            report.AddLine("line1");
+
+            report.AddRow("Sales", "", "");
+            report.AddRow("Sales", GlobalVariables.CultureHelper.GetText("Total") + ":", string.Format("{0:C}", totalRevenues));
+
+            report.AddFooter("Footer", CompanyName, true);
+
+            report.Document.PageWidth = 302;
+            report.Document.PageHeight = report.GetDocumentHeight();
+
+            return report.Document;
         }
 
         public FlowDocument TicketReceipt(List<Order> orders, Ticket ticket)
@@ -53,8 +136,10 @@ namespace WindowsFormsAppUI.Helpers
             report.AddTable("Orders", GlobalVariables.CultureHelper.GetText("Product"), GlobalVariables.CultureHelper.GetText("Unit"), GlobalVariables.CultureHelper.GetText("Amount"));
             foreach (var order in orders)
             {
+                var product = _genericRepositoryProduct.GetById(order.ProductId);
+
                 totalBalance += order.Price * order.Quantity;
-                report.AddRow("Orders", order.ProductName, order.Quantity.ToString(), string.Format("{0:C}", order.Price * order.Quantity));
+                report.AddRow("Orders", order.ProductName, order.Quantity.ToString() + $" {UnitConvert.UnitOfMeasureToString(product.UnitOfMeasure)}", string.Format("{0:C}", order.Price * order.Quantity));
             }
 
             report.AddLine("line2");
@@ -76,7 +161,7 @@ namespace WindowsFormsAppUI.Helpers
             PrinterSettings printerSettings = new PrinterSettings();
             var printQueue = PrintersHelper.GetPrinter(printerSettings.PrinterName);
             AsyncPrintTask.Exec(true, () => PrintersHelper.PrintFlowDocument(printQueue, report.Document));
-           
+
             return report.Document;
         }
 
@@ -137,7 +222,9 @@ namespace WindowsFormsAppUI.Helpers
             report.AddTable("Orders", GlobalVariables.CultureHelper.GetText("Product"), GlobalVariables.CultureHelper.GetText("Unit"));
             foreach (var order in orders)
             {
-                report.AddRow("Orders", order.ProductName, order.Quantity.ToString());
+                var product = _genericRepositoryProduct.GetById(order.ProductId);
+
+                report.AddRow("Orders", order.ProductName, order.Quantity.ToString() + $" {UnitConvert.UnitOfMeasureToString(product.UnitOfMeasure)}");
             }
 
             report.Document.PageWidth = 302;

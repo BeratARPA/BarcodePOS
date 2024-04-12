@@ -817,27 +817,27 @@ namespace WindowsFormsAppUI.Forms
             ClearTicket();
         }
 
-        public void Navigate()
+        public async void Navigate()
         {
             switch (_previousFormIndex)
             {
                 case 0:
-                    NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                    await NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                     break;
                 case 1:
-                    NavigationManager.OpenForm(new TablesForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                    await NavigationManager.OpenForm(new TablesForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                     GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
                     break;
                 case 2:
-                    NavigationManager.OpenForm(new TicketsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                    await NavigationManager.OpenForm(new TicketsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                     GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
                     break;
                 case 3:
-                    NavigationManager.OpenForm(new CustomersForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                    await NavigationManager.OpenForm(new CustomersForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                     GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
                     break;
                 default:
-                    NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                    await NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                     GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
                     break;
             }
@@ -962,7 +962,7 @@ namespace WindowsFormsAppUI.Forms
 
             ClearTicket();
 
-            NavigationManager.OpenForm(new TicketsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            await NavigationManager.OpenForm(new TicketsForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
         }
 
@@ -975,13 +975,13 @@ namespace WindowsFormsAppUI.Forms
             }
         }
 
-        private void buttonChangeTable_Click(object sender, EventArgs e)
+        private async void buttonChangeTable_Click(object sender, EventArgs e)
         {
             if (_orders.Count != 0)
             {
                 SaveTicket(true);
 
-                NavigationManager.OpenForm(new TablesForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+              await  NavigationManager.OpenForm(new TablesForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             }
         }
 
@@ -1017,13 +1017,13 @@ namespace WindowsFormsAppUI.Forms
             CreateProducts(products);
         }
 
-        private void buttonSelectCustomer_Click(object sender, EventArgs e)
+        private async void buttonSelectCustomer_Click(object sender, EventArgs e)
         {
             if (_orders.Count != 0)
             {
                 SaveTicket(true);
 
-                NavigationManager.OpenForm(new CustomersForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+               await NavigationManager.OpenForm(new CustomersForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             }
         }
 

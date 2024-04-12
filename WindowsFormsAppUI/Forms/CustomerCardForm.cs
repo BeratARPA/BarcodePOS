@@ -78,18 +78,18 @@ namespace WindowsFormsAppUI.Forms
             GoCustomersForm();
         }
 
-        private void GoCustomersForm()
+        private async void GoCustomersForm()
         {
-            NavigationManager.OpenForm(new CustomersForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+           await NavigationManager.OpenForm(new CustomersForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
 
             if (_ticket != null)
                 GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
         }
 
-        private void buttonSelect_Click(object sender, EventArgs e)
+        private async void buttonSelect_Click(object sender, EventArgs e)
         {
-            NavigationManager.OpenForm(new POSForm(3, null, null, null, _customer), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+           await NavigationManager.OpenForm(new POSForm(3, null, null, null, _customer), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             GlobalVariables.ShellForm.buttonMainMenu.Enabled = true;
         }
     }

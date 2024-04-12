@@ -54,7 +54,7 @@ namespace WindowsFormsAppUI.Forms
             dataGridViewTickets.Rows.Clear();
 
             DateTime startDate = dateTimePickerStart.DateTime.Date;
-            DateTime endDate = dateTimePickerEnd.DateTime.Date.Date;
+            DateTime endDate = dateTimePickerEnd.DateTime.Date;
             endDate = endDate.AddDays(1);
 
             double totalAmount = 0;
@@ -63,16 +63,16 @@ namespace WindowsFormsAppUI.Forms
             switch (index)
             {
                 case 0:
-                    tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate.Date && x.Date <= endDate.Date);
+                    tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate && x.Date <= endDate);
                     break;
                 case 1:
-                    tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate.Date && x.Date <= endDate.Date && x.IsOpened == true);
+                    tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate && x.Date <= endDate && x.IsOpened == true);
                     break;
                 case 2:
-                    tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate.Date && x.Date <= endDate.Date && x.IsOpened == false);
+                    tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate && x.Date <= endDate && x.IsOpened == false);
                     break;
                 default:
-                    tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate.Date && x.Date <= endDate.Date);
+                    tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate && x.Date <= endDate);
                     break;
             }
 
@@ -122,7 +122,7 @@ namespace WindowsFormsAppUI.Forms
             labelTotalAmount.Text = string.Format("{0:C}", totalAmount);
         }
 
-        private void dataGridViewTickets_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dataGridViewTickets_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewTickets.Columns["Show"] != null && e.ColumnIndex == dataGridViewTickets.Columns["Show"].Index && e.RowIndex >= 0)
             {
@@ -135,7 +135,7 @@ namespace WindowsFormsAppUI.Forms
 
                 if (ticket != null)
                 {
-                    NavigationManager.OpenForm(new POSForm(2, ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                 await   NavigationManager.OpenForm(new POSForm(2, ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
                     GlobalVariables.ShellForm.buttonMainMenu.Enabled = false;
                 }
             }

@@ -10,7 +10,7 @@ namespace WindowsFormsAppUI.Forms
 {
     public partial class RevenuesReportForm : Form
     {
-        private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
 
         private ReceiptTemplates receiptTemplates = new ReceiptTemplates();
 
@@ -24,6 +24,8 @@ namespace WindowsFormsAppUI.Forms
         {
             dateTimePickerStart.DateTime = DateTime.Now;
             dateTimePickerEnd.DateTime = DateTime.Now;
+
+            ShowReport();
         }
 
         public void UpdateUILanguage()
@@ -34,6 +36,16 @@ namespace WindowsFormsAppUI.Forms
 
         private void buttonPrint_Click(object sender, EventArgs e)
         {
+            pdfViewer1.Print();
+        }       
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            ShowReport();
+        }
+
+        public void ShowReport()
+        {
             string filePath = Path.Combine(FolderLocations.barcodePOSFolderPath, "RevenuesReport.pdf");
 
             pdfViewer1.CloseDocument();
@@ -41,8 +53,13 @@ namespace WindowsFormsAppUI.Forms
             if (File.Exists(filePath))
                 File.Delete(filePath);
 
-            var ticket = _genericRepositoryTicket.GetById(18);
-            var report = receiptTemplates.KitchenTemplate(ticket.Orders.ToList(), ticket, "PDF24");
+            DateTime startDate = dateTimePickerStart.DateTime.Date;
+            DateTime endDate = dateTimePickerEnd.DateTime.Date;
+            endDate = endDate.AddDays(1);
+
+            var payments = _genericRepositoryPayment.GetAllAsNoTracking(x => x.Date >= startDate && x.Date <= endDate);
+            var report = receiptTemplates.RevenuesReport(payments);
+
             PdfConverter.ConvertToPdf(report, filePath);
 
             pdfViewer1.LoadDocument(filePath);

@@ -42,7 +42,7 @@ namespace WindowsFormsAppUI.UserControls
             this.labelQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.labelQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.labelQuantity.Location = new System.Drawing.Point(163, 52);
+            this.labelQuantity.Location = new System.Drawing.Point(263, 52);
             this.labelQuantity.Name = "labelQuantity";
             this.labelQuantity.Size = new System.Drawing.Size(126, 24);
             this.labelQuantity.TabIndex = 0;
@@ -81,7 +81,7 @@ namespace WindowsFormsAppUI.UserControls
             this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.Location = new System.Drawing.Point(268, 11);
+            this.buttonDelete.Location = new System.Drawing.Point(368, 11);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(21, 22);
             this.buttonDelete.TabIndex = 1;
@@ -100,7 +100,7 @@ namespace WindowsFormsAppUI.UserControls
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "ProductOnCardUserControl";
             this.Padding = new System.Windows.Forms.Padding(9);
-            this.Size = new System.Drawing.Size(300, 85);
+            this.Size = new System.Drawing.Size(400, 85);
             this.Load += new System.EventHandler(this.ProductOnCardUserControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
