@@ -6,14 +6,9 @@ namespace WindowsFormsAppUI.Helpers
 {
     public class NavigationManager
     {
-        public static async Task OpenForm(Form form, DockStyle dockStyle, Panel parentPanel)
+        public static async Task OpenForm(Form form, DockStyle dockStyle, Panel parentPanel, bool loadingForm = true)
         {
-            LoadingScreenForm loadingScreen = new LoadingScreenForm();
-            loadingScreen.TopLevel = false;
-            loadingScreen.TopMost = true;
-            loadingScreen.Dock = dockStyle;
-            loadingScreen.Show();
-            parentPanel.Controls.Add(loadingScreen);
+            parentPanel.Controls.Clear();
 
             FormCollection formCollection = Application.OpenForms;
             for (int i = formCollection.Count - 1; i >= 0; i--)
@@ -24,7 +19,17 @@ namespace WindowsFormsAppUI.Helpers
                 }
             }
 
-            parentPanel.Controls.Clear();
+            LoadingScreenForm loadingScreen = null;
+            if (loadingForm)
+            {
+                loadingScreen = new LoadingScreenForm();
+                loadingScreen.Dock = dockStyle;
+                loadingScreen.TopLevel = false;
+                loadingScreen.TopMost = true;
+                loadingScreen.Show();
+
+                parentPanel.Controls.Add(loadingScreen);
+            }
 
             Form formSearch = Application.OpenForms[form.Name];
             if (formSearch != null)
@@ -32,6 +37,16 @@ namespace WindowsFormsAppUI.Helpers
                 formSearch.Dock = dockStyle;
                 formSearch.TopLevel = false;
                 formSearch.TopMost = true;
+
+                if (loadingForm)
+                {
+                    formSearch.Load += (sender, e) =>
+                    {
+                        loadingScreen.Close();
+                        loadingScreen.Dispose();
+                    };
+                }
+
                 formSearch.Show();
 
                 parentPanel.Controls.Add(formSearch);
@@ -42,12 +57,17 @@ namespace WindowsFormsAppUI.Helpers
                 form.TopLevel = false;
                 form.TopMost = true;
 
-                form.Load += (sender, e) =>
+                if (loadingForm)
                 {
-                    loadingScreen.Close();
-                };
+                    form.Load += (sender, e) =>
+                    {
+                        loadingScreen.Close();
+                        loadingScreen.Dispose();
+                    };
+                }
 
                 form.Show();
+
                 parentPanel.Controls.Add(form);
             }
         }

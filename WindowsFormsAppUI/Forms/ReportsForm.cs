@@ -24,43 +24,43 @@ namespace WindowsFormsAppUI.Forms
         }
 
         private async void accordionControlElementEndOfTheDay_Click(object sender, System.EventArgs e)
-        {            
-          await  NavigationManager.OpenForm(new EndOfTheDayReportForm(), DockStyle.Fill, panelMain);
+        {
+            await NavigationManager.OpenForm(new EndOfTheDayReportForm(), DockStyle.Fill, panelMain, true);
         }
 
         private async void accordionControlElementRevenues_Click(object sender, System.EventArgs e)
         {
-          await  NavigationManager.OpenForm(new RevenuesReportForm(), DockStyle.Fill, panelMain);
+            await NavigationManager.OpenForm(new RevenuesReportForm(), DockStyle.Fill, panelMain, true);
         }
 
         private async void accordionControlElementCategorySales_Click(object sender, System.EventArgs e)
         {
-           await NavigationManager.OpenForm(new CategorySalesReportForm(), DockStyle.Fill, panelMain);
+            await NavigationManager.OpenForm(new CategorySalesReportForm(), DockStyle.Fill, panelMain, true);
         }
 
         private async void accordionControlElementProductSales_Click(object sender, System.EventArgs e)
         {
-           await NavigationManager.OpenForm(new ProductSalesReportForm(), DockStyle.Fill, panelMain);
+            await NavigationManager.OpenForm(new ProductSalesReportForm(), DockStyle.Fill, panelMain, true);
         }
 
         private async void accordionControlElementCancelledProducts_Click(object sender, System.EventArgs e)
         {
-          await  NavigationManager.OpenForm(new CancelledProductsReportForm(), DockStyle.Fill, panelMain);
+            await NavigationManager.OpenForm(new CancelledProductsReportForm(), DockStyle.Fill, panelMain, true);
         }
 
         private async void accordionControlElementTickets_Click(object sender, System.EventArgs e)
         {
-          await  NavigationManager.OpenForm(new TicketsReportForm(), DockStyle.Fill, panelMain);
+            await NavigationManager.OpenForm(new TicketsReportForm(), DockStyle.Fill, panelMain, true);
         }
 
         private async void accordionControlElementSalesTypes_Click(object sender, System.EventArgs e)
         {
-           await NavigationManager.OpenForm(new SalesTypesReportForm(), DockStyle.Fill, panelMain);
+            await NavigationManager.OpenForm(new SalesTypesReportForm(), DockStyle.Fill, panelMain, true);
         }
 
         private async void accordionControlElementUsers_Click(object sender, System.EventArgs e)
         {
-           await NavigationManager.OpenForm(new UsersReportForm(), DockStyle.Fill, panelMain);
-        }       
+            await NavigationManager.OpenForm(new UsersReportForm(), DockStyle.Fill, panelMain, true);
+        }
     }
 }
