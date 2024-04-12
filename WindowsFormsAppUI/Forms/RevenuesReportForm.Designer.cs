@@ -33,16 +33,16 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonPrint = new System.Windows.Forms.Button();
-            this.dateTimePickerStart = new DevExpress.XtraEditors.DateEdit();
-            this.dateTimePickerEnd = new DevExpress.XtraEditors.DateEdit();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.dateTimePickerEnd = new DevExpress.XtraEditors.DateEdit();
+            this.dateTimePickerStart = new DevExpress.XtraEditors.DateEdit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerEnd.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerEnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pdfViewer1
@@ -100,9 +100,9 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.Controls.Add(this.buttonPrint, 4, 0);
-            this.tableLayoutPanel3.Controls.Add(this.dateTimePickerStart, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.dateTimePickerEnd, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonRefresh, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dateTimePickerEnd, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.dateTimePickerStart, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
@@ -131,48 +131,6 @@
             this.buttonPrint.UseVisualStyleBackColor = false;
             this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
-            // dateTimePickerStart
-            // 
-            this.dateTimePickerStart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePickerStart.EditValue = null;
-            this.dateTimePickerStart.Location = new System.Drawing.Point(452, 2);
-            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.dateTimePickerStart.Properties.Appearance.Options.UseFont = true;
-            this.dateTimePickerStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateTimePickerStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateTimePickerStart.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
-            this.dateTimePickerStart.Properties.MaskSettings.Set("mask", "D");
-            this.dateTimePickerStart.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dateTimePickerStart.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dateTimePickerStart.Size = new System.Drawing.Size(146, 34);
-            this.dateTimePickerStart.TabIndex = 2;
-            this.dateTimePickerStart.UpdateSelectionWhenNavigating = true;
-            // 
-            // dateTimePickerEnd
-            // 
-            this.dateTimePickerEnd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePickerEnd.EditValue = null;
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(302, 2);
-            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F);
-            this.dateTimePickerEnd.Properties.Appearance.Options.UseFont = true;
-            this.dateTimePickerEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateTimePickerEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateTimePickerEnd.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
-            this.dateTimePickerEnd.Properties.MaskSettings.Set("mask", "D");
-            this.dateTimePickerEnd.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.dateTimePickerEnd.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(146, 34);
-            this.dateTimePickerEnd.TabIndex = 3;
-            this.dateTimePickerEnd.UpdateSelectionWhenNavigating = true;
-            // 
             // buttonRefresh
             // 
             this.buttonRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
@@ -190,6 +148,49 @@
             this.buttonRefresh.TabIndex = 10;
             this.buttonRefresh.Text = "Yenile";
             this.buttonRefresh.UseVisualStyleBackColor = false;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
+            // dateTimePickerEnd
+            // 
+            this.dateTimePickerEnd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateTimePickerEnd.EditValue = null;
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(452, 2);
+            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.dateTimePickerEnd.Properties.Appearance.Options.UseFont = true;
+            this.dateTimePickerEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerEnd.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
+            this.dateTimePickerEnd.Properties.MaskSettings.Set("mask", "D");
+            this.dateTimePickerEnd.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dateTimePickerEnd.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(146, 34);
+            this.dateTimePickerEnd.TabIndex = 3;
+            this.dateTimePickerEnd.UpdateSelectionWhenNavigating = true;
+            // 
+            // dateTimePickerStart
+            // 
+            this.dateTimePickerStart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateTimePickerStart.EditValue = null;
+            this.dateTimePickerStart.Location = new System.Drawing.Point(302, 2);
+            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePickerStart.Name = "dateTimePickerStart";
+            this.dateTimePickerStart.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.dateTimePickerStart.Properties.Appearance.Options.UseFont = true;
+            this.dateTimePickerStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTimePickerStart.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.TouchUI;
+            this.dateTimePickerStart.Properties.MaskSettings.Set("mask", "D");
+            this.dateTimePickerStart.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.dateTimePickerStart.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.dateTimePickerStart.Size = new System.Drawing.Size(146, 34);
+            this.dateTimePickerStart.TabIndex = 2;
+            this.dateTimePickerStart.UpdateSelectionWhenNavigating = true;
             // 
             // RevenuesReportForm
             // 
@@ -206,10 +207,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerEnd.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerEnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimePickerStart.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

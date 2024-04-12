@@ -25,7 +25,7 @@ namespace WindowsFormsAppUI
             GlobalVariables.ShellForm = this;
 
             ResizeLayout.CloseFooter();
-            NavigationManager.OpenForm(new LoginForm(), DockStyle.Fill, panelMain);
+         await   NavigationManager.OpenForm(new LoginForm(), DockStyle.Fill, panelMain);
 
             _timer = new Timer();
             _timer.Tick += TimerTick;
@@ -154,9 +154,9 @@ namespace WindowsFormsAppUI
             labelTime.Text = labelTime.Text.Contains(":") ? time.Replace(":", ".") : time;
         }
 
-        private void buttonMainMenu_Click(object sender, EventArgs e)
+        private async void buttonMainMenu_Click(object sender, EventArgs e)
         {
-            NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+          await  NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             buttonMainMenu.Enabled = false;
         }
 
@@ -174,14 +174,6 @@ namespace WindowsFormsAppUI
             }
         }
 
-        private void label1_MouseDown(object sender, MouseEventArgs e)
-        {
-            //if (ModifierKeys == (Keys.Control | Keys.Shift))
-            //{                
-            //    this.Scale(new SizeF(1.1f, 1.1f));
-            //}
-        }
-
         private async void ShellForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             await GlobalVariables.webSocketClient.Disconnect();
@@ -190,6 +182,11 @@ namespace WindowsFormsAppUI
         private void buttonKeyboard_Click(object sender, EventArgs e)
         {
             VirtualKeyboardHelper.Run();
+        }
+
+        private void ShellForm_Resize(object sender, EventArgs e)
+        {
+            this.Text = $"({this.Width})X({this.Height})";
         }
     }
 }
