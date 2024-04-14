@@ -10,6 +10,7 @@ namespace WindowsFormsAppUI.Forms
     public partial class TicketsReportForm : Form
     {
         private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
 
         private ReceiptTemplates receiptTemplates = new ReceiptTemplates();
 
@@ -57,7 +58,8 @@ namespace WindowsFormsAppUI.Forms
             endDate = endDate.AddDays(1);
 
             var tickets = _genericRepositoryTicket.GetAllAsNoTracking(x => x.Date >= startDate && x.Date <= endDate);
-            var report = receiptTemplates.TicketsReport(tickets);
+            var payments = _genericRepositoryPayment.GetAllAsNoTracking(x => x.Date >= startDate && x.Date <= endDate);
+            var report = receiptTemplates.TicketsReport(tickets, payments);
 
             PdfConverter.ConvertToPdf(report, filePath);
 

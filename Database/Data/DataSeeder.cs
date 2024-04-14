@@ -102,12 +102,14 @@ namespace Database.Data
             #region PaymentType
             var paymentTypeCash = _genericRepositoryPaymentType.Get(x => x.Name == "Cash");
             var paymentTypeVisa = _genericRepositoryPaymentType.Get(x => x.Name == "Visa");
-            if (paymentTypeCash == null & paymentTypeVisa == null)
+            var paymentTypeGooglePay = _genericRepositoryPaymentType.Get(x => x.Name == "Google Pay");
+            if (paymentTypeCash == null & paymentTypeVisa == null & paymentTypeGooglePay == null)
             {
                 List<PaymentType> paymentTypes = new List<PaymentType>
                 {
                     new PaymentType{ Name = "Cash",BackColor = "15,15,15",ForeColor = "15,15,15" },
-                    new PaymentType{ Name = "Visa",BackColor = "15,15,15",ForeColor = "15,15,15" }
+                    new PaymentType{ Name = "Visa",BackColor = "15,15,15",ForeColor = "15,15,15" },
+                    new PaymentType{ Name = "Google Pay",BackColor = "15,15,15",ForeColor = "15,15,15" }
                 };
 
                 _genericRepositoryPaymentType.AddAll(paymentTypes);
