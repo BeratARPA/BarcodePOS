@@ -35,7 +35,6 @@
             this.accordionControlElementProductSales = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementCancelledProducts = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementTickets = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElementSalesTypes = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementUsers = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panelMain = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
@@ -58,7 +57,6 @@
             this.accordionControlElementProductSales,
             this.accordionControlElementCancelledProducts,
             this.accordionControlElementTickets,
-            this.accordionControlElementSalesTypes,
             this.accordionControlElementUsers});
             this.accordionControl1.ExpandElementMode = DevExpress.XtraBars.Navigation.ExpandElementMode.Multiple;
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
@@ -242,34 +240,6 @@
             this.accordionControlElementTickets.Text = "Fişler";
             this.accordionControlElementTickets.Click += new System.EventHandler(this.accordionControlElementTickets_Click);
             // 
-            // accordionControlElementSalesTypes
-            // 
-            this.accordionControlElementSalesTypes.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElementSalesTypes.Appearance.Default.Options.UseFont = true;
-            this.accordionControlElementSalesTypes.Appearance.Default.Options.UseTextOptions = true;
-            this.accordionControlElementSalesTypes.Appearance.Default.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.accordionControlElementSalesTypes.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElementSalesTypes.Appearance.Disabled.Options.UseFont = true;
-            this.accordionControlElementSalesTypes.Appearance.Disabled.Options.UseTextOptions = true;
-            this.accordionControlElementSalesTypes.Appearance.Disabled.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.accordionControlElementSalesTypes.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElementSalesTypes.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElementSalesTypes.Appearance.Hovered.Options.UseTextOptions = true;
-            this.accordionControlElementSalesTypes.Appearance.Hovered.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.accordionControlElementSalesTypes.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElementSalesTypes.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElementSalesTypes.Appearance.Normal.Options.UseTextOptions = true;
-            this.accordionControlElementSalesTypes.Appearance.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.accordionControlElementSalesTypes.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElementSalesTypes.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElementSalesTypes.Appearance.Pressed.Options.UseTextOptions = true;
-            this.accordionControlElementSalesTypes.Appearance.Pressed.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.accordionControlElementSalesTypes.Height = 50;
-            this.accordionControlElementSalesTypes.Name = "accordionControlElementSalesTypes";
-            this.accordionControlElementSalesTypes.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElementSalesTypes.Text = "Satış Tipleri";
-            this.accordionControlElementSalesTypes.Click += new System.EventHandler(this.accordionControlElementSalesTypes_Click);
-            // 
             // accordionControlElementUsers
             // 
             this.accordionControlElementUsers.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 15F);
@@ -335,7 +305,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementProductSales;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementCancelledProducts;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementTickets;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementSalesTypes;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementUsers;
     }
 }

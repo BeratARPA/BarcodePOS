@@ -24,39 +24,51 @@ namespace WindowsFormsAppUI.Helpers
         {
             SimpleReport report = new SimpleReport();
 
-            report.AddHeader("Fiş Satış Raporu");
+            report.AddHeader("Kullanıcı Raporu");
 
-            var userTickets = from sale in tickets
-                              group sale by sale.UserId into userGroup
-                              select new
-                              {
-                                  UserId = userGroup.Key,
-                                  TotalSales = userGroup.Count(),
-                                  TotalAmount = userGroup.Sum(s => s.TotalAmount)
-                              };
-
-            var userOrders = from sale in orders
-                             group sale by sale.UserId into userGroup
-                             select new
-                             {
-                                 UserId = userGroup.Key,
-                                 TotalSales = userGroup.Count(),
-                             };
+            var query = from u in users
+                        join t in (
+                                    from ticket in tickets
+                                    group ticket by ticket.UserId into ticketGroup
+                                    select new
+                                    {
+                                        UserId = ticketGroup.Key,
+                                        TotalTicketSales = ticketGroup.Count(),
+                                        TotalTicketAmount = ticketGroup.Sum(ticket => ticket.TotalAmount)
+                                    }
+                                  ) on u.UserId equals t.UserId into ticketSales
+                        from t in ticketSales.DefaultIfEmpty()
+                        join o in (
+                                    from order in orders
+                                    group order by order.UserId into orderGroup
+                                    select new
+                                    {
+                                        UserId = orderGroup.Key,
+                                        TotalOrderQuantity = orderGroup.Sum(order => order.Quantity) // Sipariş miktarlarının toplamı
+                                    }
+                                  ) on u.UserId equals o.UserId into orderSales
+                        from o in orderSales.DefaultIfEmpty()
+                        select new
+                        {
+                            UserId = u.UserId,
+                            TotalTicketSales = t?.TotalTicketSales ?? 0,
+                            TotalTicketAmount = t?.TotalTicketAmount ?? 0,
+                            TotalOrderQuantity = o?.TotalOrderQuantity ?? 0
+                        };
 
             report.AddColumTextAlignment("Sales", TextAlignment.Left, TextAlignment.Center);
-            report.AddColumnLength("Sales", "auto", "20*", "20*");
-            report.AddTable("Sales", GlobalVariables.CultureHelper.GetText("Tickets"), GlobalVariables.CultureHelper.GetText("Unit"), GlobalVariables.CultureHelper.GetText("Amount"));
-            foreach (var ticket in userTickets)
+            report.AddColumnLength("Sales", "auto", "20*", "20*", "20*");
+            report.AddTable("Sales", GlobalVariables.CultureHelper.GetText("User"), GlobalVariables.CultureHelper.GetText("Products"), GlobalVariables.CultureHelper.GetText("Tickets"), GlobalVariables.CultureHelper.GetText("Amount"));
+            foreach (var user in query)
             {
-                //report.AddRow("Sales", ticket.Name, ticket.Count.ToString(), string.Format("{0:C}", ticket.Total));
+                string userFullname = users.Where(x => x.UserId == user.UserId).FirstOrDefault().Fullname;
+                report.AddRow("Sales", userFullname, user.TotalOrderQuantity.ToString(), user.TotalTicketSales.ToString(), string.Format("{0:C}", user.TotalTicketAmount));
             }
-
-            report.AddRow("Sales", "", "");
-            //report.AddRow("Sales", GlobalVariables.CultureHelper.GetText("Total") + ":", totalSales.ToString(), string.Format("{0:C}", total));
 
             report.AddLine("line1");
 
             report.AddFooter("Footer", CompanyName, true);
+            report.AddFooter("Value", "***" + GlobalVariables.CultureHelper.GetText("ItHasNoFinancialValue!") + "***", false);
 
             report.Document.PageWidth = 302;
             report.Document.PageHeight = report.GetDocumentHeight();
@@ -131,6 +143,7 @@ namespace WindowsFormsAppUI.Helpers
             report.AddLine("line1");
 
             report.AddFooter("Footer", CompanyName, true);
+            report.AddFooter("Value", "***" + GlobalVariables.CultureHelper.GetText("ItHasNoFinancialValue!") + "***", false);
 
             report.Document.PageWidth = 302;
             report.Document.PageHeight = report.GetDocumentHeight();
@@ -173,6 +186,7 @@ namespace WindowsFormsAppUI.Helpers
             report.AddLine("line1");
 
             report.AddFooter("Footer", CompanyName, true);
+            report.AddFooter("Value", "***" + GlobalVariables.CultureHelper.GetText("ItHasNoFinancialValue!") + "***", false);
 
             report.Document.PageWidth = 302;
             report.Document.PageHeight = report.GetDocumentHeight();
@@ -219,6 +233,7 @@ namespace WindowsFormsAppUI.Helpers
             report.AddLine("line1");
 
             report.AddFooter("Footer", CompanyName, true);
+            report.AddFooter("Value", "***" + GlobalVariables.CultureHelper.GetText("ItHasNoFinancialValue!") + "***", false);
 
             report.Document.PageWidth = 302;
             report.Document.PageHeight = report.GetDocumentHeight();
@@ -257,6 +272,7 @@ namespace WindowsFormsAppUI.Helpers
             report.AddLine("line1");
 
             report.AddFooter("Footer", CompanyName, true);
+            report.AddFooter("Value", "***" + GlobalVariables.CultureHelper.GetText("ItHasNoFinancialValue!") + "***", false);
 
             report.Document.PageWidth = 302;
             report.Document.PageHeight = report.GetDocumentHeight();
@@ -316,6 +332,7 @@ namespace WindowsFormsAppUI.Helpers
             }
 
             report.AddFooter("Footer", GlobalVariables.CultureHelper.GetText("ReceiptFooter"), true);
+            report.AddFooter("Value", "***" + GlobalVariables.CultureHelper.GetText("ItHasNoFinancialValue!") + "***", false);
 
             report.Document.PageWidth = 302;
             report.Document.PageHeight = report.GetDocumentHeight();
@@ -388,6 +405,8 @@ namespace WindowsFormsAppUI.Helpers
 
                 report.AddRow("Orders", order.ProductName, order.Quantity.ToString() + $" {UnitConvert.UnitOfMeasureToString(product.UnitOfMeasure)}");
             }
+
+            report.AddFooter("Value", "***" + GlobalVariables.CultureHelper.GetText("ItHasNoFinancialValue!") + "***", false);
 
             report.Document.PageWidth = 302;
             report.Document.PageHeight = report.GetDocumentHeight();

@@ -204,7 +204,7 @@ namespace WindowsFormsAppUI.Helpers
                 }
             }
 
-            return totalHeight + 45;
+            return totalHeight + 50;
         }
 
         private double MeasureParagraphHeight(Paragraph paragraph)

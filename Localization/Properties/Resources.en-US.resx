@@ -282,6 +282,9 @@
   <data name="IsCalling" xml:space="preserve">
     <value>{0} is Calling...</value>
   </data>
+  <data name="ItHasNoFinancialValue!" xml:space="preserve">
+    <value>It has no financial value!</value>
+  </data>
   <data name="Keyboard" xml:space="preserve">
     <value>Keyboard</value>
   </data>
@@ -419,9 +422,6 @@
   </data>
   <data name="Revenues" xml:space="preserve">
     <value>Revenues</value>
-  </data>
-  <data name="SalesTypes" xml:space="preserve">
-    <value>Sales Types</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>

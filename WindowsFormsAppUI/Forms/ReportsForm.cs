@@ -19,7 +19,6 @@ namespace WindowsFormsAppUI.Forms
             accordionControlElementProductSales.Text = GlobalVariables.CultureHelper.GetText("ProductSales");
             accordionControlElementCancelledProducts.Text = GlobalVariables.CultureHelper.GetText("CancelledProducts");
             accordionControlElementTickets.Text = GlobalVariables.CultureHelper.GetText("Tickets");
-            accordionControlElementSalesTypes.Text = GlobalVariables.CultureHelper.GetText("SalesTypes");
             accordionControlElementUsers.Text = GlobalVariables.CultureHelper.GetText("Users");
         }
 
@@ -51,11 +50,6 @@ namespace WindowsFormsAppUI.Forms
         private void accordionControlElementTickets_Click(object sender, System.EventArgs e)
         {
             NavigationManager.OpenForm(new TicketsReportForm(), DockStyle.Fill, panelMain);
-        }
-
-        private void accordionControlElementSalesTypes_Click(object sender, System.EventArgs e)
-        {
-            NavigationManager.OpenForm(new SalesTypesReportForm(), DockStyle.Fill, panelMain);
         }
 
         private void accordionControlElementUsers_Click(object sender, System.EventArgs e)
