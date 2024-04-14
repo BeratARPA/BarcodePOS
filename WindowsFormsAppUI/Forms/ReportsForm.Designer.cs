@@ -239,7 +239,7 @@
             this.accordionControlElementTickets.Height = 50;
             this.accordionControlElementTickets.Name = "accordionControlElementTickets";
             this.accordionControlElementTickets.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElementTickets.Text = "Siparişler";
+            this.accordionControlElementTickets.Text = "Fişler";
             this.accordionControlElementTickets.Click += new System.EventHandler(this.accordionControlElementTickets_Click);
             // 
             // accordionControlElementSalesTypes

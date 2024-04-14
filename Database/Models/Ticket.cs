@@ -11,6 +11,7 @@ namespace Database.Models
         public Guid TicketGuid { get; set; }
         public int TableId { get; set; }
         public int CustomerId { get; set; }
+        public int UserId { get; set; }
         public DateTime LastUpdateDate { get; set; }
         public string TicketNumber { get; set; }
         public DateTime Date { get; set; }

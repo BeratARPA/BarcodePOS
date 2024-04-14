@@ -10,12 +10,12 @@ namespace Database.Models
         public int PaymentId { get; set; }
         public int? TicketId { get; set; }
         public int PaymentTypeId { get; set; }
+        public int UserId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
         public double Amount { get; set; }
         public double TenderedAmount { get; set; }
-        public int UserId { get; set; }
         public string TerminalName { get; set; }
 
 

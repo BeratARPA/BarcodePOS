@@ -42,8 +42,8 @@ namespace WindowsFormsAppUI.Forms
                 File.Delete(filePath);
 
             var ticket = _genericRepositoryTicket.GetById(18);
-            var report = receiptTemplates.KitchenTemplate(ticket.Orders.ToList(), ticket, "PDF24");
-            PdfConverter.ConvertToPdf(report, filePath);
+            //var report = receiptTemplates.KitchenTemplate(ticket.Orders.ToList(), ticket, "PDF24");
+          //  PdfConverter.ConvertToPdf(report, filePath);
 
             pdfViewer1.LoadDocument(filePath);
         }

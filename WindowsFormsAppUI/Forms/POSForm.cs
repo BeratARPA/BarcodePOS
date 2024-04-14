@@ -164,6 +164,7 @@ namespace WindowsFormsAppUI.Forms
                 Note = "",
                 LastModifiedUserName = LoggedInUser.CurrentUser.Fullname,
                 CreatedUserName = LoggedInUser.CurrentUser.Fullname,
+                UserId = LoggedInUser.CurrentUser.UserId
             };
 
             _ticket = ticket;
@@ -256,6 +257,7 @@ namespace WindowsFormsAppUI.Forms
             {
                 TicketId = _ticket.TicketId,
                 ProductId = product.ProductId,
+                UserId = LoggedInUser.CurrentUser.UserId,
                 ProductName = product.Name,
                 Price = product.Price,
                 Quantity = quantity,
@@ -263,7 +265,7 @@ namespace WindowsFormsAppUI.Forms
                 TerminalName = GlobalVariables.TerminalName,
                 CreatingUserName = LoggedInUser.CurrentUser.Fullname,
                 CreatedDateTime = DateTime.Now,
-                LastUpdateDateTime = DateTime.Now
+                LastUpdateDateTime = DateTime.Now                
             };
 
             _orders.Add(order);
@@ -477,6 +479,7 @@ namespace WindowsFormsAppUI.Forms
                 {
                     TicketId = _ticket.TicketId,
                     ProductId = product.ProductId,
+                    UserId = LoggedInUser.CurrentUser.UserId,
                     ProductName = product.Name,
                     Price = product.Price,
                     Quantity = quantity,
@@ -660,7 +663,7 @@ namespace WindowsFormsAppUI.Forms
 
                 if (_productsSentToKitchen.Count > 0 && sendToKitchen)
                 {
-                    receiptTemplates.KitchenReceipt(_productsSentToKitchen, _ticket);
+                    receiptTemplates.KitchenReceipt(_productsSentToKitchen, _ticket, _products);
                 }
 
                 var ordersInDatabase = _genericRepositoryOrder.GetAll(x => x.TicketId == ticket.TicketId);
@@ -970,7 +973,7 @@ namespace WindowsFormsAppUI.Forms
         {
             if (_orders.Count != 0)
             {
-                receiptTemplates.TicketReceipt(_orders, _ticket);
+                receiptTemplates.TicketReceipt(_orders, _ticket, _products);
                 _ticket.IsPrinted = true;
             }
         }
@@ -981,7 +984,7 @@ namespace WindowsFormsAppUI.Forms
             {
                 SaveTicket(true);
 
-                 NavigationManager.OpenForm(new TablesForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+                NavigationManager.OpenForm(new TablesForm(_ticket), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
             }
         }
 
@@ -991,7 +994,7 @@ namespace WindowsFormsAppUI.Forms
             {
                 if (_productsSentToKitchen.Count > 0)
                 {
-                    receiptTemplates.KitchenReceipt(_productsSentToKitchen, _ticket);
+                    receiptTemplates.KitchenReceipt(_productsSentToKitchen, _ticket, _products);
                     return;
                 }
                 else
@@ -1001,7 +1004,7 @@ namespace WindowsFormsAppUI.Forms
                         return;
                     }
 
-                    receiptTemplates.KitchenReceipt(_orders, _ticket);
+                    receiptTemplates.KitchenReceipt(_orders, _ticket, _products);
                 }
             }
         }

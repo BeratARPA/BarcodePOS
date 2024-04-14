@@ -85,6 +85,12 @@ namespace WindowsFormsAppUI.Forms
             this.timer.Start();
         }
 
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            action = CustomerCallingEnum.Close;
+            this.timer.Interval = 1;
+        }
+
         private void timer_Tick(object sender, EventArgs e)
         {
             this.TopMost = true;

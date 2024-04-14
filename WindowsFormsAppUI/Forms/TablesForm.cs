@@ -271,6 +271,7 @@ namespace WindowsFormsAppUI.Forms
                         Note = "",
                         LastModifiedUserName = LoggedInUser.CurrentUser.Fullname,
                         CreatedUserName = LoggedInUser.CurrentUser.Fullname,
+                        UserId = LoggedInUser.CurrentUser.UserId
                     };
 
                     newTicket = _genericRepositoryTicket.Add(newTicket);
@@ -282,6 +283,7 @@ namespace WindowsFormsAppUI.Forms
                         {
                             TicketId = newTicket.TicketId,
                             ProductId = groupedOrders.Key,
+                            UserId = LoggedInUser.CurrentUser.UserId,
                             ProductName = groupedOrders.First().ProductName,
                             Price = groupedOrders.First().Price,
                             Quantity = groupedOrders.Sum(order => order.Quantity),
@@ -313,7 +315,7 @@ namespace WindowsFormsAppUI.Forms
                 CreateTables(section.SectionId);
                 _ticket = null;
 
-               await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
+                await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
                 return;
             }
             #endregion
