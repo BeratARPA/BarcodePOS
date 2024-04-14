@@ -322,12 +322,6 @@
     <Compile Include="Forms\RevenuesReportForm.Designer.cs">
       <DependentUpon>RevenuesReportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SalesTypesReportForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SalesTypesReportForm.Designer.cs">
-      <DependentUpon>SalesTypesReportForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\SaveCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -521,9 +515,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RevenuesReportForm.resx">
       <DependentUpon>RevenuesReportForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SalesTypesReportForm.resx">
-      <DependentUpon>SalesTypesReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SaveCustomerForm.resx">
       <DependentUpon>SaveCustomerForm.cs</DependentUpon>

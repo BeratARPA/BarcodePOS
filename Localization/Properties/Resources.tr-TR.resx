@@ -282,6 +282,9 @@
   <data name="IsCalling" xml:space="preserve">
     <value>{0} Arıyor...</value>
   </data>
+  <data name="ItHasNoFinancialValue!" xml:space="preserve">
+    <value>Mali değeri yoktur!</value>
+  </data>
   <data name="Keyboard" xml:space="preserve">
     <value>Klavye</value>
   </data>
@@ -422,9 +425,6 @@
   </data>
   <data name="Revenues" xml:space="preserve">
     <value>Hasılatlar</value>
-  </data>
-  <data name="SalesTypes" xml:space="preserve">
-    <value>Satış Tipleri</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Kaydet</value>

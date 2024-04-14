@@ -31,8 +31,8 @@ namespace Database.Data
 
                 role = _genericRepositoryRole.Add(role);
 
-                var userExist = _genericRepositoryUser.Get(x => x.Name == "Manager");
-                if (userExist == null)
+                var managerExist = _genericRepositoryUser.Get(x => x.Name == "Manager");
+                if (managerExist == null)
                 {
                     User user = new User
                     {
@@ -40,6 +40,19 @@ namespace Database.Data
                         Name = "Manager",
                         Surname = "",
                         Password = "1"
+                    };
+
+                    _genericRepositoryUser.Add(user);
+                }
+                var employeeExist = _genericRepositoryUser.Get(x => x.Name == "Employee");
+                if (employeeExist == null)
+                {
+                    User user = new User
+                    {
+                        RoleId = role.RoleId,
+                        Name = "Employee",
+                        Surname = "",
+                        Password = "2"
                     };
 
                     _genericRepositoryUser.Add(user);
