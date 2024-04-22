@@ -55,7 +55,7 @@ namespace WindowsFormsAppUI.Forms
             customers = customers.Skip(paginationUserControl1.PageSize * (paginationUserControl1.CurrentPage - 1)).Take(paginationUserControl1.PageSize).ToList();
             foreach (var customer in customers)
             {
-                dataGridViewCustomers.Rows.Add(customer.CustomerId, customer.Name, customer.PhoneNumber, customer.Address, customer.Note);
+                dataGridViewCustomers.Rows.Add(customer.CustomerId, CustomerHelper.GetNameAndBalance(customer.CustomerId), customer.PhoneNumber, customer.Address, customer.Note);
             }
 
             dataGridViewCustomers.ClearSelection();
