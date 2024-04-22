@@ -280,6 +280,12 @@
     <Compile Include="Forms\PersonalizationForm.Designer.cs">
       <DependentUpon>PersonalizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\POSCustomerScreenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\POSCustomerScreenForm.Designer.cs">
+      <DependentUpon>POSCustomerScreenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\POSForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -494,6 +500,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PersonalizationForm.resx">
       <DependentUpon>PersonalizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\POSCustomerScreenForm.resx">
+      <DependentUpon>POSCustomerScreenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\POSForm.resx">
       <DependentUpon>POSForm.cs</DependentUpon>

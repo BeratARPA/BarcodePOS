@@ -34,6 +34,7 @@ namespace WindowsFormsAppUI.Forms
         private List<Order> _productsSentToKitchen = new List<Order>();
         private List<PaymentType> _paymentTypes = new List<PaymentType>();
         private ReceiptTemplates receiptTemplates = new ReceiptTemplates();
+        private POSCustomerScreenForm _posCustomerScreenForm = null;
 
         private readonly FileOperations<string> fileOperations = new FileOperations<string>(FolderLocations.barcodePOSFolderPath + "QuickMenu.txt");
 
@@ -65,6 +66,13 @@ namespace WindowsFormsAppUI.Forms
 
         private void POSForm_Load(object sender, EventArgs e)
         {
+            _posCustomerScreenForm = (POSCustomerScreenForm)GetForm.Get("POSCustomerScreenForm");
+            if (_posCustomerScreenForm != null)
+            {
+                _posCustomerScreenForm._ticket = _ticket;
+                _posCustomerScreenForm.ContainerCollapsed();
+            }
+
             CreateTicket();
 
             IsTable();
@@ -79,7 +87,7 @@ namespace WindowsFormsAppUI.Forms
             CreateProducts(_products);
             CreateCategories(_category);
             CreatePayments(_paymentTypes);
-            CalculateTotalBalance();
+            CalculateTotalBalance();            
         }
 
         public void UpdateUILanguage()
@@ -141,6 +149,9 @@ namespace WindowsFormsAppUI.Forms
 
                     _orders.Add(order);
                 }
+
+                if (_posCustomerScreenForm != null)
+                    _posCustomerScreenForm.CreateNewProductOnCard(_orders);
 
                 CalculateTotalBalance();
 
@@ -437,7 +448,10 @@ namespace WindowsFormsAppUI.Forms
                 flowLayoutPanelOrders.Controls.Add(newProductOnCard);
             }
 
-            _ticket.IsPrinted = false;
+            _ticket.IsPrinted = false; 
+
+            if (_posCustomerScreenForm != null)
+                _posCustomerScreenForm.CreateNewProductOnCard(_orders);
 
             CalculateTotalBalance();
         }
@@ -564,19 +578,22 @@ namespace WindowsFormsAppUI.Forms
             }
 
             ProductOnCardUserControl newProductOnCard = new ProductOnCardUserControl(order, productUserControl._product);
-            newProductOnCard.Delete += ProductOnCardUserControl_Delete;
+            newProductOnCard.Delete += ProductOnCardUserControl_Delete;          
 
             return newProductOnCard;
         }
 
         public double CalculateTotalBalance()
-        {
+        {         
             double totalBalance = 0;
 
             foreach (Order order in _orders)
             {
                 totalBalance += order.Price * order.Quantity;
             }
+
+            if (_posCustomerScreenForm != null)
+                _posCustomerScreenForm.CalculateTotalBalance(totalBalance, _ticket.Discount);
 
             labelTicketTotal.Text = string.Format("{0:C}", totalBalance);
 
@@ -618,7 +635,7 @@ namespace WindowsFormsAppUI.Forms
 
             _ticket.RemainingAmount = totalBalance;
 
-            tableLayoutPanelMiddle.RowStyles[5].Height = 85;
+            tableLayoutPanelMiddle.RowStyles[5].Height = 85;           
 
             return totalBalance;
         }
@@ -732,6 +749,8 @@ namespace WindowsFormsAppUI.Forms
                 CalculateTotalBalance();
 
                 numeratorUserControl.Clear();
+
+                _posCustomerScreenForm.CreateNewProductOnCard(_orders);
             }
         }
 

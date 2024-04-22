@@ -72,6 +72,12 @@ namespace WindowsFormsAppUI
                 openWindowsForm.Show();
             }
 
+            if (Properties.Settings.Default.CustomerScreen)
+            {
+                POSCustomerScreenForm posCustomerScreenForm = new POSCustomerScreenForm();
+                posCustomerScreenForm.Show();
+            }
+
             await GlobalVariables.webSocketClient.Connect(Properties.Settings.Default.ServerName, Properties.Settings.Default.Port);
         }
 
