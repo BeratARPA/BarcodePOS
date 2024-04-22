@@ -14,18 +14,21 @@ namespace WindowsFormsAppUI.Forms
         private readonly IGenericRepository<User> _genericRepositoryUser = new GenericRepository<User>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<Ticket> _genericRepositoryTicket = new GenericRepository<Ticket>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<Payment> _genericRepositoryPayment = new GenericRepository<Payment>(GlobalVariables.SQLContext);
+        private readonly IGenericRepository<Account> _genericRepositoryAccount = new GenericRepository<Account>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<PaymentType> _genericRepositoryPaymentType = new GenericRepository<PaymentType>(GlobalVariables.SQLContext);
 
         private Ticket _ticket = null;
         private POSForm _posForm = null;
+        private Customer _customer = null;
         private List<PaymentType> _paymentTypes = new List<PaymentType>();
 
-        public PaymentForm(Ticket ticket)
+        public PaymentForm(Ticket ticket, Customer customer = null)
         {
             InitializeComponent();
             UpdateUILanguage();
 
             _ticket = ticket;
+            _customer = customer;
             _posForm = (POSForm)GetForm.Get("POSForm");
 
             numeratorUserControl.textBoxPin.KeyPress += new KeyPressEventHandler(NumeratorTextBoxPin_KeyPress);
@@ -106,6 +109,24 @@ namespace WindowsFormsAppUI.Forms
             tableLayoutPanelPaymentTypes.Controls.Clear();
 
             int rowCount = 1;
+            if (_customer != null && _customer.IsAccount)
+            {
+                PaymentTypeUserControl customerPaymentTypeUserControl = new PaymentTypeUserControl(new PaymentType { PaymentTypeId = 0, Name = _customer.Name, BackColor = "157,156,161", ForeColor = "255,255,255" })
+                {
+                    Dock = DockStyle.Fill
+                };
+
+                tableLayoutPanelPaymentTypes.RowStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+                tableLayoutPanelPaymentTypes.RowCount = rowCount;
+                tableLayoutPanelPaymentTypes.ColumnCount = 1;
+
+                customerPaymentTypeUserControl.PaymentTypeClick += PaymentTypeUserControl_Click;
+
+                tableLayoutPanelPaymentTypes.Controls.Add(customerPaymentTypeUserControl);
+
+                rowCount++;
+            }
+
             foreach (PaymentType paymentType in paymentTypes)
             {
                 PaymentTypeUserControl paymentTypeUserControl = new PaymentTypeUserControl(paymentType)
@@ -198,13 +219,41 @@ namespace WindowsFormsAppUI.Forms
                 }
 
                 if (tenderedAmount >= _ticket.RemainingAmount)
-                {
+                {                  
                     Ticket ticket = null;
                     ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
                     if (ticket == null)
                     {
                         _posForm.SaveTicket(true);
                         ticket = _genericRepositoryTicket.Get(x => x.TicketGuid == _ticket.TicketGuid);
+                    }
+
+                    if (paymentTypeUserControl._paymentType.PaymentTypeId == 0)
+                    {
+                        Account account = new Account
+                        {
+                            CustomerId = _customer.CustomerId,
+                            TicketId = ticket.TicketId,
+                            Name = $"Satış İşlemi [{CustomerHelper.GetNameAndPhoneNumber(_customer.CustomerId)}]",
+                            Amount = ticket.RemainingAmount,
+                            Date = DateTime.Now
+                        };
+
+                        _genericRepositoryAccount.Add(account);
+
+                        CustomerHelper.UpdateBalance(_customer.CustomerId, ticket.RemainingAmount, false);
+
+                        _genericRepositoryTicket.UpdateColumn(ticket, x => x.LastPaymentDate, DateTime.Now);
+                        _genericRepositoryTicket.UpdateColumn(ticket, x => x.RemainingAmount, 0);
+                        _genericRepositoryTicket.UpdateColumn(ticket, x => x.IsOpened, false);
+
+                       _posForm.ClearTicket();
+
+                        await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
+
+                        this.Close();
+
+                        return;
                     }
 
                     Payment payment = new Payment
@@ -247,6 +296,33 @@ namespace WindowsFormsAppUI.Forms
                     double remainingAmount = ticket.RemainingAmount - tenderedAmount;
                     _genericRepositoryTicket.UpdateColumn(ticket, x => x.RemainingAmount, remainingAmount);
                     _genericRepositoryTicket.UpdateColumn(ticket, x => x.LastPaymentDate, DateTime.Now);
+
+                    if (paymentTypeUserControl._paymentType.PaymentTypeId == 0)
+                    {
+                        Account account = new Account
+                        {
+                            CustomerId = _customer.CustomerId,
+                            TicketId = ticket.TicketId,
+                            Name = $"Satış İşlemi [{CustomerHelper.GetNameAndPhoneNumber(_customer.CustomerId)}]",
+                            Amount = tenderedAmount,
+                            Date = DateTime.Now
+                        };
+
+                        _genericRepositoryAccount.Add(account);
+
+                        CustomerHelper.UpdateBalance(_customer.CustomerId, tenderedAmount, false);
+
+                        _ticket = ticket;
+                        labelBalance.Text = string.Format("{0:C}", _ticket.RemainingAmount);
+
+                        CheckToMoneyChange();
+                        CheckToTenderedAmount();
+                        numeratorUserControl.Clear();
+
+                        await GlobalVariables.webSocketClient.Send(ClientCommandsEnum.REFRESH.ToString());
+
+                        return;
+                    }
 
                     Payment payment = new Payment
                     {
