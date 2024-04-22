@@ -265,7 +265,7 @@ namespace WindowsFormsAppUI.Forms
                 TerminalName = GlobalVariables.TerminalName,
                 CreatingUserName = LoggedInUser.CurrentUser.Fullname,
                 CreatedDateTime = DateTime.Now,
-                LastUpdateDateTime = DateTime.Now                
+                LastUpdateDateTime = DateTime.Now
             };
 
             _orders.Add(order);
@@ -850,7 +850,7 @@ namespace WindowsFormsAppUI.Forms
         {
             if (_orders.Count != 0)
             {
-                PaymentForm paymentForm = new PaymentForm(_ticket);
+                PaymentForm paymentForm = new PaymentForm(_ticket, _customer);
                 paymentForm.ShowDialog();
             }
         }
