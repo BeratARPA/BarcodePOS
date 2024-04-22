@@ -387,7 +387,6 @@
     <Compile Include="Helpers\UnitConvert.cs" />
     <Compile Include="Helpers\VirtualKeyboardHelper.cs" />
     <Compile Include="Helpers\WebSocketClient.cs" />
-    <Compile Include="Helpers\XpsConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShellForm.cs">
