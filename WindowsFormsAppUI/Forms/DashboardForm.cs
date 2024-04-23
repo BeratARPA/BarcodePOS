@@ -14,6 +14,16 @@ namespace WindowsFormsAppUI.Forms
         private bool editMode = false;
         string navigationLayoutPath = Path.Combine(FolderLocations.barcodePOSFolderPath, "NavigationLayouts.xml");
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000; //WS_EX_COMPOSITED
+                return handleParam;
+            }
+        }
+
         public DashboardForm()
         {
             InitializeComponent();
@@ -193,60 +203,56 @@ namespace WindowsFormsAppUI.Forms
                     #region Small
                     tileItem.ItemSize = (TileItemSize)itemSize;
                     tileItem.ImageToTextAlignment = TileControlImageToTextAlignment.Top;
+                    tileItem.TextAlignment = TileItemContentAlignment.Default;
                     tileItem.ImageAlignment = TileItemContentAlignment.MiddleCenter;
                     tileItem.ImageScaleMode = TileItemImageScaleMode.Stretch;
                     tileItem.Elements[0].ImageOptions.ImageSize = new Size(32, 32);
-                    tileItem.AppearanceItem.Normal.ForeColor = Color.FromArgb(157, 156, 161);
-                    tileItem.AppearanceItem.Normal.Font = new Font("Microsoft Sans Serif", 1);
                     tileItem.Elements[0].ImageOptions.ImageToTextIndent = 0;
+                    tileItem.AppearanceItem.Normal.ForeColor = Color.FromArgb(157, 156, 161);
+                    tileItem.AppearanceItem.Normal.Font = new Font("Tahoma", 1);
+                    tileItem.AppearanceItem.Hovered.Font = new Font("Tahoma", 1);
                     #endregion
                     break;
                 case 2:
                     #region Medium
                     tileItem.ItemSize = (TileItemSize)itemSize;
                     tileItem.ImageToTextAlignment = TileControlImageToTextAlignment.Top;
-                    tileItem.ImageAlignment = TileItemContentAlignment.MiddleCenter;
+                    tileItem.TextAlignment = TileItemContentAlignment.Default;
+                    tileItem.ImageAlignment = TileItemContentAlignment.BottomCenter;
                     tileItem.ImageScaleMode = TileItemImageScaleMode.Stretch;
-                    tileItem.Elements[0].ImageOptions.ImageSize = new Size(42, 42);
-                    tileItem.AppearanceItem.Normal.ForeColor = Color.White;
-                    tileItem.AppearanceItem.Normal.Font = new Font("Microsoft Sans Serif", 10);
+                    tileItem.Elements[0].ImageOptions.ImageSize = new Size(65, 65);
                     tileItem.Elements[0].ImageOptions.ImageToTextIndent = 25;
+                    tileItem.AppearanceItem.Normal.ForeColor = Color.White;
+                    tileItem.AppearanceItem.Normal.Font = new Font("Tahoma", 10);
+                    tileItem.AppearanceItem.Hovered.Font = new Font("Tahoma", 10);
                     #endregion
                     break;
                 case 3:
                     #region Wide
                     tileItem.ItemSize = (TileItemSize)itemSize;
-                    tileItem.ImageToTextAlignment = TileControlImageToTextAlignment.Left;
-                    tileItem.ImageAlignment = TileItemContentAlignment.MiddleCenter;
+                    tileItem.ImageToTextAlignment = TileControlImageToTextAlignment.None;
+                    tileItem.TextAlignment = TileItemContentAlignment.BottomRight;
+                    tileItem.ImageAlignment = TileItemContentAlignment.MiddleLeft;
                     tileItem.ImageScaleMode = TileItemImageScaleMode.Stretch;
-                    tileItem.Elements[0].ImageOptions.ImageSize = new Size(82, 82);
-                    tileItem.AppearanceItem.Normal.ForeColor = Color.White;
-                    tileItem.AppearanceItem.Normal.Font = new Font("Microsoft Sans Serif", 15);
+                    tileItem.Elements[0].ImageOptions.ImageSize = new Size(100, 100);
                     tileItem.Elements[0].ImageOptions.ImageToTextIndent = 25;
+                    tileItem.AppearanceItem.Normal.ForeColor = Color.White;
+                    tileItem.AppearanceItem.Normal.Font = new Font("Tahoma", 15);
+                    tileItem.AppearanceItem.Hovered.Font = new Font("Tahoma", 15);
                     #endregion
                     break;
                 case 4:
                     #region Large
                     tileItem.ItemSize = (TileItemSize)itemSize;
                     tileItem.ImageToTextAlignment = TileControlImageToTextAlignment.Top;
+                    tileItem.TextAlignment = TileItemContentAlignment.Default;
                     tileItem.ImageAlignment = TileItemContentAlignment.MiddleCenter;
                     tileItem.ImageScaleMode = TileItemImageScaleMode.Stretch;
-                    tileItem.Elements[0].ImageOptions.ImageSize = new Size(82, 82);
-                    tileItem.AppearanceItem.Normal.ForeColor = Color.White;
-                    tileItem.AppearanceItem.Normal.Font = new Font("Microsoft Sans Serif", 15);
+                    tileItem.Elements[0].ImageOptions.ImageSize = new Size(120, 120);
                     tileItem.Elements[0].ImageOptions.ImageToTextIndent = 25;
-                    #endregion
-                    break;
-                default:
-                    #region Default
-                    tileItem.ItemSize = TileItemSize.Medium;
-                    tileItem.ImageToTextAlignment = TileControlImageToTextAlignment.Top;
-                    tileItem.ImageAlignment = TileItemContentAlignment.MiddleCenter;
-                    tileItem.ImageScaleMode = TileItemImageScaleMode.Stretch;
-                    tileItem.Elements[0].ImageOptions.ImageSize = new Size(42, 42);
                     tileItem.AppearanceItem.Normal.ForeColor = Color.White;
-                    tileItem.AppearanceItem.Normal.Font = new Font("Microsoft Sans Serif", 10);
-                    tileItem.Elements[0].ImageOptions.ImageToTextIndent = 25;
+                    tileItem.AppearanceItem.Normal.Font = new Font("Tahoma", 20);
+                    tileItem.AppearanceItem.Hovered.Font = new Font("Tahoma", 20);
                     #endregion
                     break;
             }

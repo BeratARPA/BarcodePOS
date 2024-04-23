@@ -180,6 +180,9 @@
   <data name="Close" xml:space="preserve">
     <value>Kapat</value>
   </data>
+  <data name="ClosedTables" xml:space="preserve">
+    <value>Kapalı Masalar</value>
+  </data>
   <data name="ClosedTickets" xml:space="preserve">
     <value>Kapalı Fişler</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="OpeningClosing" xml:space="preserve">
     <value>Açılış-Kapanış</value>
+  </data>
+  <data name="OpenTables" xml:space="preserve">
+    <value>Açık Masalar</value>
   </data>
   <data name="OpenTickets" xml:space="preserve">
     <value>Açık Fişler</value>

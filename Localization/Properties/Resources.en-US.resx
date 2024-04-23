@@ -180,6 +180,9 @@
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="ClosedTables" xml:space="preserve">
+    <value>Closed Tables</value>
+  </data>
   <data name="ClosedTickets" xml:space="preserve">
     <value>Closed Tickets</value>
   </data>
@@ -347,6 +350,9 @@
   </data>
   <data name="OpeningClosing" xml:space="preserve">
     <value>Opening-Closing</value>
+  </data>
+  <data name="OpenTables" xml:space="preserve">
+    <value>Open Tables</value>
   </data>
   <data name="OpenTickets" xml:space="preserve">
     <value>Open Tickets</value>

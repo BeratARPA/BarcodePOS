@@ -34,8 +34,8 @@
             this.tileGroupTables = new DevExpress.XtraEditors.TileGroup();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonOpenTables = new System.Windows.Forms.Button();
             this.buttonCloseTables = new System.Windows.Forms.Button();
+            this.buttonOpenTables = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -118,25 +118,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1031, 50);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
-            // buttonOpenTables
-            // 
-            this.buttonOpenTables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
-            this.buttonOpenTables.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonOpenTables.FlatAppearance.BorderSize = 0;
-            this.buttonOpenTables.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonOpenTables.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonOpenTables.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOpenTables.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.buttonOpenTables.ForeColor = System.Drawing.Color.White;
-            this.buttonOpenTables.Location = new System.Drawing.Point(4, 4);
-            this.buttonOpenTables.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonOpenTables.Name = "buttonOpenTables";
-            this.buttonOpenTables.Size = new System.Drawing.Size(507, 42);
-            this.buttonOpenTables.TabIndex = 10;
-            this.buttonOpenTables.Text = "Açık Masalar";
-            this.buttonOpenTables.UseVisualStyleBackColor = false;
-            this.buttonOpenTables.Click += new System.EventHandler(this.buttonOpenTables_Click);
-            // 
             // buttonCloseTables
             // 
             this.buttonCloseTables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
@@ -145,7 +126,7 @@
             this.buttonCloseTables.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
             this.buttonCloseTables.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
             this.buttonCloseTables.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCloseTables.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonCloseTables.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.buttonCloseTables.ForeColor = System.Drawing.Color.White;
             this.buttonCloseTables.Location = new System.Drawing.Point(519, 4);
             this.buttonCloseTables.Margin = new System.Windows.Forms.Padding(4);
@@ -155,6 +136,25 @@
             this.buttonCloseTables.Text = "Kapalı Masalar";
             this.buttonCloseTables.UseVisualStyleBackColor = false;
             this.buttonCloseTables.Click += new System.EventHandler(this.buttonCloseTables_Click);
+            // 
+            // buttonOpenTables
+            // 
+            this.buttonOpenTables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(156)))), ((int)(((byte)(161)))));
+            this.buttonOpenTables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonOpenTables.FlatAppearance.BorderSize = 0;
+            this.buttonOpenTables.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonOpenTables.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonOpenTables.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOpenTables.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonOpenTables.ForeColor = System.Drawing.Color.White;
+            this.buttonOpenTables.Location = new System.Drawing.Point(4, 4);
+            this.buttonOpenTables.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonOpenTables.Name = "buttonOpenTables";
+            this.buttonOpenTables.Size = new System.Drawing.Size(507, 42);
+            this.buttonOpenTables.TabIndex = 10;
+            this.buttonOpenTables.Text = "Açık Masalar";
+            this.buttonOpenTables.UseVisualStyleBackColor = false;
+            this.buttonOpenTables.Click += new System.EventHandler(this.buttonOpenTables_Click);
             // 
             // TablesForm
             // 
