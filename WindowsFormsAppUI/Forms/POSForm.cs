@@ -750,7 +750,8 @@ namespace WindowsFormsAppUI.Forms
 
                 numeratorUserControl.Clear();
 
-                _posCustomerScreenForm.CreateNewProductOnCard(_orders);
+                if (_posCustomerScreenForm != null)
+                    _posCustomerScreenForm.CreateNewProductOnCard(_orders);
             }
         }
 

@@ -16,10 +16,5 @@ namespace WindowsFormsAppUI.Forms
         {
             InitializeComponent();
         }
-
-        private void panelMain_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

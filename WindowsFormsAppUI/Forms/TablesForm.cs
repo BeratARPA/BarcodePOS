@@ -27,6 +27,7 @@ namespace WindowsFormsAppUI.Forms
         public TablesForm(Ticket ticket = null)
         {
             InitializeComponent();
+            UpdateUILanguage();
 
             _ticket = ticket;
         }
@@ -38,6 +39,12 @@ namespace WindowsFormsAppUI.Forms
 
             CreateSections();
             CreateTables(1);
+        }
+
+        public void UpdateUILanguage()
+        {
+            buttonOpenTables.Text = GlobalVariables.CultureHelper.GetText("OpenTables");
+            buttonCloseTables.Text = GlobalVariables.CultureHelper.GetText("ClosedTables");
         }
 
         public void CreateSections()
