@@ -183,6 +183,9 @@
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
+  <data name="ClientConsole" xml:space="preserve">
+    <value>Client Console</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
@@ -204,6 +207,9 @@
   <data name="CreateProductLabel" xml:space="preserve">
     <value>Create Product Label</value>
   </data>
+  <data name="CurrentWindowConsole" xml:space="preserve">
+    <value>Current Window Console</value>
+  </data>
   <data name="Customer" xml:space="preserve">
     <value>Customer</value>
   </data>
@@ -224,6 +230,9 @@
   </data>
   <data name="Customers" xml:space="preserve">
     <value>Customers</value>
+  </data>
+  <data name="CustomerScreen" xml:space="preserve">
+    <value>Customer Screen</value>
   </data>
   <data name="DatabaseBackups" xml:space="preserve">
     <value>Database Backups</value>
