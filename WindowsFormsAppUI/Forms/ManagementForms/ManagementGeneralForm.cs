@@ -22,6 +22,9 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
             groupBox1.Text = GlobalVariables.CultureHelper.GetText("Languages");
             label1.Text = GlobalVariables.CultureHelper.GetText("Language");
             buttonSave.Text = GlobalVariables.CultureHelper.GetText("Save");
+            checkBoxClientConsole.Text = GlobalVariables.CultureHelper.GetText("ClientConsole");
+            checkBoxCustomerScreen.Text = GlobalVariables.CultureHelper.GetText("CustomerScreen");
+            checkBoxOpenWindowConsole.Text = GlobalVariables.CultureHelper.GetText("CurrentWindowConsole");
         }
 
         private string GetLanguage()
