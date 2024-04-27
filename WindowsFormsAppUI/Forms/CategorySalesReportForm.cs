@@ -19,6 +19,7 @@ namespace WindowsFormsAppUI.Forms
         public CategorySalesReportForm()
         {
             InitializeComponent();
+            UpdateUILanguage();
         }
 
         private void CategorySalesReportForm_Load(object sender, EventArgs e)

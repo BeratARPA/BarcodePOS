@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsAppUI.Forms
+namespace WindowsFormsAppUI.Forms.ManagementForms
 {
-    public partial class ManagementForm : Form
+    public partial class ManagementDatabaseBackupsForm : Form
     {
-        public ManagementForm()
+        public ManagementDatabaseBackupsForm()
         {
             InitializeComponent();
         }

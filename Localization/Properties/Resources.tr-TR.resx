@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Hakkında</value>
+  </data>
   <data name="AccountDetails" xml:space="preserve">
     <value>Hesap Detayları</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="Categories" xml:space="preserve">
     <value>Kategoriler</value>
+  </data>
+  <data name="CategoryList" xml:space="preserve">
+    <value>Kategori Listesi</value>
   </data>
   <data name="CategorySales" xml:space="preserve">
     <value>Kategori Satışları</value>
@@ -218,6 +224,9 @@
   </data>
   <data name="Customers" xml:space="preserve">
     <value>Müşteriler</value>
+  </data>
+  <data name="DatabaseBackups" xml:space="preserve">
+    <value>Veritabanı Yedekleri</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>Tarih</value>
@@ -297,6 +306,12 @@
   <data name="Label" xml:space="preserve">
     <value>Etiket</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Dil</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Diller</value>
+  </data>
   <data name="Large" xml:space="preserve">
     <value>Büyük</value>
   </data>
@@ -323,6 +338,9 @@
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Orta</value>
+  </data>
+  <data name="MessageServer" xml:space="preserve">
+    <value>Mesaj Sunucusu</value>
   </data>
   <data name="MoneySymbol" xml:space="preserve">
     <value>Para Sembolü</value>
@@ -363,6 +381,9 @@
   <data name="Payments" xml:space="preserve">
     <value>Ödemeler</value>
   </data>
+  <data name="PaymentTypeList" xml:space="preserve">
+    <value>Ödeme Tip Listesi</value>
+  </data>
   <data name="PaymentTypes" xml:space="preserve">
     <value>Ödeme Tipleri</value>
   </data>
@@ -392,6 +413,9 @@
   </data>
   <data name="Product" xml:space="preserve">
     <value>Ürün</value>
+  </data>
+  <data name="ProductList" xml:space="preserve">
+    <value>Ürün Listesi</value>
   </data>
   <data name="Products" xml:space="preserve">
     <value>Ürünler</value>
@@ -429,14 +453,23 @@
   <data name="Restart" xml:space="preserve">
     <value>Yeniden Başlat</value>
   </data>
+  <data name="RestartForTheChangesToApply." xml:space="preserve">
+    <value>Değişikliklerin uygulanması için yeniden başlatın.</value>
+  </data>
   <data name="Revenues" xml:space="preserve">
     <value>Hasılatlar</value>
+  </data>
+  <data name="RoleList" xml:space="preserve">
+    <value>Rol Listesi</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Kaydet</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Ara</value>
+  </data>
+  <data name="SectionList" xml:space="preserve">
+    <value>Bölüm Listesi</value>
   </data>
   <data name="Select" xml:space="preserve">
     <value>Seç</value>
@@ -452,6 +485,9 @@
   </data>
   <data name="SendToKitchen" xml:space="preserve">
     <value>Mutfağa Gönder</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ayarlar</value>
   </data>
   <data name="Small" xml:space="preserve">
     <value>Küçük</value>
@@ -470,6 +506,9 @@
   </data>
   <data name="Table" xml:space="preserve">
     <value>Masa</value>
+  </data>
+  <data name="TableList" xml:space="preserve">
+    <value>Masa Listesi</value>
   </data>
   <data name="Tables" xml:space="preserve">
     <value>Masalar</value>
@@ -527,6 +566,9 @@
   </data>
   <data name="User" xml:space="preserve">
     <value>Kullanıcı</value>
+  </data>
+  <data name="UserList" xml:space="preserve">
+    <value>Kullanıcı Listesi</value>
   </data>
   <data name="UserNotFound!" xml:space="preserve">
     <value>Kullanıcı bulunamadı!</value>
