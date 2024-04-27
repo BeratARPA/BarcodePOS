@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
   <data name="AccountDetails" xml:space="preserve">
     <value>Account Details</value>
   </data>
@@ -164,6 +167,9 @@
   </data>
   <data name="Categories" xml:space="preserve">
     <value>Categories</value>
+  </data>
+  <data name="CategoryList" xml:space="preserve">
+    <value>Category List</value>
   </data>
   <data name="CategorySales" xml:space="preserve">
     <value>Category Sales</value>
@@ -218,6 +224,9 @@
   </data>
   <data name="Customers" xml:space="preserve">
     <value>Customers</value>
+  </data>
+  <data name="DatabaseBackups" xml:space="preserve">
+    <value>Database Backups</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>Date</value>
@@ -297,6 +306,12 @@
   <data name="Label" xml:space="preserve">
     <value>Label</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Languages</value>
+  </data>
   <data name="Large" xml:space="preserve">
     <value>Large</value>
   </data>
@@ -323,6 +338,9 @@
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Medium</value>
+  </data>
+  <data name="MessageServer" xml:space="preserve">
+    <value>Message Server</value>
   </data>
   <data name="MoneySymbol" xml:space="preserve">
     <value>Money Symbol</value>
@@ -363,6 +381,9 @@
   <data name="Payments" xml:space="preserve">
     <value>Payments</value>
   </data>
+  <data name="PaymentTypeList" xml:space="preserve">
+    <value>Payment Type List</value>
+  </data>
   <data name="PaymentTypes" xml:space="preserve">
     <value>Payment Types</value>
   </data>
@@ -392,6 +413,9 @@
   </data>
   <data name="Product" xml:space="preserve">
     <value>Product</value>
+  </data>
+  <data name="ProductList" xml:space="preserve">
+    <value>Product List</value>
   </data>
   <data name="Products" xml:space="preserve">
     <value>Products</value>
@@ -426,14 +450,23 @@
   <data name="Restart" xml:space="preserve">
     <value>Restart</value>
   </data>
+  <data name="RestartForTheChangesToApply." xml:space="preserve">
+    <value>Restart for the changes to apply.</value>
+  </data>
   <data name="Revenues" xml:space="preserve">
     <value>Revenues</value>
+  </data>
+  <data name="RoleList" xml:space="preserve">
+    <value>Role List</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
   <data name="Search" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="SectionList" xml:space="preserve">
+    <value>Section List</value>
   </data>
   <data name="Select" xml:space="preserve">
     <value>Select</value>
@@ -449,6 +482,9 @@
   </data>
   <data name="SendToKitchen" xml:space="preserve">
     <value>Send to Kitchen</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="Small" xml:space="preserve">
     <value>Small</value>
@@ -467,6 +503,9 @@
   </data>
   <data name="Table" xml:space="preserve">
     <value>Table</value>
+  </data>
+  <data name="TableList" xml:space="preserve">
+    <value>Table List</value>
   </data>
   <data name="Tables" xml:space="preserve">
     <value>Tables</value>
@@ -524,6 +563,9 @@
   </data>
   <data name="User" xml:space="preserve">
     <value>User</value>
+  </data>
+  <data name="UserList" xml:space="preserve">
+    <value>User List</value>
   </data>
   <data name="UserNotFound!" xml:space="preserve">
     <value>User not found!</value>

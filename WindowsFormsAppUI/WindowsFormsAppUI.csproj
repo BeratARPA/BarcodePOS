@@ -238,11 +238,77 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ManagementForm.cs">
+    <Compile Include="Forms\ManagementForms\ManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ManagementForm.Designer.cs">
+    <Compile Include="Forms\ManagementForms\ManagementForm.Designer.cs">
       <DependentUpon>ManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementAboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementAboutForm.Designer.cs">
+      <DependentUpon>ManagementAboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementCategoryListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementCategoryListForm.Designer.cs">
+      <DependentUpon>ManagementCategoryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementDatabaseBackupsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementDatabaseBackupsForm.Designer.cs">
+      <DependentUpon>ManagementDatabaseBackupsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementGeneralForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementGeneralForm.Designer.cs">
+      <DependentUpon>ManagementGeneralForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementMessageServerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementMessageServerForm.Designer.cs">
+      <DependentUpon>ManagementMessageServerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementPaymentTypeListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementPaymentTypeListForm.Designer.cs">
+      <DependentUpon>ManagementPaymentTypeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementProductListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementProductListForm.Designer.cs">
+      <DependentUpon>ManagementProductListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementRoleListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementRoleListForm.Designer.cs">
+      <DependentUpon>ManagementRoleListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementSectionListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementSectionListForm.Designer.cs">
+      <DependentUpon>ManagementSectionListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementTableListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementTableListForm.Designer.cs">
+      <DependentUpon>ManagementTableListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementUserListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementUserListForm.Designer.cs">
+      <DependentUpon>ManagementUserListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MessageBoxForm.cs">
       <SubType>Form</SubType>
@@ -479,8 +545,41 @@
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ManagementForm.resx">
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementAboutForm.resx">
+      <DependentUpon>ManagementAboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementCategoryListForm.resx">
+      <DependentUpon>ManagementCategoryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementDatabaseBackupsForm.resx">
+      <DependentUpon>ManagementDatabaseBackupsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementGeneralForm.resx">
+      <DependentUpon>ManagementGeneralForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementMessageServerForm.resx">
+      <DependentUpon>ManagementMessageServerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementPaymentTypeListForm.resx">
+      <DependentUpon>ManagementPaymentTypeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementProductListForm.resx">
+      <DependentUpon>ManagementProductListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementRoleListForm.resx">
+      <DependentUpon>ManagementRoleListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementSectionListForm.resx">
+      <DependentUpon>ManagementSectionListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementTableListForm.resx">
+      <DependentUpon>ManagementTableListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementUserListForm.resx">
+      <DependentUpon>ManagementUserListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MessageBoxForm.resx">
       <DependentUpon>MessageBoxForm.cs</DependentUpon>
