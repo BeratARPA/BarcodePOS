@@ -14,6 +14,12 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
 
         public void UpdateUILanguage()
         {
+            accordionControlElement1.Text = GlobalVariables.CultureHelper.GetText("Settings");
+            accordionControlElement2.Text = GlobalVariables.CultureHelper.GetText("Products");
+            accordionControlElement3.Text = GlobalVariables.CultureHelper.GetText("Tickets");
+            accordionControlElement4.Text = GlobalVariables.CultureHelper.GetText("Tables");
+            accordionControlElement5.Text = GlobalVariables.CultureHelper.GetText("Users");
+
             accordionControlElementGeneral.Text = GlobalVariables.CultureHelper.GetText("General");
             accordionControlElementDatabaseBackups.Text = GlobalVariables.CultureHelper.GetText("DatabaseBackups");
             accordionControlElementAbout.Text = GlobalVariables.CultureHelper.GetText("About");
@@ -25,7 +31,6 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
             accordionControlElementTableList.Text = GlobalVariables.CultureHelper.GetText("TableList");
             accordionControlElementRoleList.Text = GlobalVariables.CultureHelper.GetText("RoleList");
             accordionControlElementUserList.Text = GlobalVariables.CultureHelper.GetText("UserList");
-
         }
 
         private void accordionControlElementGeneral_Click(object sender, EventArgs e)

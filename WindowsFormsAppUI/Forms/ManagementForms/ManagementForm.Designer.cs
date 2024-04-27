@@ -34,15 +34,15 @@
             this.accordionControlElementDatabaseBackups = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementAbout = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementMessageServer = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementCategoryList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementProductList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement9 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementPaymentTypeList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementSectionList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementTableList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement11 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementRoleList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementUserList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panelMain = new System.Windows.Forms.Panel();
@@ -61,10 +61,10 @@
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement1,
-            this.accordionControlElement6,
-            this.accordionControlElement9,
-            this.accordionControlElement10,
-            this.accordionControlElement11});
+            this.accordionControlElement2,
+            this.accordionControlElement3,
+            this.accordionControlElement4,
+            this.accordionControlElement5});
             this.accordionControl1.ExpandElementMode = DevExpress.XtraBars.Navigation.ExpandElementMode.Multiple;
             this.accordionControl1.Location = new System.Drawing.Point(0, 0);
             this.accordionControl1.Margin = new System.Windows.Forms.Padding(2);
@@ -165,24 +165,24 @@
             this.accordionControlElementMessageServer.Text = "Mesaj Sunucusu";
             this.accordionControlElementMessageServer.Click += new System.EventHandler(this.accordionControlElementMessageServer_Click);
             // 
-            // accordionControlElement6
+            // accordionControlElement2
             // 
-            this.accordionControlElement6.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement6.Appearance.Default.Options.UseFont = true;
-            this.accordionControlElement6.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement6.Appearance.Disabled.Options.UseFont = true;
-            this.accordionControlElement6.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement6.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElement6.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement6.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement6.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement6.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElement6.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElement2.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement2.Appearance.Default.Options.UseFont = true;
+            this.accordionControlElement2.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement2.Appearance.Disabled.Options.UseFont = true;
+            this.accordionControlElement2.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement2.Appearance.Hovered.Options.UseFont = true;
+            this.accordionControlElement2.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement2.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElement2.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement2.Appearance.Pressed.Options.UseFont = true;
+            this.accordionControlElement2.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElementCategoryList,
             this.accordionControlElementProductList});
-            this.accordionControlElement6.Expanded = true;
-            this.accordionControlElement6.Name = "accordionControlElement6";
-            this.accordionControlElement6.Text = "Ürünler";
+            this.accordionControlElement2.Expanded = true;
+            this.accordionControlElement2.Name = "accordionControlElement2";
+            this.accordionControlElement2.Text = "Ürünler";
             // 
             // accordionControlElementCategoryList
             // 
@@ -218,23 +218,23 @@
             this.accordionControlElementProductList.Text = "Ürün Listesi";
             this.accordionControlElementProductList.Click += new System.EventHandler(this.accordionControlElementProductList_Click);
             // 
-            // accordionControlElement9
+            // accordionControlElement3
             // 
-            this.accordionControlElement9.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement9.Appearance.Default.Options.UseFont = true;
-            this.accordionControlElement9.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement9.Appearance.Disabled.Options.UseFont = true;
-            this.accordionControlElement9.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement9.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElement9.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement9.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement9.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement9.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElement9.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElement3.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement3.Appearance.Default.Options.UseFont = true;
+            this.accordionControlElement3.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement3.Appearance.Disabled.Options.UseFont = true;
+            this.accordionControlElement3.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement3.Appearance.Hovered.Options.UseFont = true;
+            this.accordionControlElement3.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement3.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElement3.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement3.Appearance.Pressed.Options.UseFont = true;
+            this.accordionControlElement3.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElementPaymentTypeList});
-            this.accordionControlElement9.Expanded = true;
-            this.accordionControlElement9.Name = "accordionControlElement9";
-            this.accordionControlElement9.Text = "Adisyonlar";
+            this.accordionControlElement3.Expanded = true;
+            this.accordionControlElement3.Name = "accordionControlElement3";
+            this.accordionControlElement3.Text = "Fişler";
             // 
             // accordionControlElementPaymentTypeList
             // 
@@ -253,24 +253,24 @@
             this.accordionControlElementPaymentTypeList.Text = "Ödeme Tip Listesi";
             this.accordionControlElementPaymentTypeList.Click += new System.EventHandler(this.accordionControlElementPaymentTypeList_Click);
             // 
-            // accordionControlElement10
+            // accordionControlElement4
             // 
-            this.accordionControlElement10.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement10.Appearance.Default.Options.UseFont = true;
-            this.accordionControlElement10.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement10.Appearance.Disabled.Options.UseFont = true;
-            this.accordionControlElement10.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement10.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElement10.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement10.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement10.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement10.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElement10.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElement4.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement4.Appearance.Default.Options.UseFont = true;
+            this.accordionControlElement4.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement4.Appearance.Disabled.Options.UseFont = true;
+            this.accordionControlElement4.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement4.Appearance.Hovered.Options.UseFont = true;
+            this.accordionControlElement4.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement4.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElement4.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement4.Appearance.Pressed.Options.UseFont = true;
+            this.accordionControlElement4.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElementSectionList,
             this.accordionControlElementTableList});
-            this.accordionControlElement10.Expanded = true;
-            this.accordionControlElement10.Name = "accordionControlElement10";
-            this.accordionControlElement10.Text = "Masalar";
+            this.accordionControlElement4.Expanded = true;
+            this.accordionControlElement4.Name = "accordionControlElement4";
+            this.accordionControlElement4.Text = "Masalar";
             // 
             // accordionControlElementSectionList
             // 
@@ -306,24 +306,24 @@
             this.accordionControlElementTableList.Text = "Masa Listesi";
             this.accordionControlElementTableList.Click += new System.EventHandler(this.accordionControlElementTableList_Click);
             // 
-            // accordionControlElement11
+            // accordionControlElement5
             // 
-            this.accordionControlElement11.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement11.Appearance.Default.Options.UseFont = true;
-            this.accordionControlElement11.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement11.Appearance.Disabled.Options.UseFont = true;
-            this.accordionControlElement11.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement11.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElement11.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement11.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement11.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 15F);
-            this.accordionControlElement11.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElement11.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlElement5.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement5.Appearance.Default.Options.UseFont = true;
+            this.accordionControlElement5.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement5.Appearance.Disabled.Options.UseFont = true;
+            this.accordionControlElement5.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement5.Appearance.Hovered.Options.UseFont = true;
+            this.accordionControlElement5.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement5.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElement5.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 15F);
+            this.accordionControlElement5.Appearance.Pressed.Options.UseFont = true;
+            this.accordionControlElement5.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElementRoleList,
             this.accordionControlElementUserList});
-            this.accordionControlElement11.Expanded = true;
-            this.accordionControlElement11.Name = "accordionControlElement11";
-            this.accordionControlElement11.Text = "Kullanıcılar";
+            this.accordionControlElement5.Expanded = true;
+            this.accordionControlElement5.Name = "accordionControlElement5";
+            this.accordionControlElement5.Text = "Kullanıcılar";
             // 
             // accordionControlElementRoleList
             // 
@@ -395,15 +395,15 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementDatabaseBackups;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementAbout;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementMessageServer;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement6;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementCategoryList;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementProductList;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement9;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement10;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementPaymentTypeList;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementSectionList;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementTableList;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement11;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementRoleList;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementUserList;
     }
