@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using System;
 using System.Windows.Forms;
 using WindowsFormsAppUI.Helpers;
 
@@ -10,6 +11,10 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
         {
             InitializeComponent();
             UpdateUILanguage();
+
+            checkBoxClientConsole.Checked = Properties.Settings.Default.ClientConsole;
+            checkBoxCustomerScreen.Checked = Properties.Settings.Default.CustomerScreen;
+            checkBoxOpenWindowConsole.Checked = Properties.Settings.Default.OpenWindows;
         }
 
         public void UpdateUILanguage()
@@ -35,7 +40,13 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
         private void buttonSave_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.CurrentLanguage = GetLanguage();
+
+            Properties.Settings.Default.ClientConsole = checkBoxClientConsole.Checked;
+            Properties.Settings.Default.CustomerScreen = checkBoxCustomerScreen.Checked;
+            Properties.Settings.Default.OpenWindows = checkBoxOpenWindowConsole.Checked;
+
             Properties.Settings.Default.Save();
+
             GlobalVariables.CultureHelper.ChangeCulture(Properties.Settings.Default.CurrentLanguage);
             UpdateUILanguage();
 

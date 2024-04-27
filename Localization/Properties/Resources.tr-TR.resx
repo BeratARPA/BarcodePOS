@@ -183,6 +183,9 @@
   <data name="Clear" xml:space="preserve">
     <value>Temizle</value>
   </data>
+  <data name="ClientConsole" xml:space="preserve">
+    <value>İstemci Konsolu</value>
+  </data>
   <data name="Close" xml:space="preserve">
     <value>Kapat</value>
   </data>
@@ -204,6 +207,9 @@
   <data name="CreateProductLabel" xml:space="preserve">
     <value>Etiketi Oluştur</value>
   </data>
+  <data name="CurrentWindowConsole" xml:space="preserve">
+    <value>Açık Pencereler Konsolu</value>
+  </data>
   <data name="Customer" xml:space="preserve">
     <value>Müşteri</value>
   </data>
@@ -224,6 +230,9 @@
   </data>
   <data name="Customers" xml:space="preserve">
     <value>Müşteriler</value>
+  </data>
+  <data name="CustomerScreen" xml:space="preserve">
+    <value>Müşteri Ekranı</value>
   </data>
   <data name="DatabaseBackups" xml:space="preserve">
     <value>Veritabanı Yedekleri</value>

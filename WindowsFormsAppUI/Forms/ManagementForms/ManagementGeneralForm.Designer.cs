@@ -36,11 +36,16 @@
             this.comboBoxLanguages = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.checkBoxClientConsole = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.checkBoxOpenWindowConsole = new System.Windows.Forms.CheckBox();
+            this.checkBoxCustomerScreen = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -65,6 +70,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -165,6 +171,62 @@
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // checkBoxClientConsole
+            // 
+            this.checkBoxClientConsole.AutoSize = true;
+            this.checkBoxClientConsole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBoxClientConsole.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.checkBoxClientConsole.Location = new System.Drawing.Point(3, 36);
+            this.checkBoxClientConsole.Name = "checkBoxClientConsole";
+            this.checkBoxClientConsole.Size = new System.Drawing.Size(214, 27);
+            this.checkBoxClientConsole.TabIndex = 1;
+            this.checkBoxClientConsole.Text = "İstemci Konsolu";
+            this.checkBoxClientConsole.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.checkBoxOpenWindowConsole, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.checkBoxClientConsole, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.checkBoxCustomerScreen, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(420, 20);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(20);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 4;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(360, 235);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // checkBoxOpenWindowConsole
+            // 
+            this.checkBoxOpenWindowConsole.AutoSize = true;
+            this.checkBoxOpenWindowConsole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBoxOpenWindowConsole.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.checkBoxOpenWindowConsole.Location = new System.Drawing.Point(3, 69);
+            this.checkBoxOpenWindowConsole.Name = "checkBoxOpenWindowConsole";
+            this.checkBoxOpenWindowConsole.Size = new System.Drawing.Size(214, 27);
+            this.checkBoxOpenWindowConsole.TabIndex = 1;
+            this.checkBoxOpenWindowConsole.Text = "Geçerli Pencere Konsolu";
+            this.checkBoxOpenWindowConsole.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxCustomerScreen
+            // 
+            this.checkBoxCustomerScreen.AutoSize = true;
+            this.checkBoxCustomerScreen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBoxCustomerScreen.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.checkBoxCustomerScreen.Location = new System.Drawing.Point(3, 3);
+            this.checkBoxCustomerScreen.Name = "checkBoxCustomerScreen";
+            this.checkBoxCustomerScreen.Size = new System.Drawing.Size(214, 27);
+            this.checkBoxCustomerScreen.TabIndex = 1;
+            this.checkBoxCustomerScreen.Text = "Müşteri Ekranı";
+            this.checkBoxCustomerScreen.UseVisualStyleBackColor = true;
+            // 
             // ManagementGeneralForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,6 +244,8 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -196,5 +260,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.CheckBox checkBoxClientConsole;
+        private System.Windows.Forms.CheckBox checkBoxOpenWindowConsole;
+        private System.Windows.Forms.CheckBox checkBoxCustomerScreen;
     }
 }
