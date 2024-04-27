@@ -124,6 +124,9 @@ namespace WindowsFormsAppUI.Helpers
 
         public void AddLog(string log)
         {
+            if (_clientConsoleForm == null)
+                return;
+
             if (_clientConsoleForm.listBoxLogs.InvokeRequired)
             {
                 _clientConsoleForm.listBoxLogs.Invoke(new Action<string>(AddLog), log);
