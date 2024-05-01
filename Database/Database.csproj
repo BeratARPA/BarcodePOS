@@ -58,7 +58,7 @@
     <Compile Include="Data\SQLContext.cs" />
     <Compile Include="Enums\TypeDatabase.cs" />
     <Compile Include="Helpers\DatabaseType.cs" />
-    <Compile Include="Helpers\GetDatabaseTypeSetting.cs" />
+    <Compile Include="Helpers\DatabaseTypeSettingHelper.cs" />
     <Compile Include="Helpers\Logger.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Migrations\202404140052486_InitialCreate.cs" />

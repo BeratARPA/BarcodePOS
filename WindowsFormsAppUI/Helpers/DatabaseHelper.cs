@@ -22,7 +22,7 @@ namespace WindowsFormsAppUI.Helpers
                 string dbBackUpPath = Path.Combine(FolderLocations.databaseBackupsFolderPath, dbname + ".bak");
                 string dbZipPath = "";
 
-                if (GetDatabaseTypeSetting.Get() == 0)
+                if (DatabaseTypeSettingHelper.Get() == 0)
                 {
                     dbZipPath = Path.Combine(FolderLocations.databaseBackupsFolderPath, dbname + "_LocalDB_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".zip");
                 }
@@ -66,7 +66,7 @@ namespace WindowsFormsAppUI.Helpers
 
                 DatabaseInformation databaseInformation = new DatabaseInformation();
 
-                databaseInformation.DatabaseAddress = ConfigurationManager.ConnectionStrings[DatabaseType.GetConnectionString((TypeDatabase)GetDatabaseTypeSetting.Get())].ConnectionString;
+                databaseInformation.DatabaseAddress = ConfigurationManager.ConnectionStrings[DatabaseType.GetConnectionString((TypeDatabase)DatabaseTypeSettingHelper.Get())].ConnectionString;
                 databaseInformation.DatabaseName = databaseName;
                 databaseInformation.RestoreUrl = restoreUrl;
                 databaseInformation.CurrentDirectory = Application.StartupPath;

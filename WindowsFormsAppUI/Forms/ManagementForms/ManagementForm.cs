@@ -22,6 +22,7 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
 
             accordionControlElementGeneral.Text = GlobalVariables.CultureHelper.GetText("General");
             accordionControlElementDatabaseBackups.Text = GlobalVariables.CultureHelper.GetText("DatabaseBackups");
+            accordionControlElementDatabaseType.Text = GlobalVariables.CultureHelper.GetText("DatabaseType");
             accordionControlElementAbout.Text = GlobalVariables.CultureHelper.GetText("About");
             accordionControlElementMessageServer.Text = GlobalVariables.CultureHelper.GetText("MessageServer");
             accordionControlElementCategoryList.Text = GlobalVariables.CultureHelper.GetText("CategoryList");
@@ -41,6 +42,11 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
         private void accordionControlElementDatabaseBackups_Click(object sender, EventArgs e)
         {
             NavigationManager.OpenForm(new ManagementDatabaseBackupsForm(), DockStyle.Fill, panelMain);
+        }
+
+        private void accordionControlElementDatabaseType_Click(object sender, EventArgs e)
+        {
+            NavigationManager.OpenForm(new ManagementDatabaseTypeForm(), DockStyle.Fill, panelMain);
         }
 
         private void accordionControlElementAbout_Click(object sender, EventArgs e)
@@ -86,6 +92,6 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
         private void accordionControlElementUserList_Click(object sender, EventArgs e)
         {
             NavigationManager.OpenForm(new ManagementUserListForm(), DockStyle.Fill, panelMain);
-        }
+        }       
     }
 }
