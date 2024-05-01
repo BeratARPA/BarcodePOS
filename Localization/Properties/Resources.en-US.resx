@@ -144,6 +144,9 @@
   <data name="BackgroundColor" xml:space="preserve">
     <value>Background Color</value>
   </data>
+  <data name="BackupDatabase" xml:space="preserve">
+    <value>Backup Database</value>
+  </data>
   <data name="Balance" xml:space="preserve">
     <value>Balance</value>
   </data>
@@ -236,6 +239,9 @@
   </data>
   <data name="DatabaseBackups" xml:space="preserve">
     <value>Database Backups</value>
+  </data>
+  <data name="DatabaseRestore" xml:space="preserve">
+    <value>Database Restore</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>Date</value>
@@ -338,6 +344,9 @@
   </data>
   <data name="MainMenu" xml:space="preserve">
     <value>Main menu</value>
+  </data>
+  <data name="MakeSureAllTerminalsAreClosedBeforeRestoringTheDatabaseDoYouWantToContinue?" xml:space="preserve">
+    <value>Make sure all terminals are closed before restoring the database.\n\nDo you want to continue?</value>
   </data>
   <data name="MakeYourChoice!" xml:space="preserve">
     <value>Make your choice!</value>
@@ -486,6 +495,9 @@
   <data name="SelectProduct" xml:space="preserve">
     <value>Select Product</value>
   </data>
+  <data name="SelectTheDatabaseBackupYouWantToRestore." xml:space="preserve">
+    <value>Select the database backup you want to restore.</value>
+  </data>
   <data name="SendAllProductsToTheKitchen?" xml:space="preserve">
     <value>Send all products to the kitchen?</value>
   </data>
@@ -494,6 +506,9 @@
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="ShowBackupLocation" xml:space="preserve">
+    <value>Show Backup Location</value>
   </data>
   <data name="Small" xml:space="preserve">
     <value>Small</value>
@@ -521,6 +536,9 @@
   </data>
   <data name="TechnicalSupport" xml:space="preserve">
     <value>Technical Support</value>
+  </data>
+  <data name="TheBackupHasBeenCreatedSuccessfully." xml:space="preserve">
+    <value>The backup has been created successfully.</value>
   </data>
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>The changes have been saved.</value>
