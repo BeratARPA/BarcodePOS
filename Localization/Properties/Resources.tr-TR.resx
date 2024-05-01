@@ -243,6 +243,12 @@
   <data name="DatabaseRestore" xml:space="preserve">
     <value>Veritabanı Geri Yükleme</value>
   </data>
+  <data name="DatabaseType" xml:space="preserve">
+    <value>Veritabanı Türü</value>
+  </data>
+  <data name="DatabaseTypes" xml:space="preserve">
+    <value>Veritabanı Türleri</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Tarih</value>
   </data>
@@ -545,6 +551,9 @@
   </data>
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>Değişiklikler kaydedildi.</value>
+  </data>
+  <data name="TheDatabaseWillBeBackedUpTheApplicationWillBeClosedAndTheDatabaseTypeWillBeChangedDoYouWantToContinue?" xml:space="preserve">
+    <value>Veritabanı yedeklenerek, uygulama kapatılıp veritabanı türü değiştirilecek!\n\nDevam etmek istiyor musunuz?</value>
   </data>
   <data name="ThereIsACustomerRegisteredAt" xml:space="preserve">
     <value>{0} numaraya kayıtlı müşterimiz var!</value>

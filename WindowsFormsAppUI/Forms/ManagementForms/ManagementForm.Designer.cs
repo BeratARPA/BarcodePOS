@@ -32,6 +32,7 @@
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementGeneral = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementDatabaseBackups = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElementDatabaseType = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementAbout = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementMessageServer = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -46,7 +47,6 @@
             this.accordionControlElementRoleList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementUserList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,9 +92,9 @@
             this.accordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElementGeneral,
             this.accordionControlElementDatabaseBackups,
-            this.accordionControlElement6,
-            this.accordionControlElementAbout,
-            this.accordionControlElementMessageServer});
+            this.accordionControlElementDatabaseType,
+            this.accordionControlElementMessageServer,
+            this.accordionControlElementAbout});
             this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Text = "Ayarlar";
@@ -132,6 +132,23 @@
             this.accordionControlElementDatabaseBackups.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElementDatabaseBackups.Text = "Veritabanı Yedekleri";
             this.accordionControlElementDatabaseBackups.Click += new System.EventHandler(this.accordionControlElementDatabaseBackups_Click);
+            // 
+            // accordionControlElementDatabaseType
+            // 
+            this.accordionControlElementDatabaseType.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementDatabaseType.Appearance.Default.Options.UseFont = true;
+            this.accordionControlElementDatabaseType.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementDatabaseType.Appearance.Disabled.Options.UseFont = true;
+            this.accordionControlElementDatabaseType.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementDatabaseType.Appearance.Hovered.Options.UseFont = true;
+            this.accordionControlElementDatabaseType.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementDatabaseType.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElementDatabaseType.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementDatabaseType.Appearance.Pressed.Options.UseFont = true;
+            this.accordionControlElementDatabaseType.Name = "accordionControlElementDatabaseType";
+            this.accordionControlElementDatabaseType.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElementDatabaseType.Text = "Veritabanı Türü";
+            this.accordionControlElementDatabaseType.Click += new System.EventHandler(this.accordionControlElementDatabaseType_Click);
             // 
             // accordionControlElementAbout
             // 
@@ -370,22 +387,6 @@
             this.panelMain.Size = new System.Drawing.Size(612, 600);
             this.panelMain.TabIndex = 5;
             // 
-            // accordionControlElement6
-            // 
-            this.accordionControlElement6.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.accordionControlElement6.Appearance.Default.Options.UseFont = true;
-            this.accordionControlElement6.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.accordionControlElement6.Appearance.Disabled.Options.UseFont = true;
-            this.accordionControlElement6.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.accordionControlElement6.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElement6.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.accordionControlElement6.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElement6.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.accordionControlElement6.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElement6.Name = "accordionControlElement6";
-            this.accordionControlElement6.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement6.Text = "Veritabanı Türü";
-            // 
             // ManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,6 +425,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementRoleList;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementUserList;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement6;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementDatabaseType;
     }
 }

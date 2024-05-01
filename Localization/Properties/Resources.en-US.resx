@@ -243,6 +243,12 @@
   <data name="DatabaseRestore" xml:space="preserve">
     <value>Database Restore</value>
   </data>
+  <data name="DatabaseType" xml:space="preserve">
+    <value>Database Type</value>
+  </data>
+  <data name="DatabaseTypes" xml:space="preserve">
+    <value>Database Types</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Date</value>
   </data>
@@ -542,6 +548,9 @@
   </data>
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>The changes have been saved.</value>
+  </data>
+  <data name="TheDatabaseWillBeBackedUpTheApplicationWillBeClosedAndTheDatabaseTypeWillBeChangedDoYouWantToContinue?" xml:space="preserve">
+    <value>The database will be backed up, the application will be closed and the database type will be changed!\n\nDo you want to continue?</value>
   </data>
   <data name="ThereIsACustomerRegisteredAt" xml:space="preserve">
     <value>There is a customer registered at {0}.</value>

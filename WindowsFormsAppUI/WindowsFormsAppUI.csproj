@@ -268,6 +268,12 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementDatabaseTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementDatabaseTypeForm.Designer.cs">
+      <DependentUpon>ManagementDatabaseTypeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ManagementForms\ManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -577,6 +583,9 @@
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementDatabaseTypeForm.resx">
+      <DependentUpon>ManagementDatabaseTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManagementForms\ManagementForm.resx">
       <DependentUpon>ManagementForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -765,6 +774,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="NewIcon.ico" />
+    <None Include="Resources\Exit.png" />
+    <None Include="Resources\Settings.png" />
+    <None Include="Resources\Report.png" />
+    <None Include="Resources\Stock.png" />
+    <None Include="Resources\Table.png" />
+    <None Include="Resources\POS.png" />
+    <None Include="Resources\Customer.png" />
+    <None Include="Resources\Support.png" />
+    <None Include="Resources\Customize.png" />
+    <None Include="Resources\Ticket.png" />
+    <None Include="Resources\LabelDesign.png" />
     <Content Include="Server.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
