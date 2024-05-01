@@ -37,7 +37,7 @@ namespace WindowsFormsAppUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.243")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.215")]
         public string ServerName {
             get {
                 return ((string)(this["ServerName"]));

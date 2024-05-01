@@ -144,6 +144,9 @@
   <data name="BackgroundColor" xml:space="preserve">
     <value>Arkaplan Rengi</value>
   </data>
+  <data name="BackupDatabase" xml:space="preserve">
+    <value>Veritabanı Yedekle</value>
+  </data>
   <data name="Balance" xml:space="preserve">
     <value>Bakiye</value>
   </data>
@@ -236,6 +239,9 @@
   </data>
   <data name="DatabaseBackups" xml:space="preserve">
     <value>Veritabanı Yedekleri</value>
+  </data>
+  <data name="DatabaseRestore" xml:space="preserve">
+    <value>Veritabanı Geri Yükleme</value>
   </data>
   <data name="Date" xml:space="preserve">
     <value>Tarih</value>
@@ -338,6 +344,9 @@
   </data>
   <data name="MainMenu" xml:space="preserve">
     <value>Ana Menü</value>
+  </data>
+  <data name="MakeSureAllTerminalsAreClosedBeforeRestoringTheDatabaseDoYouWantToContinue?" xml:space="preserve">
+    <value>Veritabanı geri yüklemeden önce bütün terminallerin kapatıldığından emin olun.\n\nDevam etmek istiyor musunuz?</value>
   </data>
   <data name="MakeYourChoice!" xml:space="preserve">
     <value>Seçim yapınız!</value>
@@ -489,6 +498,9 @@
   <data name="SelectProduct" xml:space="preserve">
     <value>Ürün Seç</value>
   </data>
+  <data name="SelectTheDatabaseBackupYouWantToRestore." xml:space="preserve">
+    <value>Geri yüklemek istediğiniz veritabanı yedeğini seçiniz.</value>
+  </data>
   <data name="SendAllProductsToTheKitchen?" xml:space="preserve">
     <value>Tüm ürünler mutfağa gönderilsin mi?</value>
   </data>
@@ -497,6 +509,9 @@
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Ayarlar</value>
+  </data>
+  <data name="ShowBackupLocation" xml:space="preserve">
+    <value>Yedekleme Konumunu Göster</value>
   </data>
   <data name="Small" xml:space="preserve">
     <value>Küçük</value>
@@ -524,6 +539,9 @@
   </data>
   <data name="TechnicalSupport" xml:space="preserve">
     <value>Teknik Destek</value>
+  </data>
+  <data name="TheBackupHasBeenCreatedSuccessfully." xml:space="preserve">
+    <value>Yedek başarıyla oluşturuldu.</value>
   </data>
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>Değişiklikler kaydedildi.</value>
