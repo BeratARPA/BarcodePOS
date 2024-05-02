@@ -31,12 +31,12 @@ namespace WindowsFormsAppUI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement12 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
@@ -46,7 +46,6 @@ namespace WindowsFormsAppUI.Forms
             DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
             this.tileControl = new DevExpress.XtraEditors.TileControl();
             this.tileGroupMain = new DevExpress.XtraEditors.TileGroup();
-            this.tileItemCreateProductLabel = new DevExpress.XtraEditors.TileItem();
             this.tileGroup2 = new DevExpress.XtraEditors.TileGroup();
             this.tileItem1 = new DevExpress.XtraEditors.TileItem();
             this.simpleButtonEditMode = new DevExpress.XtraEditors.SimpleButton();
@@ -58,6 +57,7 @@ namespace WindowsFormsAppUI.Forms
             this.tileItemReports = new DevExpress.XtraEditors.TileItem();
             this.tileItemPOS = new DevExpress.XtraEditors.TileItem();
             this.tileItemStocks = new DevExpress.XtraEditors.TileItem();
+            this.tileItemCreateProductLabel = new DevExpress.XtraEditors.TileItem();
             this.tileItemTables = new DevExpress.XtraEditors.TileItem();
             this.tileItemTickets = new DevExpress.XtraEditors.TileItem();
             this.tileItemCustomers = new DevExpress.XtraEditors.TileItem();
@@ -96,45 +96,6 @@ namespace WindowsFormsAppUI.Forms
             this.tileGroupMain.Items.Add(this.tileItemTickets);
             this.tileGroupMain.Items.Add(this.tileItemCustomers);
             this.tileGroupMain.Name = "tileGroupMain";
-            // 
-            // tileItemCreateProductLabel
-            // 
-            this.tileItemCreateProductLabel.AppearanceItem.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(150)))), ((int)(((byte)(0)))));
-            this.tileItemCreateProductLabel.AppearanceItem.Hovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.tileItemCreateProductLabel.AppearanceItem.Hovered.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tileItemCreateProductLabel.AppearanceItem.Hovered.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.tileItemCreateProductLabel.AppearanceItem.Hovered.Options.UseBackColor = true;
-            this.tileItemCreateProductLabel.AppearanceItem.Hovered.Options.UseFont = true;
-            this.tileItemCreateProductLabel.AppearanceItem.Hovered.Options.UseTextOptions = true;
-            this.tileItemCreateProductLabel.AppearanceItem.Hovered.TextOptions.Trimming = DevExpress.Utils.Trimming.None;
-            this.tileItemCreateProductLabel.AppearanceItem.Hovered.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.tileItemCreateProductLabel.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
-            this.tileItemCreateProductLabel.AppearanceItem.Normal.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(255)))));
-            this.tileItemCreateProductLabel.AppearanceItem.Normal.BorderColor = System.Drawing.Color.Black;
-            this.tileItemCreateProductLabel.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tileItemCreateProductLabel.AppearanceItem.Normal.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
-            this.tileItemCreateProductLabel.AppearanceItem.Normal.Options.UseBackColor = true;
-            this.tileItemCreateProductLabel.AppearanceItem.Normal.Options.UseBorderColor = true;
-            this.tileItemCreateProductLabel.AppearanceItem.Normal.Options.UseFont = true;
-            this.tileItemCreateProductLabel.AppearanceItem.Normal.Options.UseTextOptions = true;
-            this.tileItemCreateProductLabel.AppearanceItem.Normal.TextOptions.Trimming = DevExpress.Utils.Trimming.None;
-            this.tileItemCreateProductLabel.AppearanceItem.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            tileItemElement4.ImageOptions.Image = global::WindowsFormsAppUI.Properties.Resources.LabelDesign;
-            tileItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileItemElement4.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
-            tileItemElement4.ImageOptions.ImageSize = new System.Drawing.Size(65, 65);
-            tileItemElement4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
-            tileItemElement4.ImageOptions.ImageToTextIndent = 25;
-            tileItemElement4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
-            tileItemElement4.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
-            tileItemElement4.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
-            tileItemElement4.Text = "Etiketi Oluştur";
-            this.tileItemCreateProductLabel.Elements.Add(tileItemElement4);
-            this.tileItemCreateProductLabel.Id = 8;
-            this.tileItemCreateProductLabel.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
-            this.tileItemCreateProductLabel.Name = "tileItemCreateProductLabel";
-            this.tileItemCreateProductLabel.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemCreateProductLabel_ItemClick);
-            this.tileItemCreateProductLabel.RightItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemReports_RightItemClick);
             // 
             // tileGroup2
             // 
@@ -189,6 +150,7 @@ namespace WindowsFormsAppUI.Forms
             this.simpleButtonSave.AppearanceHovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
             this.simpleButtonSave.AppearanceHovered.Options.UseBackColor = true;
             this.simpleButtonSave.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.simpleButtonSave.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.simpleButtonSave.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButtonSave.ImageOptions.SvgImage")));
             this.simpleButtonSave.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
             this.simpleButtonSave.Location = new System.Drawing.Point(118, 488);
@@ -415,6 +377,45 @@ namespace WindowsFormsAppUI.Forms
             this.tileItemStocks.Name = "tileItemStocks";
             this.tileItemStocks.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemStocks_ItemClick);
             this.tileItemStocks.RightItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemReports_RightItemClick);
+            // 
+            // tileItemCreateProductLabel
+            // 
+            this.tileItemCreateProductLabel.AppearanceItem.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(150)))), ((int)(((byte)(0)))));
+            this.tileItemCreateProductLabel.AppearanceItem.Hovered.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.tileItemCreateProductLabel.AppearanceItem.Hovered.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tileItemCreateProductLabel.AppearanceItem.Hovered.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.tileItemCreateProductLabel.AppearanceItem.Hovered.Options.UseBackColor = true;
+            this.tileItemCreateProductLabel.AppearanceItem.Hovered.Options.UseFont = true;
+            this.tileItemCreateProductLabel.AppearanceItem.Hovered.Options.UseTextOptions = true;
+            this.tileItemCreateProductLabel.AppearanceItem.Hovered.TextOptions.Trimming = DevExpress.Utils.Trimming.None;
+            this.tileItemCreateProductLabel.AppearanceItem.Hovered.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.tileItemCreateProductLabel.AppearanceItem.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(200)))));
+            this.tileItemCreateProductLabel.AppearanceItem.Normal.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(255)))));
+            this.tileItemCreateProductLabel.AppearanceItem.Normal.BorderColor = System.Drawing.Color.Black;
+            this.tileItemCreateProductLabel.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tileItemCreateProductLabel.AppearanceItem.Normal.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal;
+            this.tileItemCreateProductLabel.AppearanceItem.Normal.Options.UseBackColor = true;
+            this.tileItemCreateProductLabel.AppearanceItem.Normal.Options.UseBorderColor = true;
+            this.tileItemCreateProductLabel.AppearanceItem.Normal.Options.UseFont = true;
+            this.tileItemCreateProductLabel.AppearanceItem.Normal.Options.UseTextOptions = true;
+            this.tileItemCreateProductLabel.AppearanceItem.Normal.TextOptions.Trimming = DevExpress.Utils.Trimming.None;
+            this.tileItemCreateProductLabel.AppearanceItem.Normal.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            tileItemElement4.ImageOptions.Image = global::WindowsFormsAppUI.Properties.Resources.LabelDesign;
+            tileItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileItemElement4.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement4.ImageOptions.ImageSize = new System.Drawing.Size(65, 65);
+            tileItemElement4.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.TileControlImageToTextAlignment.Top;
+            tileItemElement4.ImageOptions.ImageToTextIndent = 25;
+            tileItemElement4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage3")));
+            tileItemElement4.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
+            tileItemElement4.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
+            tileItemElement4.Text = "Etiketi Oluştur";
+            this.tileItemCreateProductLabel.Elements.Add(tileItemElement4);
+            this.tileItemCreateProductLabel.Id = 8;
+            this.tileItemCreateProductLabel.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
+            this.tileItemCreateProductLabel.Name = "tileItemCreateProductLabel";
+            this.tileItemCreateProductLabel.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemCreateProductLabel_ItemClick);
+            this.tileItemCreateProductLabel.RightItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItemReports_RightItemClick);
             // 
             // tileItemTables
             // 

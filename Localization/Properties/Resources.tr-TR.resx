@@ -366,6 +366,12 @@
   <data name="MessageServer" xml:space="preserve">
     <value>Mesaj Sunucusu</value>
   </data>
+  <data name="MessageServerName" xml:space="preserve">
+    <value>Mesaj Sunucu Adı</value>
+  </data>
+  <data name="MessageServerPort" xml:space="preserve">
+    <value>Mesaj Sunucusu Portu</value>
+  </data>
   <data name="MoneySymbol" xml:space="preserve">
     <value>Para Sembolü</value>
   </data>
