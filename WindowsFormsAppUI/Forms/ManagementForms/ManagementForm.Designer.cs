@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManagementForm));
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementGeneral = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementDatabaseBackups = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementDatabaseType = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElementAbout = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementMessageServer = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElementAbout = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementCategoryList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementProductList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -96,6 +97,9 @@
             this.accordionControlElementMessageServer,
             this.accordionControlElementAbout});
             this.accordionControlElement1.Expanded = true;
+            this.accordionControlElement1.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
+            this.accordionControlElement1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
+            this.accordionControlElement1.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Text = "Ayarlar";
             // 
@@ -150,23 +154,6 @@
             this.accordionControlElementDatabaseType.Text = "Veritabanı Türü";
             this.accordionControlElementDatabaseType.Click += new System.EventHandler(this.accordionControlElementDatabaseType_Click);
             // 
-            // accordionControlElementAbout
-            // 
-            this.accordionControlElementAbout.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.accordionControlElementAbout.Appearance.Default.Options.UseFont = true;
-            this.accordionControlElementAbout.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.accordionControlElementAbout.Appearance.Disabled.Options.UseFont = true;
-            this.accordionControlElementAbout.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.accordionControlElementAbout.Appearance.Hovered.Options.UseFont = true;
-            this.accordionControlElementAbout.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.accordionControlElementAbout.Appearance.Normal.Options.UseFont = true;
-            this.accordionControlElementAbout.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.accordionControlElementAbout.Appearance.Pressed.Options.UseFont = true;
-            this.accordionControlElementAbout.Name = "accordionControlElementAbout";
-            this.accordionControlElementAbout.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElementAbout.Text = "Hakkında";
-            this.accordionControlElementAbout.Click += new System.EventHandler(this.accordionControlElementAbout_Click);
-            // 
             // accordionControlElementMessageServer
             // 
             this.accordionControlElementMessageServer.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -184,6 +171,23 @@
             this.accordionControlElementMessageServer.Text = "Mesaj Sunucusu";
             this.accordionControlElementMessageServer.Click += new System.EventHandler(this.accordionControlElementMessageServer_Click);
             // 
+            // accordionControlElementAbout
+            // 
+            this.accordionControlElementAbout.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementAbout.Appearance.Default.Options.UseFont = true;
+            this.accordionControlElementAbout.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementAbout.Appearance.Disabled.Options.UseFont = true;
+            this.accordionControlElementAbout.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementAbout.Appearance.Hovered.Options.UseFont = true;
+            this.accordionControlElementAbout.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementAbout.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElementAbout.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementAbout.Appearance.Pressed.Options.UseFont = true;
+            this.accordionControlElementAbout.Name = "accordionControlElementAbout";
+            this.accordionControlElementAbout.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElementAbout.Text = "Hakkında";
+            this.accordionControlElementAbout.Click += new System.EventHandler(this.accordionControlElementAbout_Click);
+            // 
             // accordionControlElement2
             // 
             this.accordionControlElement2.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 15F);
@@ -200,6 +204,9 @@
             this.accordionControlElementCategoryList,
             this.accordionControlElementProductList});
             this.accordionControlElement2.Expanded = true;
+            this.accordionControlElement2.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
+            this.accordionControlElement2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement2.ImageOptions.SvgImage")));
+            this.accordionControlElement2.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
             this.accordionControlElement2.Name = "accordionControlElement2";
             this.accordionControlElement2.Text = "Ürünler";
             // 
@@ -252,6 +259,9 @@
             this.accordionControlElement3.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElementPaymentTypeList});
             this.accordionControlElement3.Expanded = true;
+            this.accordionControlElement3.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
+            this.accordionControlElement3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement3.ImageOptions.SvgImage")));
+            this.accordionControlElement3.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
             this.accordionControlElement3.Name = "accordionControlElement3";
             this.accordionControlElement3.Text = "Fişler";
             // 
@@ -288,6 +298,9 @@
             this.accordionControlElementSectionList,
             this.accordionControlElementTableList});
             this.accordionControlElement4.Expanded = true;
+            this.accordionControlElement4.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
+            this.accordionControlElement4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement4.ImageOptions.SvgImage")));
+            this.accordionControlElement4.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
             this.accordionControlElement4.Name = "accordionControlElement4";
             this.accordionControlElement4.Text = "Masalar";
             // 
@@ -341,6 +354,9 @@
             this.accordionControlElementRoleList,
             this.accordionControlElementUserList});
             this.accordionControlElement5.Expanded = true;
+            this.accordionControlElement5.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Stretch;
+            this.accordionControlElement5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement5.ImageOptions.SvgImage")));
+            this.accordionControlElement5.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
             this.accordionControlElement5.Name = "accordionControlElement5";
             this.accordionControlElement5.Text = "Kullanıcılar";
             // 

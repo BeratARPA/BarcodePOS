@@ -366,6 +366,12 @@
   <data name="MessageServer" xml:space="preserve">
     <value>Message Server</value>
   </data>
+  <data name="MessageServerName" xml:space="preserve">
+    <value>Message Server Name</value>
+  </data>
+  <data name="MessageServerPort" xml:space="preserve">
+    <value>Message Server Port</value>
+  </data>
   <data name="MoneySymbol" xml:space="preserve">
     <value>Money Symbol</value>
   </data>
