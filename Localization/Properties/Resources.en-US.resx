@@ -141,6 +141,9 @@
   <data name="AnExceptionOccurredInComponent" xml:space="preserve">
     <value>An exception occurred in component {0}. We have created a bug report that you can send to us. We will treat this report confidentially and anonymously.</value>
   </data>
+  <data name="AreYouSureTheEntityWillBeDeleted?" xml:space="preserve">
+    <value>Are you sure the entity will be deleted?</value>
+  </data>
   <data name="BackgroundColor" xml:space="preserve">
     <value>Background Color</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="BarcodeProducts" xml:space="preserve">
     <value>Barcode Products</value>
   </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -170,6 +176,9 @@
   </data>
   <data name="Categories" xml:space="preserve">
     <value>Categories</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
   </data>
   <data name="CategoryList" xml:space="preserve">
     <value>Category List</value>
@@ -441,6 +450,12 @@
   <data name="Print" xml:space="preserve">
     <value>Print</value>
   </data>
+  <data name="Printer" xml:space="preserve">
+    <value>Printer</value>
+  </data>
+  <data name="Printers" xml:space="preserve">
+    <value>Printers</value>
+  </data>
   <data name="Product" xml:space="preserve">
     <value>Product</value>
   </data>
@@ -473,6 +488,9 @@
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Refresh</value>
+  </data>
+  <data name="RegistrationWithASimilarNameIsNotPossible!" xml:space="preserve">
+    <value>Registration with a similar name is not possible!</value>
   </data>
   <data name="Reports" xml:space="preserve">
     <value>Reports</value>
@@ -599,6 +617,9 @@
   </data>
   <data name="Unit" xml:space="preserve">
     <value>Unit</value>
+  </data>
+  <data name="Units" xml:space="preserve">
+    <value>Units</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>Update</value>

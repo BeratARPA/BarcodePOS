@@ -141,6 +141,9 @@
   <data name="AnExceptionOccurredInComponent" xml:space="preserve">
     <value>{0} bileşeninde bir istisna oluştu. Bize gönderebileceğiniz bir hata raporu oluşturduk. Bu raporu gizli ve isimsiz olarak ele alacağız.</value>
   </data>
+  <data name="AreYouSureTheEntityWillBeDeleted?" xml:space="preserve">
+    <value>Varlığın silineceğinden emin misiniz?</value>
+  </data>
   <data name="BackgroundColor" xml:space="preserve">
     <value>Arkaplan Rengi</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="BarcodeProducts" xml:space="preserve">
     <value>Barkodlu Ürünler</value>
   </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Gözat</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
   </data>
@@ -170,6 +176,9 @@
   </data>
   <data name="Categories" xml:space="preserve">
     <value>Kategoriler</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Kategori</value>
   </data>
   <data name="CategoryList" xml:space="preserve">
     <value>Kategori Listesi</value>
@@ -441,6 +450,12 @@
   <data name="Print" xml:space="preserve">
     <value>Yazdır</value>
   </data>
+  <data name="Printer" xml:space="preserve">
+    <value>Yazıcı</value>
+  </data>
+  <data name="Printers" xml:space="preserve">
+    <value>Yazıcılar</value>
+  </data>
   <data name="Product" xml:space="preserve">
     <value>Ürün</value>
   </data>
@@ -476,6 +491,9 @@
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Yenile</value>
+  </data>
+  <data name="RegistrationWithASimilarNameIsNotPossible!" xml:space="preserve">
+    <value>Benzer isimle kayıt mümkün değildir!</value>
   </data>
   <data name="Reports" xml:space="preserve">
     <value>Raporlar</value>
@@ -602,6 +620,9 @@
   </data>
   <data name="Unit" xml:space="preserve">
     <value>Birim</value>
+  </data>
+  <data name="Units" xml:space="preserve">
+    <value>Birimler</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>Güncelle</value>

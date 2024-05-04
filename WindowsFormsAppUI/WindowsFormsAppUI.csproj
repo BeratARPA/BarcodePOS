@@ -785,6 +785,8 @@
     <None Include="Resources\Customize.png" />
     <None Include="Resources\Ticket.png" />
     <None Include="Resources\LabelDesign.png" />
+    <None Include="Resources\NoProduct.png" />
+    <None Include="Resources\noPhoto64px.png" />
     <Content Include="Server.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

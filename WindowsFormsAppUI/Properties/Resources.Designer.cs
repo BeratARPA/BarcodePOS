@@ -143,9 +143,9 @@ namespace WindowsFormsAppUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap no_photo {
+        internal static System.Drawing.Bitmap NoImage {
             get {
-                object obj = ResourceManager.GetObject("no-photo", resourceCulture);
+                object obj = ResourceManager.GetObject("NoImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace WindowsFormsAppUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap NoImage {
+        internal static System.Drawing.Bitmap noPhoto64px {
             get {
-                object obj = ResourceManager.GetObject("NoImage", resourceCulture);
+                object obj = ResourceManager.GetObject("noPhoto64px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
