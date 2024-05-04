@@ -55,13 +55,13 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(20, 20);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 600);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(760, 560);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -78,7 +78,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(800, 550);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(760, 510);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox1
@@ -86,10 +86,10 @@
             this.groupBox1.Controls.Add(this.tableLayoutPanel4);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(20, 20);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(20);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 235);
+            this.groupBox1.Size = new System.Drawing.Size(380, 255);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Diller";
@@ -107,7 +107,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(354, 209);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(374, 229);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // label1
@@ -128,13 +128,14 @@
             // 
             this.comboBoxLanguages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxLanguages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLanguages.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.comboBoxLanguages.FormattingEnabled = true;
             this.comboBoxLanguages.Items.AddRange(new object[] {
             "English",
             "Türkçe"});
             this.comboBoxLanguages.Location = new System.Drawing.Point(103, 3);
             this.comboBoxLanguages.Name = "comboBoxLanguages";
-            this.comboBoxLanguages.Size = new System.Drawing.Size(248, 27);
+            this.comboBoxLanguages.Size = new System.Drawing.Size(268, 32);
             this.comboBoxLanguages.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -146,15 +147,16 @@
             this.tableLayoutPanel5.Controls.Add(this.checkBoxClientConsole, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.checkBoxCustomerScreen, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(420, 20);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(20);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(380, 0);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.tableLayoutPanel5.RowCount = 4;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(360, 235);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(380, 255);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // checkBoxOpenWindowConsole
@@ -162,7 +164,7 @@
             this.checkBoxOpenWindowConsole.AutoSize = true;
             this.checkBoxOpenWindowConsole.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkBoxOpenWindowConsole.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.checkBoxOpenWindowConsole.Location = new System.Drawing.Point(3, 69);
+            this.checkBoxOpenWindowConsole.Location = new System.Drawing.Point(23, 69);
             this.checkBoxOpenWindowConsole.Name = "checkBoxOpenWindowConsole";
             this.checkBoxOpenWindowConsole.Size = new System.Drawing.Size(214, 27);
             this.checkBoxOpenWindowConsole.TabIndex = 1;
@@ -174,7 +176,7 @@
             this.checkBoxClientConsole.AutoSize = true;
             this.checkBoxClientConsole.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkBoxClientConsole.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.checkBoxClientConsole.Location = new System.Drawing.Point(3, 36);
+            this.checkBoxClientConsole.Location = new System.Drawing.Point(23, 36);
             this.checkBoxClientConsole.Name = "checkBoxClientConsole";
             this.checkBoxClientConsole.Size = new System.Drawing.Size(214, 27);
             this.checkBoxClientConsole.TabIndex = 1;
@@ -186,7 +188,7 @@
             this.checkBoxCustomerScreen.AutoSize = true;
             this.checkBoxCustomerScreen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkBoxCustomerScreen.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.checkBoxCustomerScreen.Location = new System.Drawing.Point(3, 3);
+            this.checkBoxCustomerScreen.Location = new System.Drawing.Point(23, 3);
             this.checkBoxCustomerScreen.Name = "checkBoxCustomerScreen";
             this.checkBoxCustomerScreen.Size = new System.Drawing.Size(214, 27);
             this.checkBoxCustomerScreen.TabIndex = 1;
@@ -200,12 +202,12 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel3.Controls.Add(this.buttonSave, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 550);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 510);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(800, 50);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(760, 50);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // buttonSave
@@ -218,7 +220,7 @@
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(610, 10);
+            this.buttonSave.Location = new System.Drawing.Point(570, 10);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(10);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(180, 30);
@@ -236,6 +238,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ManagementGeneralForm";
+            this.Padding = new System.Windows.Forms.Padding(20);
             this.ShowInTaskbar = false;
             this.Text = "BarcodePOS";
             this.tableLayoutPanel1.ResumeLayout(false);
