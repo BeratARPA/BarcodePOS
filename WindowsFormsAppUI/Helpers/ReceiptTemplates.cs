@@ -286,7 +286,7 @@ namespace WindowsFormsAppUI.Helpers
             double totalBalance = 0;
 
             SimpleReport report = new SimpleReport();
-
+            
             report.AddHeader(CompanyName);
 
             report.AddParagraph("Description");
@@ -340,7 +340,7 @@ namespace WindowsFormsAppUI.Helpers
             PrinterSettings printerSettings = new PrinterSettings();
             var printQueue = PrintersHelper.GetPrinter(printerSettings.PrinterName);
             AsyncPrintTask.Exec(true, () => PrintersHelper.PrintFlowDocument(printQueue, report.Document));
-
+         
             return report.Document;
         }
 

@@ -87,7 +87,7 @@ namespace WindowsFormsAppUI.Forms
             CreateProducts(_products);
             CreateCategories(_category);
             CreatePayments(_paymentTypes);
-            CalculateTotalBalance();            
+            CalculateTotalBalance();
         }
 
         public void UpdateUILanguage()
@@ -142,11 +142,13 @@ namespace WindowsFormsAppUI.Forms
                 foreach (Order order in _ticket.Orders)
                 {
                     var product = _genericRepositoryProduct.Get(x => x.ProductId == order.ProductId);
-                    ProductUserControl productUserControl = new ProductUserControl(product, product.Index);
+                    if (product != null)
+                    {
+                        ProductUserControl productUserControl = new ProductUserControl(product, product.Index);
 
-                    ProductOnCardUserControl newProductOnCard = CreateNewProductOnCard(productUserControl, order);
-                    flowLayoutPanelOrders.Controls.Add(newProductOnCard);
-
+                        ProductOnCardUserControl newProductOnCard = CreateNewProductOnCard(productUserControl, order);
+                        flowLayoutPanelOrders.Controls.Add(newProductOnCard);
+                    }
                     _orders.Add(order);
                 }
 
@@ -448,7 +450,7 @@ namespace WindowsFormsAppUI.Forms
                 flowLayoutPanelOrders.Controls.Add(newProductOnCard);
             }
 
-            _ticket.IsPrinted = false; 
+            _ticket.IsPrinted = false;
 
             if (_posCustomerScreenForm != null)
                 _posCustomerScreenForm.CreateNewProductOnCard(_orders);
@@ -578,13 +580,13 @@ namespace WindowsFormsAppUI.Forms
             }
 
             ProductOnCardUserControl newProductOnCard = new ProductOnCardUserControl(order, productUserControl._product);
-            newProductOnCard.Delete += ProductOnCardUserControl_Delete;          
+            newProductOnCard.Delete += ProductOnCardUserControl_Delete;
 
             return newProductOnCard;
         }
 
         public double CalculateTotalBalance()
-        {         
+        {
             double totalBalance = 0;
 
             foreach (Order order in _orders)
@@ -635,7 +637,7 @@ namespace WindowsFormsAppUI.Forms
 
             _ticket.RemainingAmount = totalBalance;
 
-            tableLayoutPanelMiddle.RowStyles[5].Height = 85;           
+            tableLayoutPanelMiddle.RowStyles[5].Height = 85;
 
             return totalBalance;
         }

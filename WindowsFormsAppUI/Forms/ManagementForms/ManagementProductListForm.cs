@@ -104,8 +104,8 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
                 Name = textBoxName.Text,
                 Price = Convert.ToDouble(textBoxPrice.Text),
                 ImageURL = imageURL,
-                BackColor = "15,15,15",
-                ForeColor = "15,15,15",
+                BackColor = "52,58,64",
+                ForeColor = "224,224,224",
                 UnitOfMeasure = 1
             };
 

@@ -576,6 +576,9 @@
   <data name="TheDatabaseWillBeBackedUpTheApplicationWillBeClosedAndTheDatabaseTypeWillBeChangedDoYouWantToContinue?" xml:space="preserve">
     <value>The database will be backed up, the application will be closed and the database type will be changed!\n\nDo you want to continue?</value>
   </data>
+  <data name="ThereAreProductsAssociatedWithThisCategory!" xml:space="preserve">
+    <value>There are products associated with this category!</value>
+  </data>
   <data name="ThereIsACustomerRegisteredAt" xml:space="preserve">
     <value>There is a customer registered at {0}.</value>
   </data>
