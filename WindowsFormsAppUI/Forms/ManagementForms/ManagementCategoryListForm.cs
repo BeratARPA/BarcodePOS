@@ -81,6 +81,13 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
                 return;
             }
 
+            var categoryExist = _genericRepositoryCategory.GetAsNoTracking(x => x.Name == textBoxName.Text);
+            if (categoryExist != null)
+            {
+                GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("RegistrationWithASimilarNameIsNotPossible!"), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.OK, MessageIcon.Warning);
+                return;
+            }
+
             //Save            
             Category category = new Category
             {
