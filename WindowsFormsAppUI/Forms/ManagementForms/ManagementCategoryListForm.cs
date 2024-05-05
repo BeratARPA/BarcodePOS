@@ -9,6 +9,7 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
 {
     public partial class ManagementCategoryListForm : Form
     {
+        private readonly IGenericRepository<Product> _genericRepositoryProduct = new GenericRepository<Product>(GlobalVariables.SQLContext);
         private readonly IGenericRepository<Category> _genericRepositoryCategory = new GenericRepository<Category>(GlobalVariables.SQLContext);
 
         public ManagementCategoryListForm()
@@ -85,8 +86,8 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
             {
                 Name = textBoxName.Text,
                 PrinterName = comboBoxPrinters.Text,
-                BackColor = "15,15,15",
-                ForeColor = "15,15,15"
+                BackColor = "52,58,64",
+                ForeColor = "224,224,224"
             };
 
             _genericRepositoryCategory.Add(category);
@@ -102,12 +103,20 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
                 return;
             }
 
+            int categoryId = Convert.ToInt32(dataGridViewCategories.CurrentRow.Cells[0].Value);
+
+            int productsExist = _genericRepositoryProduct.GetAllAsNoTracking(x => x.CategoryId == categoryId).Count;
+            if (productsExist > 0)
+            {
+                GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("ThereAreProductsAssociatedWithThisCategory!"), GlobalVariables.CultureHelper.GetText("Warning"), MessageButton.OK, MessageIcon.Warning);
+                return;
+            }
+
             if (GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("AreYouSureTheEntityWillBeDeleted?"), GlobalVariables.CultureHelper.GetText("Information"), MessageButton.YesNo, MessageIcon.Information) == DialogResult.No)
             {
                 return;
             }
 
-            int categoryId = Convert.ToInt32(dataGridViewCategories.CurrentRow.Cells[0].Value);
             var currentCategory = _genericRepositoryCategory.GetById(categoryId);
             _genericRepositoryCategory.Delete(currentCategory);
 

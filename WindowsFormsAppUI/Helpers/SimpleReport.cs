@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.XtraReports;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -27,6 +28,7 @@ namespace WindowsFormsAppUI.Helpers
             ColumnTextAlignments = new Dictionary<string, TextAlignment[]>();
             Header = new Paragraph { TextAlignment = TextAlignment.Center, FontSize = 10 };
             Document = new FlowDocument(Header);
+            Document.FontFamily = new FontFamily("Consolas");
         }
 
         public void AddColumnLength(string tableName, params string[] values)
