@@ -217,7 +217,7 @@
     <value>Barkod Oluştur</value>
   </data>
   <data name="CreateProductLabel" xml:space="preserve">
-    <value>Etiketi Oluştur</value>
+    <value>Etiket Oluştur</value>
   </data>
   <data name="CurrentWindowConsole" xml:space="preserve">
     <value>Açık Pencereler Konsolu</value>
