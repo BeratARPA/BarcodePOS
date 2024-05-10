@@ -13,6 +13,7 @@ namespace Database.Data
         void Delete(T entity);
         void DeleteAll(List<T> entities);
         T Get(Expression<Func<T, bool>> filter = null);
+        T GetFirst();
         T GetAsNoTracking(Expression<Func<T, bool>> filter = null);
         T GetById(int id);
         List<T> GetAllAsNoTracking(Expression<Func<T, bool>> filter = null);

@@ -210,6 +210,12 @@
   <data name="Comma" xml:space="preserve">
     <value>.</value>
   </data>
+  <data name="CompanyInformation" xml:space="preserve">
+    <value>Company Information</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
   <data name="CreateAccount" xml:space="preserve">
     <value>Create Account</value>
   </data>
@@ -287,6 +293,9 @@
   </data>
   <data name="EditMode" xml:space="preserve">
     <value>Edit Mode</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-Mail</value>
   </data>
   <data name="End" xml:space="preserve">
     <value>End</value>
@@ -569,6 +578,9 @@
   </data>
   <data name="TheBackupHasBeenCreatedSuccessfully." xml:space="preserve">
     <value>The backup has been created successfully.</value>
+  </data>
+  <data name="TheChangesAreSaved." xml:space="preserve">
+    <value>The changes are saved.</value>
   </data>
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>The changes have been saved.</value>

@@ -210,6 +210,12 @@
   <data name="Comma" xml:space="preserve">
     <value>,</value>
   </data>
+  <data name="CompanyInformation" xml:space="preserve">
+    <value>Firma Bilgileri</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>Firma Adı</value>
+  </data>
   <data name="CreateAccount" xml:space="preserve">
     <value>Hesap Oluştur</value>
   </data>
@@ -287,6 +293,9 @@
   </data>
   <data name="EditMode" xml:space="preserve">
     <value>Düzenleme Modu</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-Posta</value>
   </data>
   <data name="End" xml:space="preserve">
     <value>Bitiş</value>
@@ -572,6 +581,9 @@
   </data>
   <data name="TheBackupHasBeenCreatedSuccessfully." xml:space="preserve">
     <value>Yedek başarıyla oluşturuldu.</value>
+  </data>
+  <data name="TheChangesAreSaved." xml:space="preserve">
+    <value>Değişiklikler kaydedildi.</value>
   </data>
   <data name="TheChangesHaveBeenSaved." xml:space="preserve">
     <value>Değişiklikler kaydedildi.</value>

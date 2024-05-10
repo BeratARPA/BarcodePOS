@@ -32,6 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewPaymentTypes = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -39,8 +41,6 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaymentTypes)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -105,6 +105,19 @@
             this.dataGridViewPaymentTypes.Size = new System.Drawing.Size(404, 554);
             this.dataGridViewPaymentTypes.TabIndex = 3;
             this.dataGridViewPaymentTypes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPaymentTypes_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "PaymentTypeId";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Ad";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // tableLayoutPanel2
             // 
@@ -220,19 +233,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Ad";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "PaymentTypeId";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Ad";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
             // 
             // ManagementPaymentTypeListForm
             // 
