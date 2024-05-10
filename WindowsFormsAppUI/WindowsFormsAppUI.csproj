@@ -268,6 +268,12 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementCompanyInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ManagementForms\ManagementCompanyInformationForm.Designer.cs">
+      <DependentUpon>ManagementCompanyInformationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ManagementForms\ManagementDatabaseTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -583,6 +589,9 @@
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagementForms\ManagementCompanyInformationForm.resx">
+      <DependentUpon>ManagementCompanyInformationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ManagementForms\ManagementDatabaseTypeForm.resx">
       <DependentUpon>ManagementDatabaseTypeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -787,6 +796,9 @@
     <None Include="Resources\LabelDesign.png" />
     <None Include="Resources\NoProduct.png" />
     <None Include="Resources\noPhoto64px.png" />
+    <Content Include="Required Files\CIDSetup.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Server.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

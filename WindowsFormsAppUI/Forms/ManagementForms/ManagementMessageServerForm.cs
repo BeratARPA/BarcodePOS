@@ -5,7 +5,7 @@ using WindowsFormsAppUI.Helpers;
 namespace WindowsFormsAppUI.Forms.ManagementForms
 {
     public partial class ManagementMessageServerForm : Form
-    {
+    {        
         public ManagementMessageServerForm()
         {
             InitializeComponent();
@@ -32,6 +32,8 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
             Properties.Settings.Default.ServerName = textBoxServerName.Text;
             Properties.Settings.Default.Port = Convert.ToInt32(textBoxServerPort.Text);
             Properties.Settings.Default.Save();
+
+            GlobalVariables.MessageBoxForm.ShowMessage(GlobalVariables.CultureHelper.GetText("TheChangesAreSaved."), GlobalVariables.CultureHelper.GetText("Information"), MessageButton.OK, MessageIcon.Information);
         }
 
         private void textBoxServerPort_KeyPress(object sender, KeyPressEventArgs e)

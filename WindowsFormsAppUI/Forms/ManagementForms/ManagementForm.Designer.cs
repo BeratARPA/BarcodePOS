@@ -48,6 +48,7 @@
             this.accordionControlElementRoleList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElementUserList = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.accordionControlElementCompanyInformation = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,6 +93,7 @@
             this.accordionControlElement1.Appearance.Pressed.Options.UseFont = true;
             this.accordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElementGeneral,
+            this.accordionControlElementCompanyInformation,
             this.accordionControlElementDatabaseBackups,
             this.accordionControlElementDatabaseType,
             this.accordionControlElementMessageServer,
@@ -403,6 +405,23 @@
             this.panelMain.Size = new System.Drawing.Size(612, 600);
             this.panelMain.TabIndex = 5;
             // 
+            // accordionControlElementCompanyInformation
+            // 
+            this.accordionControlElementCompanyInformation.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementCompanyInformation.Appearance.Default.Options.UseFont = true;
+            this.accordionControlElementCompanyInformation.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementCompanyInformation.Appearance.Disabled.Options.UseFont = true;
+            this.accordionControlElementCompanyInformation.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementCompanyInformation.Appearance.Hovered.Options.UseFont = true;
+            this.accordionControlElementCompanyInformation.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementCompanyInformation.Appearance.Normal.Options.UseFont = true;
+            this.accordionControlElementCompanyInformation.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.accordionControlElementCompanyInformation.Appearance.Pressed.Options.UseFont = true;
+            this.accordionControlElementCompanyInformation.Name = "accordionControlElementCompanyInformation";
+            this.accordionControlElementCompanyInformation.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElementCompanyInformation.Text = "Firma Bilgileri";
+            this.accordionControlElementCompanyInformation.Click += new System.EventHandler(this.accordionControlElementCompanyInformation_Click);
+            // 
             // ManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,5 +461,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementRoleList;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementUserList;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementDatabaseType;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElementCompanyInformation;
     }
 }

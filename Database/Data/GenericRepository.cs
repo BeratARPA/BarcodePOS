@@ -133,6 +133,23 @@ namespace Database.Data
             }           
         }
 
+        public T GetFirst()
+        {
+            try
+            {
+                var entity = _context.Set<T>().FirstOrDefault();
+
+                Logger.Log($"Received a {typeof(T).Name}: {entity}");
+
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                Logger.Log($"Error occurred: {ex.Message}");
+                throw;
+            }
+        }
+
         public T GetAsNoTracking(Expression<Func<T, bool>> filter = null)
         {
             try
@@ -203,6 +220,6 @@ namespace Database.Data
                 Logger.Log($"Error occurred: {ex.Message}");
                 throw;
             }
-        }     
+        }        
     }
 }
