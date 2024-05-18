@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 using System.Windows.Forms;
+using System.Windows.Markup;
+using System.Xml;
 using WindowsFormsAppUI.Helpers;
 
 namespace WindowsFormsAppUI.Forms
@@ -31,11 +34,8 @@ namespace WindowsFormsAppUI.Forms
             double canvasWidthMm = 100;
             double canvasHeightMm = 38;
 
-            int canvasWidthPixel = UnitConvert.MmToPixel(canvasWidthMm);
-            int canvasHeightPixel = UnitConvert.MmToPixel(canvasHeightMm);
-
-            tableLayoutPanelMain.RowStyles[1].Height = canvasHeightPixel;
-            tableLayoutPanelMain.ColumnStyles[1].Width = canvasWidthPixel;
+            tableLayoutPanelMain.RowStyles[1].Height = UnitConvert.MmToPixel(canvasHeightMm);
+            tableLayoutPanelMain.ColumnStyles[1].Width = UnitConvert.MmToPixel(canvasWidthMm);
 
             PaperSize paperSize = new PaperSize("Ürün Raf Etiketi", UnitConvert.MmToPixel(100), UnitConvert.MmToPixel(38));
             printDocument.DefaultPageSettings.PaperSize = paperSize;
@@ -47,7 +47,6 @@ namespace WindowsFormsAppUI.Forms
         public void UpdateUILanguage()
         {
             label1.Text = GlobalVariables.CultureHelper.GetText("Barcode");
-            label2.Text = GlobalVariables.CultureHelper.GetText("BarcodeDescription");
             buttonCreateBarcode.Text = GlobalVariables.CultureHelper.GetText("CreateBarcode");
             buttonAddTLSymbol.Text = GlobalVariables.CultureHelper.GetText("MoneySymbol");
             buttonAddLabel.Text = GlobalVariables.CultureHelper.GetText("Label");
@@ -66,7 +65,7 @@ namespace WindowsFormsAppUI.Forms
                 // Panel içeriğini çizdirin
                 Bitmap panelImage = new Bitmap(panelMain.Width, panelMain.Height);
                 panelMain.DrawToBitmap(panelImage, new Rectangle(0, 0, panelMain.Width, panelMain.Height));
-                e.Graphics.DrawImage(panelImage, new Point(0, 0)); // Yazdırma pozisyonu            
+                e.Graphics.DrawImage(panelImage, new Point(0, 0)); // Yazdırma pozisyonu
             }
 
             if (currentPage <= totalPages)
@@ -120,30 +119,29 @@ namespace WindowsFormsAppUI.Forms
 
         private void buttonCreateBarcode_Click(object sender, EventArgs e)
         {
-            //string barcodeText = textBoxBarcode.Text.Trim();
-            //string barcodeDescription = textBoxBarcodeDescription.Text;
-            //if (string.IsNullOrEmpty(barcodeText))
-            //{
-            //    MessageBox.Show("Barkod numarası giriniz.");
-            //    return;
-            //}
+            string barcodeText = textBoxBarcode.Text.Trim();
+            if (string.IsNullOrEmpty(barcodeText))
+            {
+                MessageBox.Show("Barkod numarası giriniz.");
+                return;
+            }
 
-            //Bitmap barcodeBitmap = BarcodeHelper.GenerateEAN13Barcode(barcodeText, barcodeDescription);
-            //PictureBox barcodePictureBox = new PictureBox
-            //{
-            //    Image = barcodeBitmap,
-            //    Width = 100,
-            //    Height = 100,
-            //    AllowDrop = true,
-            //};
+            Bitmap barcodeBitmap = BarcodeHelper.GenerateEAN13Barcode(barcodeText);
+            PictureBox barcodePictureBox = new PictureBox
+            {
+                Image = barcodeBitmap,
+                Width = 100,
+                Height = 100,
+                AllowDrop = true,
+            };
 
-            //barcodePictureBox.MouseDown += Element_MouseDown;
-            //barcodePictureBox.MouseMove += Element_MouseMove;
-            //barcodePictureBox.MouseUp += Element_MouseUp;
-            //barcodePictureBox.MouseClick += Element_MouseClick;
+            barcodePictureBox.MouseDown += Element_MouseDown;
+            barcodePictureBox.MouseMove += Element_MouseMove;
+            barcodePictureBox.MouseUp += Element_MouseUp;
+            barcodePictureBox.MouseClick += Element_MouseClick;
 
-            //barcodePictureBox.Location = new Point(50, 50);
-            //panelMain.Controls.Add(barcodePictureBox);
+            barcodePictureBox.Location = new Point(50, 50);
+            panelMain.Controls.Add(barcodePictureBox);
         }
 
         private ContextMenuStrip CreateContextMenu(object sender)
@@ -306,47 +304,51 @@ namespace WindowsFormsAppUI.Forms
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            //SaveFileDialog saveFileDialog = new SaveFileDialog();
-            //saveFileDialog.Filter = "XAML files (*.xaml)|*.xaml";
-            //if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
-            //    {
-            //        // Canvas içeriğini XAML dosyasına kaydet
-            //        string xamlContent = XamlWriter.Save(CanvasContainer);
-            //        sw.Write(xamlContent);
-            //    }
-            //}
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "XAML files (*.xaml)|*.xaml";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
+                {
+                    // panelMain içeriğini XAML dosyasına kaydet
+                    string xamlContent = XamlWriter.Save(panelMain);
+                    sw.Write(xamlContent);
+                }
+            }
         }
 
         private void buttonLoad_Click(object sender, EventArgs e)
         {
-            //OpenFileDialog openFileDialog = new OpenFileDialog();
-            //openFileDialog.Filter = "XAML files (*.xaml)|*.xaml";
-            //if (openFileDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    using (StreamReader sr = new StreamReader(openFileDialog.FileName))
-            //    {
-            //        // XAMLReader'ı kullanarak XAML dosyasından Canvas içeriğini yükleyin
-            //        string xamlContent = sr.ReadToEnd();
-            //        StringReader stringReader = new StringReader(xamlContent);
-            //        XmlReader xmlReader = XmlReader.Create(stringReader);
-            //        Canvas loadedCanvas = (Canvas)XamlReader.Load(xmlReader);
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "XAML files (*.xaml)|*.xaml";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamReader sr = new StreamReader(openFileDialog.FileName))
+                {
+                    // XAMLReader'ı kullanarak XAML dosyasından Panel içeriğini yükleyin
+                    string xamlContent = sr.ReadToEnd();
+                    StringReader stringReader = new StringReader(xamlContent);
+                    XmlReader xmlReader = XmlReader.Create(stringReader);
+                    Panel loadedPanel = null;
+                    try
+                    {
+                        loadedPanel = (Panel)XamlReader.Load(xmlReader);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("XAML dosyası yüklenirken bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
-            //        // CanvasContainer içeriğini temizleyin
-            //        panelMain.Controls.Clear();
+                    // panelMain içeriğini temizleyin
+                    panelMain.Controls.Clear();
 
-            //        // Yüklenen Canvas'ın çocuk öğelerini, CanvasContainer'a eklemek yerine, kaldırarak aktarın
-            //        foreach (Control child in loadedCanvas.Children)
-            //        {
-            //            child.MouseDown += Element_MouseDown;
-            //            child.MouseMove += Element_MouseMove;
-            //            child.MouseUp += Element_MouseUp;
-
-            //            CanvasContainer.Controls.Add(child);
-            //        }
-            //    }
-            //}
+                    // XAML dosyasından Panel içeriğini kopyalayıp PanelMain'e ekleyin
+                    Control[] controlsArray = new Control[loadedPanel.Controls.Count];
+                    loadedPanel.Controls.CopyTo(controlsArray, 0);
+                    panelMain.Controls.AddRange(controlsArray);                    
+                }
+            }
         }
     }
 }

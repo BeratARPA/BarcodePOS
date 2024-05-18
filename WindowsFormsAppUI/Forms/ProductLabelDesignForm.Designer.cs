@@ -35,9 +35,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBoxBarcode = new System.Windows.Forms.TextBox();
-            this.textBoxBarcodeDescription = new System.Windows.Forms.TextBox();
             this.buttonCreateBarcode = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -98,20 +96,16 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.textBoxBarcode, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.textBoxBarcodeDescription, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.buttonCreateBarcode, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.buttonCreateBarcode, 0, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(271, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 5;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(257, 173);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -123,23 +117,10 @@ namespace WindowsFormsAppUI.Forms
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 34);
+            this.label1.Size = new System.Drawing.Size(251, 35);
             this.label1.TabIndex = 0;
             this.label1.Text = "Barkod";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(3, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(251, 34);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Barkod Açıklama";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // textBoxBarcode
             // 
@@ -148,22 +129,11 @@ namespace WindowsFormsAppUI.Forms
             this.textBoxBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxBarcode.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.textBoxBarcode.ForeColor = System.Drawing.Color.White;
-            this.textBoxBarcode.Location = new System.Drawing.Point(3, 37);
+            this.textBoxBarcode.Location = new System.Drawing.Point(3, 38);
+            this.textBoxBarcode.MaxLength = 10;
             this.textBoxBarcode.Name = "textBoxBarcode";
             this.textBoxBarcode.Size = new System.Drawing.Size(251, 25);
             this.textBoxBarcode.TabIndex = 1;
-            // 
-            // textBoxBarcodeDescription
-            // 
-            this.textBoxBarcodeDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.textBoxBarcodeDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxBarcodeDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxBarcodeDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBoxBarcodeDescription.ForeColor = System.Drawing.Color.White;
-            this.textBoxBarcodeDescription.Location = new System.Drawing.Point(3, 105);
-            this.textBoxBarcodeDescription.Name = "textBoxBarcodeDescription";
-            this.textBoxBarcodeDescription.Size = new System.Drawing.Size(251, 25);
-            this.textBoxBarcodeDescription.TabIndex = 1;
             // 
             // buttonCreateBarcode
             // 
@@ -175,9 +145,9 @@ namespace WindowsFormsAppUI.Forms
             this.buttonCreateBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreateBarcode.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonCreateBarcode.ForeColor = System.Drawing.Color.White;
-            this.buttonCreateBarcode.Location = new System.Drawing.Point(3, 139);
+            this.buttonCreateBarcode.Location = new System.Drawing.Point(3, 73);
             this.buttonCreateBarcode.Name = "buttonCreateBarcode";
-            this.buttonCreateBarcode.Size = new System.Drawing.Size(251, 31);
+            this.buttonCreateBarcode.Size = new System.Drawing.Size(251, 97);
             this.buttonCreateBarcode.TabIndex = 2;
             this.buttonCreateBarcode.Text = "Barkod Oluştur";
             this.buttonCreateBarcode.UseVisualStyleBackColor = false;
@@ -431,9 +401,7 @@ namespace WindowsFormsAppUI.Forms
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
         private Label label1;
-        private Label label2;
         private TextBox textBoxBarcode;
-        private TextBox textBoxBarcodeDescription;
         private Button buttonCreateBarcode;
         private Panel panelMain;
         private TableLayoutPanel tableLayoutPanel4;
