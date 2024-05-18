@@ -179,6 +179,12 @@
     <Reference Include="XpsToPdf, Version=1.0.6.0, Culture=neutral, PublicKeyToken=634e6cf25cccf9f5, processorArchitecture=MSIL">
       <HintPath>..\packages\XpsToPdf.1.0.6\lib\net48\XpsToPdf.dll</HintPath>
     </Reference>
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net48\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net48\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\ClientCommandsEnum.cs" />
@@ -473,6 +479,7 @@
       <DependentUpon>UsersReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AsyncPrintTask.cs" />
+    <Compile Include="Helpers\BarcodeHelper.cs" />
     <Compile Include="Helpers\CashDrawer.cs" />
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\CustomerHelper.cs" />
