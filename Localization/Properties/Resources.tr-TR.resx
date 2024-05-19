@@ -159,9 +159,6 @@
   <data name="Barcode" xml:space="preserve">
     <value>Barkod</value>
   </data>
-  <data name="BarcodeDescription" xml:space="preserve">
-    <value>Barkod Açıklama</value>
-  </data>
   <data name="BarcodeProducts" xml:space="preserve">
     <value>Barkodlu Ürünler</value>
   </data>
@@ -494,9 +491,6 @@
   </data>
   <data name="ReceiptWillBeDeleted(Cancel)DoYouWantToContinue?" xml:space="preserve">
     <value>Fiş silinecek(İptal) Devam etmek istiyor musunuz?</value>
-  </data>
-  <data name="Rectangle" xml:space="preserve">
-    <value>Dikdörtgen</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Yenile</value>
