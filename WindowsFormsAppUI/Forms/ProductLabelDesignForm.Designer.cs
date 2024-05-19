@@ -42,7 +42,6 @@ namespace WindowsFormsAppUI.Forms
             this.buttonAddTLSymbol = new System.Windows.Forms.Button();
             this.buttonAddLabel = new System.Windows.Forms.Button();
             this.buttonAddImage = new System.Windows.Forms.Button();
-            this.buttonAddRectangle = new System.Windows.Forms.Button();
             this.buttonAddLocalProductionSymbol = new System.Windows.Forms.Button();
             this.buttonPrint = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -173,23 +172,22 @@ namespace WindowsFormsAppUI.Forms
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 8;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel5.ColumnCount = 7;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.Controls.Add(this.buttonAddTLSymbol, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.buttonAddLabel, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.buttonAddImage, 2, 0);
-            this.tableLayoutPanel5.Controls.Add(this.buttonAddRectangle, 3, 0);
-            this.tableLayoutPanel5.Controls.Add(this.buttonAddLocalProductionSymbol, 4, 0);
-            this.tableLayoutPanel5.Controls.Add(this.buttonPrint, 5, 0);
-            this.tableLayoutPanel5.Controls.Add(this.buttonSave, 6, 0);
-            this.tableLayoutPanel5.Controls.Add(this.buttonLoad, 7, 0);
+            this.tableLayoutPanel5.Controls.Add(this.buttonAddLocalProductionSymbol, 3, 0);
+            this.tableLayoutPanel5.Controls.Add(this.buttonPrint, 4, 0);
+            this.tableLayoutPanel5.Controls.Add(this.buttonSave, 5, 0);
+            this.tableLayoutPanel5.Controls.Add(this.buttonLoad, 6, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(40, 13);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
@@ -211,7 +209,7 @@ namespace WindowsFormsAppUI.Forms
             this.buttonAddTLSymbol.ForeColor = System.Drawing.Color.White;
             this.buttonAddTLSymbol.Location = new System.Drawing.Point(3, 3);
             this.buttonAddTLSymbol.Name = "buttonAddTLSymbol";
-            this.buttonAddTLSymbol.Size = new System.Drawing.Size(84, 55);
+            this.buttonAddTLSymbol.Size = new System.Drawing.Size(96, 55);
             this.buttonAddTLSymbol.TabIndex = 2;
             this.buttonAddTLSymbol.Text = "TL Simgesi";
             this.buttonAddTLSymbol.UseVisualStyleBackColor = false;
@@ -227,9 +225,9 @@ namespace WindowsFormsAppUI.Forms
             this.buttonAddLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonAddLabel.ForeColor = System.Drawing.Color.White;
-            this.buttonAddLabel.Location = new System.Drawing.Point(93, 3);
+            this.buttonAddLabel.Location = new System.Drawing.Point(105, 3);
             this.buttonAddLabel.Name = "buttonAddLabel";
-            this.buttonAddLabel.Size = new System.Drawing.Size(84, 55);
+            this.buttonAddLabel.Size = new System.Drawing.Size(96, 55);
             this.buttonAddLabel.TabIndex = 2;
             this.buttonAddLabel.Text = "Etiket";
             this.buttonAddLabel.UseVisualStyleBackColor = false;
@@ -245,31 +243,13 @@ namespace WindowsFormsAppUI.Forms
             this.buttonAddImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddImage.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonAddImage.ForeColor = System.Drawing.Color.White;
-            this.buttonAddImage.Location = new System.Drawing.Point(183, 3);
+            this.buttonAddImage.Location = new System.Drawing.Point(207, 3);
             this.buttonAddImage.Name = "buttonAddImage";
-            this.buttonAddImage.Size = new System.Drawing.Size(84, 55);
+            this.buttonAddImage.Size = new System.Drawing.Size(96, 55);
             this.buttonAddImage.TabIndex = 2;
             this.buttonAddImage.Text = "Resim";
             this.buttonAddImage.UseVisualStyleBackColor = false;
             this.buttonAddImage.Click += new System.EventHandler(this.buttonAddImage_Click);
-            // 
-            // buttonAddRectangle
-            // 
-            this.buttonAddRectangle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.buttonAddRectangle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAddRectangle.FlatAppearance.BorderSize = 0;
-            this.buttonAddRectangle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonAddRectangle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonAddRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddRectangle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.buttonAddRectangle.ForeColor = System.Drawing.Color.White;
-            this.buttonAddRectangle.Location = new System.Drawing.Point(273, 3);
-            this.buttonAddRectangle.Name = "buttonAddRectangle";
-            this.buttonAddRectangle.Size = new System.Drawing.Size(84, 55);
-            this.buttonAddRectangle.TabIndex = 2;
-            this.buttonAddRectangle.Text = "Dikdörtgen";
-            this.buttonAddRectangle.UseVisualStyleBackColor = false;
-            this.buttonAddRectangle.Click += new System.EventHandler(this.buttonAddRectangle_Click);
             // 
             // buttonAddLocalProductionSymbol
             // 
@@ -281,9 +261,9 @@ namespace WindowsFormsAppUI.Forms
             this.buttonAddLocalProductionSymbol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddLocalProductionSymbol.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonAddLocalProductionSymbol.ForeColor = System.Drawing.Color.White;
-            this.buttonAddLocalProductionSymbol.Location = new System.Drawing.Point(363, 3);
+            this.buttonAddLocalProductionSymbol.Location = new System.Drawing.Point(309, 3);
             this.buttonAddLocalProductionSymbol.Name = "buttonAddLocalProductionSymbol";
-            this.buttonAddLocalProductionSymbol.Size = new System.Drawing.Size(84, 55);
+            this.buttonAddLocalProductionSymbol.Size = new System.Drawing.Size(96, 55);
             this.buttonAddLocalProductionSymbol.TabIndex = 2;
             this.buttonAddLocalProductionSymbol.Text = "Yerli Üretim Simgesi";
             this.buttonAddLocalProductionSymbol.UseVisualStyleBackColor = false;
@@ -299,9 +279,9 @@ namespace WindowsFormsAppUI.Forms
             this.buttonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPrint.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonPrint.ForeColor = System.Drawing.Color.White;
-            this.buttonPrint.Location = new System.Drawing.Point(453, 3);
+            this.buttonPrint.Location = new System.Drawing.Point(411, 3);
             this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(84, 55);
+            this.buttonPrint.Size = new System.Drawing.Size(96, 55);
             this.buttonPrint.TabIndex = 2;
             this.buttonPrint.Text = "Yazdır";
             this.buttonPrint.UseVisualStyleBackColor = false;
@@ -317,9 +297,9 @@ namespace WindowsFormsAppUI.Forms
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSave.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonSave.ForeColor = System.Drawing.Color.White;
-            this.buttonSave.Location = new System.Drawing.Point(543, 3);
+            this.buttonSave.Location = new System.Drawing.Point(513, 3);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(84, 55);
+            this.buttonSave.Size = new System.Drawing.Size(96, 55);
             this.buttonSave.TabIndex = 2;
             this.buttonSave.Text = "Kaydet";
             this.buttonSave.UseVisualStyleBackColor = false;
@@ -335,9 +315,9 @@ namespace WindowsFormsAppUI.Forms
             this.buttonLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLoad.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonLoad.ForeColor = System.Drawing.Color.White;
-            this.buttonLoad.Location = new System.Drawing.Point(633, 3);
+            this.buttonLoad.Location = new System.Drawing.Point(615, 3);
             this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(84, 55);
+            this.buttonLoad.Size = new System.Drawing.Size(102, 55);
             this.buttonLoad.TabIndex = 2;
             this.buttonLoad.Text = "Yükle";
             this.buttonLoad.UseVisualStyleBackColor = false;
@@ -409,7 +389,6 @@ namespace WindowsFormsAppUI.Forms
         private Button buttonAddTLSymbol;
         private Button buttonAddLabel;
         private Button buttonAddImage;
-        private Button buttonAddRectangle;
         private Button buttonAddLocalProductionSymbol;
         private Button buttonPrint;
         private Button buttonSave;

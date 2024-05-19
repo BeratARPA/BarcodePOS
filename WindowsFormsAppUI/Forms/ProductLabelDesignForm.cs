@@ -3,8 +3,6 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
-using System.Windows.Markup;
-using System.Xml;
 using WindowsFormsAppUI.Helpers;
 
 namespace WindowsFormsAppUI.Forms
@@ -51,7 +49,6 @@ namespace WindowsFormsAppUI.Forms
             buttonAddTLSymbol.Text = GlobalVariables.CultureHelper.GetText("MoneySymbol");
             buttonAddLabel.Text = GlobalVariables.CultureHelper.GetText("Label");
             buttonAddImage.Text = GlobalVariables.CultureHelper.GetText("Image");
-            buttonAddRectangle.Text = GlobalVariables.CultureHelper.GetText("Rectangle");
             buttonAddLocalProductionSymbol.Text = GlobalVariables.CultureHelper.GetText("DomesticProduction");
             buttonPrint.Text = GlobalVariables.CultureHelper.GetText("Print");
             buttonSave.Text = GlobalVariables.CultureHelper.GetText("Save");
@@ -101,10 +98,20 @@ namespace WindowsFormsAppUI.Forms
 
         private void Element_MouseMove(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (selectedElement != null && e.Button == MouseButtons.Left)
             {
-                selectedElement.Left = e.X + selectedElement.Left - offset.X;
-                selectedElement.Top = e.Y + selectedElement.Top - offset.Y;
+                int newLeft = selectedElement.Left + (e.X - offset.X);
+                int newTop = selectedElement.Top + (e.Y - offset.Y);
+
+                // Panel sınırlarını kontrol et
+                if (newLeft >= 0 && newLeft + selectedElement.Width <= panelMain.Width)
+                {
+                    selectedElement.Left = newLeft;
+                }
+                if (newTop >= 0 && newTop + selectedElement.Height <= panelMain.Height)
+                {
+                    selectedElement.Top = newTop;
+                }
             }
         }
 
@@ -122,16 +129,21 @@ namespace WindowsFormsAppUI.Forms
             string barcodeText = textBoxBarcode.Text.Trim();
             if (string.IsNullOrEmpty(barcodeText))
             {
-                MessageBox.Show("Barkod numarası giriniz.");
                 return;
             }
 
             Bitmap barcodeBitmap = BarcodeHelper.GenerateEAN13Barcode(barcodeText);
+
+            string fileLocation = Path.Combine(FolderLocations.resourcesFolderPath, barcodeText + ".png");
+            if (!File.Exists(fileLocation))
+                barcodeBitmap.Save(fileLocation);
+
             PictureBox barcodePictureBox = new PictureBox
             {
                 Image = barcodeBitmap,
+                ImageLocation = fileLocation,
                 Width = 100,
-                Height = 100,
+                Height = 50,
                 AllowDrop = true,
             };
 
@@ -140,7 +152,7 @@ namespace WindowsFormsAppUI.Forms
             barcodePictureBox.MouseUp += Element_MouseUp;
             barcodePictureBox.MouseClick += Element_MouseClick;
 
-            barcodePictureBox.Location = new Point(50, 50);
+            barcodePictureBox.Location = new Point(10, 10);
             panelMain.Controls.Add(barcodePictureBox);
         }
 
@@ -204,7 +216,7 @@ namespace WindowsFormsAppUI.Forms
             label.MouseUp += Element_MouseUp;
             label.MouseClick += Element_MouseClick;
 
-            label.Location = new Point(50, 50);
+            label.Location = new Point(10, 10);
             panelMain.Controls.Add(label);
         }
 
@@ -225,7 +237,7 @@ namespace WindowsFormsAppUI.Forms
             label.MouseUp += Element_MouseUp;
             label.MouseClick += Element_MouseClick;
 
-            label.Location = new Point(50, 50);
+            label.Location = new Point(10, 10);
             panelMain.Controls.Add(label);
         }
 
@@ -235,9 +247,14 @@ namespace WindowsFormsAppUI.Forms
             openFileDialog.Filter = "Image files (*.png;*.jpeg;*.jpg)|*.png;*.jpeg;*.jpg";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                string fileLocation = Path.Combine(FolderLocations.resourcesFolderPath, openFileDialog.SafeFileName);
+                if (!File.Exists(fileLocation))
+                    File.Copy(openFileDialog.FileName, fileLocation);
+
                 PictureBox image = new PictureBox
                 {
-                    Image = Image.FromFile(openFileDialog.FileName),
+                    Image = Image.FromFile(fileLocation),
+                    ImageLocation = fileLocation,
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     Width = 100,
                     Height = 100,
@@ -249,37 +266,19 @@ namespace WindowsFormsAppUI.Forms
                 image.MouseUp += Element_MouseUp;
                 image.MouseClick += Element_MouseClick;
 
-                image.Location = new Point(50, 50);
+                image.Location = new Point(10, 10);
                 panelMain.Controls.Add(image);
             }
         }
-
-        private void buttonAddRectangle_Click(object sender, EventArgs e)
-        {
-            PictureBox rectangle = new PictureBox
-            {
-                Width = 100,
-                Height = 50,
-                BackColor = Color.LightBlue,
-                BorderStyle = BorderStyle.FixedSingle,
-                SizeMode = PictureBoxSizeMode.StretchImage,
-                AllowDrop = true,
-            };
-
-            rectangle.MouseDown += Element_MouseDown;
-            rectangle.MouseMove += Element_MouseMove;
-            rectangle.MouseUp += Element_MouseUp;
-            rectangle.MouseClick += Element_MouseClick;
-
-            rectangle.Location = new Point(50, 50);
-            panelMain.Controls.Add(rectangle);
-        }
-
+      
         private void buttonAddLocalProductionSymbol_Click(object sender, EventArgs e)
         {
+            string fileLocation = Path.Combine(FolderLocations.resourcesFolderPath, "YerliUretim.jpg");
+
             PictureBox pictureBox = new PictureBox
             {
-                Image = Properties.Resources.YerliUretim,
+                Image = Image.FromFile(fileLocation),
+                ImageLocation = fileLocation,
                 Width = 100,
                 Height = 50,
                 SizeMode = PictureBoxSizeMode.StretchImage,
@@ -291,7 +290,7 @@ namespace WindowsFormsAppUI.Forms
             pictureBox.MouseUp += Element_MouseUp;
             pictureBox.MouseClick += Element_MouseClick;
 
-            pictureBox.Location = new Point(50, 50);
+            pictureBox.Location = new Point(10, 10);
             panelMain.Controls.Add(pictureBox);
         }
 
@@ -305,14 +304,27 @@ namespace WindowsFormsAppUI.Forms
         private void buttonSave_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "XAML files (*.xaml)|*.xaml";
+            saveFileDialog.Filter = "TXT files (*.txt)|*.txt";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName))
                 {
-                    // panelMain içeriğini XAML dosyasına kaydet
-                    string xamlContent = XamlWriter.Save(panelMain);
-                    sw.Write(xamlContent);
+                    foreach (Control control in panelMain.Controls)
+                    {
+                        string type = control.GetType().Name;
+                        string location = $"{control.Location.X},{control.Location.Y}";
+                        string widthHeight = $"{control.Width},{control.Height}";
+                        string font = $"{control.Font.Name},{control.Font.Size},{(int)control.Font.Style}";
+
+                        if (control is Label lbl)
+                        {
+                            sw.WriteLine($"{type},{location},{lbl.Text},{font},{lbl.ForeColor.ToArgb()}");
+                        }
+                        else if (control is PictureBox pb)
+                        {
+                            sw.WriteLine($"{type},{location},{pb.ImageLocation},{widthHeight}");
+                        }
+                    }
                 }
             }
         }
@@ -320,33 +332,56 @@ namespace WindowsFormsAppUI.Forms
         private void buttonLoad_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "XAML files (*.xaml)|*.xaml";
+            openFileDialog.Filter = "TXT files (*.txt)|*.txt";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                panelMain.Controls.Clear();
+
                 using (StreamReader sr = new StreamReader(openFileDialog.FileName))
                 {
-                    // XAMLReader'ı kullanarak XAML dosyasından Panel içeriğini yükleyin
-                    string xamlContent = sr.ReadToEnd();
-                    StringReader stringReader = new StringReader(xamlContent);
-                    XmlReader xmlReader = XmlReader.Create(stringReader);
-                    Panel loadedPanel = null;
-                    try
-                    {
-                        loadedPanel = (Panel)XamlReader.Load(xmlReader);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("XAML dosyası yüklenirken bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                    string line;
 
-                    // panelMain içeriğini temizleyin
-                    panelMain.Controls.Clear();
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        var parts = line.Split(',');
 
-                    // XAML dosyasından Panel içeriğini kopyalayıp PanelMain'e ekleyin
-                    Control[] controlsArray = new Control[loadedPanel.Controls.Count];
-                    loadedPanel.Controls.CopyTo(controlsArray, 0);
-                    panelMain.Controls.AddRange(controlsArray);                    
+                        if (parts[0] == "Label")
+                        {
+                            Label lbl = new Label
+                            {
+                                Location = new Point(int.Parse(parts[1]), int.Parse(parts[2])),
+                                Text = parts[3],
+                                Font = new Font(parts[4], float.Parse(parts[5]), (FontStyle)int.Parse(parts[6])),
+                                ForeColor = Color.FromArgb(int.Parse(parts[7])),
+                                TextAlign = ContentAlignment.MiddleCenter,
+                                AllowDrop = true,
+                                AutoSize = true
+                            };
+                            lbl.MouseDown += Element_MouseDown;
+                            lbl.MouseMove += Element_MouseMove;
+                            lbl.MouseUp += Element_MouseUp;
+                            panelMain.Controls.Add(lbl);
+                        }
+                        else if (parts[0] == "PictureBox")
+                        {
+                            Image image = File.Exists(parts[3]) ? Image.FromFile(parts[3]) : null;
+
+                            PictureBox pb = new PictureBox
+                            {
+                                Location = new Point(int.Parse(parts[1]), int.Parse(parts[2])),
+                                Image = image,
+                                ImageLocation = parts[3],
+                                Width = int.Parse(parts[4]),
+                                Height = int.Parse(parts[5]),
+                                SizeMode = PictureBoxSizeMode.StretchImage,
+                                AllowDrop = true
+                            };
+                            pb.MouseDown += Element_MouseDown;
+                            pb.MouseMove += Element_MouseMove;
+                            pb.MouseUp += Element_MouseUp;
+                            panelMain.Controls.Add(pb);
+                        }
+                    }
                 }
             }
         }

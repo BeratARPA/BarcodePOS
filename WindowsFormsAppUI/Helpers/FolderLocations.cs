@@ -2,6 +2,7 @@
 using System.IO;
 using System.Security.AccessControl;
 using System.Security.Principal;
+using System.Windows.Forms;
 
 namespace WindowsFormsAppUI.Helpers
 {
@@ -11,6 +12,7 @@ namespace WindowsFormsAppUI.Helpers
         public static string posFolderPath = Path.Combine(documentsPath, "POS");
         public static string barcodePOSFolderPath = Path.Combine(posFolderPath, "BarcodePOS");
         public static string databaseBackupsFolderPath = Path.Combine(barcodePOSFolderPath, "Database Backups");
+        public static string resourcesFolderPath = Path.Combine(Application.StartupPath,"Resources");
 
         public static void CreateFolders()
         {

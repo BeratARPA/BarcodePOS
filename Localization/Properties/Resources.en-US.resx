@@ -159,9 +159,6 @@
   <data name="Barcode" xml:space="preserve">
     <value>Barcode</value>
   </data>
-  <data name="BarcodeDescription" xml:space="preserve">
-    <value>Barcode Description</value>
-  </data>
   <data name="BarcodeProducts" xml:space="preserve">
     <value>Barcode Products</value>
   </data>
@@ -491,9 +488,6 @@
   </data>
   <data name="ReceiptWillBeDeleted(Cancel)DoYouWantToContinue?" xml:space="preserve">
     <value>Receipt will be deleted(Cancel) Do you want to continue?</value>
-  </data>
-  <data name="Rectangle" xml:space="preserve">
-    <value>Rectangle</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>Refresh</value>
