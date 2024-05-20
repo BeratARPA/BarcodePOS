@@ -39,7 +39,7 @@ namespace WindowsFormsAppUI.Forms
             this.buttonCreateBarcode = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonAddTLSymbol = new System.Windows.Forms.Button();
+            this.buttonAddMoneySymbol = new System.Windows.Forms.Button();
             this.buttonAddLabel = new System.Windows.Forms.Button();
             this.buttonAddImage = new System.Windows.Forms.Button();
             this.buttonAddLocalProductionSymbol = new System.Windows.Forms.Button();
@@ -181,7 +181,7 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Controls.Add(this.buttonAddTLSymbol, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.buttonAddMoneySymbol, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.buttonAddLabel, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.buttonAddImage, 2, 0);
             this.tableLayoutPanel5.Controls.Add(this.buttonAddLocalProductionSymbol, 3, 0);
@@ -197,23 +197,23 @@ namespace WindowsFormsAppUI.Forms
             this.tableLayoutPanel5.Size = new System.Drawing.Size(720, 61);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
-            // buttonAddTLSymbol
+            // buttonAddMoneySymbol
             // 
-            this.buttonAddTLSymbol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.buttonAddTLSymbol.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAddTLSymbol.FlatAppearance.BorderSize = 0;
-            this.buttonAddTLSymbol.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonAddTLSymbol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
-            this.buttonAddTLSymbol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddTLSymbol.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.buttonAddTLSymbol.ForeColor = System.Drawing.Color.White;
-            this.buttonAddTLSymbol.Location = new System.Drawing.Point(3, 3);
-            this.buttonAddTLSymbol.Name = "buttonAddTLSymbol";
-            this.buttonAddTLSymbol.Size = new System.Drawing.Size(96, 55);
-            this.buttonAddTLSymbol.TabIndex = 2;
-            this.buttonAddTLSymbol.Text = "TL Simgesi";
-            this.buttonAddTLSymbol.UseVisualStyleBackColor = false;
-            this.buttonAddTLSymbol.Click += new System.EventHandler(this.buttonAddTLSymbol_Click);
+            this.buttonAddMoneySymbol.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.buttonAddMoneySymbol.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonAddMoneySymbol.FlatAppearance.BorderSize = 0;
+            this.buttonAddMoneySymbol.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonAddMoneySymbol.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(202)))), ((int)(((byte)(10)))));
+            this.buttonAddMoneySymbol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddMoneySymbol.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonAddMoneySymbol.ForeColor = System.Drawing.Color.White;
+            this.buttonAddMoneySymbol.Location = new System.Drawing.Point(3, 3);
+            this.buttonAddMoneySymbol.Name = "buttonAddMoneySymbol";
+            this.buttonAddMoneySymbol.Size = new System.Drawing.Size(96, 55);
+            this.buttonAddMoneySymbol.TabIndex = 2;
+            this.buttonAddMoneySymbol.Text = "Para Sembolü";
+            this.buttonAddMoneySymbol.UseVisualStyleBackColor = false;
+            this.buttonAddMoneySymbol.Click += new System.EventHandler(this.buttonAddMoneySymbol_Click);
             // 
             // buttonAddLabel
             // 
@@ -386,7 +386,7 @@ namespace WindowsFormsAppUI.Forms
         private Panel panelMain;
         private TableLayoutPanel tableLayoutPanel4;
         private TableLayoutPanel tableLayoutPanel5;
-        private Button buttonAddTLSymbol;
+        private Button buttonAddMoneySymbol;
         private Button buttonAddLabel;
         private Button buttonAddImage;
         private Button buttonAddLocalProductionSymbol;

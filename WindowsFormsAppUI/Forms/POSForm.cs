@@ -1166,10 +1166,11 @@ namespace WindowsFormsAppUI.Forms
 
                     int productId = Convert.ToInt32(properties[1]);
                     var product = _genericRepositoryProduct.Get(x => x.ProductId == productId);
-
-                    product.Index = Convert.ToInt32(properties[0]);
-
-                    products.Add(product);
+                    if (product != null)
+                    {
+                        product.Index = Convert.ToInt32(properties[0]);
+                        products.Add(product);
+                    }
                 }
             }
 

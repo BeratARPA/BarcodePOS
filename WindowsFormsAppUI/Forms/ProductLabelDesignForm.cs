@@ -46,7 +46,7 @@ namespace WindowsFormsAppUI.Forms
         {
             label1.Text = GlobalVariables.CultureHelper.GetText("Barcode");
             buttonCreateBarcode.Text = GlobalVariables.CultureHelper.GetText("CreateBarcode");
-            buttonAddTLSymbol.Text = GlobalVariables.CultureHelper.GetText("MoneySymbol");
+            buttonAddMoneySymbol.Text = GlobalVariables.CultureHelper.GetText("MoneySymbol");
             buttonAddLabel.Text = GlobalVariables.CultureHelper.GetText("Label");
             buttonAddImage.Text = GlobalVariables.CultureHelper.GetText("Image");
             buttonAddLocalProductionSymbol.Text = GlobalVariables.CultureHelper.GetText("DomesticProduction");
@@ -199,11 +199,11 @@ namespace WindowsFormsAppUI.Forms
             selectedElement = null;
         }
 
-        private void buttonAddTLSymbol_Click(object sender, EventArgs e)
+        private void buttonAddMoneySymbol_Click(object sender, EventArgs e)
         {
             Label label = new Label
             {
-                Text = "₺",
+                Text = GlobalVariables.CultureHelper.GetMoneySymbol(),
                 BackColor = Color.Transparent,
                 Font = new Font("Arial", 50, FontStyle.Bold),
                 TextAlign = ContentAlignment.MiddleCenter,
@@ -270,7 +270,7 @@ namespace WindowsFormsAppUI.Forms
                 panelMain.Controls.Add(image);
             }
         }
-      
+
         private void buttonAddLocalProductionSymbol_Click(object sender, EventArgs e)
         {
             string fileLocation = Path.Combine(FolderLocations.resourcesFolderPath, "YerliUretim.jpg");
@@ -357,9 +357,12 @@ namespace WindowsFormsAppUI.Forms
                                 AllowDrop = true,
                                 AutoSize = true
                             };
+
                             lbl.MouseDown += Element_MouseDown;
                             lbl.MouseMove += Element_MouseMove;
                             lbl.MouseUp += Element_MouseUp;
+                            lbl.MouseClick += Element_MouseClick;
+
                             panelMain.Controls.Add(lbl);
                         }
                         else if (parts[0] == "PictureBox")
@@ -376,9 +379,12 @@ namespace WindowsFormsAppUI.Forms
                                 SizeMode = PictureBoxSizeMode.StretchImage,
                                 AllowDrop = true
                             };
+
                             pb.MouseDown += Element_MouseDown;
                             pb.MouseMove += Element_MouseMove;
                             pb.MouseUp += Element_MouseUp;
+                            pb.MouseClick += Element_MouseClick;
+
                             panelMain.Controls.Add(pb);
                         }
                     }

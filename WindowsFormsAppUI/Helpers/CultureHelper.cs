@@ -7,6 +7,7 @@ namespace WindowsFormsAppUI.Helpers
     public class CultureHelper
     {
         private ResourceManager _resourceManager;
+        public string currentLanguage { get; set; }
 
         public CultureHelper()
         {
@@ -18,6 +19,14 @@ namespace WindowsFormsAppUI.Helpers
             CultureInfo cultureInfo = CultureInfo.GetCultureInfo(language);
             Thread.CurrentThread.CurrentCulture = cultureInfo;
             Thread.CurrentThread.CurrentUICulture = cultureInfo;
+
+            currentLanguage = language;
+        }
+
+        public string GetMoneySymbol()
+        {
+            CultureInfo cultureInfo = CultureInfo.GetCultureInfo(currentLanguage);
+            return cultureInfo.NumberFormat.CurrencySymbol;
         }
 
         public string GetText(string name)
