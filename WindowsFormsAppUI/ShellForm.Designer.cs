@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShellForm));
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanelHeader = new System.Windows.Forms.TableLayoutPanel();
+            this.labelIcon = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelFooter = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.labelUserFullname = new System.Windows.Forms.Label();
             this.buttonMainMenu = new System.Windows.Forms.Button();
@@ -41,8 +41,8 @@
             this.buttonKeyboard = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
             this.tableLayoutPanelMain.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanelHeader.SuspendLayout();
+            this.tableLayoutPanelFooter.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
@@ -51,9 +51,8 @@
             // 
             this.tableLayoutPanelMain.ColumnCount = 1;
             this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanel2, 0, 2);
+            this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanelHeader, 0, 0);
+            this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanelFooter, 0, 2);
             this.tableLayoutPanelMain.Controls.Add(this.panelMain, 0, 1);
             this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 0);
@@ -66,36 +65,35 @@
             this.tableLayoutPanelMain.Size = new System.Drawing.Size(784, 561);
             this.tableLayoutPanelMain.TabIndex = 0;
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanelHeader
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.labelTime, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 50);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.tableLayoutPanelHeader.ColumnCount = 2;
+            this.tableLayoutPanelHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanelHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelHeader.Controls.Add(this.labelIcon, 0, 0);
+            this.tableLayoutPanelHeader.Controls.Add(this.labelTime, 1, 0);
+            this.tableLayoutPanelHeader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelHeader.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelHeader.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanelHeader.Name = "tableLayoutPanelHeader";
+            this.tableLayoutPanelHeader.RowCount = 1;
+            this.tableLayoutPanelHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelHeader.Size = new System.Drawing.Size(784, 50);
+            this.tableLayoutPanelHeader.TabIndex = 0;
             // 
-            // label1
+            // labelIcon
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 50);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "BarcodePOS";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.DoubleClick += new System.EventHandler(this.label1_DoubleClick);
+            this.labelIcon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelIcon.ForeColor = System.Drawing.Color.White;
+            this.labelIcon.Location = new System.Drawing.Point(3, 0);
+            this.labelIcon.Name = "labelIcon";
+            this.labelIcon.Size = new System.Drawing.Size(194, 50);
+            this.labelIcon.TabIndex = 0;
+            this.labelIcon.Text = "BarcodePOS";
+            this.labelIcon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelIcon.DoubleClick += new System.EventHandler(this.label1_DoubleClick);
             // 
             // labelTime
             // 
@@ -104,29 +102,29 @@
             this.labelTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.labelTime.Location = new System.Drawing.Point(153, 0);
+            this.labelTime.Location = new System.Drawing.Point(203, 0);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(628, 50);
+            this.labelTime.Size = new System.Drawing.Size(578, 50);
             this.labelTime.TabIndex = 0;
             this.labelTime.Text = "TIME";
             this.labelTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tableLayoutPanel2
+            // tableLayoutPanelFooter
             // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 511);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(784, 50);
-            this.tableLayoutPanel2.TabIndex = 1;
+            this.tableLayoutPanelFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.tableLayoutPanelFooter.ColumnCount = 2;
+            this.tableLayoutPanelFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelFooter.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanelFooter.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanelFooter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelFooter.Location = new System.Drawing.Point(0, 511);
+            this.tableLayoutPanelFooter.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanelFooter.Name = "tableLayoutPanelFooter";
+            this.tableLayoutPanelFooter.RowCount = 1;
+            this.tableLayoutPanelFooter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelFooter.Size = new System.Drawing.Size(784, 50);
+            this.tableLayoutPanelFooter.TabIndex = 1;
             // 
             // tableLayoutPanel3
             // 
@@ -184,6 +182,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Controls.Add(this.buttonKeyboard, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -237,9 +236,9 @@
             this.Load += new System.EventHandler(this.ShellForm_Load);
             this.Resize += new System.EventHandler(this.ShellForm_Resize);
             this.tableLayoutPanelMain.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanelHeader.ResumeLayout(false);
+            this.tableLayoutPanelHeader.PerformLayout();
+            this.tableLayoutPanelFooter.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -248,10 +247,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelTime;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanelMain;
         public System.Windows.Forms.Button buttonMainMenu;
@@ -259,5 +254,9 @@
         public System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         public System.Windows.Forms.Button buttonKeyboard;
+        public System.Windows.Forms.Label labelIcon;
+        public System.Windows.Forms.Label labelTime;
+        public System.Windows.Forms.TableLayoutPanel tableLayoutPanelHeader;
+        public System.Windows.Forms.TableLayoutPanel tableLayoutPanelFooter;
     }
 }
