@@ -49,7 +49,7 @@ namespace WindowsFormsAppUI.UserControls
 
         private void CategoryUserControl_Resize(object sender, EventArgs e)
         {
-            int divide = 15;
+            int divide = 20;
 
             var controls = new List<Control> { labelName };
             for (int i = 0; i < controls.Count; i++)

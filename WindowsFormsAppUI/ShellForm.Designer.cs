@@ -40,11 +40,13 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonKeyboard = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanelMain.SuspendLayout();
             this.tableLayoutPanelHeader.SuspendLayout();
             this.tableLayoutPanelFooter.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelMain
@@ -68,11 +70,13 @@
             // tableLayoutPanelHeader
             // 
             this.tableLayoutPanelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.tableLayoutPanelHeader.ColumnCount = 2;
+            this.tableLayoutPanelHeader.ColumnCount = 3;
+            this.tableLayoutPanelHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanelHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanelHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelHeader.Controls.Add(this.labelIcon, 0, 0);
-            this.tableLayoutPanelHeader.Controls.Add(this.labelTime, 1, 0);
+            this.tableLayoutPanelHeader.Controls.Add(this.labelIcon, 1, 0);
+            this.tableLayoutPanelHeader.Controls.Add(this.labelTime, 2, 0);
+            this.tableLayoutPanelHeader.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanelHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelHeader.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelHeader.Margin = new System.Windows.Forms.Padding(0);
@@ -87,7 +91,7 @@
             this.labelIcon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelIcon.ForeColor = System.Drawing.Color.White;
-            this.labelIcon.Location = new System.Drawing.Point(3, 0);
+            this.labelIcon.Location = new System.Drawing.Point(53, 0);
             this.labelIcon.Name = "labelIcon";
             this.labelIcon.Size = new System.Drawing.Size(194, 50);
             this.labelIcon.TabIndex = 0;
@@ -102,9 +106,9 @@
             this.labelTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.labelTime.Location = new System.Drawing.Point(203, 0);
+            this.labelTime.Location = new System.Drawing.Point(253, 0);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(578, 50);
+            this.labelTime.Size = new System.Drawing.Size(528, 50);
             this.labelTime.TabIndex = 0;
             this.labelTime.Text = "TIME";
             this.labelTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -219,6 +223,18 @@
             this.panelMain.Size = new System.Drawing.Size(784, 461);
             this.panelMain.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::WindowsFormsAppUI.Properties.Resources.chat;
+            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // ShellForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +258,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -258,5 +275,6 @@
         public System.Windows.Forms.Label labelTime;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanelHeader;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanelFooter;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
