@@ -777,6 +777,7 @@
     <None Include="Resources\Warning.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\chat.png" />
     <Content Include="Resources\YerliUretim.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
