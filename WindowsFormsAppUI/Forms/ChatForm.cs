@@ -20,10 +20,10 @@ namespace WindowsFormsAppUI.Forms
 
         private async void ChatForm_Load(object sender, EventArgs e)
         {
-            await Connect();
+            await Connect(Properties.Settings.Default.ServerName, Properties.Settings.Default.Port);
         }
 
-        public async Task Connect()
+        public async Task Connect(string serverName = "localhost", int port = 5000)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace WindowsFormsAppUI.Forms
 
                 _clientWebSocket.Options.SetRequestHeader("Terminal-Name", LoggedInUser.CurrentUser.Fullname);
 
-                await _clientWebSocket.ConnectAsync(new Uri("ws://localhost:8080/"), CancellationToken.None);
+                await _clientWebSocket.ConnectAsync(new Uri(string.Format("ws://{0}:{1}/", serverName, port)), CancellationToken.None);
                 AddMessage("Sunucuya bağlandı.");
 
                 await Task.Run(ReceiveMessages);

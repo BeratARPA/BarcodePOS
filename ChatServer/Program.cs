@@ -17,11 +17,11 @@ namespace ChatServer
 
         static void Main(string[] args)
         {
-            Start();
+            Start(GetIPv4Address.Get(), 5000);
             Console.ReadLine();
         }
 
-        public static async Task Start()
+        public static async Task Start(string serverName, int port)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace ChatServer
                     return;
                 }
 
-                _listener.Prefixes.Add("http://localhost:8080/");
+                _listener.Prefixes.Add(string.Format("http://{0}:{1}/", serverName, port));
                 _listener.Start();
                 AddLog("Sunucu başlatıldı. İstemci bağlantılarını bekliyor...");
 
