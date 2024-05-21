@@ -797,9 +797,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\chat.png" />
-    <Content Include="ChatServer.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Resources\YerliUretim.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

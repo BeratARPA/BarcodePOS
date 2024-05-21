@@ -20,8 +20,18 @@ namespace WindowsFormsAppUI.Helpers
             {
                 if (Properties.Settings.Default.ClientConsole)
                 {
-                    _clientConsoleForm = new ClientConsoleForm();
-                    _clientConsoleForm.Show();
+                    Form formSearch = Application.OpenForms["ClientConsoleForm"];
+                    if (formSearch == null)
+                    {
+                        _clientConsoleForm = new ClientConsoleForm();
+                        _clientConsoleForm.Show();
+                    }
+                    else
+                    {
+                        formSearch.Close();
+                        _clientConsoleForm = new ClientConsoleForm();
+                        _clientConsoleForm.Show();
+                    }
                 }
 
                 _clientWebSocket = new ClientWebSocket();

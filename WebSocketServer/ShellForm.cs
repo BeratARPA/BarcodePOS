@@ -14,6 +14,7 @@ namespace WebSocketServer
         private HttpListener _listener;
         private CancellationTokenSource _cancellationTokenSource;
         private readonly Dictionary<WebSocket, string> _connectedSockets = new Dictionary<WebSocket, string>();
+        private static readonly List<string> _messageHistory = new List<string>();
 
         public ShellForm()
         {
@@ -76,22 +77,50 @@ namespace WebSocketServer
                 string clientTerminalName = context.Request.Headers["Terminal-Name"];
                 _connectedSockets.Add(clientSocket, clientTerminalName);
 
+                foreach (string message in _messageHistory)
+                {
+                    if (clientSocket.State == WebSocketState.Open)
+                    {
+                        byte[] historyBuffer = Encoding.UTF8.GetBytes(message);
+                        await clientSocket.SendAsync(new ArraySegment<byte>(historyBuffer), WebSocketMessageType.Text, true, CancellationToken.None);
+                    }
+                }
+
                 AddLog($"Yeni istemci bağlandı: {clientTerminalName} ({clientSocket.GetHashCode()})");
 
                 await HandleClient(clientSocket);
             }
             catch (Exception ex)
             {
+                if (webSocketContext?.WebSocket?.State == WebSocketState.Aborted)
+                {
+                    AddLog("WebSocket aborted: " + ex.Message);
+                }
+                else
+                {
+                    AddLog("WebSocket hatası: " + ex.Message);
+                }
+
                 context.Response.StatusCode = 500;
                 context.Response.Close();
-                AddLog("WebSocket hatası: " + ex.Message);
             }
             finally
             {
                 if (webSocketContext != null && webSocketContext.WebSocket != null)
                 {
-                    _connectedSockets.Remove(webSocketContext.WebSocket);
-                    await webSocketContext.WebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Sunucu tarafından kapatıldı.", CancellationToken.None);
+                    if (_connectedSockets.ContainsKey(webSocketContext.WebSocket))
+                    {
+                        _connectedSockets.Remove(webSocketContext.WebSocket);
+                    }
+
+                    if (webSocketContext.WebSocket.State == WebSocketState.Open ||
+                        webSocketContext.WebSocket.State == WebSocketState.CloseReceived ||
+                        webSocketContext.WebSocket.State == WebSocketState.CloseSent)
+                    {
+                        await webSocketContext.WebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Sunucu tarafından kapatıldı.", CancellationToken.None);
+                    }
+
+                    webSocketContext.WebSocket.Dispose();
                 }
             }
         }
@@ -111,27 +140,55 @@ namespace WebSocketServer
 
         private async Task HandleClient(WebSocket clientWebSocket)
         {
+            byte[] buffer = new byte[1024];
+
             try
             {
-                byte[] buffer = new byte[1024];
-
                 while (clientWebSocket.State == WebSocketState.Open)
                 {
-                    WebSocketReceiveResult result = await clientWebSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-                    string clientMessage = Encoding.UTF8.GetString(buffer, 0, result.Count);
+                    WebSocketReceiveResult result = null;
+                    using (var cts = new CancellationTokenSource(TimeSpan.FromSeconds(30))) // 30 saniye timeout
+                    {
+                        try
+                        {
+                            result = await clientWebSocket.ReceiveAsync(new ArraySegment<byte>(buffer), cts.Token);
+                        }
+                        catch (OperationCanceledException)
+                        {
+                            // Timeout sonrası tekrar dene
+                            continue;
+                        }
+                    }
 
-                    AddLog($"{GetTerminalName(clientWebSocket)}: {clientMessage}");
+                    if (result.MessageType == WebSocketMessageType.Close)
+                    {
+                        if (clientWebSocket.State == WebSocketState.Open)
+                        {
+                            await clientWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client closed connection", CancellationToken.None);
+                        }
+
+                        _connectedSockets.Remove(clientWebSocket);
+                        AddLog($"({GetTerminalName(clientWebSocket)}) İstemci bağlantısı kapandı.");
+                        break;
+                    }
+
+                    string clientMessage = Encoding.UTF8.GetString(buffer, 0, result.Count);
+                    string clientName = GetTerminalName(clientWebSocket);
+                    string message = $"{clientName}^{clientMessage}";
+
+                    AddLog(message);
+                    _messageHistory.Add(message);
 
                     foreach (var socket in _connectedSockets)
                     {
                         if (!socket.Key.Equals(clientWebSocket) && socket.Key.State == WebSocketState.Open)
                         {
-                            byte[] responseBuffer = Encoding.UTF8.GetBytes(clientMessage);
+                            byte[] responseBuffer = Encoding.UTF8.GetBytes(message);
                             await socket.Key.SendAsync(new ArraySegment<byte>(responseBuffer), WebSocketMessageType.Text, true, CancellationToken.None);
                         }
                     }
 
-                    buffer = new byte[1024];
+                    Array.Clear(buffer, 0, buffer.Length); // Buffer'ı temizle
                 }
             }
             catch (WebSocketException ex)
@@ -144,6 +201,22 @@ namespace WebSocketServer
                 {
                     AddLog($"({GetTerminalName(clientWebSocket)}) İstemci bağlantı hatası: " + ex.Message);
                 }
+            }
+            finally
+            {
+                if (_connectedSockets.ContainsKey(clientWebSocket))
+                {
+                    _connectedSockets.Remove(clientWebSocket);
+                }
+
+                if (clientWebSocket.State == WebSocketState.Open ||
+                    clientWebSocket.State == WebSocketState.CloseReceived ||
+                    clientWebSocket.State == WebSocketState.CloseSent)
+                {
+                    await clientWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Sunucu tarafından kapatıldı.", CancellationToken.None);
+                }
+
+                clientWebSocket.Dispose();
             }
         }
 
