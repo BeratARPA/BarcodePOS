@@ -16,13 +16,16 @@ namespace WindowsFormsAppUI
         {
             InitializeComponent();
 
+            GlobalVariables.ShellForm = this;
+
+            ChatHelper.IsExpanded = true;
+            ChatHelper.CollapseMenu();
+
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
 
             GlobalVariables.CultureHelper.ChangeCulture(Properties.Settings.Default.CurrentLanguage);
             UpdateUILanguage();
-
-            GlobalVariables.ShellForm = this;
 
             ResizeLayout.CloseFooter();
             NavigationManager.OpenForm(new LoginForm(), DockStyle.Fill, panelMain);
@@ -193,6 +196,14 @@ namespace WindowsFormsAppUI
         private void ShellForm_Resize(object sender, EventArgs e)
         {
             this.Text = $"({this.Width})X({this.Height})";
+        }
+
+        private void pictureBoxChatMenu_Click(object sender, EventArgs e)
+        {
+            if (LoggedInUser.CurrentUser != null)
+            {
+                ChatHelper.CollapseMenu();
+            }
         }
     }
 }

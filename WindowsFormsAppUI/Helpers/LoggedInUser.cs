@@ -16,6 +16,7 @@ namespace WindowsFormsAppUI.Helpers
             GlobalVariables.ShellForm.labelUserFullname.Text = user.Fullname;
             GlobalVariables.ShellForm.buttonMainMenu.Visible = true;
             NavigationManager.OpenForm(new DashboardForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            NavigationManager.OpenForm(new ChatForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelChat);
         }
 
         public static void Logout()
@@ -26,6 +27,8 @@ namespace WindowsFormsAppUI.Helpers
             GlobalVariables.ShellForm.labelUserFullname.Text = "";
             GlobalVariables.ShellForm.buttonMainMenu.Visible = false;
             NavigationManager.OpenForm(new LoginForm(), DockStyle.Fill, GlobalVariables.ShellForm.panelMain);
+            ChatHelper.IsExpanded = true;
+            ChatHelper.CollapseMenu();
         }
     }
 }

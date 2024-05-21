@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSocketServer", "WebSocke
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseBackupRestore", "DatabaseBackupRestore\DatabaseBackupRestore.csproj", "{39D1CA01-F8D4-4D9A-BD30-0CDFD4E54F90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatServer", "ChatServer\ChatServer.csproj", "{D22EE706-C694-48AB-B559-5803809BC011}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{39D1CA01-F8D4-4D9A-BD30-0CDFD4E54F90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39D1CA01-F8D4-4D9A-BD30-0CDFD4E54F90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39D1CA01-F8D4-4D9A-BD30-0CDFD4E54F90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D22EE706-C694-48AB-B559-5803809BC011}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D22EE706-C694-48AB-B559-5803809BC011}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D22EE706-C694-48AB-B559-5803809BC011}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D22EE706-C694-48AB-B559-5803809BC011}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

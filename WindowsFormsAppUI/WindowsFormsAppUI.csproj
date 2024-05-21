@@ -208,6 +208,12 @@
     <Compile Include="Forms\CategorySalesReportForm.Designer.cs">
       <DependentUpon>CategorySalesReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ChatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ChatForm.Designer.cs">
+      <DependentUpon>ChatForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ClientConsoleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -481,6 +487,7 @@
     <Compile Include="Helpers\AsyncPrintTask.cs" />
     <Compile Include="Helpers\BarcodeHelper.cs" />
     <Compile Include="Helpers\CashDrawer.cs" />
+    <Compile Include="Helpers\ChatHelper.cs" />
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\CustomerHelper.cs" />
     <Compile Include="Helpers\DatabaseHelper.cs" />
@@ -517,6 +524,12 @@
     </Compile>
     <Compile Include="UserControls\CategoryUserControl.Designer.cs">
       <DependentUpon>CategoryUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MessageUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MessageUserControl.Designer.cs">
+      <DependentUpon>MessageUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\NumeratorUserControl.cs">
       <SubType>UserControl</SubType>
@@ -562,6 +575,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CategorySalesReportForm.resx">
       <DependentUpon>CategorySalesReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ChatForm.resx">
+      <DependentUpon>ChatForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClientConsoleForm.resx">
       <DependentUpon>ClientConsoleForm.cs</DependentUpon>
@@ -714,6 +730,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CategoryUserControl.resx">
       <DependentUpon>CategoryUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MessageUserControl.resx">
+      <DependentUpon>MessageUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\NumeratorUserControl.resx">
       <DependentUpon>NumeratorUserControl.cs</DependentUpon>

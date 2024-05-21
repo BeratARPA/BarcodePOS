@@ -33,6 +33,7 @@
             this.tableLayoutPanelHeader = new System.Windows.Forms.TableLayoutPanel();
             this.labelIcon = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
+            this.pictureBoxChatMenu = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanelFooter = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.labelUserFullname = new System.Windows.Forms.Label();
@@ -40,13 +41,15 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonKeyboard = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelChat = new System.Windows.Forms.Panel();
             this.tableLayoutPanelMain.SuspendLayout();
             this.tableLayoutPanelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChatMenu)).BeginInit();
             this.tableLayoutPanelFooter.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanelMain
@@ -54,8 +57,8 @@
             this.tableLayoutPanelMain.ColumnCount = 1;
             this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanelHeader, 0, 0);
+            this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.tableLayoutPanelMain.Controls.Add(this.tableLayoutPanelFooter, 0, 2);
-            this.tableLayoutPanelMain.Controls.Add(this.panelMain, 0, 1);
             this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelMain.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelMain.Margin = new System.Windows.Forms.Padding(0);
@@ -76,7 +79,7 @@
             this.tableLayoutPanelHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelHeader.Controls.Add(this.labelIcon, 1, 0);
             this.tableLayoutPanelHeader.Controls.Add(this.labelTime, 2, 0);
-            this.tableLayoutPanelHeader.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanelHeader.Controls.Add(this.pictureBoxChatMenu, 0, 0);
             this.tableLayoutPanelHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelHeader.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelHeader.Margin = new System.Windows.Forms.Padding(0);
@@ -112,6 +115,19 @@
             this.labelTime.TabIndex = 0;
             this.labelTime.Text = "TIME";
             this.labelTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBoxChatMenu
+            // 
+            this.pictureBoxChatMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxChatMenu.Image = global::WindowsFormsAppUI.Properties.Resources.chat;
+            this.pictureBoxChatMenu.Location = new System.Drawing.Point(10, 10);
+            this.pictureBoxChatMenu.Margin = new System.Windows.Forms.Padding(10);
+            this.pictureBoxChatMenu.Name = "pictureBoxChatMenu";
+            this.pictureBoxChatMenu.Size = new System.Drawing.Size(30, 30);
+            this.pictureBoxChatMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxChatMenu.TabIndex = 1;
+            this.pictureBoxChatMenu.TabStop = false;
+            this.pictureBoxChatMenu.Click += new System.EventHandler(this.pictureBoxChatMenu_Click);
             // 
             // tableLayoutPanelFooter
             // 
@@ -217,23 +233,37 @@
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(0, 50);
+            this.panelMain.Location = new System.Drawing.Point(156, 0);
             this.panelMain.Margin = new System.Windows.Forms.Padding(0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(784, 461);
+            this.panelMain.Size = new System.Drawing.Size(628, 461);
             this.panelMain.TabIndex = 2;
             // 
-            // pictureBox1
+            // tableLayoutPanel1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::WindowsFormsAppUI.Properties.Resources.chat;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.Controls.Add(this.panelChat, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panelMain, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 50);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 461);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // panelChat
+            // 
+            this.panelChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.panelChat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChat.Location = new System.Drawing.Point(0, 0);
+            this.panelChat.Margin = new System.Windows.Forms.Padding(0);
+            this.panelChat.Name = "panelChat";
+            this.panelChat.Size = new System.Drawing.Size(156, 461);
+            this.panelChat.TabIndex = 3;
             // 
             // ShellForm
             // 
@@ -254,11 +284,12 @@
             this.tableLayoutPanelMain.ResumeLayout(false);
             this.tableLayoutPanelHeader.ResumeLayout(false);
             this.tableLayoutPanelHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChatMenu)).EndInit();
             this.tableLayoutPanelFooter.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -275,6 +306,8 @@
         public System.Windows.Forms.Label labelTime;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanelHeader;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanelFooter;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxChatMenu;
+        public System.Windows.Forms.Panel panelChat;
+        public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

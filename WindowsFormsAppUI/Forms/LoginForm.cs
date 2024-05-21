@@ -34,7 +34,7 @@ namespace WindowsFormsAppUI.Forms
                 return;
             }
 
-            LoggedInUser.Login(user);
+           LoggedInUser.Login(user);        
         }
 
         private async void buttonShutdown_Click(object sender, EventArgs e)
