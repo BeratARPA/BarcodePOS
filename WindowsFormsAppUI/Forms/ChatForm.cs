@@ -18,9 +18,8 @@ namespace WindowsFormsAppUI.Forms
             InitializeComponent();
         }
 
-        private async void ChatForm_Load(object sender, EventArgs e)
+        private void ChatForm_Load(object sender, EventArgs e)
         {
-            await Connect(Properties.Settings.Default.ServerName, Properties.Settings.Default.Port);
         }
 
         public async Task Connect(string serverName = "localhost", int port = 5000)
@@ -154,10 +153,12 @@ namespace WindowsFormsAppUI.Forms
 
         private async void buttonSendMessage_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxMessage.Text))
+            string message = textBoxMessage.Text;
+            if (string.IsNullOrEmpty(message))
                 return;
 
-            await Send(textBoxMessage.Text);
+            AddMessage(message, LoggedInUser.CurrentUser.Fullname, true);
+            await GlobalVariables.webSocketClient.Send(message);
 
             textBoxMessage.Clear();
         }

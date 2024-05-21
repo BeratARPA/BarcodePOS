@@ -43,5 +43,10 @@ namespace WindowsFormsAppUI.Forms.ManagementForms
                 e.Handled = true; //Handle (ignore) the event
             }
         }
+
+        private async void buttonConnect_Click(object sender, EventArgs e)
+        {
+            await GlobalVariables.webSocketClient.Connect(Properties.Settings.Default.ServerName, Properties.Settings.Default.Port);
+        }
     }
 }
