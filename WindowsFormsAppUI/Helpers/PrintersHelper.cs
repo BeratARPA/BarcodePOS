@@ -15,7 +15,7 @@ namespace WindowsFormsAppUI.Helpers
     }
 
     internal static class PrintersHelper
-    {
+    {       
         private static LocalPrintServer _printServer;
         internal static LocalPrintServer PrintServer
         {
