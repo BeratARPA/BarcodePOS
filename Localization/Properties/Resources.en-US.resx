@@ -660,4 +660,7 @@
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
 </root>
